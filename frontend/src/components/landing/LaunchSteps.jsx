@@ -73,20 +73,20 @@ const LaunchSteps = () => {
     const initialCards = [
         {
             id: 1,
-            title: "Generate Contracts",
+            title: "Localized Contract Generation",
             desc: "Input details. We instantly generate locally compliant agreements tailored to regional laws.",
             icon: FileText
         },
         {
             id: 2,
-            title: "Candidate Onboarding",
+            title: "Secure Candidate Onboarding",
             desc: "Candidates self-onboard via secure portal. Identity verification and tax forms handled automatically.",
             icon: UserCheck
         },
         {
             id: 3,
-            title: "Go Live",
-            desc: "Payroll is synced. Benefits are enrolled. Your employee is Active and ready to work.",
+            title: "Compliance Activation",
+            desc: "KOMP validates inputs, applies local rules, and activates the compliant contract within minutes.",
             icon: Rocket
         }
     ];
@@ -108,8 +108,8 @@ const LaunchSteps = () => {
         <section className="pt-24 pb-40 bg-gradient-to-b from-[#F9FAFB] to-white overflow-hidden min-h-[0] flex flex-col items-center justify-center relative z-0">
 
             <div className="text-center mb-12 relative z-10 px-4">
-                <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Launch Sequence</h2>
-                <p className="text-gray-500 text-lg">Swipe to initiate process.</p>
+                <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Built for Speed.</h2>
+                <p className="text-gray-500 text-lg">Engineered for Compliance.</p>
             </div>
 
             <div className="relative w-full max-w-sm md:max-w-md h-[400px] md:h-[500px]">

@@ -36,14 +36,14 @@ const UnifiedOperatingLayer = () => {
                 <div className="mb-20 max-w-2xl">
                     <div className="flex items-center gap-2 mb-6">
                         <div className="w-1 h-6 bg-blue-500 rounded-full" />
-                        <span className="text-blue-500 font-bold uppercase tracking-widest text-xs">Unified Operating Layer</span>
+                        <span className="text-blue-500 font-bold uppercase tracking-widest text-xs">Unified SO</span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        Automate effortlessly. <br />
-                        <span className="text-white/40">Scale instantly.</span>
+                        One Operating Layer. <br />
+                        <span className="text-white/40">Total Control.</span>
                     </h2>
                     <p className="text-xl text-white/50 max-w-xl">
-                        A single source of truth for your entire global organization. Sync HRIS data, process payroll, and manage compliance from one command center.
+                        KOMP eliminates fragmentation by establishing a single source of truth across workforce, payroll, and compliance.
                     </p>
                 </div>
 
@@ -53,9 +53,9 @@ const UnifiedOperatingLayer = () => {
                     {/* Card 1: Main Automation Logic (Full Width/Col Span) */}
                     <Card className="md:col-span-2 min-h-[400px] flex flex-col md:flex-row items-center md:items-start overflow-hidden">
                         <div className="flex-1 relative z-10">
-                            <h3 className="text-2xl font-bold text-white mb-3">Sync Engines</h3>
+                            <h3 className="text-2xl font-bold text-white mb-3">Consolidated View</h3>
                             <p className="text-white/50 mb-8 max-w-sm">
-                                Bi-directional sync with 50+ HRIS platforms. Changes in Workday or BambooHR reflect instantly in KOMP.
+                                One consolidated view of global workforce spends across countries, currencies, and worker types.
                             </p>
                             <div className="flex gap-4">
                                 <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-xs font-mono text-white/70">webhook_received</div>
@@ -89,8 +89,8 @@ const UnifiedOperatingLayer = () => {
 
                     {/* Card 2: Global Payroll */}
                     <Card className="min-h-[400px]">
-                        <h3 className="text-2xl font-bold text-white mb-2">Global Payroll</h3>
-                        <p className="text-white/50 mb-10 text-sm">Pay 1000+ employees in 160 currencies within minutes.</p>
+                        <h3 className="text-2xl font-bold text-white mb-2">Real-Time Visibility</h3>
+                        <p className="text-white/50 mb-10 text-sm">Real-time visibility into payroll, benefits, taxes, and statutory obligations.</p>
 
                         <div className="relative mt-auto mx-auto w-full max-w-[300px] h-[180px]">
                             {/* Card Mock */}
@@ -110,8 +110,8 @@ const UnifiedOperatingLayer = () => {
 
                     {/* Card 3: Compliance */}
                     <Card className="min-h-[400px]">
-                        <h3 className="text-2xl font-bold text-white mb-2">Auto-Compliance</h3>
-                        <p className="text-white/50 mb-10 text-sm">Tax forms, labor laws, and filing requirements handled automatically.</p>
+                        <h3 className="text-2xl font-bold text-white mb-2">Consistent Compliance</h3>
+                        <p className="text-white/50 mb-10 text-sm">Clean, audit-ready data shared seamlessly between HR and Finance.</p>
 
                         <div className="space-y-3">
                             <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5">

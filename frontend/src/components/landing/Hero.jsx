@@ -40,7 +40,7 @@ const Hero = () => {
                     <span className="flex items-center justify-center w-5 h-5 bg-black text-white text-[10px] font-bold rounded-full">
                         <Star size={10} fill="currentColor" />
                     </span>
-                    <span className="text-sm font-medium text-gray-600 group-hover:text-black transition-colors">v2.0 is now live</span>
+                    <span className="text-sm font-medium text-gray-600 group-hover:text-black transition-colors">Operate Globally, Without the Wait</span>
                     <ChevronRight size={14} className="text-gray-400 group-hover:text-black transition-colors" />
                 </motion.div>
 
@@ -51,7 +51,7 @@ const Hero = () => {
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                     className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 mb-8 max-w-5xl mx-auto leading-[0.95]"
                 >
-                    The operating system for <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">global work.</span>
+                    Stop planning. <br className="hidden md:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">Start operating.</span>
                 </motion.h1>
 
                 {/* Subheadline */}
@@ -59,9 +59,9 @@ const Hero = () => {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
-                    className="text-xl text-gray-500 mb-10 max-w-2xl mx-auto leading-relaxed font-medium"
+                    className="text-xl text-gray-500 mb-10 max-w-3xl mx-auto leading-relaxed font-medium"
                 >
-                    Hire compliant entities, automate payroll, and manage benefits in 160+ countries. One dashboard. Zero friction.
+                    KOMP turns global expansion into an instant reality—eliminating entities, delays, and blind spots in just 48 hours. Enter new markets without locking capital, ensure compliance, and scale teams at speed.
                 </motion.p>
 
                 {/* CTA Buttons */}

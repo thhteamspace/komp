@@ -7,6 +7,7 @@ import CompetitiveKill from '../components/landing/CompetitiveKill';
 import IndustryUseCases from '../components/landing/IndustryUseCases';
 import LaunchSteps from '../components/landing/LaunchSteps';
 import TrustAndProof from '../components/landing/TrustAndProof';
+import ServiceGrid from '../components/landing/ServiceGrid';
 
 import CTA from '../components/landing/CTA';
 import Footer from '../components/landing/Footer';
@@ -23,6 +24,7 @@ const LandingPage = () => {
                 <IndustryUseCases />
                 <LaunchSteps />
                 <TrustAndProof />
+                <ServiceGrid />
                 <CTA />
             </main>
             <Footer />

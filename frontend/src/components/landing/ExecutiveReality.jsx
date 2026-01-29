@@ -40,7 +40,7 @@ const ExecutiveReality = () => {
                         className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-200 rounded-full shadow-sm mb-6"
                     >
                         <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                        <span className="text-xs font-bold text-gray-600 uppercase tracking-wide">The New Standard</span>
+                        <span className="text-xs font-bold text-gray-600 uppercase tracking-wide">Executive Reality</span>
                     </motion.div>
 
                     <motion.h2
@@ -49,7 +49,7 @@ const ExecutiveReality = () => {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight"
                     >
-                        Infrastructure that simply <br /> <span className="text-gray-400">works.</span>
+                        The Structural Cost of <br /> <span className="text-gray-400">Global Expansion.</span>
                     </motion.h2>
 
                     <motion.p
@@ -58,7 +58,7 @@ const ExecutiveReality = () => {
                         transition={{ delay: 0.2 }}
                         className="text-lg text-gray-500 max-w-2xl mx-auto"
                     >
-                        Replace the fragmentation of local vendors with a single, unified operating system for global employment.
+                        Global expansion doesn’t fail for lack of ambition. It slows when structure gets in the way. Fragmented operating models drain capital, time, and attention.
                     </motion.p>
                 </div>
 
@@ -66,11 +66,11 @@ const ExecutiveReality = () => {
                 {/* The Tall Grid [4:5 Aspect Ratio Feel] */}
                 <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
 
-                    {/* Card 1: Contracts */}
+                    {/* Card 1: Time/Speed */}
                     <FeatureCard
-                        label="Compliance"
-                        title="Instant Contracts"
-                        desc="Generate locally compliant contracts tailored to regional labor laws in seconds."
+                        label="Velocity"
+                        title="Regain Speed"
+                        desc="Months lost to incorporation and licensing. Remove bureaucratic friction at the point of entry."
                         color={{ bg: 'bg-purple-50', text: 'text-purple-600' }}
                         delay={0.2}
                         visual={
@@ -97,11 +97,11 @@ const ExecutiveReality = () => {
                         }
                     />
 
-                    {/* Card 2: Speed */}
+                    {/* Card 2: Cost/Capital */}
                     <FeatureCard
-                        label="Velocity"
-                        title="Onboard in 48h"
-                        desc="Skip the legal setup. We act as the Employer of Record so you can start working immediately."
+                        label="Capital"
+                        title="Preserve Capital"
+                        desc="Significant upfront costs tied to setup and audits. Enter new markets without locking capital."
                         color={{ bg: 'bg-blue-50', text: 'text-blue-600' }}
                         delay={0.3}
                         visual={
@@ -127,11 +127,11 @@ const ExecutiveReality = () => {
                         }
                     />
 
-                    {/* Card 3: Management */}
+                    {/* Card 3: Integrity/Management */}
                     <FeatureCard
-                        label="Management"
-                        title="Unified View"
-                        desc="Payroll, benefits, and expenses for your entire global team in one single dashboard."
+                        label="Integrity"
+                        title="Operational Integrity"
+                        desc="Disconnected systems limit visibility. Maintain control with a centralized employment layer."
                         color={{ bg: 'bg-green-50', text: 'text-green-600' }}
                         delay={0.4}
                         visual={

@@ -1,63 +1,97 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { Globe, Users, CreditCard, ArrowRight } from 'lucide-react';
+import { Globe, Clock, ShieldCheck, ArrowUpRight, CheckCircle2 } from 'lucide-react';
 
-const services = [
-    {
-        icon: Globe,
-        title: "Global EOR",
-        tagline: "Risk Mitigation & Speed",
-        description: "Hire employees in 150+ countries without setting up a local entity. We handle payroll, benefits, and compliance.",
-    },
-    {
-        icon: Users,
-        title: "Contractor Management",
-        tagline: "Avoid Misclassification",
-        description: "Onboard, manage, and pay international contractors in minutes with automated compliance and localized contracts.",
-    },
-    {
-        icon: CreditCard,
-        title: "Global Payroll",
-        tagline: "One Invoice, One Currency",
-        description: "Consolidate your entire global workforce payroll into a single dashboard. Pay everyone on time, every time.",
-    },
-];
+const CaseCard = ({ title, metric, result, desc, tags, delay }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay, duration: 0.5 }}
+        className="group relative bg-[#111] border border-white/10 rounded-3xl p-8 overflow-hidden hover:border-white/20 transition-all duration-500 h-full flex flex-col justify-between"
+    >
+        {/* Glow Effect */}
+        <div className="absolute top-0 right-0 w-64 h-64 bg-blue-600/10 rounded-full blur-[80px] group-hover:bg-blue-600/20 transition-all duration-500 pointer-events-none" />
+
+        <div>
+            <div className="flex justify-between items-start mb-6">
+                <div className="flex gap-2 mb-4">
+                    {tags.map((tag, i) => (
+                        <span key={i} className="px-2 py-1 rounded bg-white/5 border border-white/5 text-[10px] uppercase tracking-wider font-semibold text-white/60">
+                            {tag}
+                        </span>
+                    ))}
+                </div>
+                <div className="w-8 h-8 rounded-full bg-white/5 flex items-center justify-center group-hover:bg-white group-hover:text-black transition-colors duration-300">
+                    <ArrowUpRight size={16} />
+                </div>
+            </div>
+
+            <h3 className="text-xl font-medium text-white/50 mb-1">{title}</h3>
+            <div className="text-4xl md:text-5xl font-bold text-white mb-4 tracking-tight leading-tight">
+                {metric} <br />
+                <span className="text-blue-500">{result}</span>
+            </div>
+            <p className="text-white/60 leading-relaxed text-sm max-w-sm">
+                {desc}
+            </p>
+        </div>
+
+        <div className="mt-8 flex items-center gap-2 text-xs font-mono text-green-500">
+            <CheckCircle2 size={14} />
+            VERIFIED OUTCOME
+        </div>
+    </motion.div>
+);
 
 const ServiceGrid = () => {
     return (
-        <section className="py-24 bg-white relative">
-            <div className="container mx-auto px-6 relative z-10">
-                <div className="text-center mb-16">
-                    <h2 className="text-3xl md:text-5xl font-bold text-black mb-4">
-                        Components<span className="text-gray-400">.</span>
-                    </h2>
-                    <p className="text-gray-500 max-w-2xl mx-auto font-mono text-sm">
-             // Select a module to begin integration
-                    </p>
+        <section className="py-32 bg-[#050505] text-white relative border-t border-white/5">
+            <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+
+                <div className="mb-20">
+                    <h2 className="text-sm font-bold text-blue-500 uppercase tracking-widest mb-3">Evidence Vault</h2>
+                    <div className="flex flex-col md:flex-row md:items-end justify-between gap-6">
+                        <h3 className="text-4xl md:text-5xl font-bold text-white max-w-xl leading-tight">
+                            Impact where it <br />
+                            <span className="text-white/40">matters most.</span>
+                        </h3>
+                        <p className="text-white/50 max-w-sm text-lg">
+                            Real results from rapid expansion. <br />
+                            No fluff. Just execution.
+                        </p>
+                    </div>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-0 border-t border-l border-black">
-                    {services.map((service, index) => (
-                        <div
-                            key={index}
-                            className="group p-10 border-r border-b border-black hover:bg-gray-50 transition-all duration-300"
-                        >
-                            <div className="w-12 h-12 border border-black flex items-center justify-center mb-6 group-hover:bg-black group-hover:text-white transition-colors duration-300">
-                                <service.icon size={24} strokeWidth={1.5} />
-                            </div>
-                            <h3 className="text-xl font-bold text-black mb-2">{service.title}</h3>
-                            <p className="text-black text-xs font-mono uppercase tracking-wider mb-4 border-l-2 border-black pl-3">
-                                {service.tagline}
-                            </p>
-                            <p className="text-gray-600 leading-relaxed mb-8 text-sm">
-                                {service.description}
-                            </p>
+                <div className="grid md:grid-cols-3 gap-6">
+                    {/* Story 1: Speed */}
+                    <CaseCard
+                        tags={['Expansion', 'Speed']}
+                        title="Global Tech Co"
+                        metric="Weeks to"
+                        result="Minutes"
+                        desc="Replaced fragmented entities with one layer. Offer-to-contract timelines reduced drastically."
+                        delay={0.1}
+                    />
 
-                            <a href="#" className="inline-flex items-center text-black font-bold text-sm hover:underline underline-offset-4">
-                                View Details <ArrowRight className="w-4 h-4 ml-2" />
-                            </a>
-                        </div>
-                    ))}
+                    {/* Story 2: Efficiency */}
+                    <CaseCard
+                        tags={['Consulting', 'Ops']}
+                        title="Professional Services"
+                        metric="200+ Hours"
+                        result="Reclaimed"
+                        desc="Leadership regained weeks of productive time by removing compliance friction from day-to-day operations."
+                        delay={0.2}
+                    />
+
+                    {/* Story 3: Risk */}
+                    <CaseCard
+                        tags={['Enterprise', 'Risk']}
+                        title="Multinational Corp"
+                        metric="100% Risk"
+                        result="Offloaded"
+                        desc="Expanded into new jurisdictions without audit exposure. Growth continued without interruption."
+                        delay={0.3}
+                    />
                 </div>
             </div>
         </section>

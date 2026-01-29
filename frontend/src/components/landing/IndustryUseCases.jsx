@@ -4,7 +4,7 @@ import { ChevronRight, Image as ImageIcon } from 'lucide-react';
 
 const CaseCard = ({ title, tagline, price, visual }) => (
     <motion.div
-        className="min-w-[320px] md:min-w-[360px] h-[500px] bg-white rounded-[2.5rem] p-8 border border-gray-200 shadow-sm relative overflow-hidden flex flex-col justify-between group cursor-pointer hover:shadow-xl transition-shadow duration-300"
+        className="min-w-[320px] md:min-w-[480px] h-[500px] bg-white rounded-[2.5rem] p-8 border border-gray-200 shadow-sm relative overflow-hidden flex flex-col justify-between group cursor-pointer hover:shadow-xl transition-shadow duration-300"
         whileHover={{ scale: 1.02 }}
         transition={{ duration: 0.3 }}
     >
@@ -42,11 +42,11 @@ const IndustryUseCases = () => {
         <section className="py-32 bg-[#F5F5F7] overflow-hidden">
             <div className="container mx-auto px-4 md:px-8 mb-12 flex justify-between items-end">
                 <div>
-                    <h2 className="text-4xl md:text-5xl font-bold text-[#1D1D1F] mb-2">
-                        For your industry.
+                    <h2 className="text-4xl md:text-5xl font-bold text-[#1D1D1F] mb-6 max-w-2xl leading-tight">
+                        Protecting Global Expansion Where Risk Concentrates
                     </h2>
-                    <p className="text-xl text-[#86868B] font-medium">
-                        Pre-built legal frameworks. Ready to deploy.
+                    <p className="text-xl text-[#86868B] font-medium max-w-xl">
+                        Industry-specific legal frameworks designed to mitigate sector-based risks.
                     </p>
                 </div>
 
@@ -72,35 +72,22 @@ const IndustryUseCases = () => {
 
                     <CaseCard
                         title="Technology"
-                        tagline="IP protection & equity vesting."
-                        price="From $299/mo per entity"
+                        tagline="Intellectual Property Protection"
+                        price="IP Assignment & Vesting"
                     // Using default placeholder logic defined in CaseCard
                     />
 
                     <CaseCard
                         title="Healthcare"
-                        tagline="HIPAA & GDPR data controls."
+                        tagline="Privacy, GDPR & Sensitive Data"
                         price="Audit-ready infrastructure"
                     />
 
                     <CaseCard
-                        title="Fintech"
-                        tagline="Banking-grade security layers."
-                        price="SOC-2 Type II Certified"
+                        title="Professional Services"
+                        tagline="Managing PE Risk"
+                        price="Avoid Tax Residency"
                     />
-
-                    <CaseCard
-                        title="Services"
-                        tagline="Agile consultancy contracts."
-                        price="Pay-as-you-go"
-                    />
-
-                    <CaseCard
-                        title="Enterprise"
-                        tagline="Custom SLA & dedicated support."
-                        price="Contact Sales"
-                    />
-
                 </motion.div>
             </div>
         </section>

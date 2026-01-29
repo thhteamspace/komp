@@ -82,11 +82,11 @@ const TrustAndProof = () => {
                 {/* Header Left Aligned for Modern Feel */}
                 <div className="max-w-4xl mb-24">
                     <h2 className="text-6xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tighter leading-[0.9]">
-                        Scale without <br className="hidden md:block" />
-                        <span className="text-gray-300">the ceiling.</span>
+                        Proven at <br className="hidden md:block" />
+                        <span className="text-gray-300">Scale.</span>
                     </h2>
                     <p className="text-xl md:text-2xl text-gray-500 font-medium max-w-2xl leading-relaxed">
-                        We've built the legal and financial rails so you can run at full speed. Infrastructure that grows indefinitely.
+                        Case Studies: Accelerating growth while reducing cost leakage and compliance bottlenecks.
                     </p>
                 </div>
 
