@@ -1,6 +1,7 @@
 import React from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import LandingPage from './pages/LandingPage';
+import FeaturePreviewPage from './pages/FeaturePreviewPage';
 
 function App() {
   return (
@@ -12,6 +13,7 @@ function App() {
         <Route path="/enterprise" element={<LandingPage />} />
         <Route path="/pricing" element={<LandingPage />} />
         <Route path="/resources" element={<LandingPage />} />
+        <Route path="/feature-preview" element={<FeaturePreviewPage />} />
       </Routes>
     </Router>
   );

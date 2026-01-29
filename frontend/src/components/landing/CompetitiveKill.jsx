@@ -1,53 +1,87 @@
 import React from 'react';
+import { motion } from 'framer-motion';
 import { Shield, User, FileText, Check } from 'lucide-react';
+
+const FeatureItem = ({ icon: Icon, title, desc, delay }) => (
+    <motion.div
+        initial={{ opacity: 0, x: 20 }}
+        whileInView={{ opacity: 1, x: 0 }}
+        transition={{ delay, duration: 0.5 }}
+        viewport={{ once: true }}
+        className="group p-6 rounded-2xl bg-[#111] border border-white/5 hover:border-white/10 transition-colors flex items-start gap-6 cursor-default"
+    >
+        <div className="p-3 bg-white/5 rounded-xl text-white/80 group-hover:text-blue-400 group-hover:bg-blue-500/10 transition-colors">
+            <Icon size={24} />
+        </div>
+        <div>
+            <h3 className="text-lg font-bold text-white mb-2 group-hover:text-blue-400 transition-colors">{title}</h3>
+            <p className="text-white/50 text-sm leading-relaxed">{desc}</p>
+        </div>
+    </motion.div>
+);
 
 const CompetitiveKill = () => {
     return (
-        <section className="py-32 bg-white">
-            <div className="container mx-auto px-8">
-                <div className="bg-gray-900 rounded-3xl p-12 md:p-20 text-white relative overflow-hidden shadow-2xl">
+        <section className="py-32 bg-[#050505] text-white relative">
+            {/* Seamless Gradient to ensure blend with Top Section if needed */}
+            <div className="absolute top-0 inset-x-0 h-32 bg-gradient-to-b from-[#050505] to-transparent pointer-events-none" />
 
-                    {/* Background Mesh */}
-                    <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-blue-600 rounded-full blur-[120px] opacity-20 pointer-events-none" />
+            <div className="container mx-auto px-4 md:px-8 max-w-7xl">
+                <div className="grid lg:grid-cols-2 gap-20 items-center">
 
-                    <div className="relative z-10 grid lg:grid-cols-2 gap-20 items-center">
-                        <div>
-                            <h2 className="text-3xl md:text-5xl font-bold mb-8 leading-tight">
-                                The infrastructure <br /> of trust.
+                    {/* Left Side: Typography & Stats */}
+                    <div>
+                        <motion.div
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            transition={{ duration: 0.6 }}
+                            className="relative"
+                        >
+                            {/* Decorative Blur */}
+                            <div className="absolute -top-20 -left-20 w-64 h-64 bg-blue-600/20 rounded-full blur-[100px] pointer-events-none" />
+
+                            <h2 className="text-4xl md:text-6xl font-bold mb-8 leading-tight relative z-10">
+                                The infrastructure <br />
+                                <span className="text-white/40">of trust.</span>
                             </h2>
-                            <p className="text-gray-400 text-lg mb-12 leading-relaxed max-w-md">
+                            <p className="text-xl text-white/50 mb-12 leading-relaxed max-w-lg">
                                 We don't just provide software; we provide legal immunity. Our local entities absorb the risk so you don't have to.
                             </p>
 
-                            <div className="flex gap-12 border-t border-gray-800 pt-8">
+                            {/* Stats */}
+                            <div className="flex gap-16 border-t border-white/10 pt-8">
                                 <div>
-                                    <div className="text-4xl font-bold text-white mb-2">160+</div>
-                                    <div className="text-xs font-bold text-gray-500 uppercase tracking-widest">Countries</div>
+                                    <div className="text-5xl font-bold text-white mb-2 tracking-tight">160+</div>
+                                    <div className="text-xs font-bold text-white/40 uppercase tracking-widest">Countries</div>
                                 </div>
                                 <div>
-                                    <div className="text-4xl font-bold text-white mb-2">100%</div>
-                                    <div className="text-xs font-bold text-gray-500 uppercase tracking-widest">Compliance</div>
+                                    <div className="text-5xl font-bold text-white mb-2 tracking-tight">100%</div>
+                                    <div className="text-xs font-bold text-white/40 uppercase tracking-widest">Compliance</div>
                                 </div>
                             </div>
-                        </div>
+                        </motion.div>
+                    </div>
 
-                        <div className="grid gap-6">
-                            {[
-                                { icon: User, title: "Human in the Loop", desc: "Expert legal teams review every edge case." },
-                                { icon: Shield, title: "Liability Transfer", desc: "We become the legal employer. You retain direction." },
-                                { icon: FileText, title: "Audit Defense", desc: "Real-time logs generated for every transaction." }
-                            ].map((item, i) => (
-                                <div key={i} className="bg-gray-800/50 backdrop-blur-sm border border-gray-700 p-6 rounded-xl flex items-start gap-6 hover:bg-gray-800 transition-colors">
-                                    <div className="p-3 bg-gray-700 rounded-lg text-blue-400">
-                                        <item.icon size={24} />
-                                    </div>
-                                    <div>
-                                        <h3 className="text-lg font-bold mb-2">{item.title}</h3>
-                                        <p className="text-gray-400 text-sm">{item.desc}</p>
-                                    </div>
-                                </div>
-                            ))}
-                        </div>
+                    {/* Right Side: Feature Stack */}
+                    <div className="grid gap-4">
+                        <FeatureItem
+                            icon={User}
+                            title="Human in the Loop"
+                            desc="Expert legal teams review every edge case and contract generated by the platform."
+                            delay={0.2}
+                        />
+                        <FeatureItem
+                            icon={Shield}
+                            title="Liability Transfer"
+                            desc="We become the legal employer of record. You retain direction, we take the risk."
+                            delay={0.3}
+                        />
+                        <FeatureItem
+                            icon={FileText}
+                            title="Audit Defense"
+                            desc="Real-time, immutable logs generated for every transaction and salary disbursement."
+                            delay={0.4}
+                        />
                     </div>
 
                 </div>

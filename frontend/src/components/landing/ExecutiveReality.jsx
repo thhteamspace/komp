@@ -1,100 +1,162 @@
-import React, { useState } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import { XCircle, CheckCircle, ArrowRight, MousePointer2 } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FileText, Check, FileCheck, Zap, Globe } from 'lucide-react';
 
-const FeatureRow = ({ label, oldVal, newVal }) => (
-    <div className="grid grid-cols-12 items-center py-6 border-b border-gray-100 last:border-0 group">
-        <div className="col-span-4 text-sm font-bold text-gray-500 uppercase tracking-wider">{label}</div>
-        <div className="col-span-4 text-gray-400 line-through decoration-red-400 decoration-2 font-medium">{oldVal}</div>
-        <div className="col-span-4 text-black font-semibold flex items-center gap-2">
-            <CheckCircle size={16} className="text-green-500" /> {newVal}
+const FeatureCard = ({ label, title, desc, delay, visual, color }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay: delay, duration: 0.5 }}
+        viewport={{ once: true }}
+        className="flex flex-col bg-white rounded-[2rem] border border-gray-100 shadow-xl overflow-hidden hover:shadow-2xl transition-all duration-300 hover:-translate-y-1 h-full min-h-[500px]"
+    >
+        <div className="p-8 pb-0 flex-grow">
+            <span className={`inline-block px-3 py-1 rounded-full text-xs font-bold uppercase tracking-wider mb-6 ${color.bg} ${color.text}`}>
+                {label}
+            </span>
+            <h3 className="text-3xl font-bold text-gray-900 mb-4 leading-tight">{title}</h3>
+            <p className="text-gray-500 leading-relaxed text-base">
+                {desc}
+            </p>
         </div>
-    </div>
+
+        {/* Visual Container - Tall and Spacious */}
+        <div className={`mt-auto h-[300px] w-full bg-gray-50 relative overflow-hidden border-t border-gray-100`}>
+            {visual}
+        </div>
+    </motion.div>
 );
 
 const ExecutiveReality = () => {
-    const [activeSide, setActiveSide] = useState('new'); // 'old' or 'new'
-
     return (
-        <section className="py-32 bg-white relative overflow-hidden">
-            <div className="container mx-auto px-8">
+        <section className="py-24 bg-[#FAFAFA] relative overflow-hidden">
+            <div className="container mx-auto px-4 md:px-8 relative z-10">
 
-                <div className="text-center mb-16">
-                    <div className="inline-block px-3 py-1 bg-gray-100 rounded-full text-xs font-bold text-gray-500 uppercase tracking-widest mb-6">
-                        The Entity Gap
-                    </div>
-                    <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                        Stop building infrastructure <br /> you don't need.
-                    </h2>
+                {/* Standard Header */}
+                <div className="text-center max-w-3xl mx-auto mb-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-200 rounded-full shadow-sm mb-6"
+                    >
+                        <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
+                        <span className="text-xs font-bold text-gray-600 uppercase tracking-wide">The New Standard</span>
+                    </motion.div>
+
+                    <motion.h2
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.1 }}
+                        className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight"
+                    >
+                        Infrastructure that simply <br /> <span className="text-gray-400">works.</span>
+                    </motion.h2>
+
+                    <motion.p
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.2 }}
+                        className="text-lg text-gray-500 max-w-2xl mx-auto"
+                    >
+                        Replace the fragmentation of local vendors with a single, unified operating system for global employment.
+                    </motion.p>
                 </div>
 
-                {/* Interactive Comparison Visual */}
-                <div className="relative max-w-5xl mx-auto h-[600px] bg-gray-50 rounded-3xl border border-gray-200 overflow-hidden flex shadow-2xl">
 
-                    {/* Split Divider */}
-                    <div className="absolute top-0 bottom-0 left-1/2 w-px bg-gray-300 z-30 hidden md:block">
-                        <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 bg-white border border-gray-200 rounded-full flex items-center justify-center shadow-lg z-40">
-                            <ArrowRight size={18} className="text-gray-400" />
-                        </div>
-                    </div>
+                {/* The Tall Grid [4:5 Aspect Ratio Feel] */}
+                <div className="grid md:grid-cols-3 gap-6 lg:gap-8 max-w-7xl mx-auto">
 
-                    {/* Left: The Old Way */}
-                    <div className="flex-1 p-12 relative overflow-hidden group hover:bg-red-50/10 transition-colors">
-                        <div className="absolute inset-0 bg-grid-slate-200/50 [mask-image:linear-gradient(0deg,white,rgba(255,255,255,0.6))] -z-10" />
-                        <div className="inline-flex items-center gap-2 mb-8 text-red-500 font-bold bg-white px-3 py-1 rounded-full shadow-sm">
-                            <XCircle size={16} /> The Manual Way
-                        </div>
-
-                        <div className="space-y-12 opacity-50 grayscale group-hover:grayscale-0 group-hover:opacity-100 transition-all duration-500">
-                            <div className="bg-white p-6 rounded-xl border border-dashed border-gray-300 relative">
-                                <div className="absolute -top-3 -right-3 bg-red-500 text-white text-xs font-bold px-2 py-1 rounded">BLOCKED</div>
-                                <div className="h-2 w-24 bg-gray-200 rounded mb-4" />
-                                <div className="h-2 w-full bg-gray-100 rounded mb-2" />
-                                <div className="h-2 w-3/4 bg-gray-100 rounded" />
-                            </div>
-                            <div className="bg-white p-6 rounded-xl border border-dashed border-gray-300">
-                                <div className="h-2 w-32 bg-gray-200 rounded mb-4" />
-                                <div className="flex gap-2">
-                                    <div className="h-8 w-8 bg-gray-100 rounded-full" />
-                                    <div className="h-8 w-8 bg-gray-100 rounded-full" />
-                                    <div className="h-8 w-8 bg-gray-100 rounded-full" />
+                    {/* Card 1: Contracts */}
+                    <FeatureCard
+                        label="Compliance"
+                        title="Instant Contracts"
+                        desc="Generate locally compliant contracts tailored to regional labor laws in seconds."
+                        color={{ bg: 'bg-purple-50', text: 'text-purple-600' }}
+                        delay={0.2}
+                        visual={
+                            <div className="absolute inset-0 p-8 flex flex-col justify-end">
+                                <div className="bg-white rounded-t-xl shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)] border border-gray-200 p-6 relative top-4 h-full transform transition-transform hover:translate-y-2">
+                                    <div className="flex items-center gap-4 mb-6">
+                                        <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600"><FileText size={20} /></div>
+                                        <div>
+                                            <div className="h-2 w-24 bg-gray-200 rounded mb-2"></div>
+                                            <div className="h-2 w-16 bg-gray-100 rounded"></div>
+                                        </div>
+                                    </div>
+                                    <div className="space-y-3">
+                                        <div className="h-2 w-full bg-gray-100 rounded"></div>
+                                        <div className="h-2 w-full bg-gray-100 rounded"></div>
+                                        <div className="h-2 w-full bg-gray-100 rounded"></div>
+                                        <div className="h-2 w-3/4 bg-gray-100 rounded"></div>
+                                    </div>
+                                    <div className="absolute top-6 right-6 text-green-500">
+                                        <Check size={20} />
+                                    </div>
                                 </div>
                             </div>
-                        </div>
+                        }
+                    />
 
-                        <div className="mt-12 text-center text-gray-400 font-mono text-xs">
-                            waiting for legal approval...
-                        </div>
-                    </div>
+                    {/* Card 2: Speed */}
+                    <FeatureCard
+                        label="Velocity"
+                        title="Onboard in 48h"
+                        desc="Skip the legal setup. We act as the Employer of Record so you can start working immediately."
+                        color={{ bg: 'bg-blue-50', text: 'text-blue-600' }}
+                        delay={0.3}
+                        visual={
+                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-blue-50/50 to-transparent">
+                                <div className="relative w-full h-full flex items-center justify-center">
+                                    {/* Abstract Speed Visual */}
+                                    <div className="w-[1px] h-full bg-gray-200 absolute left-1/2 -translate-x-1/2"></div>
 
-                    {/* Right: The KOMP Way */}
-                    <div className="flex-1 p-12 bg-white relative">
-                        <div className="inline-flex items-center gap-2 mb-8 text-green-600 font-bold bg-green-50 px-3 py-1 rounded-full border border-green-100 shadow-sm">
-                            <CheckCircle size={16} /> The KOMP Platform
-                        </div>
+                                    <motion.div
+                                        className="absolute bg-white p-3 rounded-xl shadow-lg border border-gray-100 flex items-center gap-3 z-10"
+                                        animate={{ y: [-10, 10, -10] }}
+                                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                                    >
+                                        <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">GO</div>
+                                        <div className="text-sm font-bold text-gray-900">Active Status</div>
+                                    </motion.div>
 
-                        <div className="space-y-4">
-                            <FeatureRow label="Time to Live" oldVal="4-6 Months" newVal="48 Hours" />
-                            <FeatureRow label="Cost per Entity" oldVal="$25k - $50k" newVal="$0 (Included)" />
-                            <FeatureRow label="Internal Ops" oldVal="12+ Vendors" newVal="1 Dashboard" />
-                            <FeatureRow label="Audit Risk" oldVal="High Exposure" newVal="Zero Liability" />
-                        </div>
-
-                        <div className="mt-12 p-6 bg-gray-50 rounded-xl border border-gray-100 text-center">
-                            <div className="text-sm text-gray-500 mb-2">Expansion Speed</div>
-                            <div className="w-full h-2 bg-gray-200 rounded-full overflow-hidden">
-                                <motion.div
-                                    initial={{ width: 0 }}
-                                    whileInView={{ width: '100%' }}
-                                    transition={{ duration: 1.5 }}
-                                    className="h-full bg-green-500"
-                                />
+                                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[10px] font-mono text-gray-400 bg-white px-2 py-1 rounded border border-gray-100">
+                                        T-minus 48 hours
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
+                        }
+                    />
+
+                    {/* Card 3: Management */}
+                    <FeatureCard
+                        label="Management"
+                        title="Unified View"
+                        desc="Payroll, benefits, and expenses for your entire global team in one single dashboard."
+                        color={{ bg: 'bg-green-50', text: 'text-green-600' }}
+                        delay={0.4}
+                        visual={
+                            <div className="absolute inset-0 p-6 flex flex-col justify-end">
+                                <div className="bg-white rounded-xl shadow-lg border border-gray-200 w-full h-[90%] overflow-hidden relative top-4 hover:scale-105 transition-transform duration-500">
+                                    {/* Mock Header */}
+                                    <div className="h-10 bg-gray-50 border-b border-gray-100 flex items-center px-4 justify-between">
+                                        <div className="flex gap-1.5">
+                                            <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+                                            <div className="w-2 h-2 rounded-full bg-gray-300"></div>
+                                        </div>
+                                        <div className="h-1.5 w-16 bg-gray-200 rounded-full"></div>
+                                    </div>
+                                    {/* Mock Content */}
+                                    <div className="p-4 grid grid-cols-2 gap-3">
+                                        <div className="h-20 bg-blue-50/50 rounded-lg border border-blue-100/50"></div>
+                                        <div className="h-20 bg-purple-50/50 rounded-lg border border-purple-100/50"></div>
+                                        <div className="col-span-2 h-24 bg-gray-50/50 rounded-lg border border-gray-100"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                    />
 
                 </div>
-
             </div>
         </section>
     );

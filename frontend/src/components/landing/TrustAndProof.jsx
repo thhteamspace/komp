@@ -1,104 +1,138 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { TrendingDown, ShieldCheck, Activity, Globe } from 'lucide-react';
+import { Globe, ShieldCheck, Activity, Check } from 'lucide-react';
 
-const TrendLine = ({ color }) => (
-    <svg className="w-full h-12 overflow-visible" preserveAspectRatio="none">
-        <motion.path
-            initial={{ pathLength: 0 }}
-            whileInView={{ pathLength: 1 }}
-            transition={{ duration: 1.5, ease: "easeInOut" }}
-            d="M0,40 C50,40 50,10 100,10 C150,10 150,30 200,5"
-            stroke={color}
-            strokeWidth="3"
-            fill="none"
+const Beacon = ({ x, y, delay }) => (
+    <motion.div
+        initial={{ opacity: 0, scale: 0 }}
+        whileInView={{ opacity: 1, scale: 1 }}
+        transition={{ delay, duration: 0.5 }}
+        className="absolute w-2 h-2 bg-blue-500 rounded-full z-10"
+        style={{ left: x, top: y }}
+    >
+        <motion.div
+            animate={{ scale: [1, 3], opacity: [0.5, 0] }}
+            transition={{ duration: 2, repeat: Infinity }}
+            className="absolute inset-0 bg-blue-400 rounded-full"
         />
-        <motion.circle
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            transition={{ delay: 1.5 }}
-            cx="200" cy="5" r="4" fill={color} stroke="white" strokeWidth="2"
-        />
-    </svg>
+    </motion.div>
 );
 
-const StatCard = ({ label, value, subtext, icon: Icon, trend }) => (
-    <div className="bg-gray-50 p-8 rounded-3xl border border-gray-100 flex flex-col justify-between h-[300px] relative overflow-hidden group hover:border-gray-200 hover:shadow-lg transition-all">
-        <div className="flex justify-between items-start mb-4">
-            <div className="p-3 bg-white rounded-xl shadow-sm border border-gray-100">
-                <Icon size={24} className="text-black" />
-            </div>
-            {trend && (
-                <div className="flex items-center gap-1 text-sm font-bold text-green-600 bg-green-50 px-2 py-1 rounded-full border border-green-100">
-                    <TrendingDown size={14} className="rotate-180" /> {trend}
-                </div>
-            )}
-        </div>
+const WorldMap = () => (
+    <div className="absolute inset-0 opacity-[0.04] pointer-events-none mix-blend-multiply">
+        {/* Fine Dot Grid for Technical Feel */}
+        <div className="w-full h-full bg-[radial-gradient(#000_1px,transparent_1px)] [background-size:20px_20px]" />
 
-        <div>
-            <h3 className="text-4xl md:text-5xl font-bold tracking-tight mb-2 text-gray-900">{value}</h3>
-            <div className="font-bold text-gray-500 uppercase tracking-widest text-xs mb-4">{label}</div>
-            <p className="text-gray-500 text-sm leading-relaxed max-w-[80%]">
-                {subtext}
-            </p>
-        </div>
+        {/* US */}
+        <Beacon x="25%" y="35%" delay={0.2} />
+        <Beacon x="22%" y="32%" delay={0.5} />
 
-        {/* Visual Trend Line at bottom */}
-        <div className="absolute bottom-6 right-6 w-1/2 opacity-20 group-hover:opacity-100 transition-opacity">
-            <TrendLine color="#000" />
-        </div>
+        {/* Europe */}
+        <Beacon x="48%" y="30%" delay={0.6} />
+        <Beacon x="50%" y="28%" delay={0.9} />
+
+        {/* Asia */}
+        <Beacon x="75%" y="40%" delay={1.0} />
+        <Beacon x="80%" y="45%" delay={1.2} />
+
+        {/* South America */}
+        <Beacon x="32%" y="65%" delay={1.6} />
     </div>
 );
 
-const TrustAndProof = () => {
-    // Large "Proven" background text for scale
-    return (
-        <section className="py-32 bg-white border-b border-gray-100 relative overflow-hidden">
-            {/* Background Watermark */}
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 text-[20vw] font-bold text-gray-50 opacity-40 select-none z-0 tracking-tighter loading-none">
-                PROVEN
+const StatItem = ({ label, value, icon: Icon, delay, isLast }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay, duration: 0.5 }}
+        className={`flex-1 p-8 md:p-12 flex flex-col items-start justify-between min-h-[240px] relative group ${!isLast ? 'border-b md:border-b-0 md:border-r border-gray-100' : ''}`}
+    >
+        <div className="w-full flex justify-between items-start mb-auto">
+            <div className="p-3 rounded-xl bg-gray-50 text-gray-900 group-hover:bg-blue-50 group-hover:text-blue-600 transition-colors">
+                <Icon size={24} strokeWidth={1.5} />
             </div>
+            {/* Live Indicator */}
+            <div className="flex items-center gap-2">
+                <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                </span>
+            </div>
+        </div>
 
-            <div className="container mx-auto px-8 relative z-10">
-                <div className="flex flex-col md:flex-row justify-between items-end mb-20">
-                    <div>
-                        <h2 className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight">
-                            Scale without <br /> the ceiling.
-                        </h2>
-                        <p className="text-xl text-gray-500 font-medium max-w-lg">
-                            We handle the operational weight so you can run at full speed.
-                        </p>
-                    </div>
+        <div>
+            <div className="text-6xl md:text-7xl font-bold text-gray-900 tracking-tighter mb-2">
+                {value}
+            </div>
+            <div className="text-base font-semibold text-gray-500 uppercase tracking-widest">
+                {label}
+            </div>
+        </div>
+    </motion.div>
+);
 
-                    <div className="text-right hidden md:block">
-                        <div className="text-6xl font-bold text-gray-200">100%</div>
-                        <div className="text-sm font-bold uppercase tracking-widest text-gray-400">Compliance Rate</div>
-                    </div>
+const TrustAndProof = () => {
+    return (
+        <section className="py-32 bg-white relative overflow-hidden text-left">
+
+            <WorldMap />
+
+            <div className="container mx-auto px-4 md:px-8 relative z-10">
+
+                {/* Header Left Aligned for Modern Feel */}
+                <div className="max-w-4xl mb-24">
+                    <h2 className="text-6xl md:text-7xl font-bold text-gray-900 mb-8 tracking-tighter leading-[0.9]">
+                        Scale without <br className="hidden md:block" />
+                        <span className="text-gray-300">the ceiling.</span>
+                    </h2>
+                    <p className="text-xl md:text-2xl text-gray-500 font-medium max-w-2xl leading-relaxed">
+                        We've built the legal and financial rails so you can run at full speed. Infrastructure that grows indefinitely.
+                    </p>
                 </div>
 
-                <div className="grid md:grid-cols-3 gap-8">
-                    <StatCard
-                        icon={Activity}
-                        value="-40%"
-                        label="Management Overhead"
-                        subtext="Reduction in time spent on legal/hr admin tasks per country."
-                        trend="Saved"
-                    />
-                    <StatCard
-                        icon={ShieldCheck}
-                        value="0"
-                        label="Audit Failures"
-                        subtext="Total number of compliance breaches across all active clients."
-                        trend="Perfect"
-                    />
-                    <StatCard
+                {/* Unified Infrastructure Grid */}
+                <div className="bg-white border border-gray-100 rounded-[2rem] shadow-[0_20px_40px_-20px_rgba(0,0,0,0.1)] flex flex-col md:flex-row overflow-hidden mb-20 backdrop-blur-sm bg-white/80">
+                    <StatItem
+                        label="Active Countries"
+                        value="160+"
                         icon={Globe}
-                        value="24h"
-                        label="Avg. Deployment"
-                        subtext="Time from signed contract to fully compliant local entity."
-                        trend="Instant"
+                        delay={0.2}
+                    />
+                    <StatItem
+                        label="Uptime Reliability"
+                        value="99.99%"
+                        icon={Activity}
+                        delay={0.3}
+                    />
+                    <StatItem
+                        label="Compliance Rate"
+                        value="100%"
+                        icon={ShieldCheck}
+                        delay={0.4}
+                        isLast={true}
                     />
                 </div>
+
+                {/* Compliance Strip - Clean List */}
+                <motion.div
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    transition={{ delay: 0.6 }}
+                    className="flex flex-wrap items-center gap-8 md:gap-12 text-sm font-bold text-gray-400 uppercase tracking-widest border-t border-gray-100 pt-12"
+                >
+                    <span className="flex items-center gap-3 text-gray-900">
+                        <Check size={18} className="text-blue-600" /> SOC2 Type II
+                    </span>
+                    <span className="flex items-center gap-3 text-gray-900">
+                        <Check size={18} className="text-blue-600" /> GDPR Ready
+                    </span>
+                    <span className="flex items-center gap-3 text-gray-900">
+                        <Check size={18} className="text-blue-600" /> ISO 27001
+                    </span>
+                    <span className="hidden md:block flex-1 border-t border-gray-100" />
+                    <span className="text-gray-300">Audited by Deloitte</span>
+                </motion.div>
+
             </div>
         </section>
     );

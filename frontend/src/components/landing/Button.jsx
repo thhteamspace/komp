@@ -13,7 +13,10 @@ const Button = ({ children, variant = 'primary', className = '', ...props }) => 
         secondary: "bg-white text-black border-black hover:bg-gray-50",
 
         // Transparent, Dashed Border
-        outline: "bg-transparent text-gray-600 border-gray-300 border-dashed hover:border-black hover:text-black"
+        outline: "bg-transparent text-gray-600 border-gray-300 border-dashed hover:border-black hover:text-black",
+
+        // White Glow (for Dark Backgrounds)
+        white: "bg-white text-black border-transparent hover:bg-gray-100 shadow-[0_0_20px_rgba(255,255,255,0.3)] hover:scale-105"
     };
 
     return (
@@ -29,7 +32,7 @@ const Button = ({ children, variant = 'primary', className = '', ...props }) => 
 
 Button.propTypes = {
     children: PropTypes.node.isRequired,
-    variant: PropTypes.oneOf(['primary', 'secondary', 'outline']),
+    variant: PropTypes.oneOf(['primary', 'secondary', 'outline', 'white']),
     className: PropTypes.string,
 };
 

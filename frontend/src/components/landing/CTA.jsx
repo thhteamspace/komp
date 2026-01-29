@@ -5,54 +5,69 @@ import { ArrowRight, CheckCircle2 } from 'lucide-react';
 
 const CTA = () => {
     return (
-        <section className="py-32 bg-white relative overflow-hidden">
-            <div className="container mx-auto px-8">
-                <div className="relative bg-[#0A0A0A] rounded-[2.5rem] p-12 md:p-24 text-center overflow-hidden border border-gray-800 shadow-2xl">
+        <section className="py-20 bg-[#050505] px-4 md:px-8">
+            <div className="container mx-auto max-w-7xl">
+                <div className="relative bg-black rounded-[3rem] p-12 md:p-32 text-center overflow-hidden shadow-2xl group">
 
-                    {/* Background Effects */}
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[500px] bg-blue-600/20 rounded-full blur-[100px] -z-0 pointer-events-none" />
-                    <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-purple-600/10 rounded-full blur-[120px] -z-0 pointer-events-none" />
-
-                    {/* Content */}
-                    <div className="relative z-10 max-w-3xl mx-auto">
-                        <motion.div
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ duration: 0.6 }}
-                        >
-                            <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 tracking-tight leading-[1.1]">
-                                Ready to operate <br />
-                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-purple-400">without borders?</span>
-                            </h2>
-
-                            <p className="text-xl text-gray-400 mb-12 max-w-2xl mx-auto font-medium leading-relaxed">
-                                Stop letting infrastructure dictate your strategy. Deploy your first entity in minutes, not months.
-                            </p>
-
-                            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12">
-                                <Button variant="primary" className="h-14 px-8 text-base bg-white text-black hover:bg-gray-100 border-transparent shadow-lg shadow-white/10 w-full sm:w-auto">
-                                    Start Expansion <ArrowRight size={18} className="ml-2" />
-                                </Button>
-                                <Button variant="outline" className="h-14 px-8 text-base text-white border-gray-700 hover:bg-white/10 w-full sm:w-auto">
-                                    Book a Demo
-                                </Button>
-                            </div>
-
-                            {/* Trust Signals */}
-                            <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 text-sm font-medium text-gray-500">
-                                <span className="flex items-center gap-2">
-                                    <CheckCircle2 size={16} className="text-green-500" /> No credit card required
-                                </span>
-                                <span className="flex items-center gap-2">
-                                    <CheckCircle2 size={16} className="text-green-500" /> Cancel anytime
-                                </span>
-                                <span className="flex items-center gap-2">
-                                    <CheckCircle2 size={16} className="text-green-500" /> SOC2 Secure
-                                </span>
-                            </div>
-                        </motion.div>
+                    {/* Warp Speed Starfield */}
+                    <div className="absolute inset-0 overflow-hidden">
+                        {[...Array(20)].map((_, i) => (
+                            <motion.div
+                                key={i}
+                                className="absolute bg-white rounded-full opacity-40"
+                                style={{
+                                    width: Math.random() * 2 + 1 + 'px',
+                                    height: Math.random() * 2 + 1 + 'px',
+                                    top: Math.random() * 100 + '%',
+                                    left: '50%',
+                                }}
+                                animate={{
+                                    x: [(Math.random() - 0.5) * 1000],
+                                    y: [(Math.random() - 0.5) * 1000],
+                                    scale: [0, 5],
+                                    opacity: [0, 1, 0]
+                                }}
+                                transition={{
+                                    duration: Math.random() * 2 + 1,
+                                    repeat: Infinity,
+                                    ease: "linear"
+                                }}
+                            />
+                        ))}
                     </div>
 
+                    <div className="absolute inset-0 bg-gradient-to-t from-blue-900/20 to-transparent pointer-events-none" />
+
+                    <motion.div
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        transition={{ duration: 0.8 }}
+                        className="relative z-10 max-w-4xl mx-auto"
+                    >
+                        <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight leading-none">
+                            Ready to operate <br />
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white">without borders?</span>
+                        </h2>
+
+                        <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
+                            Stop letting infrastructure dictate your strategy. Deploy your first entity in minutes, not months.
+                        </p>
+
+                        <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
+                            <Button variant="white" className="h-16 px-10 text-lg rounded-full font-bold w-full sm:w-auto">
+                                Start Expansion <ArrowRight size={20} className="ml-2" />
+                            </Button>
+                            <Button variant="outline" className="h-16 px-10 text-lg text-white border-white/20 hover:bg-white/10 rounded-full font-medium">
+                                Book a Demo
+                            </Button>
+                        </div>
+
+                        <div className="flex flex-wrap items-center justify-center gap-8 text-sm font-medium text-gray-500">
+                            <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-blue-500" /> Cancel anytime</span>
+                            <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-blue-500" /> SOC2 Secure</span>
+                            <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-blue-500" /> No credit card required</span>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>
