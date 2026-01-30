@@ -11,13 +11,13 @@ const FeatureComparison = () => {
                 <div className="flex-1 p-8 bg-gray-50/50 border-r border-gray-100 relative">
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-red-50 text-red-600 rounded-full text-sm font-medium mb-8 border border-red-100">
                         <XCircle className="w-4 h-4" />
-                        The Manual Way
+                        Option A (Bad)
                     </div>
 
                     <div className="space-y-6 opacity-70">
                         {/* Simulation of a blocked process */}
                         <div className="p-4 bg-white rounded-lg border border-gray-200 border-dashed relative">
-                            <div className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded shadow-sm">Blocked</div>
+                            <div className="absolute -top-2 -right-2 bg-red-500 text-white text-[10px] uppercase font-bold px-2 py-0.5 rounded shadow-sm">Status</div>
                             <div className="h-2 w-1/3 bg-gray-200 rounded mb-3"></div>
                             <div className="h-2 w-full bg-gray-100 rounded mb-2"></div>
                             <div className="h-2 w-2/3 bg-gray-100 rounded"></div>
@@ -33,7 +33,7 @@ const FeatureComparison = () => {
                         </div>
 
                         <div className="text-center mt-8">
-                            <div className="font-mono text-sm text-gray-400">waiting for legal approval...</div>
+                            <div className="font-mono text-sm text-gray-400">waiting for action...</div>
                         </div>
                     </div>
                 </div>
@@ -50,36 +50,36 @@ const FeatureComparison = () => {
                 <div className="flex-1 p-8 bg-white relative">
                     <div className="inline-flex items-center gap-2 px-3 py-1 bg-green-50 text-green-700 rounded-full text-sm font-medium mb-8 border border-green-100">
                         <ShieldCheck className="w-4 h-4" />
-                        The KOMP Platform
+                        Option B (Good)
                     </div>
 
                     <div className="space-y-6">
                         <ComparisonRow
-                            label="Time to Live"
-                            badValue="4-6 Months"
-                            goodValue="48 Hours"
+                            label="Comparison Point 1"
+                            badValue="Bad Value"
+                            goodValue="Good Value"
                         />
                         <ComparisonRow
-                            label="Cost Per Entity"
-                            badValue="$25k - $50k"
-                            goodValue="$0 (Included)"
+                            label="Comparison Point 2"
+                            badValue="Bad Value"
+                            goodValue="Good Value"
                         />
                         <ComparisonRow
-                            label="Internal Ops"
-                            badValue="12+ Vendors"
-                            goodValue="1 Dashboard"
+                            label="Comparison Point 3"
+                            badValue="Bad Value"
+                            goodValue="Good Value"
                         />
                         <ComparisonRow
-                            label="Audit Risk"
-                            badValue="High Exposure"
-                            goodValue="Zero Liability"
+                            label="Comparison Point 4"
+                            badValue="Bad Value"
+                            goodValue="Good Value"
                         />
 
                         {/* Speed Indicator */}
                         <div className="mt-8 bg-gray-50 rounded-lg p-4 border border-gray-100">
                             <div className="flex justify-between items-center mb-2">
-                                <span className="text-xs font-medium text-gray-500">Expansion Speed</span>
-                                <span className="text-xs font-bold text-green-600">Maximized</span>
+                                <span className="text-xs font-medium text-gray-500">Performance Metric</span>
+                                <span className="text-xs font-bold text-green-600">Optimized</span>
                             </div>
                             <div className="h-2 bg-gray-200 rounded-full overflow-hidden">
                                 <motion.div

@@ -24,7 +24,7 @@ const Footer = () => {
                                 Global Infrastructure
                             </span>
                             <p className="text-xl md:text-2xl font-medium leading-tight text-white/80 max-w-sm">
-                                The operating system for modern global employment.
+                                This is the footer tagline or company description.
                             </p>
                         </div>
                         <div className="flex gap-4 mt-12">
@@ -35,9 +35,9 @@ const Footer = () => {
 
                     {/* Column 2: Platform */}
                     <div className="md:col-span-2 md:border-l border-b md:border-b-0 border-white/10 p-8">
-                        <h4 className="font-mono text-xs text-white/50 uppercase tracking-widest mb-8">Platform</h4>
+                        <h4 className="font-mono text-xs text-white/50 uppercase tracking-widest mb-8">Column 1</h4>
                         <ul className="space-y-6">
-                            {['Global EOR', 'Contractors', 'Payroll', 'Entities'].map((item) => (
+                            {['Link 1', 'Link 2', 'Link 3', 'Link 4'].map((item) => (
                                 <li key={item}>
                                     <a href="#" className="group flex items-center gap-2 text-lg font-medium hover:text-[#3b82f6] transition-colors">
                                         {item}
@@ -50,9 +50,9 @@ const Footer = () => {
 
                     {/* Column 3: Resources */}
                     <div className="md:col-span-2 md:border-l border-b md:border-b-0 border-white/10 p-8">
-                        <h4 className="font-mono text-xs text-white/50 uppercase tracking-widest mb-8">Resources</h4>
+                        <h4 className="font-mono text-xs text-white/50 uppercase tracking-widest mb-8">Column 2</h4>
                         <ul className="space-y-6">
-                            {['Case Studies', 'Blog', 'Guidebooks', 'API Docs'].map((item) => (
+                            {['Link 5', 'Link 6', 'Link 7', 'Link 8'].map((item) => (
                                 <li key={item}>
                                     <a href="#" className="group flex items-center gap-2 text-lg font-medium hover:text-[#3b82f6] transition-colors">
                                         {item}
@@ -65,9 +65,9 @@ const Footer = () => {
 
                     {/* Column 4: Company */}
                     <div className="md:col-span-2 md:border-l border-b md:border-b-0 border-white/10 p-8">
-                        <h4 className="font-mono text-xs text-white/50 uppercase tracking-widest mb-8">Company</h4>
+                        <h4 className="font-mono text-xs text-white/50 uppercase tracking-widest mb-8">Column 3</h4>
                         <ul className="space-y-6">
-                            {['About', 'Careers', 'Contact', 'Press'].map((item) => (
+                            {['Link 9', 'Link 10', 'Link 11', 'Link 12'].map((item) => (
                                 <li key={item}>
                                     <a href="#" className="group flex items-center gap-2 text-lg font-medium hover:text-[#3b82f6] transition-colors">
                                         {item}

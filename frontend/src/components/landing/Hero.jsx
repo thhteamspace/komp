@@ -40,7 +40,7 @@ const Hero = () => {
                     <span className="flex items-center justify-center w-5 h-5 bg-black text-white text-[10px] font-bold rounded-full">
                         <Star size={10} fill="currentColor" />
                     </span>
-                    <span className="text-sm font-medium text-gray-600 group-hover:text-black transition-colors">Operate Globally, Without the Wait</span>
+                    <span className="text-sm font-medium text-gray-600 group-hover:text-black transition-colors">Placeholder Banner Text</span>
                     <ChevronRight size={14} className="text-gray-400 group-hover:text-black transition-colors" />
                 </motion.div>
 
@@ -51,7 +51,7 @@ const Hero = () => {
                     transition={{ duration: 0.6, delay: 0.1, ease: "easeOut" }}
                     className="text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight text-gray-900 mb-8 max-w-5xl mx-auto leading-[0.95]"
                 >
-                    Stop planning. <br className="hidden md:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">Start operating.</span>
+                    Placeholder Headline. <br className="hidden md:block" /> <span className="text-transparent bg-clip-text bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900">Emphasis Text.</span>
                 </motion.h1>
 
                 {/* Subheadline */}
@@ -61,7 +61,7 @@ const Hero = () => {
                     transition={{ duration: 0.6, delay: 0.2, ease: "easeOut" }}
                     className="text-xl text-gray-500 mb-10 max-w-3xl mx-auto leading-relaxed font-medium"
                 >
-                    KOMP turns global expansion into an instant reality—eliminating entities, delays, and blind spots in just 48 hours. Enter new markets without locking capital, ensure compliance, and scale teams at speed.
+                    This is a placeholder for the hero description text. It serves to demonstrate the visual style and layout of the text without conveying specific meaning.
                 </motion.p>
 
                 {/* CTA Buttons */}
@@ -72,10 +72,10 @@ const Hero = () => {
                     className="flex items-center gap-4 mb-20"
                 >
                     <Button variant="primary" className="h-12 px-8 text-base shadow-xl shadow-blue-900/10 hover:shadow-blue-900/20">
-                        Start Operating
+                        Primary Action
                     </Button>
                     <Button variant="secondary" className="h-12 px-8 text-base bg-white">
-                        Talk to Sales
+                        Secondary Action
                     </Button>
                 </motion.div>
 
@@ -91,11 +91,13 @@ const Hero = () => {
                         className="relative z-10"
                         style={{ perspective: '1000px' }}
                     >
-                        <div className="relative rounded-2xl shadow-2xl border border-gray-200/50 bg-white/50 backdrop-blur-xl p-2 md:p-4">
-                            <FeatureDashboard />
-
-                            {/* Reflection/Sheen overlay */}
-                            <div className="absolute inset-0 bg-gradient-to-tr from-white/20 via-transparent to-transparent rounded-2xl pointer-events-none" />
+                        <div className="relative rounded-2xl shadow-2xl border border-gray-200 bg-gray-100 aspect-[16/9] flex items-center justify-center overflow-hidden">
+                            <div className="text-gray-400 flex flex-col items-center">
+                                <svg className="w-16 h-16 mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span className="font-medium text-lg">Hero Image Placeholder</span>
+                            </div>
                         </div>
                     </motion.div>
 

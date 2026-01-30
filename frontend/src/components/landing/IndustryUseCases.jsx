@@ -43,10 +43,10 @@ const IndustryUseCases = () => {
             <div className="container mx-auto px-4 md:px-8 mb-12 flex justify-between items-end">
                 <div>
                     <h2 className="text-4xl md:text-5xl font-bold text-[#1D1D1F] mb-6 max-w-2xl leading-tight">
-                        Protecting Global Expansion Where Risk Concentrates
+                        Headline Placeholder for Industry Solutions
                     </h2>
                     <p className="text-xl text-[#86868B] font-medium max-w-xl">
-                        Industry-specific legal frameworks designed to mitigate sector-based risks.
+                        This text describes how the platform caters to different industries, mitigating risks and ensuring compliance.
                     </p>
                 </div>
 
@@ -71,22 +71,22 @@ const IndustryUseCases = () => {
                 >
 
                     <CaseCard
-                        title="Technology"
-                        tagline="Intellectual Property Protection"
-                        price="IP Assignment & Vesting"
+                        title="Industry 1"
+                        tagline="Tagline for Industry 1"
+                        price="Key Feature"
                     // Using default placeholder logic defined in CaseCard
                     />
 
                     <CaseCard
-                        title="Healthcare"
-                        tagline="Privacy, GDPR & Sensitive Data"
-                        price="Audit-ready infrastructure"
+                        title="Industry 2"
+                        tagline="Tagline for Industry 2"
+                        price="Key Feature"
                     />
 
                     <CaseCard
-                        title="Professional Services"
-                        tagline="Managing PE Risk"
-                        price="Avoid Tax Residency"
+                        title="Industry 3"
+                        tagline="Tagline for Industry 3"
+                        price="Key Feature"
                     />
                 </motion.div>
             </div>

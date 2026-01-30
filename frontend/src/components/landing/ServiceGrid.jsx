@@ -56,8 +56,8 @@ const ServiceGrid = () => {
                             <span className="text-white/40">matters most.</span>
                         </h3>
                         <p className="text-white/50 max-w-sm text-lg">
-                            Real results from rapid expansion. <br />
-                            No fluff. Just execution.
+                            This placeholder text highlights the section's purpose. <br />
+                            Short and punchy description.
                         </p>
                     </div>
                 </div>
@@ -65,31 +65,31 @@ const ServiceGrid = () => {
                 <div className="grid md:grid-cols-3 gap-6">
                     {/* Story 1: Speed */}
                     <CaseCard
-                        tags={['Expansion', 'Speed']}
-                        title="Global Tech Co"
-                        metric="Weeks to"
-                        result="Minutes"
-                        desc="Replaced fragmented entities with one layer. Offer-to-contract timelines reduced drastically."
+                        tags={['Tag 1', 'Tag 2']}
+                        title="Client Case 1"
+                        metric="Metric 1"
+                        result="Result 1"
+                        desc="Description of the first case study. Explain the problem solved and the benefit gained."
                         delay={0.1}
                     />
 
                     {/* Story 2: Efficiency */}
                     <CaseCard
-                        tags={['Consulting', 'Ops']}
-                        title="Professional Services"
-                        metric="200+ Hours"
-                        result="Reclaimed"
-                        desc="Leadership regained weeks of productive time by removing compliance friction from day-to-day operations."
+                        tags={['Tag 3', 'Tag 4']}
+                        title="Client Case 2"
+                        metric="Metric 2"
+                        result="Result 2"
+                        desc="Description of the second case study. Explain the efficiency or productivity gain."
                         delay={0.2}
                     />
 
                     {/* Story 3: Risk */}
                     <CaseCard
-                        tags={['Enterprise', 'Risk']}
-                        title="Multinational Corp"
-                        metric="100% Risk"
-                        result="Offloaded"
-                        desc="Expanded into new jurisdictions without audit exposure. Growth continued without interruption."
+                        tags={['Tag 5', 'Tag 6']}
+                        title="Client Case 3"
+                        metric="Metric 3"
+                        result="Result 3"
+                        desc="Description of the third case study. Explain the risk mitigation or safety aspect."
                         delay={0.3}
                     />
                 </div>

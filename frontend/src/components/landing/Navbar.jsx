@@ -60,24 +60,24 @@ const Navbar = () => {
                 {/* Desktop Nav */}
                 <div className="hidden md:flex items-center gap-2">
                     <NavLink
-                        title="Solutions"
-                        isActive={activeTab === 'solutions'}
-                        onMouseEnter={() => { setActiveTab('solutions'); setIsHovering(true); }}
+                        title="Link 1"
+                        isActive={activeTab === 'link1'}
+                        onMouseEnter={() => { setActiveTab('link1'); setIsHovering(true); }}
                     />
                     <NavLink
-                        title="Resources"
-                        isActive={activeTab === 'resources'}
-                        onMouseEnter={() => { setActiveTab('resources'); setIsHovering(true); }}
+                        title="Link 2"
+                        isActive={activeTab === 'link2'}
+                        onMouseEnter={() => { setActiveTab('link2'); setIsHovering(true); }}
                     />
-                    <a href="#" className="px-4 py-2 text-sm font-medium text-gray-500 hover:text-black transition-colors">Pricing</a>
-                    <a href="#" className="px-4 py-2 text-sm font-medium text-gray-500 hover:text-black transition-colors">Enterprise</a>
+                    <a href="#" className="px-4 py-2 text-sm font-medium text-gray-500 hover:text-black transition-colors">Link 3</a>
+                    <a href="#" className="px-4 py-2 text-sm font-medium text-gray-500 hover:text-black transition-colors">Link 4</a>
                 </div>
 
                 {/* CTA */}
                 <div className="hidden md:flex items-center gap-4">
-                    <a href="#" className="text-sm font-bold text-black hover:opacity-70 transition-opacity">Log in</a>
+                    <a href="#" className="text-sm font-bold text-black hover:opacity-70 transition-opacity">Action 1</a>
                     <Button variant="primary" className="text-sm px-5 py-2.5 shadow-lg shadow-blue-500/20 hover:shadow-blue-500/40">
-                        Get Started
+                        Action 2
                     </Button>
                 </div>
             </div>
@@ -95,39 +95,39 @@ const Navbar = () => {
                         onMouseLeave={handleMouseLeave}
                     >
                         <div className="container mx-auto px-6 max-w-7xl py-12">
-                            {activeTab === 'solutions' && (
+                            {activeTab === 'link1' && (
                                 <div className="grid grid-cols-3 gap-12">
                                     <div className="col-span-2 grid grid-cols-2 gap-4">
-                                        <DropdownItem icon={Globe} title="Global Employment" desc="Hire anyone, anywhere. No local entity required." />
-                                        <DropdownItem icon={Users} title="Contractor Management" desc="Onboard and pay contractors in 150+ countries." />
-                                        <DropdownItem icon={CreditCard} title="Global Payroll" desc="Consolidate multi-currency payroll into one click." />
-                                        <DropdownItem icon={ShieldCheck} title="Visa & Immigration" desc="Sponsor visas and handle mobility seamlessly." />
+                                        <DropdownItem icon={Globe} title="Feature 1" desc="Description for feature 1 placeholder text." />
+                                        <DropdownItem icon={Users} title="Feature 2" desc="Description for feature 2 placeholder text." />
+                                        <DropdownItem icon={CreditCard} title="Feature 3" desc="Description for feature 3 placeholder text." />
+                                        <DropdownItem icon={ShieldCheck} title="Feature 4" desc="Description for feature 4 placeholder text." />
                                     </div>
                                     <div className="bg-gray-50 rounded-2xl p-6 border border-gray-100">
                                         <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-4">Featured</div>
-                                        <h4 className="text-lg font-bold text-gray-900 mb-2">KOMP Intelligence</h4>
-                                        <p className="text-sm text-gray-500 mb-4">New AI-driven insights for global workforce planning.</p>
-                                        <a href="#" className="text-sm font-bold text-blue-600 hover:underline">Read Announcement &rarr;</a>
+                                        <h4 className="text-lg font-bold text-gray-900 mb-2">Featured Item</h4>
+                                        <p className="text-sm text-gray-500 mb-4">This is a placeholder description for a featured item in the dropdown.</p>
+                                        <a href="#" className="text-sm font-bold text-blue-600 hover:underline">Read More &rarr;</a>
                                     </div>
                                 </div>
                             )}
 
-                            {activeTab === 'resources' && (
+                            {activeTab === 'link2' && (
                                 <div className="grid grid-cols-3 gap-12">
                                     <div className="grid grid-cols-1 gap-4">
-                                        <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Learn</div>
-                                        <DropdownItem icon={BookOpen} title="Library" desc="Guides, country encyclopedias, and templates." />
-                                        <DropdownItem icon={FileText} title="Blog" desc="Latest trends in global hiring and remote work." />
+                                        <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Category 1</div>
+                                        <DropdownItem icon={BookOpen} title="Resource 1" desc="Description for resource 1." />
+                                        <DropdownItem icon={FileText} title="Resource 2" desc="Description for resource 2." />
                                     </div>
                                     <div className="grid grid-cols-1 gap-4">
-                                        <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Support</div>
-                                        <DropdownItem icon={MessageSquare} title="Help Center" desc="Documentation and support for platform users." />
-                                        <DropdownItem icon={Users} title="Community" desc="Join 10,000+ HR leaders in our exclusive network." />
+                                        <div className="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Category 2</div>
+                                        <DropdownItem icon={MessageSquare} title="Resource 3" desc="Description for resource 3." />
+                                        <DropdownItem icon={Users} title="Resource 4" desc="Description for resource 4." />
                                     </div>
                                     <div className="bg-blue-600 rounded-2xl p-6 text-white text-center flex flex-col items-center justify-center">
-                                        <h4 className="text-xl font-bold mb-2">Talk to an expert</h4>
-                                        <p className="text-blue-100 text-sm mb-6">Need help planning your expansion?</p>
-                                        <Button variant="white" className="text-blue-600 hover:text-blue-700 w-full justify-center border-none font-bold">Book Demo</Button>
+                                        <h4 className="text-xl font-bold mb-2">Call to Action</h4>
+                                        <p className="text-blue-100 text-sm mb-6">Placeholder text for call to action box.</p>
+                                        <Button variant="white" className="text-blue-600 hover:text-blue-700 w-full justify-center border-none font-bold">Action Button</Button>
                                     </div>
                                 </div>
                             )}

@@ -36,14 +36,14 @@ const UnifiedOperatingLayer = () => {
                 <div className="mb-20 max-w-2xl">
                     <div className="flex items-center gap-2 mb-6">
                         <div className="w-1 h-6 bg-blue-500 rounded-full" />
-                        <span className="text-blue-500 font-bold uppercase tracking-widest text-xs">Unified SO</span>
+                        <span className="text-blue-500 font-bold uppercase tracking-widest text-xs">Platform Overview</span>
                     </div>
                     <h2 className="text-4xl md:text-6xl font-bold mb-6 leading-tight">
-                        One Operating Layer. <br />
-                        <span className="text-white/40">Total Control.</span>
+                        Unified Platform Layer. <br />
+                        <span className="text-white/40">Complete Control.</span>
                     </h2>
                     <p className="text-xl text-white/50 max-w-xl">
-                        KOMP eliminates fragmentation by establishing a single source of truth across workforce, payroll, and compliance.
+                        This text describes the solution provided by the platform. It explains how it solves the fragmentation issues mentioned earlier.
                     </p>
                 </div>
 
@@ -53,9 +53,9 @@ const UnifiedOperatingLayer = () => {
                     {/* Card 1: Main Automation Logic (Full Width/Col Span) */}
                     <Card className="md:col-span-2 min-h-[400px] flex flex-col md:flex-row items-center md:items-start overflow-hidden">
                         <div className="flex-1 relative z-10">
-                            <h3 className="text-2xl font-bold text-white mb-3">Consolidated View</h3>
+                            <h3 className="text-2xl font-bold text-white mb-3">Feature Headline 1</h3>
                             <p className="text-white/50 mb-8 max-w-sm">
-                                One consolidated view of global workforce spends across countries, currencies, and worker types.
+                                Description of the first key feature of the platform. It consolidates views and data.
                             </p>
                             <div className="flex gap-4">
                                 <div className="px-4 py-2 bg-white/5 rounded-lg border border-white/10 text-xs font-mono text-white/70">webhook_received</div>
@@ -64,75 +64,45 @@ const UnifiedOperatingLayer = () => {
                         </div>
 
                         {/* Visual: Floating Notifications */}
-                        <div className="flex-1 w-full mt-10 md:mt-0 relative">
-                            <div className="absolute inset-0 bg-gradient-to-l from-[#050505] via-transparent to-transparent z-20" />
-                            <Notification
-                                title="New Hire: Sarah J. (Germany)"
-                                user="Workday Integration"
-                                time="Just now"
-                                delay={0.2}
-                            />
-                            <Notification
-                                title="Payroll Approved: UK Team"
-                                user="Finance Bot"
-                                time="2m ago"
-                                delay={0.4}
-                            />
-                            <Notification
-                                title="Contract Signed: Miguel R."
-                                user="DocuSign Sync"
-                                time="15m ago"
-                                delay={0.6}
-                            />
+                        {/* Visual: Image Placeholder */}
+                        <div className="flex-1 w-full mt-10 md:mt-0 relative flex items-center justify-center">
+                            <div className="bg-[#1A1A1A] border border-white/5 rounded-xl aspect-video w-full flex items-center justify-center">
+                                <div className="text-white/20 flex flex-col items-center">
+                                    <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span className="text-sm font-medium">Image Placeholder</span>
+                                </div>
+                            </div>
                         </div>
                     </Card>
 
                     {/* Card 2: Global Payroll */}
                     <Card className="min-h-[400px]">
-                        <h3 className="text-2xl font-bold text-white mb-2">Real-Time Visibility</h3>
-                        <p className="text-white/50 mb-10 text-sm">Real-time visibility into payroll, benefits, taxes, and statutory obligations.</p>
+                        <h3 className="text-2xl font-bold text-white mb-2">Feature Headline 2</h3>
+                        <p className="text-white/50 mb-10 text-sm">Description of the second key feature, focusing on visibility and real-time updates.</p>
 
-                        <div className="relative mt-auto mx-auto w-full max-w-[300px] h-[180px]">
-                            {/* Card Mock */}
-                            <div className="absolute top-0 inset-x-0 h-[180px] bg-gradient-to-br from-gray-800 to-black border border-white/10 rounded-2xl p-6 shadow-2xl rotate-3 hover:rotate-0 transition-transform duration-500">
-                                <div className="flex justify-between items-start mb-8">
-                                    <div className="text-white/80 font-bold tracking-widest">VISA</div>
-                                    <Globe className="text-white/30" />
-                                </div>
-                                <div className="text-white/40 text-xs font-mono mb-2">**** **** **** 4242</div>
-                                <div className="flex justify-between items-end">
-                                    <div className="text-white font-bold text-lg">$142,500.00</div>
-                                    <div className="text-green-500 text-xs font-bold bg-green-500/10 px-2 py-1 rounded">PAID</div>
-                                </div>
+                        <div className="relative mt-auto mx-auto w-full h-[180px] bg-[#1A1A1A] border border-white/5 rounded-2xl flex items-center justify-center">
+                            <div className="text-white/20 flex flex-col items-center">
+                                <svg className="w-10 h-10 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span className="text-xs font-medium">Image Placeholder</span>
                             </div>
                         </div>
                     </Card>
 
                     {/* Card 3: Compliance */}
                     <Card className="min-h-[400px]">
-                        <h3 className="text-2xl font-bold text-white mb-2">Consistent Compliance</h3>
-                        <p className="text-white/50 mb-10 text-sm">Clean, audit-ready data shared seamlessly between HR and Finance.</p>
+                        <h3 className="text-2xl font-bold text-white mb-2">Feature Headline 3</h3>
+                        <p className="text-white/50 mb-10 text-sm">Description of the third key feature, focusing on compliance or data integrity.</p>
 
-                        <div className="space-y-3">
-                            <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5">
-                                <FileText className="text-blue-400" size={20} />
-                                <div className="flex-grow">
-                                    <div className="text-sm text-white font-medium">Form W-8BEN</div>
-                                    <div className="text-xs text-white/40">US / International</div>
-                                </div>
-                                <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
-                                    <Check size={12} className="text-green-500" />
-                                </div>
-                            </div>
-                            <div className="flex items-center gap-4 p-4 rounded-xl bg-white/5 border border-white/5 opacity-60">
-                                <Shield className="text-purple-400" size={20} />
-                                <div className="flex-grow">
-                                    <div className="text-sm text-white font-medium">GDPR Data Audit</div>
-                                    <div className="text-xs text-white/40">European Union</div>
-                                </div>
-                                <div className="w-6 h-6 rounded-full bg-green-500/20 flex items-center justify-center">
-                                    <Check size={12} className="text-green-500" />
-                                </div>
+                        <div className="relative mt-auto mx-auto w-full h-[180px] bg-[#1A1A1A] border border-white/5 rounded-2xl flex items-center justify-center">
+                            <div className="text-white/20 flex flex-col items-center">
+                                <svg className="w-10 h-10 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                </svg>
+                                <span className="text-xs font-medium">Image Placeholder</span>
                             </div>
                         </div>
                     </Card>

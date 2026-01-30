@@ -1,152 +1,96 @@
-import React, { useState } from 'react';
-import { motion, useMotionValue, useTransform, AnimatePresence } from 'framer-motion';
-import { FileText, UserCheck, Rocket, RefreshCcw, ArrowRight } from 'lucide-react';
+import React from 'react';
+import { motion } from 'framer-motion';
+import { FileText, UserCheck, Rocket, ArrowRight } from 'lucide-react';
 
-const Card = ({ data, index, onSwipe, active }) => {
-    const x = useMotionValue(0);
-    const rotate = useTransform(x, [-200, 200], [-15, 15]);
-    const opacity = useTransform(x, [-200, -100, 0, 100, 200], [0, 1, 1, 1, 0]);
+const StepCard = ({ number, title, desc, icon: Icon, delay }) => (
+    <motion.div
+        initial={{ opacity: 0, y: 20 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        transition={{ delay, duration: 0.5 }}
+        viewport={{ once: true }}
+        className="bg-white rounded-[2rem] p-8 border border-gray-100 shadow-xl hover:shadow-2xl transition-all duration-300 relative group overflow-hidden"
+    >
+        <div className="absolute top-0 right-0 p-8 opacity-5 font-mono text-8xl font-bold select-none pointer-events-none group-hover:opacity-10 transition-opacity">
+            {number}
+        </div>
 
-    const handleDragEnd = (event, info) => {
-        if (info.offset.x > 100) {
-            onSwipe(data.id, 'right');
-        } else if (info.offset.x < -100) {
-            onSwipe(data.id, 'left');
-        }
-    };
-
-    return (
-        <motion.div
-            drag={active ? "x" : false}
-            dragConstraints={{ left: 0, right: 0 }}
-            onDragEnd={handleDragEnd}
-            style={{
-                x,
-                rotate,
-                opacity,
-                zIndex: 30 - index, // Lower Z-Index to prevent navbar overlap
-                cursor: active ? 'grab' : 'default'
-            }}
-            animate={{
-                scale: active ? 1 : 1 - (index * 0.05),
-                y: index * 15,
-                rotate: active ? 0 : (index % 2 === 0 ? 2 : -2)
-            }}
-            whileTap={{ cursor: 'grabbing', scale: 1.02 }}
-            transition={{ type: "spring", stiffness: 300, damping: 20 }}
-            className="absolute top-0 w-full max-w-sm md:max-w-md h-[400px] md:h-[500px] rounded-[2rem] shadow-2xl overflow-hidden origin-bottom bg-white border border-gray-200"
-        >
-            {/* Card Content (Monochromatic) */}
-            <div className="w-full h-full p-8 flex flex-col justify-between relative bg-white">
-
-                {/* Subtle Grain or Texture could go here, but keeping it clean white for now */}
-
-                <div className="relative z-10">
-                    <div className="flex items-center justify-between mb-6">
-                        <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-900 border border-gray-100">
-                            <data.icon size={28} />
-                        </div>
-                        <div className="text-5xl font-bold text-gray-100 font-mono">0{data.id}</div>
-                    </div>
-
-                    <h3 className="text-3xl font-bold text-gray-900 mb-4 leading-tight">
-                        {data.title}
-                    </h3>
-                    <p className="text-lg text-gray-500 leading-relaxed font-medium">
-                        {data.desc}
-                    </p>
-                </div>
-
-                <div className="relative z-10">
-                    <div className="flex items-center gap-2 text-gray-400 text-sm font-bold uppercase tracking-widest group">
-                        Swipe to Launch
-                        <ArrowRight size={16} className="text-gray-300 group-hover:text-blue-500 transition-colors" />
-                    </div>
-                </div>
-
+        <div className="relative z-10 h-full flex flex-col">
+            <div className="w-14 h-14 rounded-2xl bg-gray-50 flex items-center justify-center text-gray-900 border border-gray-100 mb-6 group-hover:scale-110 transition-transform">
+                <Icon size={28} strokeWidth={1.5} />
             </div>
-        </motion.div>
-    );
-};
+
+            <h3 className="text-2xl font-bold text-gray-900 mb-4">{title}</h3>
+
+            <p className="text-gray-500 leading-relaxed mb-8 flex-grow">
+                {desc}
+            </p>
+
+            <div className="flex items-center gap-2 text-sm font-bold text-gray-400 uppercase tracking-wider">
+                <span className="w-8 h-[1px] bg-gray-200 group-hover:bg-blue-500 transition-colors"></span>
+                Step {number}
+            </div>
+        </div>
+    </motion.div>
+);
 
 const LaunchSteps = () => {
-    const initialCards = [
+    const steps = [
         {
-            id: 1,
-            title: "Localized Contract Generation",
-            desc: "Input details. We instantly generate locally compliant agreements tailored to regional laws.",
-            icon: FileText
+            number: "01",
+            title: "Step 1 Title",
+            desc: "Description of the first step in the process. It explains the user action and the system response.",
+            icon: FileText,
+            delay: 0.1
         },
         {
-            id: 2,
-            title: "Secure Candidate Onboarding",
-            desc: "Candidates self-onboard via secure portal. Identity verification and tax forms handled automatically.",
-            icon: UserCheck
+            number: "02",
+            title: "Step 2 Title",
+            desc: "Description of the second step. Usually involves some form of processing or user interaction.",
+            icon: UserCheck,
+            delay: 0.2
         },
         {
-            id: 3,
-            title: "Compliance Activation",
-            desc: "KOMP validates inputs, applies local rules, and activates the compliant contract within minutes.",
-            icon: Rocket
+            number: "03",
+            title: "Step 3 Title",
+            desc: "Description of the final step. Confirms the completion of the process and the result.",
+            icon: Rocket,
+            delay: 0.3
         }
     ];
 
-    const [cards, setCards] = useState(initialCards);
-    const [swiped, setSwiped] = useState([]);
-
-    const handleSwipe = (id) => {
-        setCards(prev => prev.filter(c => c.id !== id));
-        setSwiped(prev => [...prev, id]);
-    };
-
-    const resetDeck = () => {
-        setCards(initialCards);
-        setSwiped([]);
-    };
-
     return (
-        <section className="pt-24 pb-40 bg-gradient-to-b from-[#F9FAFB] to-white overflow-hidden min-h-[0] flex flex-col items-center justify-center relative z-0">
+        <section className="py-32 bg-[#F9FAFB] relative overflow-hidden">
+            <div className="container mx-auto px-4 md:px-8 max-w-7xl relative z-10">
 
-            <div className="text-center mb-12 relative z-10 px-4">
-                <h2 className="text-4xl md:text-6xl font-bold text-gray-900 mb-4">Built for Speed.</h2>
-                <p className="text-gray-500 text-lg">Engineered for Compliance.</p>
-            </div>
+                {/* Header */}
+                <div className="text-center max-w-3xl mx-auto mb-20">
+                    <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">Process Headline.</h2>
+                    <p className="text-xl text-gray-500">Process Subheadline.</p>
+                </div>
 
-            <div className="relative w-full max-w-sm md:max-w-md h-[400px] md:h-[500px]">
-                <AnimatePresence>
-                    {cards.map((card, index) => (
-                        <Card
-                            key={card.id}
-                            data={card}
-                            index={index}
-                            active={index === 0}
-                            onSwipe={handleSwipe}
-                        />
+                {/* Steps Grid */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+                    {/* Connecting Line (Desktop only) */}
+                    <div className="hidden md:block absolute top-[60px] left-[16%] right-[16%] h-[2px] bg-gray-200/50 -z-10" />
+
+                    {steps.map((step) => (
+                        <StepCard key={step.number} {...step} />
                     ))}
-                </AnimatePresence>
+                </div>
 
-                {/* Empty State / Reset */}
-                {cards.length === 0 && (
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.8 }}
-                        animate={{ opacity: 1, scale: 1 }}
-                        className="absolute inset-0 flex flex-col items-center justify-center text-center p-8 bg-white rounded-[2rem] border border-gray-200 shadow-xl"
-                    >
-                        <div className="w-20 h-20 bg-green-50 rounded-full flex items-center justify-center mb-6 text-green-500">
-                            <Rocket size={40} />
-                        </div>
-                        <h3 className="text-3xl font-bold text-gray-900 mb-2">All Systems Go!</h3>
-                        <p className="text-gray-500 mb-8">Your expansion strategy is ready for deployment.</p>
-                        <button
-                            onClick={resetDeck}
-                            className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-full font-bold hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1"
-                        >
-                            <RefreshCcw size={18} /> Replay Sequence
-                        </button>
-                    </motion.div>
-                )}
+                {/* Final Callout */}
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 0.4 }}
+                    className="mt-20 text-center"
+                >
+                    <button className="inline-flex items-center gap-2 px-8 py-4 bg-black text-white rounded-full font-bold hover:bg-gray-800 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-1">
+                        Start Now <ArrowRight size={18} />
+                    </button>
+                </motion.div>
+
             </div>
-
         </section>
     );
 };

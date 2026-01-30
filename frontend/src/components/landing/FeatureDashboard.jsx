@@ -12,11 +12,11 @@ const FeatureDashboard = () => {
                         <div className="w-10 h-10 bg-black rounded-lg flex items-center justify-center">
                             <div className="w-5 h-5 bg-white rounded-sm opacity-20" />
                         </div>
-                        <span className="font-semibold text-gray-900">Overview</span>
+                        <span className="font-semibold text-gray-900">Dashboard View</span>
                     </div>
                     <div className="flex items-center gap-2 px-3 py-1.5 bg-green-50 rounded-full border border-green-100">
                         <Activity className="w-4 h-4 text-green-600" />
-                        <span className="text-sm font-medium text-green-700">System Operational</span>
+                        <span className="text-sm font-medium text-green-700">Status OK</span>
                     </div>
                 </div>
 
@@ -25,23 +25,23 @@ const FeatureDashboard = () => {
                     {/* Metrics Row */}
                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                         <MetricCard
-                            label="Active Regions"
-                            value="14"
-                            subtext="+3 New"
+                            label="Metric 1"
+                            value="123"
+                            subtext="+X New"
                             subtextClass="text-green-600"
                             icon={<Globe className="w-5 h-5 opacity-40" />}
                         />
                         <MetricCard
-                            label="Total Headcount"
-                            value="1,248"
-                            subtext="+12.5%"
+                            label="Metric 2"
+                            value="4,567"
+                            subtext="+Y%"
                             subtextClass="text-green-600"
                             icon={<Users className="w-5 h-5 opacity-40" />}
                         />
                         <MetricCard
-                            label="Payroll Run"
-                            value="$4.2M"
-                            subtext="Processing"
+                            label="Metric 3"
+                            value="$8.9M"
+                            subtext="Status"
                             subtextClass="text-blue-600"
                             icon={<CreditCard className="w-5 h-5 opacity-40" />}
                         />
@@ -51,11 +51,11 @@ const FeatureDashboard = () => {
                     <div className="bg-gray-50 rounded-xl p-6 border border-gray-100 min-h-[200px] relative overflow-hidden group">
                         <div className="absolute inset-0 bg-white/50 backdrop-blur-[1px] opacity-0 group-hover:opacity-100 transition-opacity flex items-center justify-center z-10">
                             <span className="text-sm font-medium text-gray-500 bg-white px-4 py-2 rounded-full shadow-sm border border-gray-200">
-                                Live Payroll Volume
+                                Chart Label
                             </span>
                         </div>
 
-                        <h4 className="text-sm font-semibold text-gray-400 mb-8 uppercase tracking-wider">Payroll Volume (YTD)</h4>
+                        <h4 className="text-sm font-semibold text-gray-400 mb-8 uppercase tracking-wider">Chart Title</h4>
 
                         {/* Abstracted SVG Chart Line */}
                         <div className="relative h-32 w-full mt-auto">
@@ -94,8 +94,8 @@ const FeatureDashboard = () => {
                         <CreditCard className="w-5 h-5" />
                     </div>
                     <div>
-                        <div className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Just Processed</div>
-                        <div className="text-sm font-bold text-gray-900">$142,000.00</div>
+                        <div className="text-[10px] text-gray-400 font-semibold uppercase tracking-wider">Notification Title</div>
+                        <div className="text-sm font-bold text-gray-900">Value</div>
                     </div>
                 </motion.div>
 

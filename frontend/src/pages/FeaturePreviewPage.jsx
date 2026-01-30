@@ -13,8 +13,8 @@ const FeaturePreviewPage = () => {
                 <section>
                     <div className="text-center mb-10">
                         <span className="text-xs font-bold text-blue-600 uppercase tracking-widest bg-blue-50 px-3 py-1 rounded-full">Component Preview</span>
-                        <h2 className="text-3xl font-bold text-gray-900 mt-4">Feature Dashboard</h2>
-                        <p className="text-gray-500 mt-2">Abstracted view of system status and metrics</p>
+                        <h2 className="text-3xl font-bold text-gray-900 mt-4">Component A</h2>
+                        <p className="text-gray-500 mt-2">Description of Component A</p>
                     </div>
                     <FeatureDashboard />
                 </section>
@@ -25,8 +25,8 @@ const FeaturePreviewPage = () => {
                 <section>
                     <div className="text-center mb-10">
                         <span className="text-xs font-bold text-green-600 uppercase tracking-widest bg-green-50 px-3 py-1 rounded-full">Component Preview</span>
-                        <h2 className="text-3xl font-bold text-gray-900 mt-4">Feature Comparison</h2>
-                        <p className="text-gray-500 mt-2">"The Manual Way" vs "The Platform"</p>
+                        <h2 className="text-3xl font-bold text-gray-900 mt-4">Component B</h2>
+                        <p className="text-gray-500 mt-2">Comparison of options</p>
                     </div>
                     <FeatureComparison />
                 </section>

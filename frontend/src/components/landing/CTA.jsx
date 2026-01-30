@@ -45,27 +45,27 @@ const CTA = () => {
                         className="relative z-10 max-w-4xl mx-auto"
                     >
                         <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 tracking-tight leading-none">
-                            Ready to operate <br />
-                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white">without borders?</span>
+                            Headline for Final Call <br />
+                            <span className="bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-white">To Action?</span>
                         </h2>
 
                         <p className="text-xl md:text-2xl text-gray-400 mb-12 max-w-2xl mx-auto leading-relaxed">
-                            Stop letting infrastructure dictate your strategy. Deploy your first entity in minutes, not months.
+                            This is the final persuasive text to encourage the user to take action. It should be compelling and concise.
                         </p>
 
                         <div className="flex flex-col sm:flex-row items-center justify-center gap-6 mb-16">
                             <Button variant="white" className="h-16 px-10 text-lg rounded-full font-bold w-full sm:w-auto">
-                                Start Expansion <ArrowRight size={20} className="ml-2" />
+                                Primary Action <ArrowRight size={20} className="ml-2" />
                             </Button>
                             <Button variant="outline" className="h-16 px-10 text-lg text-white border-white/20 hover:bg-white/10 rounded-full font-medium">
-                                Book a Demo
+                                Secondary Action
                             </Button>
                         </div>
 
                         <div className="flex flex-wrap items-center justify-center gap-8 text-sm font-medium text-gray-500">
-                            <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-blue-500" /> Cancel anytime</span>
-                            <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-blue-500" /> SOC2 Secure</span>
-                            <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-blue-500" /> No credit card required</span>
+                            <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-blue-500" /> Promise 1</span>
+                            <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-blue-500" /> Promise 2</span>
+                            <span className="flex items-center gap-2"><CheckCircle2 size={16} className="text-blue-500" /> Promise 3</span>
                         </div>
                     </motion.div>
                 </div>

@@ -40,7 +40,7 @@ const ExecutiveReality = () => {
                         className="inline-flex items-center gap-2 px-3 py-1 bg-white border border-gray-200 rounded-full shadow-sm mb-6"
                     >
                         <span className="w-2 h-2 rounded-full bg-blue-500 animate-pulse" />
-                        <span className="text-xs font-bold text-gray-600 uppercase tracking-wide">Executive Reality</span>
+                        <span className="text-xs font-bold text-gray-600 uppercase tracking-wide">Section Label</span>
                     </motion.div>
 
                     <motion.h2
@@ -49,7 +49,7 @@ const ExecutiveReality = () => {
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-5xl font-bold mb-6 text-gray-900 leading-tight"
                     >
-                        The Structural Cost of <br /> <span className="text-gray-400">Global Expansion.</span>
+                        The Problems with <br /> <span className="text-gray-400">Current Methods.</span>
                     </motion.h2>
 
                     <motion.p
@@ -58,7 +58,7 @@ const ExecutiveReality = () => {
                         transition={{ delay: 0.2 }}
                         className="text-lg text-gray-500 max-w-2xl mx-auto"
                     >
-                        Global expansion doesn’t fail for lack of ambition. It slows when structure gets in the way. Fragmented operating models drain capital, time, and attention.
+                        This is a placeholder description explaining the problem statement. It highlights the challenges faced by users in the current landscape, emphasizing fragmentation and inefficiencies.
                     </motion.p>
                 </div>
 
@@ -68,30 +68,18 @@ const ExecutiveReality = () => {
 
                     {/* Card 1: Time/Speed */}
                     <FeatureCard
-                        label="Velocity"
-                        title="Regain Speed"
-                        desc="Months lost to incorporation and licensing. Remove bureaucratic friction at the point of entry."
+                        label="Problem 1"
+                        title="Issue Headline 1"
+                        desc="Description of the first major problem. Explain the pain point clearly and concisely for the user."
                         color={{ bg: 'bg-purple-50', text: 'text-purple-600' }}
                         delay={0.2}
                         visual={
-                            <div className="absolute inset-0 p-8 flex flex-col justify-end">
-                                <div className="bg-white rounded-t-xl shadow-[0_-10px_40px_-15px_rgba(0,0,0,0.1)] border border-gray-200 p-6 relative top-4 h-full transform transition-transform hover:translate-y-2">
-                                    <div className="flex items-center gap-4 mb-6">
-                                        <div className="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center text-purple-600"><FileText size={20} /></div>
-                                        <div>
-                                            <div className="h-2 w-24 bg-gray-200 rounded mb-2"></div>
-                                            <div className="h-2 w-16 bg-gray-100 rounded"></div>
-                                        </div>
-                                    </div>
-                                    <div className="space-y-3">
-                                        <div className="h-2 w-full bg-gray-100 rounded"></div>
-                                        <div className="h-2 w-full bg-gray-100 rounded"></div>
-                                        <div className="h-2 w-full bg-gray-100 rounded"></div>
-                                        <div className="h-2 w-3/4 bg-gray-100 rounded"></div>
-                                    </div>
-                                    <div className="absolute top-6 right-6 text-green-500">
-                                        <Check size={20} />
-                                    </div>
+                            <div className="absolute inset-0 bg-gray-100 flex items-center justify-center m-6 rounded-xl border border-gray-200">
+                                <div className="text-gray-300 flex flex-col items-center">
+                                    <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span className="text-sm font-medium">Image Placeholder</span>
                                 </div>
                             </div>
                         }
@@ -99,29 +87,18 @@ const ExecutiveReality = () => {
 
                     {/* Card 2: Cost/Capital */}
                     <FeatureCard
-                        label="Capital"
-                        title="Preserve Capital"
-                        desc="Significant upfront costs tied to setup and audits. Enter new markets without locking capital."
+                        label="Problem 2"
+                        title="Issue Headline 2"
+                        desc="Description of the second major problem. Explain the pain point clearly and concisely for the user."
                         color={{ bg: 'bg-blue-50', text: 'text-blue-600' }}
                         delay={0.3}
                         visual={
-                            <div className="absolute inset-0 flex items-center justify-center bg-gradient-to-b from-blue-50/50 to-transparent">
-                                <div className="relative w-full h-full flex items-center justify-center">
-                                    {/* Abstract Speed Visual */}
-                                    <div className="w-[1px] h-full bg-gray-200 absolute left-1/2 -translate-x-1/2"></div>
-
-                                    <motion.div
-                                        className="absolute bg-white p-3 rounded-xl shadow-lg border border-gray-100 flex items-center gap-3 z-10"
-                                        animate={{ y: [-10, 10, -10] }}
-                                        transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
-                                    >
-                                        <div className="w-8 h-8 bg-blue-500 rounded-lg flex items-center justify-center text-white font-bold text-xs">GO</div>
-                                        <div className="text-sm font-bold text-gray-900">Active Status</div>
-                                    </motion.div>
-
-                                    <div className="absolute bottom-10 left-1/2 -translate-x-1/2 text-[10px] font-mono text-gray-400 bg-white px-2 py-1 rounded border border-gray-100">
-                                        T-minus 48 hours
-                                    </div>
+                            <div className="absolute inset-0 bg-gray-100 flex items-center justify-center m-6 rounded-xl border border-gray-200">
+                                <div className="text-gray-300 flex flex-col items-center">
+                                    <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span className="text-sm font-medium">Image Placeholder</span>
                                 </div>
                             </div>
                         }
@@ -129,28 +106,18 @@ const ExecutiveReality = () => {
 
                     {/* Card 3: Integrity/Management */}
                     <FeatureCard
-                        label="Integrity"
-                        title="Operational Integrity"
-                        desc="Disconnected systems limit visibility. Maintain control with a centralized employment layer."
+                        label="Problem 3"
+                        title="Issue Headline 3"
+                        desc="Description of the third major problem. Explain the pain point clearly and concisely for the user."
                         color={{ bg: 'bg-green-50', text: 'text-green-600' }}
                         delay={0.4}
                         visual={
-                            <div className="absolute inset-0 p-6 flex flex-col justify-end">
-                                <div className="bg-white rounded-xl shadow-lg border border-gray-200 w-full h-[90%] overflow-hidden relative top-4 hover:scale-105 transition-transform duration-500">
-                                    {/* Mock Header */}
-                                    <div className="h-10 bg-gray-50 border-b border-gray-100 flex items-center px-4 justify-between">
-                                        <div className="flex gap-1.5">
-                                            <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-                                            <div className="w-2 h-2 rounded-full bg-gray-300"></div>
-                                        </div>
-                                        <div className="h-1.5 w-16 bg-gray-200 rounded-full"></div>
-                                    </div>
-                                    {/* Mock Content */}
-                                    <div className="p-4 grid grid-cols-2 gap-3">
-                                        <div className="h-20 bg-blue-50/50 rounded-lg border border-blue-100/50"></div>
-                                        <div className="h-20 bg-purple-50/50 rounded-lg border border-purple-100/50"></div>
-                                        <div className="col-span-2 h-24 bg-gray-50/50 rounded-lg border border-gray-100"></div>
-                                    </div>
+                            <div className="absolute inset-0 bg-gray-100 flex items-center justify-center m-6 rounded-xl border border-gray-200">
+                                <div className="text-gray-300 flex flex-col items-center">
+                                    <svg className="w-12 h-12 mb-2 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z" />
+                                    </svg>
+                                    <span className="text-sm font-medium">Image Placeholder</span>
                                 </div>
                             </div>
                         }
