@@ -1,0 +1,55 @@
+.problems-section {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.problems-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    /* Gap for the border lines */
+    background-color: var(--border-color);
+    /* Creates lines between cells */
+    border: 1px solid var(--border-color);
+    margin-top: 80px;
+}
+
+.problem-card {
+    background: var(--white);
+    padding: 60px 40px;
+    border-radius: 0;
+    box-shadow: none;
+    border: none;
+    transition: background-color 0.2s;
+}
+
+.problem-card::before {
+    display: none;
+    /* remove hover line */
+}
+
+.problem-card:hover {
+    transform: none;
+    box-shadow: none;
+    background-color: #fafafa;
+}
+
+.problem-card h3 {
+    font-size: 2rem;
+    margin-bottom: 24px;
+    color: var(--black);
+    font-weight: 500;
+    letter-spacing: -0.02em;
+}
+
+.problem-card p {
+    font-size: 1.125rem;
+    color: var(--mid-gray);
+    line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+    .problems-grid {
+        grid-template-columns: 1fr;
+    }
+}

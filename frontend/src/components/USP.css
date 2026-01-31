@@ -1,0 +1,168 @@
+.usp-section {
+    background-color: var(--white);
+    padding: 140px 0;
+    border-bottom: 1px solid var(--border-color);
+    overflow: hidden;
+}
+
+.usp-layout-split {
+    display: flex;
+    align-items: center;
+    gap: 100px;
+    width: 100%;
+}
+
+.usp-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.usp-header .eyebrow {
+    display: block;
+    /* Ensure it behaves as a block for margins */
+    margin: 0 auto 16px;
+    /* Auto side margins center it */
+    text-align: center;
+}
+
+/* Left Column */
+.usp-left-col {
+    flex: 1;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.usp-tabs-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    margin-bottom: 40px;
+}
+
+.usp-tab-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #e5e5e5;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+    padding-left: 0;
+    border-left: 4px solid transparent;
+}
+
+.usp-tab-title:hover {
+    color: #c0c0c0;
+}
+
+.usp-tab-title.active {
+    color: var(--primary-color);
+    padding-left: 24px;
+    border-left: 4px solid var(--primary-color);
+}
+
+.usp-active-content {
+    margin-bottom: 60px;
+    animation: fadeIn 0.4s ease;
+}
+
+.usp-description {
+    font-size: 1.25rem;
+    color: var(--text-primary);
+    line-height: 1.6;
+    margin-bottom: 32px;
+    max-width: 480px;
+}
+
+.usp-cta {
+    padding: 14px 32px;
+}
+
+/* Benefits Row REMOVED */
+
+/* Right Column - Simplified for Image Placeholders */
+.usp-right-col {
+    flex: 1.2;
+}
+
+.usp-image-container {
+    width: 100%;
+    aspect-ratio: 1/1;
+    /* Square placeholder as requested */
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 40px 100px -30px rgba(0, 0, 0, 0.15);
+    border: 1px solid var(--border-color);
+    background: var(--surface-color);
+}
+
+.usp-placeholder-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.fade-in-up {
+    animation: fadeUp 0.5s ease;
+}
+
+@media (max-width: 1024px) {
+    .usp-layout-split {
+        flex-direction: column;
+        gap: 60px;
+    }
+
+    .usp-left-col,
+    .usp-right-col {
+        max-width: 100%;
+        width: 100%;
+        text-align: center;
+        align-items: center;
+    }
+
+    .usp-tabs-nav {
+        align-items: center;
+    }
+
+    .usp-tab-title {
+        text-align: center;
+    }
+
+    .usp-tab-title.active {
+        padding-left: 0;
+        border-left: none;
+        color: var(--primary-color);
+        text-decoration: underline;
+        text-decoration-thickness: 3px;
+        text-underline-offset: 8px;
+    }
+}

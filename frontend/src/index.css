@@ -1,26 +1,175 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500&display=swap');
+:root {
+  /* Brand Colors - Strict Orange & Monochrome */
+  --primary-color: #ff5c35;
+  --primary-hover: #fa4d23;
+  --primary-light: #fff5f2;
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+  /* Neutral Scale - Pure Grays/Blacks (No Blue Tones) */
+  --secondary-color: #000000;
+  /* Pure Black */
+  --secondary-light: #1c1c1c;
+  /* Off-black */
 
-@layer base {
-  body {
-    @apply bg-white text-black antialiased overflow-x-hidden;
-    font-feature-settings: "cv11", "ss01";
-  }
+  --background-color: #ffffff;
+  --surface-color: #f9f9f9;
+  /* Neutral grayscale surface */
+  --surface-hover: #f0f0f0;
+
+  --text-primary: #111111;
+  /* Soft Black */
+  --text-secondary: #555555;
+  /* Neutral Gray */
+  --text-tertiary: #888888;
+
+  --border-color: #e5e5e5;
+  --border-hover: #d4d4d4;
+  --white: #ffffff;
+  --black: #000000;
+
+  /* Spacing System */
+  --container-width: 1240px;
+  --nav-height: 80px;
+
+  /* Typography */
+  --font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
 
-@layer utilities {
-  .text-gradient {
-    background: linear-gradient(90deg, #E6F1FF 0%, #94A3B8 100%);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+body {
+  margin: 0;
+  font-family: var(--font-family);
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
 
-  .wireframe-grid {
-    background-size: 40px 40px;
-    background-image: linear-gradient(to right, #f0f0f0 1px, transparent 1px),
-      linear-gradient(to bottom, #f0f0f0 1px, transparent 1px);
-  }
+* {
+  box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: var(--secondary-color);
+  margin: 0;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  /* Tightens headlines for modern look */
+  font-weight: 700;
+}
+
+h1 {
+  font-size: 3.5rem;
+}
+
+h2 {
+  font-size: 2.75rem;
+}
+
+h3 {
+  font-size: 1.75rem;
+}
+
+p {
+  line-height: 1.7;
+  color: var(--text-secondary);
+  font-size: 1.05rem;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+  transition: all 0.2s ease;
+}
+
+button {
+  cursor: pointer;
+  font-family: inherit;
+  border: none;
+}
+
+.container {
+  max-width: var(--container-width);
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+/* Button System Refinement */
+.btn {
+  padding: 14px 28px;
+  border-radius: 8px;
+  /* Slightly more rounded */
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.2s cubic-bezier(0.4, 0, 0.2, 1);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: -0.01em;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: var(--white);
+  box-shadow: 0 2px 4px rgba(255, 92, 53, 0.2);
+}
+
+.btn-primary:hover {
+  background-color: var(--primary-hover);
+  transform: translateY(-1px);
+  box-shadow: 0 4px 6px rgba(255, 92, 53, 0.3);
+}
+
+.btn-secondary {
+  background-color: transparent;
+  color: var(--primary-color);
+  border: 1px solid var(--border-color);
+  /* Subtle border instead of orange */
+  background: var(--white);
+}
+
+.btn-secondary:hover {
+  border-color: var(--primary-color);
+  background-color: var(--primary-light);
+}
+
+.btn-outline {
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  color: var(--white);
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+}
+
+.btn-outline:hover {
+  background: var(--white);
+  color: var(--secondary-color);
+}
+
+.section {
+  padding: 120px 0;
+  /* More generous spacing */
+}
+
+/* FORCE CENTER ALIGNMENT FOR VISUAL BALANCE */
+.section-title {
+  margin-bottom: 24px;
+  text-align: center;
+  /* Force Center */
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-subtitle {
+  font-size: 1.5rem;
+  text-align: center;
+  /* Force Center */
+  color: var(--text-secondary);
+  max-width: 720px;
+  margin: 0 auto 80px;
+  font-weight: 400;
 }

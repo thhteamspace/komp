@@ -1,0 +1,187 @@
+.diff-section {
+    background-color: #0a0a0a;
+    /* Deep Dark Background */
+    color: #ffffff;
+    padding: 140px 0;
+    position: relative;
+    overflow: hidden;
+}
+
+.diff-header {
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto 80px;
+}
+
+.diff-header .section-title {
+    color: #ffffff;
+    /* Override global black */
+    margin-bottom: 24px;
+}
+
+.diff-header .section-subtitle {
+    color: #a0a0a0;
+    /* Light Gray */
+}
+
+/* Comparison Grid */
+.diff-comparison-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    max-width: 1000px;
+    margin: 0 auto;
+    align-items: stretch;
+}
+
+/* Base Card Styles */
+.diff-card {
+    background: #111111;
+    /* Slightly lighter than bg */
+    border: 1px solid #222;
+    border-radius: 24px;
+    padding: 48px;
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+
+.diff-card-title {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+    color: #fff;
+}
+
+.diff-card-desc {
+    color: #666;
+    font-size: 1rem;
+    margin-bottom: 40px;
+}
+
+/* Traditional Card Specifics */
+.diff-card.traditional {
+    opacity: 0.8;
+}
+
+.diff-card.traditional .diff-card-title {
+    color: #888;
+}
+
+/* KOMP Card Specifics */
+.diff-card.komp-advantage {
+    background: #161616;
+    border: 1px solid #333;
+    box-shadow: 0 20px 80px -20px rgba(0, 0, 0, 0.5);
+}
+
+.diff-card.komp-advantage .diff-card-title {
+    color: #fff;
+}
+
+.diff-badge {
+    position: absolute;
+    top: -12px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--primary-color);
+    color: var(--white);
+    font-size: 0.75rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    padding: 6px 16px;
+    border-radius: 20px;
+    letter-spacing: 0.05em;
+}
+
+/* Feature Lists */
+.diff-feature-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 32px;
+    flex: 1;
+    /* Pushes CTA to bottom */
+}
+
+.diff-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 16px;
+}
+
+.diff-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+    margin-top: 2px;
+}
+
+.diff-item.muted {
+    color: #555;
+}
+
+.diff-item.muted .diff-icon {
+    color: #444;
+}
+
+.diff-item.active {
+    color: #fff;
+}
+
+.diff-item.active .diff-icon {
+    color: var(--primary-color);
+}
+
+.diff-text {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.diff-text strong {
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.diff-text span {
+    font-size: 0.95rem;
+    color: #888;
+}
+
+.diff-item.muted .diff-text span {
+    color: #444;
+}
+
+/* CTA */
+.diff-cta-wrapper {
+    margin-top: 48px;
+    text-align: center;
+}
+
+.btn-white {
+    background: #fff;
+    color: #000;
+    font-weight: 600;
+    padding: 14px 32px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+}
+
+.btn-white:hover {
+    background: #e5e5e5;
+    transform: translateY(-2px);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .diff-comparison-grid {
+        grid-template-columns: 1fr;
+        gap: 24px;
+    }
+
+    .diff-card {
+        padding: 32px;
+    }
+}

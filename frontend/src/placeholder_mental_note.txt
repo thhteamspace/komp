@@ -1,3 +1,0 @@
-// This is a placeholder mental note, not writing a file.
-// If App.jsx uses a layout or router, I need to check that.
-// If App.jsx directly renders components, I'll add CTA there.

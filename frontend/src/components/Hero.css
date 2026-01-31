@@ -1,0 +1,274 @@
+.hero {
+    padding: 120px 0 160px;
+    background: var(--white);
+    overflow: hidden;
+    position: relative;
+    border-bottom: 1px solid var(--border-color);
+    text-align: left;
+}
+
+/* Top Split: Title/Buttons vs Video */
+.hero-main-layout {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    gap: 80px;
+    width: 100%;
+    margin-bottom: 80px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 600px;
+    /* Increased slightly to give buttons room */
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.eyebrow {
+    display: inline-block;
+    font-weight: 600;
+    color: var(--primary-color);
+    margin-bottom: 16px;
+    text-transform: uppercase;
+    font-size: 0.8rem;
+    letter-spacing: 0.1em;
+    background: transparent;
+    padding: 0;
+}
+
+.hero-content h1 {
+    font-size: 3.5rem;
+    margin-bottom: 32px;
+    color: var(--black);
+    font-weight: 700;
+    letter-spacing: -0.03em;
+    line-height: 1.1;
+    text-align: left;
+    text-wrap: balance;
+    /* Automatically balances line lengths */
+    max-width: 100%;
+    /* Ensure it uses available space */
+}
+
+.hero-cta-group {
+    display: flex;
+    gap: 16px;
+    margin-bottom: 0px;
+    align-items: center;
+    width: 100%;
+    /* Full width of the content column */
+}
+
+/* Refined Button Overrides for Hero */
+.hero-cta-group .btn {
+    padding: 16px 24px;
+    font-size: 1rem;
+    border-radius: 6px;
+    flex: 1;
+    /* Force equal width */
+    text-align: center;
+    justify-content: center;
+    white-space: nowrap;
+    /* Prevent breaking on smaller screens if possible */
+}
+
+.hero-cta-group .btn-primary {
+    box-shadow: 0 4px 12px rgba(255, 92, 53, 0.25);
+}
+
+.hero-cta-group .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(255, 92, 53, 0.35);
+}
+
+.hero-cta-group .btn-secondary {
+    border-color: #e5e5e5;
+    color: var(--black);
+}
+
+.hero-cta-group .btn-secondary:hover {
+    border-color: var(--black);
+    background: transparent;
+    transform: translateY(-2px);
+}
+
+
+.hero-media {
+    flex: 1.25;
+    position: relative;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.video-placeholder {
+    width: 100%;
+    aspect-ratio: 4/3;
+    background-color: #000000;
+    border-radius: 16px;
+    box-shadow: 0 40px 80px -20px rgba(0, 0, 0, 0.2);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    background-image: url('https://placehold.co/1200x900/000000/333333?text=Platform');
+    background-size: cover;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+
+.play-button {
+    width: 90px;
+    height: 90px;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(12px);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.play-button::after {
+    content: '';
+    width: 0;
+    height: 0;
+    border-left: 22px solid var(--white);
+    border-top: 12px solid transparent;
+    border-bottom: 12px solid transparent;
+    margin-left: 6px;
+}
+
+.play-button:hover {
+    transform: scale(1.08);
+    background: rgba(255, 255, 255, 0.25);
+    border-color: rgba(255, 255, 255, 0.6);
+}
+
+/* Bottom Split: Description vs Stats */
+.hero-bottom-row {
+    display: flex;
+    align-items: flex-start;
+    /* Align top specifically for text */
+    justify-content: space-between;
+    gap: 80px;
+    padding-top: 60px;
+    border-top: 1px solid var(--border-color);
+    width: 100%;
+}
+
+.hero-description-col {
+    flex: 1.2;
+    /* Increased flex to elongate */
+    max-width: 700px;
+    /* Increased max-width significantly */
+}
+
+.hero-subheadline {
+    font-size: 1.15rem;
+    color: var(--mid-gray);
+    margin: 0;
+    /* Clear all margins for strict alignment */
+    line-height: 1.6;
+    font-weight: 400;
+    text-align: left;
+    letter-spacing: -0.015em;
+    /* Negative spacing for professional look */
+}
+
+.hero-stats-col {
+    display: flex;
+    align-items: flex-start;
+    gap: 48px;
+    flex: 0.8;
+    /* Give description priority width */
+    justify-content: flex-end;
+    /* Push stats to right */
+}
+
+.stat-item {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.stat-value {
+    font-size: 2.25rem;
+    font-weight: 700;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -0.04em;
+}
+
+.stat-label {
+    font-size: 0.85rem;
+    color: var(--mid-gray);
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.stat-divider {
+    width: 1px;
+    height: 50px;
+    background-color: var(--border-color);
+}
+
+@media (max-width: 1024px) {
+    .hero-main-layout {
+        flex-direction: column;
+        text-align: center;
+        gap: 60px;
+        margin-bottom: 40px;
+    }
+
+    .hero-content {
+        align-items: center;
+        max-width: 100%;
+    }
+
+    .hero-content h1 {
+        font-size: 2.75rem;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-cta-group {
+        justify-content: center;
+        width: 100%;
+        flex-direction: column;
+        /* Stack buttons on mobile */
+    }
+
+    .hero-cta-group .btn {
+        width: 100%;
+        flex: none;
+    }
+
+    .hero-bottom-row {
+        flex-direction: column;
+        text-align: center;
+        gap: 40px;
+    }
+
+    .hero-subheadline {
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .hero-stats-col {
+        justify-content: center;
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .stat-divider {
+        display: none;
+    }
+}

@@ -1,0 +1,125 @@
+.content-hub-section {
+    background-color: #060606;
+    /* Deep Black */
+    color: #ffffff;
+    padding: 120px 0;
+    text-align: center;
+}
+
+.content-hub-section .section-title {
+    color: #ffffff;
+    margin-bottom: 60px;
+}
+
+.tabs-wrapper {
+    max-width: 900px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Segmented Control Style */
+.tabs-list {
+    display: inline-flex;
+    background: rgba(255, 255, 255, 0.05);
+    /* Container bg */
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 100px;
+    padding: 6px;
+    gap: 0;
+    /* Items touch or close */
+    margin-bottom: 64px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #888;
+    padding: 12px 32px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 100px;
+}
+
+.tab-btn:hover {
+    color: #fff;
+    /* No bg change on hover for inactive, just text */
+}
+
+.tab-btn.active {
+    background: #ffffff;
+    color: #000000;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+    font-weight: 600;
+}
+
+/* Remove old specific styles */
+.tab-btn.active::after {
+    display: none;
+}
+
+/* Content Area */
+.tab-content {
+    max-width: 800px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 24px;
+}
+
+.industry-heading {
+    font-size: 3rem;
+    font-weight: 700;
+    line-height: 1.1;
+    color: #ffffff;
+    margin: 0;
+}
+
+.industry-desc {
+    font-size: 1.25rem;
+    color: #a0a0a0;
+    line-height: 1.6;
+    max-width: 650px;
+}
+
+.btn-text-link {
+    background: transparent;
+    border: 1px solid #333;
+    color: #ffffff;
+    padding: 12px 24px;
+    font-weight: 600;
+    font-size: 1rem;
+    margin-top: 24px;
+    border-radius: 4px;
+    transition: all 0.2s ease;
+}
+
+.btn-text-link:hover {
+    background: #ffffff;
+    color: #000000;
+    border-color: #ffffff;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .tabs-list {
+        flex-direction: column;
+        gap: 16px;
+        border-bottom: none;
+        align-items: center;
+    }
+
+    .tab-btn {
+        padding: 8px 16px;
+    }
+
+    .industry-heading {
+        font-size: 2rem;
+    }
+}

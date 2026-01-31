@@ -1,0 +1,48 @@
+.final-conversion-section {
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    padding: 180px 0;
+}
+
+.final-conversion-section h2 {
+    color: var(--white);
+    font-size: 4rem;
+    margin-bottom: 32px;
+    max-width: 900px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.final-conversion-section p {
+    color: #999;
+    font-size: 1.5rem;
+    max-width: 700px;
+    margin: 0 auto 60px;
+}
+
+.email-capture-form {
+    display: flex;
+    justify-content: center;
+    gap: 0;
+    /* Connected inputs */
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.email-input {
+    padding: 20px 24px;
+    border-radius: 4px 0 0 4px;
+    border: 1px solid #333;
+    width: 100%;
+    font-size: 1rem;
+    background: #111;
+    color: var(--white);
+}
+
+.email-capture-form button {
+    border-radius: 0 4px 4px 0;
+    white-space: nowrap;
+    padding: 0 40px;
+    font-size: 1rem;
+}

@@ -1,0 +1,72 @@
+.trust-proof-section {
+    background-color: var(--white);
+    border-bottom: 1px solid var(--border-color);
+}
+
+.testimonial-card blockquote {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: var(--black);
+    margin: 0 auto 48px;
+    font-style: normal;
+    line-height: 1.1;
+    letter-spacing: -0.04em;
+    text-align: center;
+    max-width: 900px;
+}
+
+.quote-author {
+    text-align: center;
+    margin-bottom: 100px;
+}
+
+.quote-author cite {
+    font-style: normal;
+    font-weight: 600;
+    color: var(--primary-color);
+    font-size: 1.125rem;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Badges Grid */
+.trust-badges-grid {
+    display: flex;
+    justify-content: center;
+    gap: 24px;
+    flex-wrap: wrap;
+    padding-top: 20px;
+}
+
+/* Simple Badge Style */
+.simple-badge {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    background-color: #f9f9f9;
+    border: 1px solid #eeeeee;
+    padding: 12px 24px;
+    border-radius: 100px;
+    /* Pill shape */
+    transition: all 0.2s ease;
+    cursor: default;
+}
+
+.simple-badge:hover {
+    background-color: #ffffff;
+    border-color: #e0e0e0;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transform: translateY(-2px);
+}
+
+.badge-icon {
+    font-size: 1.25rem;
+    line-height: 1;
+}
+
+.badge-text {
+    font-weight: 600;
+    color: #333333;
+    font-size: 1rem;
+    letter-spacing: -0.01em;
+}
