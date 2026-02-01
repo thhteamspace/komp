@@ -1,0 +1,126 @@
+.ticker-slab {
+    background: #f8fafc;
+    /* Slate-50 - Very light grey */
+    border-top: 1px solid rgba(0, 0, 0, 0.05);
+    border-bottom: 1px solid rgba(0, 0, 0, 0.05);
+    padding: 5rem 0;
+    overflow: hidden;
+    position: relative;
+    color: #1e293b;
+    /* Slate-800 - Dark text */
+}
+
+/* Gradient Masks for smooth fade out at edges - match background color */
+.ticker-slab::before,
+.ticker-slab::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 200px;
+    height: 100%;
+    z-index: 2;
+    pointer-events: none;
+}
+
+.ticker-slab::before {
+    left: 0;
+    background: linear-gradient(to right, #f8fafc, transparent);
+}
+
+.ticker-slab::after {
+    right: 0;
+    background: linear-gradient(to left, #f8fafc, transparent);
+}
+
+.ticker-row {
+    display: flex;
+    white-space: nowrap;
+    position: relative;
+    margin-bottom: 2rem;
+}
+
+.ticker-row:last-child {
+    margin-bottom: 0;
+}
+
+.ticker-track {
+    display: flex;
+    gap: 2rem;
+    animation: ticker-scroll 60s linear infinite;
+    padding-left: 2rem;
+}
+
+.ticker-row:nth-child(even) .ticker-track {
+    animation-direction: reverse;
+}
+
+.ticker-item {
+    font-family: 'Inter', sans-serif;
+    font-size: 1rem;
+    font-weight: 500;
+    color: #475569;
+    /* Slate-600 */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+
+    /* Component/Card Styling - Light Mode */
+    background: #ffffff;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    padding: 0.75rem 1.5rem;
+    border-radius: 100px;
+    transition: all 0.3s ease;
+    user-select: none;
+}
+
+.ticker-item:hover {
+    background: #ffffff;
+    border-color: rgba(59, 130, 246, 0.3);
+    /* Slight blue hint on hover */
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.05);
+    color: #1e293b;
+}
+
+.ticker-item strong {
+    color: #0f172a;
+    /* Slate-900 - Black/Darkest for numbers */
+    font-weight: 700;
+    font-size: 1.1em;
+}
+
+@keyframes ticker-scroll {
+    0% {
+        transform: translateX(0);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.ticker-slab:hover .ticker-track {
+    animation-play-state: paused;
+}
+
+@media (max-width: 768px) {
+    .ticker-slab {
+        padding: 3rem 0;
+    }
+
+    .ticker-slab::before,
+    .ticker-slab::after {
+        width: 100px;
+    }
+
+    .ticker-track {
+        gap: 1rem;
+        padding-left: 1rem;
+    }
+
+    .ticker-item {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+}

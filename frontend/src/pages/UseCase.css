@@ -1,0 +1,492 @@
+/* Use Case Page - Main Container */
+.use-case-page {
+    background-color: var(--white);
+    padding-top: var(--nav-height);
+}
+
+/* --- Hero Section --- */
+.uc-hero {
+    padding: 100px 0;
+    text-align: center;
+    border-bottom: 1px solid var(--border-color);
+}
+
+.uc-hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.uc-eyebrow {
+    display: inline-block;
+    color: var(--primary-color);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+    margin-bottom: 1rem;
+}
+
+.uc-hero h1 {
+    font-size: 3.5rem;
+    color: var(--black);
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+    letter-spacing: -0.03em;
+}
+
+.uc-hero-sub {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    margin-bottom: 3rem;
+    line-height: 1.6;
+}
+
+.uc-hero-actions {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+    margin-bottom: 4rem;
+}
+
+.uc-hero-actions .btn {
+    min-width: 180px;
+}
+
+/* Persona Switcher Visual */
+.uc-persona-switcher {
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    overflow: hidden;
+    margin-top: 4rem;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.05);
+    background: var(--white);
+    max-width: 600px;
+    /* Limit width for better card feel */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.uc-persona-tabs {
+    display: flex;
+    border-bottom: 1px solid var(--border-color);
+    background: #fafafa;
+    /* Very subtle gray for header */
+}
+
+.uc-persona-tab {
+    flex: 1;
+    padding: 1.25rem;
+    text-align: center;
+    cursor: pointer;
+    font-weight: 500;
+    color: var(--text-secondary);
+    transition: all 0.2s ease;
+    border-bottom: 2px solid transparent;
+    position: relative;
+    font-size: 0.95rem;
+}
+
+.uc-persona-tab:hover {
+    color: var(--text-primary);
+    background: rgba(0, 0, 0, 0.02);
+}
+
+.uc-persona-tab.active {
+    background: var(--white);
+    color: var(--primary-color);
+    border-bottom-color: var(--primary-color);
+    font-weight: 600;
+}
+
+.uc-persona-content {
+    padding: 4rem 2rem;
+    /* More breathing room */
+    background: var(--white);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 200px;
+    /* Prevent layout jump */
+}
+
+.uc-metric-card {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+    animation: fadeInScale 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+.uc-metric-value {
+    font-size: 3.5rem;
+    /* Larger impact */
+    font-weight: 800;
+    color: var(--black);
+    line-height: 1;
+    letter-spacing: -0.02em;
+}
+
+.uc-metric-label {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    font-weight: 600;
+}
+
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.95) translateY(10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+    }
+}
+
+/* --- Solutions by Size (Deep Dive Layout) --- */
+.uc-deep-dive-row {
+    display: flex;
+    flex-direction: column;
+    gap: 4rem;
+    padding: 3.5rem;
+    /* Reduced and uniform padding for equidistance */
+    align-items: center;
+    background: var(--surface-color);
+    border: 1px solid var(--border-color);
+    border-radius: 24px;
+    margin-bottom: 2rem;
+}
+
+.uc-deep-dive-row:last-child {
+    margin-bottom: 0;
+}
+
+@media (min-width: 992px) {
+    .uc-deep-dive-row {
+        flex-direction: row;
+        gap: 80px;
+    }
+
+    .uc-deep-dive-row.reverse {
+        flex-direction: row-reverse;
+    }
+}
+
+.uc-deep-dive-content {
+    flex: 1;
+}
+
+.uc-deep-dive-content h3 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+    line-height: 1.2;
+}
+
+.uc-deep-dive-content>p {
+    font-size: 1.15rem;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+    line-height: 1.6;
+}
+
+/* Feature Grid (The "Deep Dive" Sub-features) */
+.uc-feature-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    margin-top: 3rem;
+    border-top: 1px solid rgba(0, 0, 0, 0.06);
+    padding-top: 3rem;
+}
+
+@media (min-width: 768px) {
+    .uc-feature-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+}
+
+.uc-sub-benefit {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+}
+
+.uc-sub-benefit-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--white);
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    margin-bottom: 0.5rem;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
+}
+
+.uc-sub-benefit h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: var(--black);
+    margin: 0;
+}
+
+.uc-sub-benefit p {
+    font-size: 0.95rem;
+    color: var(--text-secondary);
+    margin: 0;
+    line-height: 1.5;
+}
+
+/* Larger Visual for Deep Dive - Simple Frame */
+.uc-deep-dive-visual {
+    flex: 1;
+    background: var(--white);
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    overflow: hidden;
+    position: relative;
+    min-height: 450px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+    display: flex;
+    flex-direction: column;
+}
+
+/* --- Relume-Style Team Sections (Features) --- */
+.uc-feature-container {
+    padding: 80px 0;
+}
+
+.uc-feature-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 6rem;
+    /* Wide gap for cleanliness */
+    align-items: center;
+    margin-bottom: 120px;
+}
+
+.uc-feature-row:last-child {
+    margin-bottom: 0;
+}
+
+/* Reverse Order Modifier */
+.uc-feature-row.reverse {
+    direction: rtl;
+}
+
+.uc-feature-row.reverse .uc-feature-content {
+    direction: ltr;
+    /* Reset text direction */
+}
+
+/* Content Column */
+.uc-feature-content h3 {
+    font-size: 2.5rem;
+    line-height: 1.2;
+    margin-bottom: 1.5rem;
+    color: var(--black);
+    letter-spacing: -0.02em;
+}
+
+.uc-feature-content p {
+    font-size: 1.1rem;
+    line-height: 1.6;
+    color: var(--text-secondary);
+    margin-bottom: 2.5rem;
+}
+
+/* Sub-feature Grid */
+.uc-subfeature-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    /* Two columns for sub-features */
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.uc-subfeature h4 {
+    font-size: 1.1rem;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: var(--black);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.uc-subfeature p {
+    font-size: 0.95rem;
+    margin-bottom: 0;
+    line-height: 1.5;
+}
+
+/* Icon / Bullet for subfeature */
+.uc-subfeature-icon {
+    width: 24px;
+    height: 24px;
+    border-radius: 4px;
+    /* Slightly rounded squares */
+    background: var(--surface-color);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--primary-color);
+    font-size: 14px;
+}
+
+/* Visual Column (Browser Window Style) */
+.uc-feature-visual {
+    background: #f1f5f9;
+    /* Light slate window bg */
+    border: 1px solid var(--border-color);
+    border-radius: 12px;
+    box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    position: relative;
+    aspect-ratio: 4/3;
+    display: flex;
+    flex-direction: column;
+}
+
+.uc-window-header {
+    height: 32px;
+    background: #e2e8f0;
+    border-bottom: 1px solid var(--border-color);
+    display: flex;
+    align-items: center;
+    padding: 0 1rem;
+    gap: 6px;
+}
+
+.uc-window-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #cbd5e1;
+}
+
+.uc-window-content {
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 500;
+    color: var(--text-tertiary);
+    background: var(--white);
+}
+
+/* --- Industry Section --- */
+/* --- Industry Section (Capsule Style) --- */
+.uc-industry-badges {
+    display: inline-flex;
+    background: var(--surface-color);
+    padding: 6px;
+    border-radius: 100px;
+    border: 1px solid var(--border-color);
+    margin-bottom: 3rem;
+    position: relative;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.03);
+}
+
+.uc-badge {
+    padding: 10px 32px;
+    /* Reduced padding slightly for better optics with line-height */
+    border-radius: 100px;
+    border: none;
+    color: var(--text-secondary);
+    font-weight: 500;
+    cursor: pointer;
+    background: transparent;
+    transition: all 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+    position: relative;
+    z-index: 2;
+    font-size: 0.95rem;
+    line-height: 1.2;
+    /* Strict line height for centering */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.uc-badge:hover {
+    color: var(--text-primary);
+}
+
+.uc-badge.active {
+    background: var(--white);
+    color: var(--black);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    font-weight: 600;
+}
+
+.uc-industry-detail {
+    background: transparent;
+    border: none;
+    padding: 2rem 0;
+    /* Removed box styling */
+    text-align: center;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+.uc-industry-detail h3 {
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--black);
+}
+
+.uc-industry-detail p {
+    font-size: 1.25rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+/* --- Final CTA --- */
+.uc-cta-section {
+    background: var(--black);
+    color: white;
+    text-align: center;
+    padding: 120px 0;
+}
+
+.uc-cta-section h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+}
+
+.uc-cta-section p {
+    color: #888;
+    max-width: 600px;
+    margin: 0 auto 3rem;
+}
+
+/* Responsive */
+@media (max-width: 900px) {
+    .uc-feature-row {
+        grid-template-columns: 1fr;
+        gap: 3rem;
+        direction: ltr !important;
+        /* Stack vertically always */
+        margin-bottom: 80px;
+    }
+
+    .uc-subfeature-grid {
+        grid-template-columns: 1fr;
+        /* Stack subfeatures on mobile */
+    }
+
+    .uc-hero h1 {
+        font-size: 2.5rem;
+    }
+
+    .uc-size-grid {
+        grid-template-columns: 1fr;
+    }
+}
