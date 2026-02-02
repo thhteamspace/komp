@@ -40,44 +40,7 @@ const Services = () => {
                         </div>
                     </div>
 
-                    {/* Right: 3D Visual Stage */}
-                    <div className="svc-visual-stage svc-animate-on-scroll" style={{ transitionDelay: '0.2s' }}>
-                        <div className="svc-3d-container">
-                            {/* Main Dashboard Card */}
-                            <div className="svc-main-dash">
-                                <div className="svc-map-visual">
-                                    <div className="svc-map-node" style={{ top: '30%', left: '25%' }}></div>
-                                    <div className="svc-map-node" style={{ top: '45%', left: '35%' }}></div>
-                                    <div className="svc-map-node" style={{ top: '25%', left: '50%' }}></div>
-                                    <div className="svc-map-node" style={{ top: '35%', left: '55%' }}></div>
-                                    <div className="svc-map-node" style={{ top: '55%', left: '75%' }}></div>
 
-                                    <div style={{ position: 'absolute', bottom: '2rem', left: '50%', transform: 'translateX(-50%)', background: 'white', padding: '0.6rem 1.5rem', borderRadius: '100px', boxShadow: '0 4px 12px rgba(0,0,0,0.06)', fontSize: '0.85rem', fontWeight: '600', color: 'var(--text-secondary)', width: 'max-content' }}>
-                                        <div style={{ width: '8px', height: '8px', background: '#10b981', borderRadius: '50%', display: 'inline-block', marginRight: '8px' }}></div>
-                                        System Operational
-                                    </div>
-                                </div>
-                            </div>
-
-                            {/* Floating Card 1: Payroll */}
-                            <div className="svc-float-card top-right">
-                                <div className="svc-icon-box" style={{ background: '#ecfdf5', color: '#10b981' }}><Check size={20} /></div>
-                                <div>
-                                    <div style={{ fontSize: '0.75rem', color: '#888' }}>Payroll Processed</div>
-                                    <div>$1,240,000 USD</div>
-                                </div>
-                            </div>
-
-                            {/* Floating Card 2: Visa */}
-                            <div className="svc-float-card bottom-left">
-                                <div className="svc-icon-box" style={{ background: '#eff6ff', color: '#3b82f6' }}>V</div>
-                                <div>
-                                    <div style={{ fontSize: '0.75rem', color: '#888' }}>New Visa Approved</div>
-                                    <div>Sarah Jenkins (UK)</div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </section>
 

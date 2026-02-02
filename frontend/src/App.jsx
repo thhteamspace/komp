@@ -14,6 +14,7 @@ import FinalConversion from './components/FinalConversion';
 import Footer from './components/Footer';
 import UseCase from './pages/UseCase';
 import Services from './pages/Services';
+import WhyKomp from './pages/WhyKomp';
 import './App.css';
 
 function App() {
@@ -38,6 +39,7 @@ function App() {
           } />
           <Route path="/use-cases" element={<UseCase />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/why-komp" element={<WhyKomp />} />
         </Routes>
         <Footer />
       </div>
