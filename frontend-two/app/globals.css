@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+@theme {
+  --color-brand-orange: #ff4f00;
+  /* Deep, professional orange */
+  --color-brand-blue: #0056b3;
+  /* Trustworthy enterprise blue */
+  --color-brand-black: #0a0a0a;
+  /* Rich black, not gray */
+  --color-brand-white: #ffffff;
+  /* Pure white */
+
+  --font-sans: 'Geist', sans-serif;
+  --animate-fade-in-up: fadeInUp 0.5s ease-out forwards;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+:root {
+  --background: var(--color-brand-black);
+  --foreground: var(--color-brand-white);
+}
+
+body {
+  background-color: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Typography Scale & Hierarchy - Professional/Enterprise */
+h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.1;
+}
+
+h2 {
+  font-size: 2.5rem;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+h3 {
+  font-size: 1.75rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  line-height: 1.3;
+}
+
+p {
+  font-size: 1.125rem;
+  line-height: 1.6;
+  color: color-mix(in srgb, var(--color-brand-white) 80%, transparent);
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+}
