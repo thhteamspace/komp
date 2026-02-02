@@ -13,7 +13,7 @@ const Navbar = () => {
                 </div>
 
                 <div className={`navbar-links ${mobileMenuOpen ? 'active' : ''}`}>
-                    <a href="#products">Products</a>
+                    <Link to="/why-komp">Why KOMP</Link>
                     <Link to="/services">Services</Link>
                     <Link to="/use-cases">Use Cases</Link>
                     <a href="#compliance">Compliance</a>
