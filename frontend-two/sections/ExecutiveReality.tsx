@@ -77,9 +77,15 @@ const ExecutiveReality = () => {
                                     <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg shadow-black group-hover:scale-110 transition-transform duration-500`}>
                                         <item.icon size={28} />
                                     </div>
-                                    <span className="text-[10px] font-black uppercase tracking-widest text-brand-white/20 group-hover:text-brand-white/40 transition-colors">
+                                    <motion.span
+                                        initial={{ x: 20, opacity: 0 }}
+                                        whileInView={{ x: 0, opacity: 1 }}
+                                        viewport={{ once: false }}
+                                        transition={{ delay: 0.3 }}
+                                        className="text-[10px] font-black uppercase tracking-widest text-brand-white/20 group-hover:text-brand-white/40 transition-colors"
+                                    >
                                         {item.tag}
-                                    </span>
+                                    </motion.span>
                                 </div>
 
                                 <div className="flex-grow">

@@ -7,18 +7,22 @@ import { ArrowRight, Globe } from 'lucide-react';
 const Hero = () => {
     return (
         <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden bg-brand-black pt-20">
-            {/* Background Image with Overlay */}
+            {/* Background Video with Overlay */}
             <motion.div
                 initial={{ scale: 1.1, opacity: 0 }}
                 animate={{ scale: 1, opacity: 0.4 }}
                 transition={{ duration: 1.5, ease: "easeOut" }}
                 className="absolute inset-0 z-0"
             >
-                <img
-                    src="/images/hero_bg.png"
-                    alt="Global Connectivity"
+                <video
+                    autoPlay
+                    loop
+                    muted
+                    playsInline
                     className="w-full h-full object-cover"
-                />
+                >
+                    <source src="/videos/hero.mp4" type="video/mp4" />
+                </video>
                 <div className="absolute inset-0 bg-gradient-to-b from-brand-black via-transparent to-brand-black opacity-90" />
                 <div className="absolute inset-0 bg-brand-black/40" />
             </motion.div>

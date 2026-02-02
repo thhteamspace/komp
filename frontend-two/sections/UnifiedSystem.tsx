@@ -33,12 +33,12 @@ const features = [
         color: 'from-orange-500/20 to-brand-orange/20'
     },
     {
-        id: 'health',
+        id: 'mobility',
         icon: Activity,
-        text: 'Real-time Monitoring',
-        title: 'Total Visibility',
-        desc: 'Track every dollar and every employee in real-time with full transparency into workforce health.',
-        badge: 'Live',
+        text: 'Global Mobility Suite',
+        title: 'Visas & Relocation',
+        desc: 'Sponsor visas and manage relocation for your global team. We handle the paperwork, you handle the welcome party.',
+        badge: 'Mobility',
         color: 'from-red-500/20 to-orange-500/20'
     }
 ];

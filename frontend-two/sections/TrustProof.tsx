@@ -1,7 +1,32 @@
 'use client';
 
-import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { motion, useInView, animate } from 'framer-motion';
+import { useEffect, useState, useRef } from 'react';
+
+const Counter = ({ value }: { value: string }) => {
+    const ref = useRef<HTMLSpanElement>(null);
+    const isInView = useInView(ref, { once: false, margin: "0px 0px -100px 0px" }); // Triggers when 100px up from bottom
+
+    useEffect(() => {
+        const node = ref.current;
+        if (!node) return;
+
+        if (isInView) {
+            const controls = animate(0, parseInt(value), {
+                duration: 1.5,
+                ease: "circOut",
+                onUpdate: (latest) => {
+                    node.textContent = Math.round(latest).toString();
+                }
+            });
+            return () => controls.stop();
+        } else {
+            node.textContent = "0"; // Reset when out of view
+        }
+    }, [isInView, value]);
+
+    return <span ref={ref} className="tabular-nums">0</span>;
+};
 
 const TrustProof = () => {
     const [mounted, setMounted] = useState(false);
@@ -58,7 +83,7 @@ const TrustProof = () => {
                             {/* The Number - Massive and Clean */}
                             <div className="relative mb-6">
                                 <span className={`text-[8rem] md:text-[11rem] font-black leading-none tracking-tighter text-white block`}>
-                                    {stat.value}
+                                    <Counter value={stat.value} />
                                     <span className="text-5xl md:text-6xl font-light text-white/20 italic ml-2">{stat.suffix}</span>
                                 </span>
                             </div>
