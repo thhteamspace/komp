@@ -34,14 +34,14 @@ const Header = () => {
             className={cn(
                 'fixed top-0 left-0 right-0 z-50 transition-all duration-300 ease-in-out',
                 isScrolled
-                    ? 'bg-brand-black/95 backdrop-blur-sm border-b border-brand-white/10 py-3 shadow-md'
+                    ? 'bg-white/95 backdrop-blur-sm border-b border-gray-200 py-3 shadow-sm'
                     : 'bg-transparent border-b border-transparent py-5'
             )}
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 z-50 group">
-                    <div className="text-2xl font-bold tracking-tighter text-brand-white">
+                    <div className="text-2xl font-bold tracking-tighter text-brand-black transition-colors">
                         KOMP<span className="text-brand-orange">.</span>
                     </div>
                 </Link>
@@ -52,7 +52,7 @@ const Header = () => {
                         <Link
                             key={link.name}
                             href={link.href}
-                            className="group relative text-sm font-medium text-brand-white/70 hover:text-brand-white transition-colors duration-200"
+                            className="group relative text-sm font-medium text-gray-600 hover:text-brand-black transition-colors duration-200"
                         >
                             <motion.div whileTap={{ scale: 0.95 }} className="relative">
                                 {link.name}
@@ -66,7 +66,7 @@ const Header = () => {
 
                 {/* Desktop Actions */}
                 <div className="hidden md:flex items-center gap-6">
-                    <Link href="/login" className="text-sm font-medium text-brand-white/70 hover:text-brand-white transition-colors">
+                    <Link href="/login" className="text-sm font-medium text-gray-600 hover:text-brand-black transition-colors">
                         Login
                     </Link>
                     <Link href="/compliance">
@@ -78,7 +78,7 @@ const Header = () => {
 
                 {/* Mobile Toggle */}
                 <button
-                    className="md:hidden text-brand-white z-50"
+                    className="md:hidden z-50 text-brand-black"
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -91,20 +91,20 @@ const Header = () => {
                             initial={{ opacity: 0, y: -20 }}
                             animate={{ opacity: 1, y: 0 }}
                             exit={{ opacity: 0, y: -20 }}
-                            className="absolute top-0 left-0 w-full h-screen bg-brand-black flex flex-col items-center justify-center gap-8 p-6 md:hidden"
+                            className="absolute top-0 left-0 w-full h-screen bg-white flex flex-col items-center justify-center gap-8 p-6 md:hidden"
                         >
                             {navLinks.map((link) => (
                                 <Link
                                     key={link.name}
                                     href={link.href}
                                     onClick={() => setMobileMenuOpen(false)}
-                                    className="text-2xl font-medium text-brand-white hover:text-brand-orange transition-colors"
+                                    className="text-2xl font-medium text-brand-black hover:text-brand-orange transition-colors"
                                 >
                                     {link.name}
                                 </Link>
                             ))}
                             <div className="flex flex-col gap-4 mt-8 w-full max-w-xs">
-                                <Link href="/login" className="text-center text-lg text-brand-white hover:text-brand-blue">
+                                <Link href="/login" className="text-center text-lg text-brand-black hover:text-brand-orange">
                                     Login
                                 </Link>
                                 <Button fullWidth onClick={() => setMobileMenuOpen(false)}>

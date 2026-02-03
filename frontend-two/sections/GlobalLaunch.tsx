@@ -32,7 +32,7 @@ const steps = [
 
 const GlobalLaunch = () => {
     return (
-        <section className="py-40 bg-brand-white relative overflow-hidden text-brand-black">
+        <section className="py-40 bg-brand-black relative overflow-hidden text-brand-white">
             {/* Artistic Background Details */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-brand-blue/5 blur-[150px] rounded-full pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-orange/5 blur-[120px] rounded-full pointer-events-none" />
@@ -43,10 +43,10 @@ const GlobalLaunch = () => {
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-black/5 border border-brand-black/5 mb-8"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white border border-gray-100 mb-8"
                     >
                         <div className="w-1.5 h-1.5 rounded-full bg-brand-blue animate-pulse" />
-                        <span className="text-[10px] font-black text-brand-black uppercase tracking-[0.3em]">The Blueprint</span>
+                        <span className="text-[10px] font-black text-brand-white uppercase tracking-[0.3em]">The Blueprint</span>
                     </motion.div>
 
                     <motion.h3
@@ -54,16 +54,16 @@ const GlobalLaunch = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false }}
                         transition={{ duration: 0.8 }}
-                        className="text-5xl md:text-8xl font-black text-brand-black tracking-tighter leading-[1.1]"
+                        className="text-5xl md:text-8xl font-black text-brand-white tracking-tighter leading-[1.1]"
                     >
                         3-Step <br />
-                        <span className="text-brand-black/20 italic block mt-4">Global Launch.</span>
+                        <span className="text-brand-white/20 italic block mt-4">Global Launch.</span>
                     </motion.h3>
                 </div>
 
                 <div className="grid grid-cols-1 lg:grid-cols-3 gap-12 relative">
                     {/* Visual Path Decorator */}
-                    <div className="hidden lg:block absolute top-[25%] left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-brand-black/10 to-transparent -z-0" />
+                    <div className="hidden lg:block absolute top-[25%] left-[15%] right-[15%] h-px bg-gradient-to-r from-transparent via-gray-300 to-transparent -z-0" />
 
                     {steps.map((step, index) => (
                         <motion.div
@@ -75,10 +75,10 @@ const GlobalLaunch = () => {
                             className="group relative flex flex-col items-center"
                         >
                             {/* The Step Card */}
-                            <div className="w-full relative p-12 rounded-[3.5rem] bg-white border border-brand-black/5 transition-all duration-700 group-hover:bg-brand-black group-hover:border-brand-black shadow-[0_30px_60px_-15px_rgba(0,0,0,0.05)] hover:shadow-[0_50px_100px_-20px_rgba(0,0,0,0.4)] group-hover:-translate-y-4">
+                            <div className="w-full relative p-12 rounded-[3.5rem] bg-white border border-gray-100 transition-all duration-700 group-hover:-translate-y-4 shadow-xl">
 
                                 {/* Step Number Badge */}
-                                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 rounded-[1.5rem] bg-brand-white border border-brand-black/5 flex items-center justify-center text-2xl font-black text-brand-black shadow-xl group-hover:bg-brand-orange group-hover:text-white group-hover:border-transparent transition-all duration-500 ring-8 ring-transparent group-hover:ring-brand-orange/10">
+                                <div className="absolute -top-6 left-1/2 -translate-x-1/2 w-16 h-16 rounded-[1.5rem] bg-white border border-gray-100 flex items-center justify-center text-2xl font-black text-brand-white shadow-xl group-hover:bg-brand-orange group-hover:text-white group-hover:border-transparent transition-all duration-500 ring-8 ring-transparent group-hover:ring-brand-orange/10">
                                     0{index + 1}
                                 </div>
 
@@ -86,23 +86,23 @@ const GlobalLaunch = () => {
                                     {/* Icon with animated background */}
                                     <div className={`w-28 h-28 rounded-[2.5rem] ${step.bg} flex items-center justify-center mb-10 relative overflow-hidden transition-all duration-700 group-hover:rotate-[15deg] group-hover:scale-110`}>
                                         <div className={`absolute inset-0 opacity-20 filter blur-xl ${step.bg} group-hover:opacity-100 transition-opacity`} />
-                                        <step.icon size={48} className={`relative z-10 ${step.color} group-hover:text-white group-hover:rotate-[-15deg] transition-all duration-700`} />
+                                        <step.icon size={48} className={`relative z-10 ${step.color} transition-all duration-700`} />
                                     </div>
 
-                                    <h4 className="text-3xl font-black text-brand-black mb-6 transition-colors duration-500 group-hover:text-white tracking-tight">
+                                    <h4 className="text-3xl font-black text-brand-white mb-6 transition-colors duration-500 tracking-tight">
                                         {step.title}
                                     </h4>
 
-                                    <p className="text-brand-black/50 leading-relaxed font-medium transition-colors duration-500 group-hover:text-white/60">
+                                    <p className="text-gray-500 leading-relaxed font-medium transition-colors duration-500">
                                         {step.desc}
                                     </p>
                                 </div>
 
                                 {/* Interactive Bottom Detail */}
                                 <div className="mt-12 flex items-center justify-center gap-4 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-4 group-hover:translate-y-0">
-                                    <div className="h-px w-8 bg-white/20" />
-                                    <span className="text-[10px] font-black text-white/40 uppercase tracking-[0.2em]">Ready to Launch</span>
-                                    <div className="h-px w-8 bg-white/20" />
+                                    <div className="h-px w-8 bg-gray-200" />
+                                    <span className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em]">Ready to Launch</span>
+                                    <div className="h-px w-8 bg-gray-200" />
                                 </div>
                             </div>
                         </motion.div>

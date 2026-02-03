@@ -40,9 +40,9 @@ const Testimonials = () => {
     };
 
     return (
-        <section className="py-32 bg-brand-black border-t border-brand-white/5 relative overflow-hidden">
-            {/* Background Texture */}
-            <div className="absolute inset-0 opacity-20 bg-[url('https://www.transparenttextures.com/patterns/cubes.png')] [mask-image:linear-gradient(to_bottom,transparent,black,transparent)]" />
+        <section className="py-32 bg-gray-50 border-t border-gray-200 relative overflow-hidden text-brand-black">
+            {/* Background Texture - Subtle on Light */}
+            <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
 
             <div className="container mx-auto px-6 relative z-10">
 
@@ -54,13 +54,13 @@ const Testimonials = () => {
                     <div className="flex gap-2">
                         <button
                             onClick={prevTestimonial}
-                            className="w-12 h-12 rounded-full border border-brand-white/10 flex items-center justify-center text-brand-white hover:bg-brand-white hover:text-black transition-all"
+                            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-brand-black hover:bg-black hover:text-white transition-all"
                         >
                             <ArrowLeft size={20} />
                         </button>
                         <button
                             onClick={nextTestimonial}
-                            className="w-12 h-12 rounded-full border border-brand-white/10 flex items-center justify-center text-brand-white hover:bg-brand-white hover:text-black transition-all"
+                            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-brand-black hover:bg-black hover:text-white transition-all"
                         >
                             <ArrowRight size={20} />
                         </button>
@@ -81,17 +81,17 @@ const Testimonials = () => {
                             {/* Left: Text */}
                             <div>
                                 <Quote className="text-brand-orange w-16 h-16 opacity-100 mb-8" />
-                                <h3 className="text-3xl md:text-5xl lg:text-6xl font-medium text-brand-white leading-[1.1] mb-12 tracking-tight">
+                                <h3 className="text-3xl md:text-5xl lg:text-6xl font-medium text-brand-black leading-[1.1] mb-12 tracking-tight">
                                     "{testimonials[activeIndex].quote}"
                                 </h3>
 
                                 <div className="flex items-center gap-4">
-                                    <div className="w-12 h-px bg-brand-white/20" />
+                                    <div className="w-12 h-px bg-gray-300" />
                                     <div>
-                                        <div className="text-brand-white font-bold text-lg">{testimonials[activeIndex].author}</div>
-                                        <div className="flex items-center gap-3 text-brand-white/40 text-sm">
+                                        <div className="text-brand-black font-bold text-lg">{testimonials[activeIndex].author}</div>
+                                        <div className="flex items-center gap-3 text-gray-500 text-sm">
                                             <span>{testimonials[activeIndex].role}</span>
-                                            <span className="w-1 h-1 rounded-full bg-brand-white/40" />
+                                            <span className="w-1 h-1 rounded-full bg-gray-400" />
                                             <span>{testimonials[activeIndex].location}</span>
                                         </div>
                                     </div>
@@ -99,7 +99,7 @@ const Testimonials = () => {
                             </div>
 
                             {/* Right: Image */}
-                            <div className="relative w-full aspect-square md:aspect-[5/4] rounded-[2rem] overflow-hidden group">
+                            <div className="relative w-full aspect-square md:aspect-[5/4] rounded-[2rem] overflow-hidden group shadow-2xl">
                                 <motion.img
                                     src={testimonials[activeIndex].image}
                                     alt={testimonials[activeIndex].author}
@@ -121,7 +121,7 @@ const Testimonials = () => {
                         <div
                             key={i}
                             onClick={() => setActiveIndex(i)}
-                            className={`h-1 flex-1 rounded-full transition-all duration-500 cursor-pointer ${i === activeIndex ? 'bg-brand-orange' : 'bg-brand-white/10'
+                            className={`h-1 flex-1 rounded-full transition-all duration-500 cursor-pointer ${i === activeIndex ? 'bg-brand-orange' : 'bg-gray-200'
                                 }`}
                         />
                     ))}

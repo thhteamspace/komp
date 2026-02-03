@@ -104,7 +104,7 @@ const IndustryUseCases = () => {
                                     animate={{ opacity: 1, y: 0 }}
                                     exit={{ opacity: 0, y: -20 }}
                                     transition={{ duration: 0.5 }}
-                                    className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-8 md:p-12 rounded-[3rem] bg-[#0f0f0f] border border-brand-white/10 relative overflow-hidden"
+                                    className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-8 md:p-12 rounded-[3rem] bg-white border border-gray-100 relative overflow-hidden shadow-2xl"
                                 >
                                     {/* Decorative Gradient Blob */}
                                     <div className={`absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br ${industry.gradient} opacity-10 blur-[100px] rounded-full pointer-events-none`} />

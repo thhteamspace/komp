@@ -10,16 +10,16 @@ const ComparisonRow = ({ feature, komp, traditional, delay }: { feature: string,
         whileInView={{ opacity: 1, y: 0 }}
         viewport={{ once: false }}
         transition={{ duration: 0.5, delay }}
-        className="grid grid-cols-1 md:grid-cols-3 gap-4 py-6 border-b border-brand-white/5 last:border-0 items-center"
+        className="grid grid-cols-1 md:grid-cols-3 gap-4 py-6 border-b border-gray-100 last:border-0 items-center"
     >
-        <div className="font-medium text-brand-white/80">{feature}</div>
+        <div className="font-medium text-brand-white">{feature}</div>
 
-        <div className="flex items-center gap-2 text-brand-white bg-brand-white/5 p-3 rounded-lg border border-brand-white/10">
+        <div className="flex items-center gap-2 text-brand-white bg-gray-50 p-3 rounded-lg border border-gray-200 shadow-sm">
             <CheckCircle className="w-5 h-5 text-green-500 shrink-0" />
             <span className="font-semibold">{komp}</span>
         </div>
 
-        <div className="flex items-center gap-2 text-brand-white/40 grayscale opacity-80 pl-2">
+        <div className="flex items-center gap-2 text-gray-400 grayscale opacity-80 pl-2">
             <XCircle className="w-5 h-5 shrink-0" />
             <span>{traditional}</span>
         </div>
@@ -51,11 +51,11 @@ const CompetitiveDifferentiation = () => {
                     </motion.h3>
                 </div>
 
-                <div className="bg-[#0f0f0f] border border-brand-white/10 rounded-3xl p-8 md:p-12 max-w-5xl mx-auto relative overflow-hidden">
+                <div className="bg-white border border-gray-200 shadow-2xl rounded-3xl p-8 md:p-12 max-w-5xl mx-auto relative overflow-hidden">
                     {/* Decorative Top Line */}
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-50" />
 
-                    <div className="hidden md:grid grid-cols-3 gap-4 mb-6 pb-4 border-b border-brand-white/10 text-sm font-semibold uppercase tracking-wider text-brand-white/40">
+                    <div className="hidden md:grid grid-cols-3 gap-4 mb-6 pb-4 border-b border-gray-100 text-sm font-semibold uppercase tracking-wider text-brand-white/40">
                         <div>Feature</div>
                         <div className="text-brand-orange">With KOMP</div>
                         <div>Traditional EORs</div>

@@ -66,7 +66,7 @@ const UnifiedSystem = () => {
     };
 
     return (
-        <section className="py-32 bg-brand-black relative overflow-hidden">
+        <section className="py-32 bg-white relative overflow-hidden">
             {/* Background elements */}
             <div className="absolute top-0 right-0 w-[50%] h-[100%] bg-gradient-to-l from-brand-blue/5 to-transparent pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-brand-orange/5 blur-[120px] rounded-full pointer-events-none -translate-x-1/2 translate-y-1/2" />
@@ -150,7 +150,7 @@ const UnifiedSystem = () => {
                         transition={{ duration: 1 }}
                         className="lg:w-[55%] relative"
                     >
-                        <div className="relative aspect-[16/11] rounded-[3.5rem] bg-[#0d0d0d] border border-white/10 shadow-[0_80px_120px_-30px_rgba(0,0,0,1)] overflow-hidden group">
+                        <div className="relative aspect-[16/11] rounded-[3.5rem] bg-brand-black border border-white/10 shadow-[0_80px_120px_-30px_rgba(0,0,0,1)] overflow-hidden group">
                             <AnimatePresence mode="wait">
                                 {!isDetailMode ? (
                                     /* State 1: Full Image View */
@@ -164,9 +164,9 @@ const UnifiedSystem = () => {
                                         onClick={() => setIsDetailMode(true)}
                                     >
                                         <img
-                                            src="/images/unified_visual.png"
+                                            src="/images/dashboard_ui.png"
                                             alt="Platform Dashboard"
-                                            className="w-full h-full object-cover opacity-60 transition-opacity duration-700 hover:opacity-100"
+                                            className="w-full h-full object-cover opacity-90 transition-opacity duration-700 hover:opacity-100"
                                         />
 
                                         {/* Chrome UI (Internal to image view) */}
@@ -193,10 +193,10 @@ const UnifiedSystem = () => {
                                         animate={{ opacity: 1, y: 0 }}
                                         exit={{ opacity: 0, y: 200 }}
                                         transition={{ type: "spring", stiffness: 100, damping: 20 }}
-                                        className="absolute inset-0 flex items-center justify-center p-8 bg-[#0a0a0a] cursor-pointer"
+                                        className="absolute inset-0 flex items-center justify-center p-8 bg-brand-black cursor-pointer"
                                         onClick={() => setIsDetailMode(false)}
                                     >
-                                        <div className="w-full max-w-sm p-10 rounded-[3rem] bg-white/[0.03] border border-white/10 shadow-2xl relative overflow-hidden text-center group/card">
+                                        <div className="w-full max-w-sm p-10 rounded-[3rem] bg-white border border-gray-100 shadow-2xl relative overflow-hidden text-center group/card">
                                             {/* Corner Accent Glow */}
                                             <div className={`absolute -top-12 -right-12 w-32 h-32 rounded-full bg-gradient-to-br ${activeFeature?.color} blur-3xl opacity-50`} />
 

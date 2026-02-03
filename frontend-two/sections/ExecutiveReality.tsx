@@ -70,7 +70,7 @@ const ExecutiveReality = () => {
                             {/* Animated Background Gradient on Hover */}
                             <div className={`absolute -inset-1 bg-gradient-to-br ${item.color} rounded-[2.5rem] opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`} />
 
-                            <div className={`relative h-full flex flex-col p-10 rounded-[2rem] bg-[#0d0d0d] border border-brand-white/5 transition-all duration-500 ${item.borderColor} group-hover:translate-y-[-8px] overflow-hidden`}>
+                            <div className={`relative h-full flex flex-col p-10 rounded-[2rem] bg-[#1C1C1E] border border-brand-white/5 transition-all duration-500 ${item.borderColor} group-hover:translate-y-[-8px] overflow-hidden`}>
 
                                 {/* Top Badge */}
                                 <div className="flex justify-between items-start mb-12">
