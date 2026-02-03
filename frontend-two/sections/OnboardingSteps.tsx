@@ -6,7 +6,7 @@ import { UserPlus, FileSignature, MonitorCheck, Rocket } from 'lucide-react';
 const steps = [
     {
         num: "01",
-        title: "Company Onboarding",
+        title: "Register & Invite",
         desc: "Captures essential organizational details such as company profile, location, industry experience, and employee size.",
         icon: UserPlus,
         imgSrc: "/images/onboarding_step1.png",
@@ -14,7 +14,7 @@ const steps = [
     },
     {
         num: "02",
-        title: "Authorized Contacts",
+        title: "Company & Legal Setup",
         desc: "Captures key business and finance points of contact who are officially authorized to manage operations and billing.",
         icon: FileSignature,
         imgSrc: "/images/onboarding_step2.png",
@@ -22,7 +22,7 @@ const steps = [
     },
     {
         num: "03",
-        title: "Review Information",
+        title: "Authorized Contacts",
         desc: "A consolidated view to verify accuracy and confirm that all business and compliance information is correct.",
         icon: MonitorCheck,
         imgSrc: "/images/onboarding_step3.png",
@@ -30,7 +30,7 @@ const steps = [
     },
     {
         num: "04",
-        title: "MSA Agreement",
+        title: "Review, Sign & Go Live",
         desc: "Formally approve and execute the Master Vendor Agreement to activate global services instantly.",
         icon: Rocket,
         imgSrc: "/images/welcome_modal.png",
@@ -44,10 +44,24 @@ const OnboardingSteps = () => {
             <div className="container mx-auto px-6">
 
                 <div className="text-center mb-24">
-                    <span className="text-sm font-bold text-brand-orange uppercase tracking-widest mb-4 block">Speed & Efficiency</span>
-                    <h2 className="text-4xl md:text-6xl font-bold text-zinc-900 tracking-tight leading-tight">
+                    <motion.span
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false }}
+                        transition={{ duration: 0.6 }}
+                        className="text-sm font-bold text-brand-orange uppercase tracking-widest mb-4 block"
+                    >
+                        Speed & Efficiency
+                    </motion.span>
+                    <motion.h2
+                        initial={{ opacity: 0, y: 30 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false }}
+                        transition={{ duration: 0.8, delay: 0.1 }}
+                        className="text-4xl md:text-6xl font-bold text-brand-black tracking-tight leading-tight"
+                    >
                         Get Live in <br className="md:hidden" /> <span className="text-brand-orange">Days, Not Months.</span>
-                    </h2>
+                    </motion.h2>
                 </div>
 
                 <div className="relative">
@@ -58,10 +72,10 @@ const OnboardingSteps = () => {
                         {steps.map((step, idx) => (
                             <motion.div
                                 key={idx}
-                                initial={{ opacity: 0, y: 20 }}
+                                initial={{ opacity: 0, y: 50 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: false }}
-                                transition={{ delay: idx * 0.2 }}
+                                viewport={{ once: false, amount: 0.2 }}
+                                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: idx * 0.1 }}
                                 className="relative bg-white pt-12 pb-8 px-8 rounded-[2rem] border border-gray-100 shadow-lg group hover:-translate-y-2 transition-transform duration-500"
                             >
                                 {/* Floating Number Bubble */}
@@ -77,8 +91,8 @@ const OnboardingSteps = () => {
                                     />
                                 </div>
 
-                                <h3 className="text-2xl font-bold text-zinc-900 mb-3">{step.title}</h3>
-                                <p className="text-slate-600 text-sm leading-relaxed mb-6">
+                                <h3 className="text-2xl font-bold text-brand-black mb-3">{step.title}</h3>
+                                <p className="text-brand-black/60 text-sm leading-relaxed mb-6">
                                     {step.desc}
                                 </p>
                             </motion.div>

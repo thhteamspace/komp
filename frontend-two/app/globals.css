@@ -66,7 +66,6 @@ h3 {
 p {
   font-size: 1.125rem;
   line-height: 1.6;
-  color: color-mix(in srgb, var(--color-brand-white) 80%, transparent);
 }
 
 @layer utilities {

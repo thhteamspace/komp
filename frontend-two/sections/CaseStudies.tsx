@@ -63,7 +63,7 @@ const CaseStudies = () => {
                     >
                         Proven Results. <span className="text-brand-orange block md:inline">Global Impact.</span>
                     </motion.h2>
-                    <p className="text-gray-500 text-xl font-medium max-w-2xl mx-auto">
+                    <p className="text-brand-black/60 text-xl font-medium max-w-2xl mx-auto">
                         We don't just promise compliance. We deliver hyper-growth.
                     </p>
                 </div>
@@ -81,7 +81,7 @@ const CaseStudies = () => {
                                 flex: activeId === item.id ? 3 : 1,
                                 opacity: activeId === item.id ? 1 : 0.6
                             }}
-                            transition={{ type: 'spring', stiffness: 200, damping: 30 }}
+                            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
                             className={`relative overflow-hidden cursor-pointer group bg-white border ${activeId === item.id ? 'border-brand-orange' : 'border-gray-100'} rounded-[1.5rem] shadow-xl`}
                         >
                             {/* Background Image - scales on hover */}
@@ -105,35 +105,50 @@ const CaseStudies = () => {
                                 </div>
 
                                 {/* Bottom: Info */}
-                                <div>
-                                    {/* The Stat */}
-                                    <motion.div
-                                        layout
-                                        className="mb-6"
-                                    >
+                                {/* Bottom: Info */}
+                                <div className="mt-auto h-[400px] flex flex-col justify-start">
+                                    {/* The Stat - Stable Anchor */}
+                                    <div className="mb-2">
                                         <div className="flex items-end gap-2 text-white leading-none">
-                                            <span className={`font-black tracking-tighter ${activeId === item.id ? 'text-7xl md:text-9xl' : 'text-5xl md:text-6xl text-white/50'}`}>
+                                            <motion.span
+                                                transition={{ duration: 0.3, ease: 'easeOut' }}
+                                                style={{ originX: 0, originY: 1 }}
+                                                animate={{
+                                                    scale: activeId === item.id ? 1 : 0.65,
+                                                    opacity: activeId === item.id ? 1 : 0.4
+                                                }}
+                                                className="font-black tracking-tighter text-7xl md:text-9xl block"
+                                            >
                                                 {item.stat}
-                                            </span>
+                                            </motion.span>
                                         </div>
-                                        <span className="text-sm font-bold uppercase tracking-widest text-white/60 pl-2 block mt-2">{item.statLabel}</span>
-                                    </motion.div>
+                                        <motion.span
+                                            transition={{ duration: 0.3, ease: 'easeOut' }}
+                                            className="text-sm font-bold uppercase tracking-widest text-white/50 pl-1 block mt-1"
+                                        >
+                                            {item.statLabel}
+                                        </motion.span>
+                                    </div>
 
                                     {/* Expanding Content */}
                                     <motion.div
                                         initial={false}
                                         animate={{
                                             height: activeId === item.id ? 'auto' : 0,
-                                            opacity: activeId === item.id ? 1 : 0
+                                            opacity: activeId === item.id ? 1 : 0,
+                                        }}
+                                        transition={{
+                                            duration: 0.4,
+                                            ease: [0.22, 1, 0.36, 1]
                                         }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="pt-4 border-t border-white/10 mt-4">
-                                            <h3 className="text-3xl md:text-4xl font-bold mb-4 text-white leading-tight">{item.title}</h3>
-                                            <p className="text-lg text-white/70 mb-8 leading-relaxed max-w-lg">
+                                        <div className="pt-6 border-t border-white/10 mt-4">
+                                            <h3 className="text-3xl md:text-5xl font-black mb-4 text-white leading-[0.85] tracking-tighter">{item.title}</h3>
+                                            <p className="text-base md:text-lg text-white/70 mb-8 leading-relaxed max-w-lg font-medium">
                                                 {item.desc}
                                             </p>
-                                            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-brand-orange text-white text-sm font-bold uppercase tracking-widest group/btn hover:bg-white hover:text-brand-black transition-colors">
+                                            <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-brand-orange text-white text-sm font-black uppercase tracking-widest group/btn hover:bg-white hover:text-brand-black transition-all hover:scale-105 shadow-lg">
                                                 Read Case Study
                                                 <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
                                             </div>

@@ -1,7 +1,7 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
+import { useState, useEffect, useRef } from 'react';
+import { motion, AnimatePresence, useInView } from 'framer-motion';
 import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 
 const testimonials = [
@@ -10,26 +10,31 @@ const testimonials = [
         author: "Sarah Jenkins",
         role: "VP of People, FinScale",
         location: "Tokyo, Japan",
-        image: "https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1000&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop",
+        position: "object-[center_15%]"
     },
     {
         quote: "We switched from Deel because we needed a partner, not just a platform. KOMP's legal team is an extension of ours.",
         author: "Michael Chang",
         role: "CFO, ApexGlobal",
         location: "Singapore",
-        image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80"
+        image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop",
+        position: "object-[center_15%]"
     },
     {
         quote: "The only EOR that actually understands equity compensation across 20 different jurisdictions. A game changer.",
         author: "Elena Rodriguez",
         role: "Head of Talent, InnovateX",
         location: "Berlin, Germany",
-        image: "https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1000&auto=format&fit=crop"
+        image: "https://images.unsplash.com/photo-1573497019236-17f8177b81e8?q=80&w=1000&auto=format&fit=crop",
+        position: "object-center"
     }
 ];
 
 const Testimonials = () => {
     const [activeIndex, setActiveIndex] = useState(0);
+    const sectionRef = useRef(null);
+    const isInView = useInView(sectionRef, { once: false, amount: 0.3 });
 
     const nextTestimonial = () => {
         setActiveIndex((prev) => (prev + 1) % testimonials.length);
@@ -39,28 +44,39 @@ const Testimonials = () => {
         setActiveIndex((prev) => (prev - 1 + testimonials.length) % testimonials.length);
     };
 
+    // Auto-slide effect: Only run when section is in viewport
+    useEffect(() => {
+        if (!isInView) return;
+
+        const interval = setInterval(() => {
+            nextTestimonial();
+        }, 8000);
+
+        return () => clearInterval(interval);
+    }, [activeIndex, isInView]);
+
     return (
-        <section className="py-32 bg-gray-50 border-t border-gray-200 relative overflow-hidden text-brand-black">
+        <section ref={sectionRef} className="py-32 bg-gray-50 border-t border-gray-200 relative overflow-hidden text-brand-black">
             {/* Background Texture - Subtle on Light */}
             <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
 
             <div className="container mx-auto px-6 relative z-10">
 
-                {/* Header */}
-                <div className="flex items-end justify-between mb-24">
-                    <h2 className="text-sm font-bold text-brand-orange uppercase tracking-[0.3em]">
-                        Trusted By The Best
+                {/* Header - Centered & Refined */}
+                <div className="text-center mb-24 relative">
+                    <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-8 text-brand-black">
+                        Trusted By <span className="text-brand-orange">The Best.</span>
                     </h2>
-                    <div className="flex gap-2">
+                    <div className="flex justify-center gap-4">
                         <button
                             onClick={prevTestimonial}
-                            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-brand-black hover:bg-black hover:text-white transition-all"
+                            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-brand-black hover:bg-black hover:text-white transition-all shadow-sm bg-white"
                         >
                             <ArrowLeft size={20} />
                         </button>
                         <button
                             onClick={nextTestimonial}
-                            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-brand-black hover:bg-black hover:text-white transition-all"
+                            className="w-12 h-12 rounded-full border border-gray-200 flex items-center justify-center text-brand-black hover:bg-black hover:text-white transition-all shadow-sm bg-white"
                         >
                             <ArrowRight size={20} />
                         </button>
@@ -99,16 +115,15 @@ const Testimonials = () => {
                             </div>
 
                             {/* Right: Image */}
-                            <div className="relative w-full aspect-square md:aspect-[5/4] rounded-[2rem] overflow-hidden group shadow-2xl">
+                            <div className="relative w-full aspect-square md:aspect-[5/4] rounded-[2rem] overflow-hidden group shadow-2xl bg-gray-200">
                                 <motion.img
                                     src={testimonials[activeIndex].image}
                                     alt={testimonials[activeIndex].author}
-                                    className="w-full h-full object-cover object-center saturate-0 group-hover:saturate-100 transition-all duration-700 scale-100 group-hover:scale-105"
-                                    initial={{ scale: 1.2 }}
-                                    animate={{ scale: 1 }}
-                                    transition={{ duration: 1.5 }}
+                                    className={`w-full h-full object-cover saturate-0 group-hover:saturate-100 transition-all duration-700 ${testimonials[activeIndex].position || 'object-center'}`}
+                                    initial={{ opacity: 0 }}
+                                    animate={{ opacity: 1 }}
+                                    transition={{ duration: 0.8 }}
                                 />
-
                             </div>
 
                         </motion.div>

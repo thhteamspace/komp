@@ -13,9 +13,9 @@ const Button = forwardRef<HTMLButtonElement, ButtonProps>(
         const variants = {
             primary: 'bg-brand-orange text-brand-white hover:bg-brand-orange/90 shadow-[0_4px_14px_0_rgba(255,79,0,0.39)] hover:shadow-[0_6px_20px_rgba(255,79,0,0.23)]',
             secondary: 'bg-brand-blue text-brand-white hover:bg-brand-blue/90 shadow-[0_4px_14px_0_rgba(0,112,243,0.39)]',
-            outline: 'border-2 border-brand-white/10 text-brand-white hover:border-brand-white/30 hover:bg-brand-white/5',
-            ghost: 'text-brand-white hover:bg-brand-white/5',
-            premium: 'bg-brand-white text-brand-black hover:bg-brand-white/90 shadow-[0_0_20px_rgba(255,255,255,0.1)] hover:shadow-[0_0_30px_rgba(255,255,255,0.2)] font-black uppercase tracking-tight',
+            outline: 'border-2 border-brand-black/10 text-brand-black hover:border-brand-black/30 hover:bg-brand-black/5',
+            ghost: 'text-brand-black hover:bg-brand-black/5',
+            premium: 'bg-brand-black text-white hover:bg-brand-black/90 shadow-[0_10px_20px_rgba(0,0,0,0.1)] font-black uppercase tracking-tight',
         };
 
         const sizes = {
