@@ -2,7 +2,7 @@
 
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronRight, ChevronLeft, CalendarClock, DollarSign, PieChart } from 'lucide-react';
+import { CalendarClock, DollarSign, PieChart } from 'lucide-react';
 
 const slides = [
     {
@@ -31,57 +31,64 @@ const slides = [
 const PayrollSlider = () => {
     const [current, setCurrent] = useState(0);
 
-    const next = () => setCurrent((p) => (p + 1) % slides.length);
-    const prev = () => setCurrent((p) => (p - 1 + slides.length) % slides.length);
-
     return (
         <section className="py-32 bg-white">
             <div className="w-full max-w-7xl mx-auto px-6">
 
+                {/* Centered Heading */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                    className="text-center mb-24"
+                >
+                    <h2
+                        className="font-black tracking-tighter text-brand-black mb-6"
+                        style={{ fontSize: '5vw', lineHeight: '1' }}
+                    >
+                        Payroll & Time,<br />
+                        <span className="text-brand-orange">Done Right.</span>
+                    </h2>
+                </motion.div>
+
+                {/* Grid Content */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 50 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.2 }}
-                        transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="mb-20"
-                    >
-                        <h2 className="text-5xl md:text-7xl font-bold tracking-tighter text-brand-black mb-6">
-                            Payroll & Time,<br />
-                            <span className="text-brand-orange">Done Right.</span>
-                        </h2>
-
-                        <div className="space-y-6">
-                            {slides.map((slide, idx) => (
-                                <div
-                                    key={idx}
-                                    onClick={() => setCurrent(idx)}
-                                    className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 border ${current === idx ? 'bg-gray-50 border-gray-200 shadow-md' : 'bg-transparent border-transparent hover:bg-gray-50'}`}
-                                >
-                                    <div className="flex items-center gap-4 mb-2">
-                                        <div className={`p-2 rounded-lg ${current === idx ? 'bg-brand-orange text-white' : 'bg-gray-100 text-gray-400'}`}>
-                                            <slide.icon size={20} />
-                                        </div>
-                                        <h3 className={`text-xl font-bold ${current === idx ? 'text-brand-black' : 'text-brand-black/40'}`}>{slide.title}</h3>
+                    {/* Left: Interactive List */}
+                    <div className="space-y-6">
+                        {slides.map((slide, idx) => (
+                            <div
+                                key={idx}
+                                onClick={() => setCurrent(idx)}
+                                className={`p-6 rounded-2xl cursor-pointer transition-all duration-300 border ${current === idx ? 'bg-gray-50 border-gray-200 shadow-md' : 'bg-transparent border-transparent hover:bg-gray-50'}`}
+                            >
+                                <div className="flex items-center gap-4 mb-2">
+                                    <div className={`p-2.5 rounded-xl transition-all duration-300 border
+                                        ${current === idx
+                                            ? 'bg-white border-brand-orange text-brand-orange shadow-sm scale-110'
+                                            : 'bg-white border-slate-100 text-slate-300'}`}>
+                                        <slide.icon size={22} />
                                     </div>
-                                    <AnimatePresence>
-                                        {current === idx && (
-                                            <motion.p
-                                                initial={{ height: 0, opacity: 0 }}
-                                                animate={{ height: 'auto', opacity: 1 }}
-                                                exit={{ height: 0, opacity: 0 }}
-                                                className="text-brand-black/60 ml-12"
-                                            >
-                                                {slide.desc}
-                                            </motion.p>
-                                        )}
-                                    </AnimatePresence>
+                                    <h3 className={`text-xl font-bold transition-colors duration-300 ${current === idx ? 'text-brand-black' : 'text-brand-black/40'}`}>{slide.title}</h3>
                                 </div>
-                            ))}
-                        </div>
-                    </motion.div>
+                                <AnimatePresence>
+                                    {current === idx && (
+                                        <motion.p
+                                            initial={{ height: 0, opacity: 0 }}
+                                            animate={{ height: 'auto', opacity: 1 }}
+                                            exit={{ height: 0, opacity: 0 }}
+                                            className="text-brand-black/60 ml-12"
+                                        >
+                                            {slide.desc}
+                                        </motion.p>
+                                    )}
+                                </AnimatePresence>
+                            </div>
+                        ))}
+                    </div>
 
+                    {/* Right: Preview Image */}
                     <div className="flex flex-col gap-8">
                         <motion.div
                             initial={{ opacity: 0, y: 60 }}
@@ -90,7 +97,6 @@ const PayrollSlider = () => {
                             transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
                             className="relative h-[380px] md:h-[480px] w-full rounded-[3rem] group bg-slate-50 border border-slate-200/60 p-5 shadow-2xl overflow-hidden"
                         >
-                            {/* Immersive Image Container - Elegant Frame */}
                             <div className="relative h-full w-full rounded-[2rem] overflow-hidden shadow-inner bg-white">
                                 <AnimatePresence mode="wait">
                                     <motion.div
@@ -112,12 +118,9 @@ const PayrollSlider = () => {
                             </div>
                             <div className="absolute -top-6 -left-6 w-32 h-32 bg-brand-orange/10 blur-3xl rounded-full pointer-events-none" />
                         </motion.div>
-
-
                     </div>
 
                 </div>
-
             </div>
         </section>
     );

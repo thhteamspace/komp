@@ -28,10 +28,8 @@ const ComparisonRow = ({ feature, komp, traditional, delay }: { feature: string,
 
 const CompetitiveDifferentiation = () => {
     return (
-        <section className="py-24 bg-gradient-to-b from-white to-slate-50 relative overflow-hidden">
-            {/* Subtle background mesh */}
-            <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808012_1px,transparent_1px),linear-gradient(to_bottom,#80808012_1px,transparent_1px)] bg-[size:24px_24px]" />
-            <div className="absolute left-0 right-0 top-0 -z-10 m-auto h-[310px] w-[310px] rounded-full bg-brand-orange/20 opacity-20 blur-[100px]" />
+        <section className="py-24 bg-white relative overflow-hidden">
+            {/* Background details removed for a cleaner white look */}
 
             <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-16">
@@ -41,17 +39,18 @@ const CompetitiveDifferentiation = () => {
                         viewport={{ once: false }}
                         className="inline-block"
                     >
-                        <h2 className="text-base font-bold text-brand-orange tracking-wider uppercase mb-3">The New Standard</h2>
+                        <h2 className="text-base font-bold text-brand-blue tracking-wider uppercase mb-3">The New Standard</h2>
                     </motion.div>
 
                     <motion.h3
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: false }}
-                        className="text-3xl md:text-5xl font-black mb-6 text-slate-900 leading-tight tracking-tight"
+                        className="font-black mb-6 text-slate-900 tracking-tighter"
+                        style={{ fontSize: '5vw', lineHeight: '1' }}
                     >
                         Why Modern Leaders Are <br />
-                        <span className="text-slate-400 block mt-2">Moving to KOMP.</span>
+                        <span className="text-slate-400">Moving to KOMP.</span>
                     </motion.h3>
                 </div>
 
@@ -93,7 +92,7 @@ const CompetitiveDifferentiation = () => {
                     </div>
 
                     <div className="mt-12 text-center">
-                        <p className="text-slate-400 text-sm font-bold uppercase tracking-widest italic">
+                        <p className="text-slate-950 text-lg font-bold">
                             “We don’t just provide software; we provide the legal shield your CFO demands.”
                         </p>
                     </div>

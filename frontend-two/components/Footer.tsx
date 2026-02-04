@@ -7,53 +7,18 @@ import Button from './Button';
 
 const Footer = () => {
     return (
-        <footer className="bg-[#0b0f1a] border-t border-white/5 pt-72 pb-10 relative">
-            {/* GIANT CINEMATIC LOGO EFFECT - MASKED REVEAL */}
-            <div className="absolute left-1/2 -translate-x-1/2 -top-[9.75vw] w-auto whitespace-nowrap z-10 select-none overflow-visible px-[5vw]">
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false, amount: 0.4 }}
-                    variants={{
-                        visible: { transition: { staggerChildren: 0.15 } }
-                    }}
-                    className="relative font-black tracking-wider text-[19.5vw] leading-none flex"
-                >
-                    {["K", "O", "M", "P"].map((letter, i) => (
-                        <div key={i} className="overflow-hidden py-24 -my-24">
-                            <motion.span
-                                variants={{
-                                    hidden: { y: "120%", opacity: 0 },
-                                    visible: {
-                                        y: 0,
-                                        opacity: 1,
-                                        transition: { duration: 1.8, ease: [0.33, 1, 0.68, 1] }
-                                    }
-                                }}
-                                whileHover={{
-                                    y: -10,
-                                    filter: 'drop-shadow(0 0 30px rgba(255,255,255,0.4))',
-                                    transition: { duration: 0.4 }
-                                }}
-                                className="relative block bg-clip-text text-transparent bg-gradient-to-b from-slate-900 via-slate-400 to-white"
-                                style={{
-                                    filter: 'drop-shadow(0 20px 40px rgba(0,0,0,0.4))',
-                                }}
-                            >
-                                {letter}
-                            </motion.span>
-                        </div>
-                    ))}
-                </motion.div>
-            </div>
-
+        <footer className="bg-[#0b0f1a] border-t border-white/5 pt-24 pb-10 relative">
             <div className="container mx-auto px-6 relative z-20">
 
                 <div className="flex flex-col md:flex-row justify-between items-start gap-12 mb-16">
                     {/* Brand Column */}
                     <div className="max-w-xs">
-                        <div className="text-2xl font-bold tracking-tighter text-white mb-6">
-                            KOMP<span className="text-brand-orange">.</span>
+                        <div className="mb-6">
+                            <img
+                                src="/images/Logo_1-04-removebg-preview.png"
+                                alt="KOMP Logo"
+                                className="h-20 w-auto object-contain"
+                            />
                         </div>
                         <p className="text-zinc-400 text-sm leading-relaxed mb-8">
                             The infrastructure for global ambition. Hire, pay, and manage talent in 150+ countries without the compliance risk.

@@ -49,15 +49,16 @@ const ExecutiveReality = () => {
                 >
                     <motion.div
                         variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50/50 border border-red-100/60 mb-8 backdrop-blur-sm"
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/50 border border-blue-100/60 mb-8 backdrop-blur-sm"
                     >
-                        <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
-                        <span className="text-[11px] font-bold text-red-600 uppercase tracking-widest">Critical Intelligence</span>
+                        <div className="w-1.5 h-1.5 rounded-full bg-brand-blue animate-pulse" />
+                        <span className="text-[11px] font-bold text-brand-blue uppercase tracking-widest">Critical Intelligence</span>
                     </motion.div>
 
                     <motion.h2
                         variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
-                        className="text-6xl md:text-[7.5rem] font-black mb-6 text-slate-950 tracking-tighter leading-none"
+                        className="font-black mb-6 text-slate-950 tracking-tighter"
+                        style={{ fontSize: '5vw', lineHeight: '1' }}
                     >
                         The High Cost of <br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 to-slate-600">
@@ -88,35 +89,34 @@ const ExecutiveReality = () => {
 
                             <div className={`relative h-full flex flex-col p-6 rounded-[1.25rem] bg-slate-50 border border-slate-200 transition-all duration-500 ${item.borderColor} group-hover:translate-y-[-8px] group-hover:bg-white group-hover:shadow-2xl overflow-hidden`}>
 
-                                {/* Top Badge */}
+                                {/* Top Section with Icon */}
                                 <div className="flex justify-between items-start mb-6">
-                                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg shadow-slate-200 group-hover:scale-110 transition-transform duration-500`}>
-                                        <item.icon size={20} />
+                                    <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 bg-white border border-slate-100 shadow-sm
+                                        ${index === 0 ? 'text-blue-600' : index === 1 ? 'text-orange-600' : 'text-emerald-600'}`}>
+                                        <item.icon size={24} />
                                     </div>
-                                    <motion.span
-                                        initial={{ x: 20, opacity: 0 }}
-                                        whileInView={{ x: 0, opacity: 1 }}
-                                        viewport={{ once: false }}
-                                        transition={{ delay: 0.3 }}
-                                        className="text-[9px] font-black uppercase tracking-widest text-slate-400 group-hover:text-slate-600 transition-colors"
-                                    >
-                                        {item.tag}
-                                    </motion.span>
                                 </div>
 
                                 <div className="flex-grow">
-                                    <h4 className="text-lg font-bold mb-2 text-slate-900 tracking-tight">
+                                    <h4 className="text-xl font-bold mb-3 text-slate-900 tracking-tight">
                                         {item.title}
                                     </h4>
-                                    <p className="text-xs text-slate-500 leading-relaxed font-medium group-hover:text-slate-600 transition-colors duration-300">
+                                    <p className="text-sm text-slate-500 leading-relaxed font-medium mb-4 group-hover:text-slate-600 transition-colors duration-300">
                                         {item.description}
                                     </p>
+
+                                    {/* Tag moved to bottom of description */}
+                                    <div className="flex items-center gap-2">
+                                        <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border 
+                                            ${index === 0 ? 'bg-blue-50 text-blue-600 border-blue-100' :
+                                                index === 1 ? 'bg-brand-orange/10 text-brand-orange border-brand-orange/20' :
+                                                    'bg-emerald-50 text-emerald-600 border-emerald-100'}`}>
+                                            {item.tag}
+                                        </span>
+                                    </div>
                                 </div>
 
-                                <div className="mt-8 flex items-center justify-between">
-                                    <div className="text-[9px] font-black text-slate-300 uppercase tracking-widest group-hover:text-brand-orange transition-colors">
-                                        Solution Found
-                                    </div>
+                                <div className="mt-8 flex items-center justify-end">
                                     <div className="w-8 h-8 rounded-full bg-slate-200/50 border border-slate-200 flex items-center justify-center group-hover:bg-brand-orange group-hover:border-transparent transition-all duration-500">
                                         <ArrowUpRight size={16} className="text-slate-400 group-hover:text-white group-hover:rotate-45 transition-all duration-500" />
                                     </div>

@@ -3,24 +3,17 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, useScroll, useTransform, useSpring } from 'framer-motion';
 import Button from '@/components/Button';
-import { ArrowRight, Globe } from 'lucide-react';
+import { ArrowRight, Globe, ShieldCheck, Lock } from 'lucide-react';
 
 const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null);
-    const [activeTrustIdx, setActiveTrustIdx] = useState(0);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
         offset: ["start start", "end end"]
     });
 
-    // Auto-highlighting sequence for trust indicators
-    useEffect(() => {
-        const interval = setInterval(() => {
-            setActiveTrustIdx((prev) => (prev + 1) % 5);
-        }, 2000);
-        return () => clearInterval(interval);
-    }, []);
+
 
     // SMOOTHING: Buffers the scroll input to eliminate jitter
     const smoothProgress = useSpring(scrollYProgress, {
@@ -53,21 +46,7 @@ const Hero = () => {
             <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center pt-20">
 
                 {/* Background Video - Becomes part of the stack */}
-                <motion.div
-                    style={{ scale: videoScale, opacity: videoOpacity }}
-                    className="absolute inset-0 z-0 origin-center"
-                >
-                    <video
-                        autoPlay
-                        loop
-                        muted
-                        playsInline
-                        className="w-full h-full object-cover"
-                    >
-                        <source src="/videos/hero.mp4 (2).mp4" type="video/mp4" />
-                    </video>
-                    <div className="absolute inset-0 bg-white/20" />
-                </motion.div>
+                {/* Background Video Disabled */}
 
                 {/* LAYER 1: HEADLINE CONTENT */}
                 <motion.div
@@ -75,15 +54,15 @@ const Hero = () => {
                     className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center -mt-20"
                 >
                     <motion.div
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 mb-8 backdrop-blur-sm"
+                        className="inline-flex items-center gap-2 mb-8"
                     >
-                        <span className="w-2 h-2 rounded-full bg-brand-orange" />
-                        <span className="text-sm font-bold text-brand-orange uppercase tracking-wider">The Infrastructure for Global Ambition.</span>
+                        <span className="w-2 h-2 rounded-full bg-brand-blue" />
+                        <span className="text-sm font-bold text-brand-blue uppercase tracking-wider">The Infrastructure for Global Ambition.</span>
                     </motion.div>
 
                     <h1 className="text-5xl md:text-8xl font-black tracking-tight text-slate-950 mb-6 max-w-6xl leading-[0.85]">
                         Hire Anyone, Anywhere,<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-blue">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-[#FFB366]">
                             Without the Legal Complexity.
                         </span>
                     </h1>
@@ -125,27 +104,7 @@ const Hero = () => {
                     </motion.div>
                 </div>
 
-                {/* LAYER 3: TRUST INDICATORS (Bottom emergence) */}
-                <motion.div
-                    style={{ opacity: trustOpacity, y: trustY }}
-                    className="absolute bottom-1 w-full max-w-7xl px-6 flex justify-between items-center z-30"
-                >
-                    {[
-                        'Powering growth for 1,200+ global entities',
-                        'SOC2 Compliant',
-                        'ISO 27001 Certified',
-                    ].map((logo, idx) => (
-                        <span
-                            key={logo}
-                            className={`text-[11px] md:text-[14px] font-black uppercase tracking-[0.2em] transition-all duration-1000 ${activeTrustIdx === idx
-                                ? 'text-slate-950 opacity-100 scale-105'
-                                : 'text-slate-300 opacity-40'
-                                }`}
-                        >
-                            {logo}
-                        </span>
-                    ))}
-                </motion.div>
+
 
             </div>
         </div>

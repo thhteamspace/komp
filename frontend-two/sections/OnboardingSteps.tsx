@@ -53,14 +53,17 @@ const OnboardingSteps = () => {
                     }}
                         className="flex items-center gap-4 mb-8"
                     >
-                        <div className="h-px w-10 bg-brand-orange" />
-                        <span className="text-sm font-black text-brand-orange uppercase tracking-[0.4em]">
+                        <div className="h-px w-10 bg-brand-blue" />
+                        <span className="text-sm font-black text-brand-blue uppercase tracking-[0.4em]">
                             Speed & Efficiency
                         </span>
-                        <div className="h-px w-10 bg-brand-orange" />
+                        <div className="h-px w-10 bg-brand-blue" />
                     </motion.div>
 
-                    <h2 className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.85]">
+                    <h2
+                        className="font-black text-slate-950 tracking-tighter"
+                        style={{ fontSize: '4vw', lineHeight: '0.85' }}
+                    >
                         <div className="flex flex-wrap justify-center gap-x-4 gap-y-0 cursor-default">
                             {/* Line 1 */}
                             {["Get", "Live", "in"].map((word, i) => (
@@ -83,7 +86,7 @@ const OnboardingSteps = () => {
                                     hidden: { opacity: 0, scale: 0.9, y: 20 },
                                     visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 1, ease: 'backOut' } }
                                 }}
-                                className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-blue pb-2"
+                                className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-[#FFB366] pb-2"
                             >
                                 Days, Not Months.
                             </motion.span>
@@ -159,7 +162,7 @@ const OnboardingSteps = () => {
                                         initial={{ width: '0%' }}
                                         whileInView={{ width: '100%' }}
                                         transition={{ duration: 2, delay: idx * 0.3, ease: "circOut" }}
-                                        className="h-full bg-gradient-to-r from-brand-orange to-brand-blue shadow-[0_0_10px_rgba(255,103,44,0.3)]"
+                                        className="h-full bg-gradient-to-r from-brand-orange to-[#FFB366] shadow-[0_0_10px_rgba(255,140,26,0.3)]"
                                     />
                                 </div>
                             </div>
@@ -192,16 +195,16 @@ const OnboardingSteps = () => {
                                     hidden: { opacity: 0, y: 10 },
                                     visible: { opacity: 1, y: 0 }
                                 }}
-                                className="inline-block px-4 py-1.5 rounded-full bg-white border border-slate-200 text-brand-orange text-xs font-black uppercase tracking-widest mb-8 shadow-sm"
+                                className="inline-block px-4 py-1.5 rounded-full bg-white border border-slate-200 text-brand-blue text-xs font-black uppercase tracking-widest mb-8 shadow-sm"
                             >
                                 Fast-Track Success
                             </motion.span>
 
-                            <h4 className="text-5xl md:text-7xl font-black mb-8 tracking-tighter leading-tight text-slate-950">
+                            <h4 className="text-5xl md:text-7xl font-bold mb-8 tracking-tighter leading-tight text-slate-950">
                                 <motion.span variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="block">Ready to</motion.span>
                                 <motion.span
                                     variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }}
-                                    className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-blue block mt-2 pb-4 pr-2"
+                                    className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-[#FFB366] block mt-2 pb-4 pr-2"
                                 >
                                     Accelerate Growth?
                                 </motion.span>

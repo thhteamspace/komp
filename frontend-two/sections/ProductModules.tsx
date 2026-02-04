@@ -94,12 +94,15 @@ const ProductModules = () => {
                 <motion.div
                     initial={{ opacity: 0, y: -20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    className="text-brand-orange font-bold uppercase tracking-[0.4em] text-xs mb-6"
+                    className="text-brand-blue font-bold uppercase tracking-[0.4em] text-xs mb-6"
                 >
                     Infrastructure
                 </motion.div>
                 <div className="max-w-4xl mx-auto px-4">
-                    <h2 className="text-5xl md:text-7xl font-black text-slate-950 tracking-tighter mb-6 leading-tight">
+                    <h2
+                        className="font-black text-slate-950 tracking-tighter mb-6"
+                        style={{ fontSize: '5vw', lineHeight: '1.1' }}
+                    >
                         The Global Expansion Stack.
                     </h2>
                     <p className="text-xl md:text-2xl text-slate-500 leading-relaxed">

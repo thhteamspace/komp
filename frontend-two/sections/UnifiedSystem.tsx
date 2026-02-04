@@ -102,7 +102,7 @@ const UnifiedSystem = () => {
                             className="text-5xl md:text-8xl font-bold text-brand-white mb-10 tracking-tighter leading-[1.1]"
                         >
                             One Platform. <br />
-                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange via-white to-brand-blue block mt-4">Global Scale.</span>
+                            <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-[#FFB366] block mt-4">Global Scale.</span>
                         </motion.h3>
 
                         {/* Selection Grid Animation */}

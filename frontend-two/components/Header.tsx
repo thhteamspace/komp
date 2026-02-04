@@ -41,9 +41,11 @@ const Header = () => {
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
                 <Link href="/" className="flex items-center gap-2 z-50 group">
-                    <div className="text-2xl font-bold tracking-tighter text-brand-black transition-colors">
-                        KOMP<span className="text-brand-orange">.</span>
-                    </div>
+                    <img
+                        src="/images/Logo_1-04-removebg-preview.png"
+                        alt="KOMP Logo"
+                        className="h-14 w-auto object-contain"
+                    />
                 </Link>
 
                 {/* Desktop Nav */}

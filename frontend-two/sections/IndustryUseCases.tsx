@@ -62,7 +62,10 @@ const IndustryUseCases = () => {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-6xl font-black text-slate-950 mb-6 tracking-tighter">
+                    <h2
+                        className="font-black text-slate-950 mb-6 tracking-tighter"
+                        style={{ fontSize: '4vw', lineHeight: '1.2' }}
+                    >
                         Built for <span className="text-slate-400 italic">Your Industry.</span>
                     </h2>
                     <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium">
@@ -106,11 +109,13 @@ const IndustryUseCases = () => {
                                     transition={{ duration: 0.5 }}
                                     className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center p-8 md:p-12 rounded-[3rem] bg-white border border-gray-100 relative overflow-hidden shadow-2xl"
                                 >
-                                    {/* Decorative Gradient Blob */}
-                                    <div className={`absolute top-0 right-0 w-[500px] h-[500px] bg-gradient-to-br ${industry.gradient} opacity-10 blur-[100px] rounded-full pointer-events-none`} />
+                                    {/* Decorative Blob Removed */}
 
                                     <div>
-                                        <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${industry.gradient} flex items-center justify-center mb-8 text-white shadow-lg`}>
+                                        <div className={`w-14 h-14 rounded-2xl flex items-center justify-center mb-8 bg-white border border-slate-100 shadow-sm
+                                            ${industry.id === 'tech' ? 'text-blue-600' :
+                                                industry.id === 'healthcare' ? 'text-emerald-600' :
+                                                    'text-brand-orange'}`}>
                                             <industry.icon size={28} />
                                         </div>
                                         <h3 className="text-3xl md:text-5xl font-bold text-slate-950 mb-6 leading-tight">
@@ -132,7 +137,10 @@ const IndustryUseCases = () => {
                                                     initial={{ scale: 0.5, opacity: 0 }}
                                                     animate={{ scale: 1, opacity: 1 }}
                                                     transition={{ delay: 0.2 + (index * 0.1), type: "spring", stiffness: 100 }}
-                                                    className={`text-2xl font-black bg-gradient-to-br ${industry.gradient} bg-clip-text text-transparent mb-1`}
+                                                    className={`text-2xl font-black mb-1
+                                                        ${industry.id === 'tech' ? 'text-blue-600' :
+                                                            industry.id === 'healthcare' ? 'text-emerald-600' :
+                                                                'text-brand-orange'}`}
                                                 >
                                                     {stat.value}
                                                 </motion.div>

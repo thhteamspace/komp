@@ -32,7 +32,10 @@ const KnowledgeCenter = () => {
                     transition={{ duration: 0.8 }}
                     className="flex flex-col items-center justify-center text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.9] mb-8">
+                    <h2
+                        className="font-black text-slate-950 tracking-tighter mb-8"
+                        style={{ fontSize: '4vw', lineHeight: '1' }}
+                    >
                         Insights <span className="text-slate-300 italic">& Intelligence.</span>
                     </h2>
                     <button className="hidden md:flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-widest border-b border-slate-200 pb-1 hover:text-brand-orange hover:border-brand-orange transition-all">

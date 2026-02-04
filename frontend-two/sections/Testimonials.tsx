@@ -71,7 +71,8 @@ const Testimonials = () => {
                         variants={{
                             visible: { transition: { staggerChildren: 0.03 } }
                         }}
-                        className="text-3xl md:text-5xl font-black tracking-tighter mb-8 text-brand-black cursor-default"
+                        className="font-black tracking-tighter mb-8 text-brand-black cursor-default"
+                        style={{ fontSize: '4vw', lineHeight: '1.2' }}
                     >
                         {/* Staggered "Trusted By" */}
                         {Array.from("Trusted By").map((char, i) => (
@@ -87,7 +88,7 @@ const Testimonials = () => {
                             </motion.span>
                         ))}
 
-                        <span className="inline-block w-3" />
+                        <span className="inline-block w-4" />
 
                         {/* Staggered "The Best." */}
                         {Array.from("The Best.").map((char, i) => (

@@ -15,7 +15,7 @@ const BentoGrid = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="inline-block px-4 py-1.5 rounded-full bg-gray-50 border border-gray-100 text-brand-orange font-bold text-sm uppercase tracking-widest mb-6"
+                        className="inline-block px-6 py-2 rounded-full bg-gray-50 border border-gray-100 text-brand-blue font-black text-xs uppercase tracking-[0.25em] mb-10"
                     >
                         Intelligence Hub
                     </motion.div>
@@ -24,9 +24,10 @@ const BentoGrid = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                        className="text-6xl md:text-8xl font-bold text-slate-950 mb-6 tracking-tight"
+                        className="font-black text-slate-950 mb-8 tracking-tighter"
+                        style={{ fontSize: '5vw', lineHeight: '0.95' }}
                     >
-                        Global Visibility. <br /> <span className="text-gray-400">Zero Blindspots.</span>
+                        Global Visibility <br /> <span className="text-gray-400">Zero Blindspots.</span>
                     </motion.h2>
                 </div>
 
@@ -88,7 +89,7 @@ const BentoGrid = () => {
                                 <div className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-2 flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Monthly Burn Rate
                                 </div>
-                                <div className="text-5xl font-black text-slate-950 tracking-tighter mb-4">$4.2M</div>
+                                <div className="text-5xl font-bold text-slate-950 tracking-tighter mb-4">$4.2M</div>
                                 <div className="flex items-center gap-2 text-green-600 text-sm font-bold">
                                     <TrendingUp size={16} /> +12.5% vs Last Month
                                 </div>

@@ -45,15 +45,19 @@ const TrustProof = () => {
     if (!mounted) return null;
 
     return (
-        <section className="py-40 bg-white overflow-hidden relative">
-            {/* Background Texture - Light dots */}
-            <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #e0e0e0 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
+        <section className="pt-32 pb-0 bg-white overflow-hidden relative">
+            {/* Background Texture removed for seamless transition */}
 
             <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
 
                 {/* Logo Marquee Section - Kept as requested ('perfect') */}
                 <div className="mb-40">
-                    <p className="text-center text-[10px] font-bold uppercase tracking-[0.5em] text-gray-400 mb-16">Global Growth, Guaranteed</p>
+                    <p
+                        className="text-center font-bold uppercase text-slate-950 mb-16 tracking-tighter"
+                        style={{ fontSize: '3vw', lineHeight: '1' }}
+                    >
+                        Global Growth, Guaranteed
+                    </p>
                     <div className="relative flex overflow-hidden">
                         <motion.div
                             animate={{ x: ["0%", "-50%"] }}
@@ -81,9 +85,9 @@ const TrustProof = () => {
                             className={`flex flex-col items-center text-center px-12 relative ${i !== stats.length - 1 ? 'md:border-r border-gray-200' : ''}`}
                         >
                             {/* The Number - Massive and Clean (Reduced size as requested) */}
-                            <span className={`text-6xl md:text-8xl font-black leading-none tracking-tighter text-black block group-hover:text-brand-orange transition-colors duration-500`}>
+                            <span className={`text-5xl md:text-7xl font-semibold leading-none tracking-tighter text-black block group-hover:text-brand-orange transition-colors duration-500`}>
                                 <Counter value={stat.value} />
-                                <span className="text-3xl md:text-4xl font-light text-brand-orange italic ml-1">{stat.suffix}</span>
+                                <span className="text-2xl md:text-3xl font-light text-brand-orange italic ml-0.5">{stat.suffix}</span>
                             </span>
 
                             {/* The Label - Precise and Wide */}
@@ -108,7 +112,7 @@ const TrustProof = () => {
                     className="mt-40 flex flex-col items-center"
                 >
                     <div className="h-px w-24 bg-gray-200 mb-8" />
-                    <p className="text-gray-400 text-sm font-medium italic">Empowering 2,000+ teams worldwide.</p>
+                    <p className="text-slate-950 text-sm font-bold italic">Empowering 2,000+ teams worldwide.</p>
                 </motion.div>
             </div>
         </section>

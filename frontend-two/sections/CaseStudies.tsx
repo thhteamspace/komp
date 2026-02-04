@@ -47,10 +47,8 @@ const CaseStudies = () => {
     const [activeId, setActiveId] = useState('finscale');
 
     return (
-        <section className="py-24 bg-white text-brand-black relative overflow-hidden">
-            {/* Background Texture - Gritty but light */}
-            <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#f0f0f0 1px, transparent 1px), linear-gradient(90deg, #f0f0f0 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
-
+        <section className="pt-16 pb-32 bg-white text-brand-black relative overflow-hidden">
+            {/* Background Texture removed for cohesion */}
             <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
 
                 {/* Header - Centered & Impactful with Staggered Animation */}
@@ -64,7 +62,10 @@ const CaseStudies = () => {
                     }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 text-brand-black leading-tight">
+                    <h2
+                        className="font-black text-brand-black tracking-tighter mb-6"
+                        style={{ fontSize: '4vw', lineHeight: '1.2' }}
+                    >
                         <motion.span variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="block md:inline mr-4">
                             Proven Results.
                         </motion.span>
@@ -132,14 +133,14 @@ const CaseStudies = () => {
                                                     scale: activeId === item.id ? 1 : 0.65,
                                                     opacity: activeId === item.id ? 1 : 0.4
                                                 }}
-                                                className="font-black tracking-tighter text-7xl md:text-9xl block"
+                                                className="font-semibold tracking-tighter text-5xl md:text-7xl block"
                                             >
                                                 {item.stat}
                                             </motion.span>
                                         </div>
                                         <motion.span
                                             transition={{ duration: 0.3, ease: 'easeOut' }}
-                                            className="text-sm font-bold uppercase tracking-widest text-white/50 pl-1 block mt-1"
+                                            className="text-sm font-bold uppercase tracking-widest text-white pl-1 block mt-1"
                                         >
                                             {item.statLabel}
                                         </motion.span>
@@ -158,14 +159,14 @@ const CaseStudies = () => {
                                         }}
                                         className="overflow-hidden"
                                     >
-                                        <div className="pt-6 border-t border-white/10 mt-4">
-                                            <h3 className="text-3xl md:text-5xl font-black mb-4 text-white leading-[0.85] tracking-tighter">{item.title}</h3>
-                                            <p className="text-base md:text-lg text-white/70 mb-8 leading-relaxed max-w-lg font-medium">
+                                        <div className="pt-6 border-t border-white/20 mt-4">
+                                            <h3 className="text-2xl md:text-4xl font-black mb-3 text-white leading-[0.85] tracking-tighter">{item.title}</h3>
+                                            <p className="text-sm md:text-base text-white mb-8 leading-relaxed max-w-lg font-bold">
                                                 {item.desc}
                                             </p>
-                                            <div className="inline-flex items-center gap-3 px-8 py-4 rounded-full bg-brand-orange text-white text-sm font-black uppercase tracking-widest group/btn hover:bg-white hover:text-brand-black transition-all hover:scale-105 shadow-lg">
+                                            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-orange text-white text-[12px] font-bold uppercase tracking-widest group/btn hover:bg-white hover:text-brand-black transition-all hover:scale-105 shadow-md">
                                                 Read Case Study
-                                                <ArrowUpRight className="w-4 h-4 transition-transform group-hover/btn:translate-x-1" />
+                                                <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5" />
                                             </div>
                                         </div>
                                     </motion.div>
