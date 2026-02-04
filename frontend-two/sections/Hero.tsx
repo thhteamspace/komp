@@ -78,27 +78,26 @@ const Hero = () => {
                         className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white border border-gray-200 mb-8 backdrop-blur-sm"
                     >
                         <span className="w-2 h-2 rounded-full bg-brand-orange" />
-                        <span className="text-sm font-bold text-brand-orange uppercase tracking-wider">Infrastructure for Global Ambition</span>
+                        <span className="text-sm font-bold text-brand-orange uppercase tracking-wider">The Infrastructure for Global Ambition.</span>
                     </motion.div>
 
                     <h1 className="text-5xl md:text-8xl font-black tracking-tight text-slate-950 mb-6 max-w-6xl leading-[0.85]">
                         Hire Anyone, Anywhere,<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-blue">
-                            Zero Legal Complexity.
+                            Without the Legal Complexity.
                         </span>
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-slate-500 mb-10 max-w-2xl leading-relaxed">
-                        Compliant global hiring, payroll, and benefits in 150+ countries.
-                        Scale your team without the bureaucracy.
+                    <p className="text-xl md:text-2xl text-slate-500 mb-10 max-w-3xl leading-relaxed">
+                        De-risk your global expansion. KOMP automates international hiring, compliant payroll, and localized benefits in 150+ countries—so you can focus on scale, not bureaucracy.
                     </p>
 
                     <div className="flex flex-col md:flex-row items-center gap-6">
                         <Button variant="premium" size="lg" className="min-w-[240px]">
-                            Calculate Costs <ArrowRight className="ml-2 w-5 h-5" />
+                            Calculate Your Global Hiring Costs <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
                         <Button variant="ghost" size="lg" className="min-w-[240px] border border-gray-200">
-                            Watch Demo
+                            See the Platform
                         </Button>
                     </div>
                 </motion.div>
@@ -114,7 +113,7 @@ const Hero = () => {
                             rotateX: dashboardRotateX,
                             perspective: 1000
                         }}
-                        className="w-full max-w-6xl px-6"
+                        className="w-full max-w-7xl px-6"
                     >
                         <div className="relative rounded-[2rem] lg:rounded-[3.5rem] overflow-hidden shadow-[0_50px_100px_rgba(0,0,0,0.15)] border border-gray-200 bg-white p-2 lg:p-4">
                             <img
@@ -129,20 +128,18 @@ const Hero = () => {
                 {/* LAYER 3: TRUST INDICATORS (Bottom emergence) */}
                 <motion.div
                     style={{ opacity: trustOpacity, y: trustY }}
-                    className="absolute bottom-1 w-full max-w-6xl px-6 flex justify-between items-center z-30"
+                    className="absolute bottom-1 w-full max-w-7xl px-6 flex justify-between items-center z-30"
                 >
                     {[
-                        '1,200+ Global Entities',
+                        'Powering growth for 1,200+ global entities',
                         'SOC2 Compliant',
                         'ISO 27001 Certified',
-                        'FinScale',
-                        'ApexGlobal'
                     ].map((logo, idx) => (
                         <span
                             key={logo}
                             className={`text-[11px] md:text-[14px] font-black uppercase tracking-[0.2em] transition-all duration-1000 ${activeTrustIdx === idx
-                                    ? 'text-slate-950 opacity-100 scale-105'
-                                    : 'text-slate-300 opacity-40'
+                                ? 'text-slate-950 opacity-100 scale-105'
+                                : 'text-slate-300 opacity-40'
                                 }`}
                         >
                             {logo}

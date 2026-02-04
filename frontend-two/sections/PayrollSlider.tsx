@@ -11,7 +11,6 @@ const slides = [
         desc: "Run payroll for your entire global team in one click. We handle taxes, benefits, and FX automatically.",
         icon: DollarSign,
         imgSrc: "/images/dashboard_overview.png",
-        imgClass: "object-contain p-6"
     },
     {
         id: 1,
@@ -19,7 +18,6 @@ const slides = [
         desc: "Daily working hours, holidays, and leave tracking. Confirm attendance accuracy and calculate payroll-ready hours.",
         icon: CalendarClock,
         imgSrc: "/images/dashboard_ui.png",
-        imgClass: "object-contain p-6"
     },
     {
         id: 2,
@@ -27,7 +25,6 @@ const slides = [
         desc: "Real-time visibility into billable hours and readiness for invoicing. Add commissions and approve timesheets instantly.",
         icon: PieChart,
         imgSrc: "/images/widgets_light.png",
-        imgClass: "object-contain p-6"
     }
 ];
 
@@ -39,7 +36,7 @@ const PayrollSlider = () => {
 
     return (
         <section className="py-32 bg-white">
-            <div className="container mx-auto px-6">
+            <div className="w-full max-w-7xl mx-auto px-6">
 
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
 
@@ -85,41 +82,44 @@ const PayrollSlider = () => {
                         </div>
                     </motion.div>
 
-                    <motion.div
-                        initial={{ opacity: 0, y: 60 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.2 }}
-                        transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                        className="relative h-[450px] md:h-[600px] w-full bg-slate-100 rounded-[3rem] p-4 lg:p-8 shadow-2xl overflow-hidden flex items-center justify-center border border-slate-200"
-                    >
-                        <AnimatePresence mode="wait">
-                            <motion.div
-                                key={current}
-                                initial={{ opacity: 0, scale: 0.95 }}
-                                animate={{ opacity: 1, scale: 1 }}
-                                exit={{ opacity: 0, scale: 0.9 }}
-                                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                                className="w-full h-full bg-white rounded-[2rem] overflow-hidden border-[12px] border-white shadow-xl ring-1 ring-slate-200"
-                            >
-                                <img
-                                    src={slides[current].imgSrc}
-                                    className={`w-full h-full transition-all duration-1000 ${slides[current].imgClass}`}
-                                    alt={slides[current].title}
-                                />
-                            </motion.div>
-                        </AnimatePresence>
+                    <div className="flex flex-col gap-8">
+                        <motion.div
+                            initial={{ opacity: 0, y: 60 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            viewport={{ once: true, amount: 0.2 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                            className="relative h-[380px] md:h-[480px] w-full rounded-[3rem] group bg-slate-50 border border-slate-200/60 p-5 shadow-2xl overflow-hidden"
+                        >
+                            {/* Immersive Image Container - Elegant Frame */}
+                            <div className="relative h-full w-full rounded-[2rem] overflow-hidden shadow-inner bg-white">
+                                <AnimatePresence mode="wait">
+                                    <motion.div
+                                        key={current}
+                                        initial={{ opacity: 0, scale: 1.05, filter: 'blur(10px)' }}
+                                        animate={{ opacity: 1, scale: 1, filter: 'blur(0px)' }}
+                                        exit={{ opacity: 0, scale: 1.02, filter: 'blur(5px)' }}
+                                        transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                                        className="w-full h-full relative"
+                                    >
+                                        <img
+                                            src={slides[current].imgSrc}
+                                            className="w-full h-full object-cover object-top transition-transform duration-[3000ms] group-hover:scale-110"
+                                            alt={slides[current].title}
+                                        />
+                                        <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 via-transparent to-transparent opacity-40" />
+                                    </motion.div>
+                                </AnimatePresence>
+                            </div>
+                            <div className="absolute -top-6 -left-6 w-32 h-32 bg-brand-orange/10 blur-3xl rounded-full pointer-events-none" />
+                        </motion.div>
 
-                        {/* Arrows */}
-                        <div className="absolute bottom-8 right-8 flex gap-3">
-                            <button onClick={prev} className="p-3 rounded-full bg-white shadow-lg hover:bg-gray-50 text-brand-black hover:scale-105 transition-all"><ChevronLeft /></button>
-                            <button onClick={next} className="p-3 rounded-full bg-brand-black shadow-lg hover:bg-gray-800 text-white hover:scale-105 transition-all"><ChevronRight /></button>
-                        </div>
-                    </motion.div>
+
+                    </div>
 
                 </div>
 
             </div>
-        </section >
+        </section>
     );
 };
 

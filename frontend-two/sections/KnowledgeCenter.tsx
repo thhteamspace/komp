@@ -22,8 +22,8 @@ const resources = [
 
 const KnowledgeCenter = () => {
     return (
-        <section className="py-32 bg-brand-black relative overflow-hidden">
-            <div className="container mx-auto px-6">
+        <section className="py-32 bg-slate-50 relative overflow-hidden">
+            <div className="w-full max-w-7xl mx-auto px-6">
 
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
@@ -32,10 +32,10 @@ const KnowledgeCenter = () => {
                     transition={{ duration: 0.8 }}
                     className="flex flex-col items-center justify-center text-center mb-20"
                 >
-                    <h2 className="text-4xl md:text-8xl font-black text-brand-white tracking-tighter leading-[0.9] mb-8">
-                        Insights <span className="text-brand-white/20 italic">& Intelligence.</span>
+                    <h2 className="text-4xl md:text-8xl font-black text-slate-950 tracking-tighter leading-[0.9] mb-8">
+                        Insights <span className="text-slate-300 italic">& Intelligence.</span>
                     </h2>
-                    <button className="hidden md:flex items-center gap-2 text-sm font-bold text-brand-white uppercase tracking-widest border-b border-brand-white/20 pb-1 hover:text-brand-orange hover:border-brand-orange transition-all">
+                    <button className="hidden md:flex items-center gap-2 text-sm font-bold text-slate-900 uppercase tracking-widest border-b border-slate-200 pb-1 hover:text-brand-orange hover:border-brand-orange transition-all">
                         View All Resources <ArrowUpRight size={14} />
                     </button>
                 </motion.div>
@@ -70,11 +70,11 @@ const KnowledgeCenter = () => {
                             </div>
 
                             {/* Text Content */}
-                            <div className="pl-4 border-l-2 border-white/10 group-hover:border-brand-orange transition-colors duration-500">
-                                <h3 className="text-2xl md:text-4xl font-bold text-brand-white mb-3 leading-tight group-hover:text-brand-orange transition-colors">
+                            <div className="pl-4 border-l-2 border-slate-200 group-hover:border-brand-orange transition-colors duration-500">
+                                <h3 className="text-2xl md:text-4xl font-bold text-slate-900 mb-3 leading-tight group-hover:text-brand-orange transition-colors">
                                     {res.title}
                                 </h3>
-                                <p className="text-brand-white/40 text-lg leading-relaxed max-w-md">
+                                <p className="text-slate-500 text-lg leading-relaxed max-w-md">
                                     {res.desc}
                                 </p>
                             </div>

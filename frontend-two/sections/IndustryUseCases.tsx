@@ -50,11 +50,11 @@ const IndustryUseCases = () => {
     const [activeTab, setActiveTab] = useState(industries[0].id);
 
     return (
-        <section className="py-24 bg-brand-black relative overflow-hidden">
-            {/* Background Glow */}
+        <section className="py-24 bg-white relative overflow-hidden">
+            {/* Soft ambient glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
                 <motion.div
                     initial={{ opacity: 0, y: 30 }}
                     whileInView={{ opacity: 1, y: 0 }}
@@ -62,10 +62,10 @@ const IndustryUseCases = () => {
                     transition={{ duration: 0.8 }}
                     className="text-center mb-16"
                 >
-                    <h2 className="text-4xl md:text-6xl font-bold text-brand-white mb-6 tracking-tighter">
-                        Built for <span className="text-brand-white/40 italic">Your Industry.</span>
+                    <h2 className="text-4xl md:text-6xl font-black text-slate-950 mb-6 tracking-tighter">
+                        Built for <span className="text-slate-400 italic">Your Industry.</span>
                     </h2>
-                    <p className="text-brand-white/40 max-w-2xl mx-auto text-lg">
+                    <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium">
                         Specific challenges require specific solutions. See how KOMP adapts to your sector.
                     </p>
                 </motion.div>
@@ -83,8 +83,8 @@ const IndustryUseCases = () => {
                             key={industry.id}
                             onClick={() => setActiveTab(industry.id)}
                             className={`flex items-center gap-2 px-6 py-3 rounded-full border transition-all duration-300 ${activeTab === industry.id
-                                ? 'bg-brand-white text-brand-black border-brand-white'
-                                : 'bg-transparent text-brand-white/40 border-brand-white/10 hover:border-brand-white/30 hover:text-brand-white'
+                                ? 'bg-slate-900 text-white border-slate-900 shadow-lg scale-105'
+                                : 'bg-white text-slate-400 border-slate-200 hover:border-slate-300 hover:text-slate-600'
                                 }`}
                         >
                             <industry.icon size={18} />
@@ -113,10 +113,10 @@ const IndustryUseCases = () => {
                                         <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${industry.gradient} flex items-center justify-center mb-8 text-white shadow-lg`}>
                                             <industry.icon size={28} />
                                         </div>
-                                        <h3 className="text-3xl md:text-5xl font-bold text-brand-white mb-6 leading-tight">
+                                        <h3 className="text-3xl md:text-5xl font-bold text-slate-950 mb-6 leading-tight">
                                             {industry.title}
                                         </h3>
-                                        <p className="text-brand-white/40 text-lg leading-relaxed mb-8">
+                                        <p className="text-slate-500 text-lg leading-relaxed mb-8">
                                             {industry.description}
                                         </p>
                                         <div className="flex items-center gap-2 text-brand-orange font-bold uppercase tracking-widest text-xs cursor-pointer group">
@@ -127,17 +127,16 @@ const IndustryUseCases = () => {
 
                                     <div className="grid grid-cols-1 sm:grid-cols-3 gap-4">
                                         {industry.stats.map((stat, index) => (
-                                            <div key={index} className="bg-brand-black/50 border border-brand-white/5 p-6 rounded-2xl text-center backdrop-blur-sm">
+                                            <div key={index} className="bg-gray-50 border border-gray-100 p-6 rounded-2xl text-center">
                                                 <motion.div
                                                     initial={{ scale: 0.5, opacity: 0 }}
-                                                    whileInView={{ scale: 1, opacity: 1 }}
-                                                    viewport={{ once: false }}
-                                                    transition={{ delay: index * 0.1, type: "spring", stiffness: 100 }}
+                                                    animate={{ scale: 1, opacity: 1 }}
+                                                    transition={{ delay: 0.2 + (index * 0.1), type: "spring", stiffness: 100 }}
                                                     className={`text-2xl font-black bg-gradient-to-br ${industry.gradient} bg-clip-text text-transparent mb-1`}
                                                 >
                                                     {stat.value}
                                                 </motion.div>
-                                                <div className="text-[10px] font-bold text-brand-white/30 uppercase tracking-wider">
+                                                <div className="text-[10px] font-bold text-slate-400 uppercase tracking-wider">
                                                     {stat.label}
                                                 </div>
                                             </div>

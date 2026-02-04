@@ -6,11 +6,11 @@ import { ArrowRight } from 'lucide-react';
 
 const FinalCTA = () => {
     return (
-        <section className="py-32 bg-brand-white relative overflow-hidden">
+        <section className="pt-32 pb-64 bg-brand-white relative overflow-hidden">
             {/* Soft decorative glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[60%] h-[60%] bg-brand-orange/5 blur-[120px] rounded-full pointer-events-none" />
 
-            <div className="container mx-auto px-6 relative z-10 text-center">
+            <div className="w-full max-w-7xl mx-auto px-6 relative z-10 text-center">
                 <motion.div
                     initial={{ opacity: 0, scale: 0.95 }}
                     whileInView={{ opacity: 1, scale: 1 }}
@@ -51,7 +51,7 @@ const FinalCTA = () => {
                             <option value="other">Other</option>
                         </select>
                         <Button variant="premium" className="h-14 px-8 rounded-full whitespace-nowrap bg-brand-black text-white hover:bg-brand-orange transition-colors border-none font-bold tracking-tight shrink-0">
-                            Get Custom Quote
+                            Get My Custom Expansion Quote
                         </Button>
                     </div>
 

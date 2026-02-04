@@ -32,32 +32,48 @@ const realityItems = [
 
 const ExecutiveReality = () => {
     return (
-        <section className="py-32 bg-brand-black relative overflow-hidden">
-            {/* Dark Premium Background Detail */}
-            <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_0%,rgba(255,255,255,0.03)_0%,transparent_50%)]" />
-            <div className="absolute top-0 left-0 w-full h-[1px] bg-gradient-to-r from-transparent via-brand-white/10 to-transparent" />
+        <section className="py-20 bg-white relative overflow-hidden">
+            {/* Premium Light Background Detail */}
+            <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-100 via-white to-white" />
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
                 <motion.div
-                    initial={{ opacity: 0, y: 20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: false }}
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.3 }}
+                    variants={{
+                        visible: { transition: { staggerChildren: 0.1 } }
+                    }}
                     className="text-center mb-20"
                 >
-                    <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-red-500/10 border border-red-500/20 mb-6">
-                        <AlertTriangle size={14} className="text-red-500" />
-                        <span className="text-[10px] font-bold text-red-500 uppercase tracking-widest">Global Risk Analysis</span>
-                    </div>
-                    <h2 className="text-5xl md:text-8xl font-bold mb-8 text-brand-white tracking-tighter leading-[1.15]">
+                    <motion.div
+                        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-red-50/50 border border-red-100/60 mb-8 backdrop-blur-sm"
+                    >
+                        <div className="w-1.5 h-1.5 rounded-full bg-red-500 animate-pulse" />
+                        <span className="text-[11px] font-bold text-red-600 uppercase tracking-widest">Critical Intelligence</span>
+                    </motion.div>
+
+                    <motion.h2
+                        variants={{ hidden: { opacity: 0, y: 30 }, visible: { opacity: 1, y: 0, transition: { duration: 0.8, ease: "easeOut" } } }}
+                        className="text-6xl md:text-[7.5rem] font-black mb-6 text-slate-950 tracking-tighter leading-none"
+                    >
                         The High Cost of <br />
-                        <span className="text-brand-white/20 italic block mt-4">Fragmented Global Hiring.</span>
-                    </h2>
-                    <p className="text-xl text-brand-white/40 max-w-2xl mx-auto font-medium leading-relaxed">
+                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 to-slate-600">
+                            Fragmented Hiring.
+                        </span>
+                    </motion.h2>
+
+                    <motion.p
+                        variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
+                        className="text-xl md:text-2xl text-slate-500 max-w-2xl mx-auto font-medium leading-relaxed"
+                    >
                         Don't let legacy processes slow your expansion. KOMP eliminates the compliance barriers that hold modern leaders back.
-                    </p>
+                    </motion.p>
                 </motion.div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
                     {realityItems.map((item, index) => (
                         <motion.div
                             key={item.title}
@@ -67,47 +83,53 @@ const ExecutiveReality = () => {
                             transition={{ duration: 0.8, delay: index * 0.15 }}
                             className="group relative"
                         >
-                            {/* Animated Background Gradient on Hover */}
-                            <div className={`absolute -inset-1 bg-gradient-to-br ${item.color} rounded-[2.5rem] opacity-0 group-hover:opacity-10 blur-xl transition-opacity duration-500`} />
+                            {/* Animated Background Gradient on Hover - Subtle */}
+                            <div className={`absolute -inset-1 bg-gradient-to-br ${item.color} rounded-[2.5rem] opacity-0 group-hover:opacity-20 blur-xl transition-opacity duration-500`} />
 
-                            <div className={`relative h-full flex flex-col p-10 rounded-[2rem] bg-[#1C1C1E] border border-brand-white/5 transition-all duration-500 ${item.borderColor} group-hover:translate-y-[-8px] overflow-hidden`}>
+                            <div className={`relative h-full flex flex-col p-6 rounded-[1.25rem] bg-slate-50 border border-slate-200 transition-all duration-500 ${item.borderColor} group-hover:translate-y-[-8px] group-hover:bg-white group-hover:shadow-2xl overflow-hidden`}>
 
                                 {/* Top Badge */}
-                                <div className="flex justify-between items-start mb-12">
-                                    <div className={`w-14 h-14 rounded-2xl bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg shadow-black group-hover:scale-110 transition-transform duration-500`}>
-                                        <item.icon size={28} />
+                                <div className="flex justify-between items-start mb-6">
+                                    <div className={`w-10 h-10 rounded-lg bg-gradient-to-br ${item.color} flex items-center justify-center text-white shadow-lg shadow-slate-200 group-hover:scale-110 transition-transform duration-500`}>
+                                        <item.icon size={20} />
                                     </div>
                                     <motion.span
                                         initial={{ x: 20, opacity: 0 }}
                                         whileInView={{ x: 0, opacity: 1 }}
                                         viewport={{ once: false }}
                                         transition={{ delay: 0.3 }}
-                                        className="text-[10px] font-black uppercase tracking-widest text-brand-white/20 group-hover:text-brand-white/40 transition-colors"
+                                        className="text-[9px] font-black uppercase tracking-widest text-slate-400 group-hover:text-slate-600 transition-colors"
                                     >
                                         {item.tag}
                                     </motion.span>
                                 </div>
 
                                 <div className="flex-grow">
-                                    <h4 className="text-2xl font-bold mb-4 text-brand-white tracking-tight">
+                                    <h4 className="text-lg font-bold mb-2 text-slate-900 tracking-tight">
                                         {item.title}
                                     </h4>
-                                    <p className="text-brand-white/40 leading-relaxed font-medium group-hover:text-brand-white/60 transition-colors duration-300">
+                                    <p className="text-xs text-slate-500 leading-relaxed font-medium group-hover:text-slate-600 transition-colors duration-300">
                                         {item.description}
                                     </p>
                                 </div>
 
-                                <div className="mt-12 flex items-center justify-between">
-                                    <div className="text-[10px] font-black text-brand-white/20 uppercase tracking-widest group-hover:text-brand-orange transition-colors">
+                                <div className="mt-8 flex items-center justify-between">
+                                    <div className="text-[9px] font-black text-slate-300 uppercase tracking-widest group-hover:text-brand-orange transition-colors">
                                         Solution Found
                                     </div>
-                                    <div className="w-10 h-10 rounded-full bg-brand-white/5 border border-brand-white/10 flex items-center justify-center group-hover:bg-brand-orange group-hover:border-transparent transition-all duration-500">
-                                        <ArrowUpRight size={18} className="text-brand-white/40 group-hover:text-white group-hover:rotate-45 transition-all duration-500" />
+                                    <div className="w-8 h-8 rounded-full bg-slate-200/50 border border-slate-200 flex items-center justify-center group-hover:bg-brand-orange group-hover:border-transparent transition-all duration-500">
+                                        <ArrowUpRight size={16} className="text-slate-400 group-hover:text-white group-hover:rotate-45 transition-all duration-500" />
                                     </div>
                                 </div>
 
                                 {/* Subtle corner accent */}
-                                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-[0.03] blur-2xl transition-opacity duration-500`} />
+                                <div className={`absolute top-0 right-0 w-24 h-24 bg-gradient-to-br ${item.color} opacity-0 group-hover:opacity-5 blur-2xl transition-opacity duration-500`} />
+
+                                <div className="absolute bottom-6 right-6 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                                    <div className="text-[200px] leading-none absolute -bottom-16 -right-10 font-serif opacity-[0.03] select-none pointer-events-none">
+                                        {index + 1}
+                                    </div>
+                                </div>
                             </div>
                         </motion.div>
                     ))}
@@ -116,5 +138,6 @@ const ExecutiveReality = () => {
         </section>
     );
 };
+
 
 export default ExecutiveReality;

@@ -6,9 +6,9 @@ import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 
 const testimonials = [
     {
-        quote: "KOMP allowed us to enter the Japanese market in 2 weeks instead of 6 months. The compliance shield is real.",
+        quote: "KOMP saved us $40k in legal fees in our first month of expansion.",
         author: "Sarah Jenkins",
-        role: "VP of People, FinScale",
+        role: "CFO, FinScale",
         location: "Tokyo, Japan",
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop",
         position: "object-[center_15%]"
@@ -60,13 +60,49 @@ const Testimonials = () => {
             {/* Background Texture - Subtle on Light */}
             <div className="absolute inset-0 opacity-[0.03] bg-[url('https://www.transparenttextures.com/patterns/cubes.png')]" />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
 
                 {/* Header - Centered & Refined */}
                 <div className="text-center mb-24 relative">
-                    <h2 className="text-3xl md:text-5xl font-black tracking-tighter mb-8 text-brand-black">
-                        Trusted By <span className="text-brand-orange">The Best.</span>
-                    </h2>
+                    <motion.h2
+                        initial="hidden"
+                        whileInView="visible"
+                        viewport={{ once: false, amount: 0.5 }}
+                        variants={{
+                            visible: { transition: { staggerChildren: 0.03 } }
+                        }}
+                        className="text-3xl md:text-5xl font-black tracking-tighter mb-8 text-brand-black cursor-default"
+                    >
+                        {/* Staggered "Trusted By" */}
+                        {Array.from("Trusted By").map((char, i) => (
+                            <motion.span
+                                key={`t-${i}`}
+                                variants={{
+                                    hidden: { opacity: 0, y: 20, rotateX: 90 },
+                                    visible: { opacity: 1, y: 0, rotateX: 0, transition: { duration: 0.3 } }
+                                }}
+                                className="inline-block origin-bottom"
+                            >
+                                {char === " " ? "\u00A0" : char}
+                            </motion.span>
+                        ))}
+
+                        <span className="inline-block w-3" />
+
+                        {/* Staggered "The Best." */}
+                        {Array.from("The Best.").map((char, i) => (
+                            <motion.span
+                                key={`b-${i}`}
+                                variants={{
+                                    hidden: { opacity: 0, scale: 0.5, y: 20 },
+                                    visible: { opacity: 1, scale: 1, y: 0, transition: { duration: 0.3, type: 'spring', stiffness: 200 } }
+                                }}
+                                className="inline-block text-brand-orange"
+                            >
+                                {char === " " ? "\u00A0" : char}
+                            </motion.span>
+                        ))}
+                    </motion.h2>
                     <div className="flex justify-center gap-4">
                         <button
                             onClick={prevTestimonial}

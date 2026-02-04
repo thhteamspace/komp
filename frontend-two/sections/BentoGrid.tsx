@@ -5,26 +5,26 @@ import { Wallet, ShieldCheck, Globe, Users, TrendingUp, ArrowUpRight } from 'luc
 
 const BentoGrid = () => {
     return (
-        <section className="py-32 bg-white relative selection:bg-brand-orange/20 overflow-hidden">
-            <div className="container mx-auto px-6">
+        <section className="py-20 bg-white relative selection:bg-brand-orange/20 overflow-hidden">
+            <div className="w-full max-w-7xl mx-auto px-6">
 
                 {/* Section Header */}
                 <div className="text-center mb-24">
                     <motion.div
                         initial={{ opacity: 0, y: 30 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="inline-block px-4 py-1.5 rounded-full bg-gray-50 border border-gray-100 text-brand-orange font-bold text-xs uppercase tracking-widest mb-6"
+                        className="inline-block px-4 py-1.5 rounded-full bg-gray-50 border border-gray-100 text-brand-orange font-bold text-sm uppercase tracking-widest mb-6"
                     >
                         Intelligence Hub
                     </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 40 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.3 }}
+                        viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
-                        className="text-5xl md:text-7xl font-bold text-slate-950 mb-6 tracking-tight"
+                        className="text-6xl md:text-8xl font-bold text-slate-950 mb-6 tracking-tight"
                     >
                         Global Visibility. <br /> <span className="text-gray-400">Zero Blindspots.</span>
                     </motion.h2>
@@ -35,50 +35,56 @@ const BentoGrid = () => {
 
                     {/* 📸 01: Workforce - Hero (Span 3) */}
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.2 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="md:col-span-3 min-h-[500px] rounded-[3.5rem] bg-[#F8F9FB] border border-gray-100 p-12 relative overflow-hidden group hover:shadow-2xl transition-all duration-700"
+                        whileHover={{ y: -10, rotateX: -2, rotateY: 2 }}
+                        className="md:col-span-3 min-h-[500px] rounded-[3.5rem] bg-[#F8F9FB] border border-gray-100 p-12 relative overflow-hidden group hover:shadow-[0_50px_100px_rgba(0,0,0,0.06)] transition-all duration-700 perspective-[1000px]"
                     >
                         <div className="relative z-20">
                             <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 text-brand-blue">
                                 <Users size={28} />
                             </div>
                             <h3 className="text-4xl font-bold text-slate-950 mb-4 tracking-tight">Workforce Command</h3>
-                            <p className="text-slate-500 max-w-sm text-lg leading-relaxed">
-                                A living directory of every employee, contractor, and EOR hire.
+                            <p className="text-slate-500 max-w-sm text-lg leading-relaxed font-medium">
+                                A living directory of every employee, contractor, and EOR hire in one dashboard.
                             </p>
                         </div>
 
-                        {/* Floating Dashboard Widget */}
+                        {/* Floating Dashboard Widget - Scale up and rotate on hover */}
                         <motion.div
-                            whileHover={{ y: -10, rotate: -1 }}
-                            className="absolute -right-12 -bottom-12 w-[80%] h-[60%] bg-white rounded-[2rem] shadow-[0_40px_80px_rgba(0,0,0,0.08)] border border-gray-100 p-8 pt-10 group-hover:bg-gray-50 transition-colors"
+                            animate={{ rotate: -2 }}
+                            whileHover={{ scale: 1.05, rotate: 0, y: -20 }}
+                            className="absolute -right-12 -bottom-12 w-[85%] h-[65%] bg-white rounded-[2rem] shadow-[0_40px_80px_rgba(0,0,0,0.08)] border border-gray-100 p-10 pt-12 group-hover:bg-white transition-all duration-700"
                         >
-                            <img src="/images/dashboard_overview.png" className="w-[150%] max-w-none opacity-90 rounded-xl shadow-sm" alt="UI" />
+                            <img src="/images/dashboard_overview.png" className="w-[140%] max-w-none opacity-100 rounded-xl shadow-lg saturate-[0.8] group-hover:saturate-100 transition-all" alt="UI" />
                         </motion.div>
                     </motion.div>
 
                     {/* 💸 02: Payroll - NOW LIGHT & COHESIVE (Span 2) */}
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.2 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                        className="md:col-span-2 min-h-[500px] rounded-[3.5rem] bg-white border border-gray-200 p-12 relative overflow-hidden group hover:shadow-2xl transition-all duration-700"
+                        whileHover={{ y: -10, rotateX: -2, rotateY: -2 }}
+                        className="md:col-span-2 min-h-[500px] rounded-[3.5rem] bg-white border border-gray-200 p-12 relative overflow-hidden group hover:shadow-[0_50px_100px_rgba(0,0,0,0.06)] transition-all duration-700 perspective-[1000px]"
                     >
                         <div className="relative z-20">
                             <div className="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mb-8 text-green-600 border border-green-100">
                                 <Wallet size={28} />
                             </div>
-                            <h3 className="text-3xl font-bold text-slate-950 mb-4 tracking-tight">Real-time Spend</h3>
-                            <p className="text-slate-500 text-lg leading-relaxed">
-                                Complete transparency into payroll costs and localized taxes.
+                            <h3 className="text-3xl font-bold text-slate-950 mb-4 tracking-tight">Single-Click Payroll</h3>
+                            <p className="text-slate-500 text-lg leading-relaxed font-medium">
+                                Fund once in USD/EUR; we distribute locally in 100+ currencies.
                             </p>
 
                             {/* Premium Stat Widget */}
-                            <div className="mt-12 p-8 rounded-3xl bg-gray-50 border border-gray-100 shadow-sm group-hover:bg-white transition-colors duration-500">
+                            <motion.div
+                                whileHover={{ scale: 1.02 }}
+                                className="mt-12 p-8 rounded-3xl bg-gray-50 border border-gray-100 shadow-sm group-hover:bg-white transition-colors duration-500"
+                            >
                                 <div className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-2 flex items-center gap-2">
                                     <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Monthly Burn Rate
                                 </div>
@@ -86,54 +92,71 @@ const BentoGrid = () => {
                                 <div className="flex items-center gap-2 text-green-600 text-sm font-bold">
                                     <TrendingUp size={16} /> +12.5% vs Last Month
                                 </div>
-                            </div>
+                            </motion.div>
                         </div>
                     </motion.div>
 
                     {/* ⚖️ 03: Compliance (Span 2) */}
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.2 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="md:col-span-2 min-h-[400px] rounded-[3rem] bg-orange-50 border border-orange-100 p-12 relative overflow-hidden group"
+                        whileHover={{ scale: 0.98, rotateX: 2 }}
+                        className="md:col-span-2 min-h-[400px] rounded-[3rem] bg-orange-50 border border-orange-100 p-12 relative overflow-hidden group shadow-lg flex flex-col justify-between"
                     >
-                        <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-8 text-brand-orange shadow-sm">
-                            <ShieldCheck size={24} />
+                        <div>
+                            <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-8 text-brand-orange shadow-sm border border-orange-100">
+                                <ShieldCheck size={24} />
+                            </div>
+                            <h3 className="text-2xl font-black text-slate-950 mb-3 tracking-tight">AI-Powered Guardrails</h3>
+                            <p className="text-slate-600 mb-8 font-medium">
+                                Our proprietary engine monitors 150+ labor laws in real-time.
+                            </p>
                         </div>
-                        <h3 className="text-2xl font-bold text-slate-950 mb-3">Compliance Hub</h3>
-                        <p className="text-slate-600 mb-8 font-medium">
-                            Automated legal audits for every contract.
-                        </p>
                         <div className="flex flex-wrap gap-2">
-                            {['SOC2', 'GDPR', 'ISO 27001'].map((tag) => (
-                                <span key={tag} className="px-3 py-1 rounded-full bg-white text-slate-600 text-[10px] font-bold border border-orange-200">{tag}</span>
+                            {['SOC2', 'GDPR', 'ISO 27001', 'HIPAA'].map((tag) => (
+                                <span key={tag} className="px-4 py-1.5 rounded-full bg-white text-slate-600 text-[10px] font-black border border-orange-200 uppercase tracking-widest">{tag}</span>
                             ))}
                         </div>
                     </motion.div>
 
                     {/* 🌍 04: Global Presence (Span 3) */}
                     <motion.div
-                        initial={{ opacity: 0, y: 50 }}
+                        initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false, amount: 0.2 }}
+                        viewport={{ once: true, amount: 0.2 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                        className="md:col-span-3 min-h-[400px] rounded-[3rem] bg-blue-50 border border-blue-100 p-12 relative overflow-hidden group flex items-center"
+                        whileHover={{ scale: 1.02, rotateY: 2 }}
+                        className="md:col-span-3 min-h-[400px] rounded-[3rem] bg-blue-50 border border-blue-100 p-12 relative overflow-hidden group flex items-center shadow-lg"
                     >
                         <div className="flex-1 relative z-10">
-                            <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-6 text-brand-blue">
+                            <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-6 text-brand-blue border border-blue-100">
                                 <Globe size={24} />
                             </div>
-                            <h3 className="text-4xl font-bold text-slate-950 mb-4 tracking-tighter">150+ Countries. <br /> One Logic.</h3>
-                            <p className="text-slate-600 max-w-xs font-medium">
-                                Local entities and banking systems managed for you.
+                            <h3 className="text-4xl font-black text-slate-950 mb-4 tracking-tighter">The Mobility Suite. <br /> <span className="text-brand-orange">Managed in One Window.</span></h3>
+                            <p className="text-slate-600 max-w-sm font-medium text-lg">
+                                Visas, Relocation, and localized benefits managed seamlessly.
                             </p>
                         </div>
 
-                        {/* Floating Labels */}
-                        <div className="absolute right-8 top-1/2 -translate-y-1/2 flex flex-col gap-3 opacity-80">
-                            {['🇺🇸 USA', '🇬🇧 UK', '🇮🇳 IND', '🇸🇬 SGP'].map((c, i) => (
-                                <motion.div key={i} animate={{ x: [0, 5, 0] }} transition={{ delay: i * 0.2, duration: 4, repeat: Infinity }} className="bg-white px-4 py-2 rounded-2xl shadow-sm border border-blue-100 text-xs font-bold text-slate-700">
+                        {/* Floating Labels - Light Theme */}
+                        <div className="absolute right-12 top-1/2 -translate-y-1/2 flex flex-col gap-4">
+                            {['🇺🇸 United States', '🇬🇧 United Kingdom', '🇮🇳 India', '🇸🇬 Singapore'].map((c, i) => (
+                                <motion.div
+                                    key={i}
+                                    animate={{
+                                        x: [0, 15, 0],
+                                        y: [0, i % 2 === 0 ? 5 : -5, 0]
+                                    }}
+                                    transition={{
+                                        delay: i * 0.3,
+                                        duration: 5,
+                                        repeat: Infinity,
+                                        ease: "easeInOut"
+                                    }}
+                                    className="bg-white px-6 py-3 rounded-2xl shadow-xl border border-blue-100 text-xs font-black text-slate-700 uppercase tracking-widest"
+                                >
                                     {c}
                                 </motion.div>
                             ))}

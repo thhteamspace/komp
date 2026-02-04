@@ -49,7 +49,7 @@ const TrustProof = () => {
             {/* Background Texture - Light dots */}
             <div className="absolute inset-0 opacity-[0.05] pointer-events-none" style={{ backgroundImage: 'radial-gradient(circle, #e0e0e0 1px, transparent 1px)', backgroundSize: '30px 30px' }} />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
 
                 {/* Logo Marquee Section - Kept as requested ('perfect') */}
                 <div className="mb-40">
@@ -80,10 +80,10 @@ const TrustProof = () => {
                             transition={{ duration: 0.8, delay: i * 0.1 }}
                             className={`flex flex-col items-center text-center px-12 relative ${i !== stats.length - 1 ? 'md:border-r border-gray-200' : ''}`}
                         >
-                            {/* The Number - Massive and Clean */}
-                            <span className={`text-[8rem] md:text-[11rem] font-black leading-none tracking-tighter text-black block group-hover:text-brand-orange transition-colors duration-500`}>
+                            {/* The Number - Massive and Clean (Reduced size as requested) */}
+                            <span className={`text-6xl md:text-8xl font-black leading-none tracking-tighter text-black block group-hover:text-brand-orange transition-colors duration-500`}>
                                 <Counter value={stat.value} />
-                                <span className="text-5xl md:text-6xl font-light text-brand-orange italic ml-2">{stat.suffix}</span>
+                                <span className="text-3xl md:text-4xl font-light text-brand-orange italic ml-1">{stat.suffix}</span>
                             </span>
 
                             {/* The Label - Precise and Wide */}

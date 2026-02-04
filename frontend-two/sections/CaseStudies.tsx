@@ -51,22 +51,37 @@ const CaseStudies = () => {
             {/* Background Texture - Gritty but light */}
             <div className="absolute inset-0 opacity-[0.03]" style={{ backgroundImage: 'linear-gradient(#f0f0f0 1px, transparent 1px), linear-gradient(90deg, #f0f0f0 1px, transparent 1px)', backgroundSize: '40px 40px' }} />
 
-            <div className="container mx-auto px-6 relative z-10">
+            <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
 
-                {/* Header - Centered & Impactful */}
-                <div className="text-center mb-16">
-                    <motion.h2
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: false }}
-                        className="text-5xl md:text-7xl font-black tracking-tighter mb-6 text-brand-black"
+                {/* Header - Centered & Impactful with Staggered Animation */}
+                <motion.div
+                    initial="hidden"
+                    whileInView="visible"
+                    viewport={{ once: false, amount: 0.5 }}
+                    variants={{
+                        hidden: { opacity: 0 },
+                        visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
+                    }}
+                    className="text-center mb-16"
+                >
+                    <h2 className="text-5xl md:text-7xl font-black tracking-tighter mb-6 text-brand-black leading-tight">
+                        <motion.span variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="block md:inline mr-4">
+                            Proven Results.
+                        </motion.span>
+                        <motion.span
+                            variants={{ hidden: { y: 20, opacity: 0, scale: 0.9 }, visible: { y: 0, opacity: 1, scale: 1 } }}
+                            className="text-brand-orange block md:inline"
+                        >
+                            Global Impact.
+                        </motion.span>
+                    </h2>
+                    <motion.p
+                        variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
+                        className="text-brand-black/60 text-xl font-medium max-w-2xl mx-auto"
                     >
-                        Proven Results. <span className="text-brand-orange block md:inline">Global Impact.</span>
-                    </motion.h2>
-                    <p className="text-brand-black/60 text-xl font-medium max-w-2xl mx-auto">
                         We don't just promise compliance. We deliver hyper-growth.
-                    </p>
-                </div>
+                    </motion.p>
+                </motion.div>
 
                 {/* The "Crazy" Elastic Layout */}
                 <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px]">
