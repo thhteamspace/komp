@@ -35,7 +35,7 @@ const Footer = () => {
                     </div>
 
                     {/* Links Columns */}
-                    <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12 flex-grow">
+                    <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 flex-grow">
 
                         <div>
                             <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Products</h4>
@@ -48,12 +48,22 @@ const Footer = () => {
                         </div>
 
                         <div>
-                            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Solutions</h4>
+                            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Countries</h4>
                             <ul className="space-y-4 text-sm text-zinc-500">
-                                <li><Link href="/use-cases" className="hover:text-white transition-colors">For Startups</Link></li>
-                                <li><Link href="/use-cases" className="hover:text-white transition-colors">For Enterprise</Link></li>
-                                <li><Link href="/use-cases" className="hover:text-white transition-colors">For Finance Teams</Link></li>
-                                <li><Link href="/use-cases" className="hover:text-white transition-colors">For Legal Teams</Link></li>
+                                <li><Link href="/compliance" className="hover:text-white transition-colors">EOR India</Link></li>
+                                <li><Link href="/compliance" className="hover:text-white transition-colors">EOR Brazil</Link></li>
+                                <li><Link href="/compliance" className="hover:text-white transition-colors">EOR UAE</Link></li>
+                                <li><Link href="/compliance" className="hover:text-white transition-colors">EOR USA</Link></li>
+                            </ul>
+                        </div>
+
+                        <div>
+                            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Comparisons</h4>
+                            <ul className="space-y-4 text-sm text-zinc-500">
+                                <li><Link href="/compare" className="hover:text-white transition-colors">KOMP vs Deel</Link></li>
+                                <li><Link href="/compare" className="hover:text-white transition-colors">KOMP vs Remote</Link></li>
+                                <li><Link href="/compare" className="hover:text-white transition-colors">KOMP vs Rippling</Link></li>
+                                <li><Link href="/compare" className="hover:text-white transition-colors">KOMP vs Oyster</Link></li>
                             </ul>
                         </div>
 
@@ -62,12 +72,11 @@ const Footer = () => {
                             <ul className="space-y-4 text-sm text-zinc-500">
                                 <li><Link href="/compliance" className="hover:text-white transition-colors">Compliance Hub</Link></li>
                                 <li><Link href="/pricing" className="hover:text-white transition-colors">Global Payroll Guide</Link></li>
-                                <li><Link href="/compare" className="hover:text-white transition-colors">Competitor Comparison</Link></li>
-                                <li><Link href="/landing" className="hover:text-white transition-colors">Global Expansion Playbook</Link></li>
+                                <li><Link href="/landing" className="hover:text-white transition-colors">Expansion Playbook</Link></li>
                             </ul>
                         </div>
 
-                        <div>
+                        <div className="col-span-2 md:col-span-1">
                             <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Ready to Launch?</h4>
                             <p className="text-zinc-400 text-sm mb-6">Get your custom expansion quote today.</p>
                             <Link href="/compliance">

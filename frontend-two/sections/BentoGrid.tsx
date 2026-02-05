@@ -47,9 +47,9 @@ const BentoGrid = () => {
                             <div className="w-14 h-14 rounded-2xl bg-white shadow-sm flex items-center justify-center mb-8 text-brand-blue">
                                 <Users size={28} />
                             </div>
-                            <h3 className="text-4xl font-bold text-slate-950 mb-4 tracking-tight">Workforce Command</h3>
+                            <h3 className="text-4xl font-bold text-slate-950 mb-4 tracking-tight">Global Workforce OS</h3>
                             <p className="text-slate-500 max-w-sm text-lg leading-relaxed font-medium">
-                                A living directory of every employee, contractor, and EOR hire in one dashboard.
+                                A centralized system of record for every employee, contractor, and EOR hire across 150+ jurisdictions.
                             </p>
                         </div>
 
@@ -76,9 +76,9 @@ const BentoGrid = () => {
                             <div className="w-14 h-14 rounded-2xl bg-green-50 flex items-center justify-center mb-8 text-green-600 border border-green-100">
                                 <Wallet size={28} />
                             </div>
-                            <h3 className="text-3xl font-bold text-slate-950 mb-4 tracking-tight">Single-Click Payroll</h3>
+                            <h3 className="text-3xl font-bold text-slate-950 mb-4 tracking-tight">Unified Global Treasury</h3>
                             <p className="text-slate-500 text-lg leading-relaxed font-medium">
-                                Fund once in USD/EUR; we distribute locally in 100+ currencies.
+                                Execute multi-currency payroll in 100+ denominations with a single consolidated funding event.
                             </p>
 
                             {/* Premium Stat Widget */}
@@ -110,9 +110,9 @@ const BentoGrid = () => {
                             <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-8 text-brand-orange shadow-sm border border-orange-100">
                                 <ShieldCheck size={24} />
                             </div>
-                            <h3 className="text-2xl font-black text-slate-950 mb-3 tracking-tight">AI-Powered Guardrails</h3>
+                            <h3 className="text-2xl font-black text-slate-950 mb-3 tracking-tight">Automated Compliance Shield</h3>
                             <p className="text-slate-600 mb-8 font-medium">
-                                Our proprietary engine monitors 150+ labor laws in real-time.
+                                Eliminate misclassification risk with our AI engine monitoring real-time labor law shifts globally.
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-2">
@@ -135,9 +135,9 @@ const BentoGrid = () => {
                             <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-6 text-brand-blue border border-blue-100">
                                 <Globe size={24} />
                             </div>
-                            <h3 className="text-4xl font-black text-slate-950 mb-4 tracking-tighter">The Mobility Suite. <br /> <span className="text-brand-orange">Managed in One Window.</span></h3>
+                            <h3 className="text-4xl font-black text-slate-950 mb-4 tracking-tighter">Global Mobility & Visas. <br /> <span className="text-brand-orange">No Entity Required.</span></h3>
                             <p className="text-slate-600 max-w-sm font-medium text-lg">
-                                Visas, Relocation, and localized benefits managed seamlessly.
+                                Sponsor visas and manage relocation logistics across 50+ markets directly through our platforms entities.
                             </p>
                         </div>
 

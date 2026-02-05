@@ -104,15 +104,33 @@ const TrustProof = () => {
                     ))}
                 </div>
 
-                {/* Bottom Trust Badge - Super Minimal */}
+                {/* Trust Badges - Authority Layer */}
                 <motion.div
-                    initial={{ opacity: 0 }}
-                    whileInView={{ opacity: 1 }}
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: false }}
                     className="mt-40 flex flex-col items-center"
                 >
-                    <div className="h-px w-24 bg-gray-200 mb-8" />
-                    <p className="text-slate-950 text-sm font-bold italic">Empowering 2,000+ teams worldwide.</p>
+                    <div className="h-px w-24 bg-gray-200 mb-12" />
+
+                    <div className="flex flex-wrap items-center justify-center gap-12 grayscale opacity-40">
+                        <div className="flex flex-col items-center gap-2">
+                            <img src="/images/soc2.svg" alt="SOC2" className="h-12 w-auto opacity-80" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-black">SOC2 TYPE II</span>' }} />
+                        </div>
+                        <div className="flex flex-col items-center gap-2">
+                            <img src="/images/gdpr.svg" alt="GDPR" className="h-10 w-auto opacity-80" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-black">GDPR READY</span>' }} />
+                        </div>
+                        <div className="flex flex-col items-center gap-2">
+                            <img src="/images/iso.svg" alt="ISO 27001" className="h-12 w-auto opacity-80" onError={(e) => { e.currentTarget.style.display = 'none'; e.currentTarget.parentElement!.innerHTML = '<span class="text-xs font-black">ISO 27001</span>' }} />
+                        </div>
+                        <div className="flex flex-col items-center gap-2">
+                            <span className="text-xs font-black tracking-widest px-4 py-2 border border-slate-200 rounded-lg">CCPA COMPLIANT</span>
+                        </div>
+                    </div>
+
+                    <p className="text-slate-900 text-sm font-bold mt-12 italic">
+                        The gold standard in global compliance and data security.
+                    </p>
                 </motion.div>
             </div>
         </section>
