@@ -7,6 +7,13 @@ import { ArrowRight, Globe, ShieldCheck, Lock } from 'lucide-react';
 
 const Hero = () => {
     const containerRef = useRef<HTMLDivElement>(null);
+    const videoRef = useRef<HTMLVideoElement>(null);
+
+    useEffect(() => {
+        if (videoRef.current) {
+            videoRef.current.playbackRate = 0.9; // Slow down slightly to 90% speed
+        }
+    }, []);
 
     const { scrollYProgress } = useScroll({
         target: containerRef,
@@ -24,7 +31,7 @@ const Hero = () => {
 
     // Background Interaction
     const videoScale = useTransform(smoothProgress, [0, 0.5], [1, 0.9]);
-    const videoOpacity = useTransform(smoothProgress, [0.4, 0.8], [0.2, 0.05]);
+    const videoOpacity = useTransform(smoothProgress, [0, 0.4, 0.8], [0.7, 0.3, 0.05]);
 
     // Content Animations - Moves up and fades out early
     const textOpacity = useTransform(smoothProgress, [0, 0.3], [1, 0]);
@@ -45,13 +52,31 @@ const Hero = () => {
         <div ref={containerRef} className="relative h-[250vh] bg-white -mt-20">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center pt-20">
 
-                {/* Background Video - Becomes part of the stack */}
-                {/* Background Video Disabled */}
+                {/* Background Video */}
+                <motion.div
+                    style={{ scale: videoScale, opacity: videoOpacity }}
+                    className="absolute inset-0 z-0 pointer-events-none"
+                >
+                    <video
+                        ref={videoRef}
+                        autoPlay
+                        loop
+                        muted
+                        playsInline
+                        className="w-full h-full object-cover"
+                    >
+                        <source src="/videos/hero.mp4" type="video/mp4" />
+                    </video>
+                    {/* Premium light overlay to maintain text readability */}
+                    <div className="absolute inset-0 bg-white/50 backdrop-blur-[4px]" />
+                    {/* Vignette effect to focus on center content */}
+                    <div className="absolute inset-0 bg-gradient-to-b from-white/20 via-transparent to-white/20" />
+                </motion.div>
 
                 {/* LAYER 1: HEADLINE CONTENT */}
                 <motion.div
                     style={{ opacity: textOpacity, y: textY, scale: textScale }}
-                    className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center -mt-20"
+                    className="container mx-auto px-6 relative z-10 flex flex-col items-center text-center mt-10"
                 >
                     <motion.div
                         className="inline-flex items-center gap-2 mb-8"
@@ -60,18 +85,24 @@ const Hero = () => {
                         <span className="text-sm font-bold text-brand-blue uppercase tracking-wider">The Infrastructure for Global Ambition.</span>
                     </motion.div>
 
-                    <h1 className="text-5xl md:text-8xl font-black tracking-tight text-slate-950 mb-6 max-w-6xl leading-[0.85]">
+                    <h1
+                        className="text-5xl md:text-8xl font-black tracking-tight text-slate-950 mb-6 max-w-6xl leading-[0.85]"
+                        style={{ textShadow: '0 2px 40px rgba(255,255,255,0.8)' }}
+                    >
                         Hire Anyone, Anywhere,<br />
                         <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-[#FFB366]">
                             Without the Legal Complexity.
                         </span>
                     </h1>
 
-                    <p className="text-xl md:text-2xl text-slate-500 mb-10 max-w-3xl leading-relaxed">
+                    <p
+                        className="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl leading-relaxed font-medium"
+                        style={{ textShadow: '0 1px 20px rgba(255,255,255,0.5)' }}
+                    >
                         De-risk your global expansion. KOMP automates international hiring, compliant payroll, and localized benefits in 150+ countries—so you can focus on scale, not bureaucracy.
                     </p>
 
-                    <div className="flex flex-col md:flex-row items-center gap-6">
+                    <div className="flex flex-col md:flex-row items-center gap-6 mb-16">
                         <Button variant="premium" size="lg" className="min-w-[240px]">
                             Calculate Your Global Hiring Costs <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
@@ -79,6 +110,31 @@ const Hero = () => {
                             See the Platform
                         </Button>
                     </div>
+
+                    {/* Social Proof Strip - Authority Layer */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8, duration: 0.8 }}
+                        className="flex flex-wrap items-center justify-center gap-x-8 gap-y-4 pt-8 border-t border-gray-100"
+                    >
+                        <div className="flex items-center gap-2">
+                            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400">Powering growth for</span>
+                            <span className="text-sm font-bold text-slate-900 italic">1,200+ global entities</span>
+                        </div>
+                        <div className="h-4 w-px bg-gray-200 hidden md:block" />
+                        <div className="flex items-center gap-6">
+                            <span className="flex items-center gap-1.5 grayscale opacity-60">
+                                <ShieldCheck size={14} className="text-brand-blue" />
+                                <span className="text-[10px] font-bold tracking-tighter">SOC2 COMPLIANT</span>
+                            </span>
+                            <span className="flex items-center gap-1.5 grayscale opacity-60">
+                                <Lock size={14} className="text-brand-blue" />
+                                <span className="text-[10px] font-bold tracking-tighter">ISO 27001</span>
+                            </span>
+                            <span className="flex items-center gap-1.5 grayscale opacity-60 text-[10px] font-bold tracking-tighter">GDPR</span>
+                        </div>
+                    </motion.div>
                 </motion.div>
 
                 {/* LAYER 2: DASHBOARD (Slides over, becoming the new focus) */}

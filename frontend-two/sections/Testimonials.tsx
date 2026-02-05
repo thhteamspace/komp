@@ -6,25 +6,25 @@ import { ArrowLeft, ArrowRight, Quote } from 'lucide-react';
 
 const testimonials = [
     {
-        quote: "KOMP saved us $40k in legal fees in our first month of expansion.",
+        quote: "KOMP compressed our global expansion from 8 months to 14 days, saving us $1.2M in infrastructure overhead.",
         author: "Sarah Jenkins",
         role: "CFO, FinScale",
-        location: "Tokyo, Japan",
+        location: "Singapore",
         image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?q=80&w=1000&auto=format&fit=crop",
         position: "object-[center_15%]"
     },
     {
-        quote: "We switched from Deel because we needed a partner, not just a platform. KOMP's legal team is an extension of ours.",
+        quote: "We switched from aggregators to KOMP's direct entities. The transparency in FX and taxes alone saved us $400k last year.",
         author: "Michael Chang",
-        role: "CFO, ApexGlobal",
-        location: "Singapore",
+        role: "Head of Operations, ApexGlobal",
+        location: "London, UK",
         image: "https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1000&auto=format&fit=crop",
         position: "object-[center_15%]"
     },
     {
-        quote: "The only EOR that actually understands equity compensation across 20 different jurisdictions. A game changer.",
+        quote: "The only platform that successfully managed our complex equity compensation across 18 legal jurisdictions with zero errors.",
         author: "Elena Rodriguez",
-        role: "Head of Talent, InnovateX",
+        role: "CFO, InnovateX",
         location: "Berlin, Germany",
         image: "https://images.unsplash.com/photo-1573497019236-17f8177b81e8?q=80&w=1000&auto=format&fit=crop",
         position: "object-center"

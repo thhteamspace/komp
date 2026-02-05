@@ -84,6 +84,74 @@ const KnowledgeCenter = () => {
                         </motion.div>
                     ))}
                 </div>
+
+                {/* Final Knowledge CTA - Lead Gen Hub */}
+                <motion.div
+                    initial={{ opacity: 0, y: 50, scale: 0.95 }}
+                    whileInView={{ opacity: 1, y: 0, scale: 1 }}
+                    viewport={{ once: false, amount: 0.2 }}
+                    transition={{
+                        duration: 0.8,
+                        ease: [0.16, 1, 0.3, 1]
+                    }}
+                    className="mt-40 p-12 md:p-16 rounded-[4rem] bg-slate-950 text-white relative overflow-hidden group shadow-2xl"
+                >
+                    {/* Decorative Elements */}
+                    <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/20 blur-[120px] -translate-y-1/2 translate-x-1/2 pointer-events-none" />
+                    <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-blue/10 blur-[100px] translate-y-1/2 -translate-x-1/2 pointer-events-none" />
+
+                    <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-16">
+                        <div className="max-w-2xl">
+                            <motion.div
+                                initial={{ opacity: 0, x: -20 }}
+                                whileInView={{ opacity: 1, x: 0 }}
+                                viewport={{ once: false }}
+                                transition={{ delay: 0.2 }}
+                                className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/5 border border-white/10 mb-8"
+                            >
+                                <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
+                                <span className="text-brand-orange text-[10px] font-black uppercase tracking-[0.4em]">Ready to Execute?</span>
+                            </motion.div>
+
+                            <motion.h3
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false }}
+                                transition={{ delay: 0.3 }}
+                                className="text-4xl md:text-6xl font-black tracking-tighter mb-8 leading-[0.95]"
+                            >
+                                Get the Global Expansion <br />
+                                <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-[#FFB366]">Playbook (2026 Edition).</span>
+                            </motion.h3>
+
+                            <motion.p
+                                initial={{ opacity: 0, y: 20 }}
+                                whileInView={{ opacity: 1, y: 0 }}
+                                viewport={{ once: false }}
+                                transition={{ delay: 0.4 }}
+                                className="text-slate-400 text-xl font-medium leading-relaxed"
+                            >
+                                Everything you need to know about EOR vs. Entities, localized taxes, and hiring speed across 150+ markets.
+                            </motion.p>
+                        </div>
+
+                        <motion.div
+                            initial={{ opacity: 0, scale: 0.8 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: false }}
+                            transition={{ delay: 0.5, type: "spring", stiffness: 100 }}
+                            className="flex flex-col gap-6 w-full lg:w-auto text-center"
+                        >
+                            <button className="px-14 py-6 rounded-2xl bg-white text-slate-950 font-black uppercase tracking-widest text-sm transition-all hover:scale-105 hover:shadow-[0_20px_40px_rgba(255,255,255,0.15)] active:scale-95">
+                                Download Playbook
+                            </button>
+                            <div className="flex flex-col gap-1">
+                                <p className="text-[10px] text-slate-500 font-bold uppercase tracking-[0.3em]">Sent instantly to your inbox</p>
+                                <div className="h-[1px] w-12 bg-slate-800 mx-auto mt-2" />
+                            </div>
+                        </motion.div>
+                    </div>
+                </motion.div>
             </div>
         </section>
     );
