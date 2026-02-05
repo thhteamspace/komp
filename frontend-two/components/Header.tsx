@@ -66,7 +66,7 @@ const Header = () => {
                 {/* Desktop Nav with Mega Menu */}
                 <nav className="hidden lg:flex items-center gap-10 ml-12">
                     {Object.entries(megaMenuData).map(([name, items]) => {
-                        const sectionId = name === 'Platform' ? '#platform' : name === 'Solutions' ? '#industries' : '#reality';
+                        const sectionId = name === 'Platform' ? '#platform' : name === 'Solutions' ? '/solutions' : '#reality';
                         return (
                             <div key={name} className="relative py-2 flex items-center group/nav">
                                 {/* Text clicks directly to section */}
