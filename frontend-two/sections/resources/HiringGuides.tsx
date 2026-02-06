@@ -85,7 +85,7 @@ const HiringGuides = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.05, duration: 0.8 }}
-                            className={`group relative h-[450px] rounded-[3.5rem] p-10 flex flex-col justify-between transition-all duration-700 hover:shadow-2xl hover:shadow-slate-200/50 bg-white border border-slate-100`}
+                            className={`group relative h-[450px] rounded-[3.5rem] p-10 flex flex-col justify-between transition-all duration-700 hover:shadow-2xl hover:shadow-orange-200/50 bg-white border-2 border-slate-300 hover:border-brand-orange hover:scale-[1.02] cursor-pointer`}
                         >
 
 
@@ -96,7 +96,7 @@ const HiringGuides = () => {
                                 <h4 className="text-3xl font-bold text-slate-950 tracking-tighter mb-4 -mt-8 text-center">
                                     {country.name}
                                 </h4>
-                                <div className="flex flex-wrap gap-2 justify-center">
+                                <div className="flex flex-wrap gap-2 justify-center mb-2">
                                     {country.tags.map(tag => (
                                         <span key={tag} className="px-2 py-1 bg-slate-50 border border-slate-100 rounded-md text-[9px] font-bold text-slate-500 uppercase tracking-wider">{tag}</span>
                                     ))}
@@ -104,7 +104,7 @@ const HiringGuides = () => {
                             </div>
 
                             <div className="relative z-10">
-                                <p className="text-slate-500 text-sm font-medium mb-6 -mt-8 text-center max-w-[90%] mx-auto leading-relaxed h-10 flex items-center justify-center">
+                                <p className="text-slate-500 text-sm font-medium mb-6 mt-4 text-center max-w-[90%] mx-auto leading-relaxed flex items-center justify-center">
                                     Comprehensive local hiring guides: payroll, compliance, and taxes.
                                 </p>
                                 <div className="flex items-center justify-between pt-6 border-t border-slate-100/50">

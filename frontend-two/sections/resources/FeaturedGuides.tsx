@@ -76,7 +76,7 @@ const FeaturedGuides = () => {
                                     className="w-full h-full object-cover grayscale-[0.5] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
                                 />
                                 <div className="absolute top-4 left-4">
-                                    <span className="px-3 py-1 rounded-full bg-brand-orange text-white text-[10px] font-semibold shadow-lg">
+                                    <span className="px-3 py-1 rounded-full bg-gradient-to-r from-slate-900 to-slate-700 group-hover:from-brand-orange group-hover:to-orange-600 text-white text-[10px] font-semibold shadow-lg transition-all duration-500">
                                         {res.type}
                                     </span>
                                 </div>
