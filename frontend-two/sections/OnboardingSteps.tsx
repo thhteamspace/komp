@@ -32,7 +32,7 @@ const steps = [
 
 const OnboardingSteps = () => {
     return (
-        <section className="pt-16 pb-40 bg-white overflow-hidden relative">
+        <section id="onboarding" className="pt-16 pb-40 bg-white overflow-hidden relative scroll-mt-32">
             {/* Background Accent */}
             <div className="absolute top-0 right-0 w-1/3 h-full bg-slate-50/50 -skew-x-12 translate-x-1/2 -z-0" />
 
@@ -53,11 +53,9 @@ const OnboardingSteps = () => {
                     }}
                         className="flex items-center gap-4 mb-8"
                     >
-                        <div className="h-px w-10 bg-brand-blue" />
-                        <span className="text-sm font-black text-brand-blue uppercase tracking-[0.4em]">
+                        <span className="text-base font-bold text-brand-blue">
                             Speed & Efficiency
                         </span>
-                        <div className="h-px w-10 bg-brand-blue" />
                     </motion.div>
 
                     <h2
@@ -195,7 +193,7 @@ const OnboardingSteps = () => {
                                     hidden: { opacity: 0, y: 10 },
                                     visible: { opacity: 1, y: 0 }
                                 }}
-                                className="inline-block px-4 py-1.5 rounded-full bg-white border border-slate-200 text-brand-blue text-xs font-black uppercase tracking-widest mb-8 shadow-sm"
+                                className="font-bold text-brand-blue text-base mb-8"
                             >
                                 Fast-Track Success
                             </motion.span>
@@ -204,7 +202,7 @@ const OnboardingSteps = () => {
                                 <motion.span variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }} className="block">Ready to</motion.span>
                                 <motion.span
                                     variants={{ hidden: { opacity: 0, scale: 0.9 }, visible: { opacity: 1, scale: 1 } }}
-                                    className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-[#FFB366] block mt-2 pb-4 pr-2"
+                                    className="text-brand-orange block mt-2 pb-4 pr-2"
                                 >
                                     Accelerate Growth?
                                 </motion.span>
@@ -219,17 +217,16 @@ const OnboardingSteps = () => {
                             </motion.p>
 
                             <motion.button
-                                whileHover={{ scale: 1.05, boxShadow: "0 10px 30px -10px rgba(255,103,44,0.4)" }}
+                                whileHover={{ scale: 1.05 }}
                                 whileTap={{ scale: 0.95 }}
-                                className="px-12 py-6 rounded-2xl bg-slate-950 text-white font-black uppercase tracking-widest text-sm transition-all relative overflow-hidden group/btn shadow-xl"
+                                className="px-12 py-5 rounded-full bg-slate-950 text-white font-medium text-base transition-all relative overflow-hidden group/btn shadow-xl hover:bg-brand-orange"
                             >
-                                <span className="relative z-10 group-hover/btn:text-slate-950 transition-colors duration-300">Start Hiring Now</span>
-                                <div className="absolute inset-0 bg-brand-orange translate-y-full group-hover/btn:translate-y-0 transition-transform duration-500" />
+                                <span className="relative z-10">Start Hiring Now</span>
                             </motion.button>
 
                             <motion.div
                                 variants={{ hidden: { opacity: 0 }, visible: { opacity: 1 } }}
-                                className="mt-8 flex items-center justify-center gap-4 text-xs font-bold text-slate-400 uppercase tracking-[0.2em]"
+                                className="mt-8 flex items-center justify-center gap-4 text-xs font-bold text-slate-400"
                             >
                                 <span>No Setup Fees</span>
                                 <div className="w-1 h-1 rounded-full bg-slate-300" />

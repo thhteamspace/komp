@@ -81,8 +81,7 @@ const Hero = () => {
                     <motion.div
                         className="inline-flex items-center gap-2 mb-8"
                     >
-                        <span className="w-2 h-2 rounded-full bg-brand-blue" />
-                        <span className="text-sm font-bold text-brand-blue uppercase tracking-wider">The Infrastructure for Global Ambition.</span>
+                        <span className="text-base font-bold text-brand-blue tracking-wide">The Infrastructure for Global Ambition</span>
                     </motion.div>
 
                     <h1
@@ -90,7 +89,7 @@ const Hero = () => {
                         style={{ textShadow: '0 2px 40px rgba(255,255,255,0.8)' }}
                     >
                         Hire Anyone, Anywhere,<br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-[#FFB366]">
+                        <span className="text-brand-orange">
                             Without the Legal Complexity.
                         </span>
                     </h1>
@@ -99,15 +98,15 @@ const Hero = () => {
                         className="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl leading-relaxed font-medium"
                         style={{ textShadow: '0 1px 20px rgba(255,255,255,0.5)' }}
                     >
-                        De-risk your global expansion. KOMP automates international hiring, compliant payroll, and localized benefits in 150+ countries—so you can focus on scale, not bureaucracy.
+                        Navigating global expansion doesn't have to be complex. KOMP provides the multi-currency payroll, contractor management, and compliance infrastructure to scale your team across 150+ countries.
                     </p>
 
                     <div className="flex flex-col md:flex-row items-center gap-6 mb-16">
                         <Button variant="premium" size="lg" className="min-w-[240px]">
-                            Calculate Your Global Hiring Costs <ArrowRight className="ml-2 w-5 h-5" />
+                            Talk to a Compliance Expert <ArrowRight className="ml-2 w-5 h-5" />
                         </Button>
-                        <Button variant="ghost" size="lg" className="min-w-[240px] border border-gray-200">
-                            See the Platform
+                        <Button variant="ghost" size="lg" className="min-w-[240px] border border-gray-200 hover:bg-transparent">
+                            Get My Custom Expansion Quote
                         </Button>
                     </div>
 

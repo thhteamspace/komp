@@ -8,24 +8,12 @@ import Button from './Button';
 import { cn } from '@/utils/cn';
 
 const megaMenuData = {
-    Platform: [
-        { name: 'Global EOR', desc: 'Hire in 150+ countries without entities.', icon: Globe, href: '#platform' },
-        { name: 'Contractor Management', desc: 'Secure, localized contracts & payments.', icon: Shield, href: '#platform' },
-        { name: 'Multi-Country Payroll', desc: 'Unified payroll for your global team.', icon: Zap, href: '#platform' },
-        { name: 'Global Mobility', desc: 'Visas, relocation & local benefits.', icon: Rocket, href: '#platform' },
-    ],
     Solutions: [
         { name: 'For Tech & SaaS', desc: 'Scale engineering teams with zero risk.', icon: Zap, href: '#industries' },
         { name: 'For Healthcare', desc: 'Strict regulatory & HIPAA compliance.', icon: Shield, href: '#industries' },
         { name: 'For Professional Services', desc: 'Deploy consultants worldwide instantly.', icon: Briefcase, href: '#industries' },
         { name: 'M&A Integration', desc: 'Fast-track workforce consolidation.', icon: LineChart, href: '#industries' },
     ],
-    'Global Coverage': [
-        { name: 'Country Explorer', desc: 'Real-time labor laws in 150+ markets.', icon: Globe, href: '#reality' },
-        { name: 'EOR India', desc: 'Market entry & hiring in India.', icon: Globe, href: '#reality' },
-        { name: 'EOR Brazil', desc: 'Strategic expansion into LATAM.', icon: Globe, href: '#reality' },
-        { name: 'Compliance Engine', desc: 'Automated legal risk management.', icon: Shield, href: '#reality' },
-    ]
 };
 
 const Header = () => {
@@ -74,7 +62,7 @@ const Header = () => {
                                     href={sectionId}
                                     onClick={() => setActiveMegaMenu(null)}
                                     className={cn(
-                                        "text-[13px] font-black uppercase tracking-widest transition-colors duration-300",
+                                        "text-sm font-semibold transition-colors duration-300",
                                         activeMegaMenu === name ? "text-brand-orange" : "text-slate-600 hover:text-slate-950"
                                     )}
                                 >
@@ -98,20 +86,18 @@ const Header = () => {
                             </div>
                         );
                     })}
-                    <Link href="#knowledge" onClick={() => setActiveMegaMenu(null)} className="text-[13px] font-black uppercase tracking-widest text-slate-600 hover:text-slate-950 transition-colors">
+                    <Link href="/resources" onClick={() => setActiveMegaMenu(null)} className="text-sm font-semibold text-slate-600 hover:text-slate-950 transition-colors">
                         Resources
                     </Link>
                 </nav>
 
                 {/* Desktop Actions */}
                 <div className="hidden lg:flex items-center gap-8">
-                    <Link href="/login" className="text-[13px] font-black uppercase tracking-widest text-slate-600 hover:text-slate-950 transition-colors">
+                    <Link href="/login" className="text-sm font-semibold text-slate-600 hover:text-slate-950 transition-colors">
                         Login
                     </Link>
                     <Link href="#reality">
-                        <Button variant="primary" size="sm" className="rounded-full px-8 text-[11px] font-black uppercase tracking-widest">
-                            Get a Compliance Audit
-                        </Button>
+                        <Button variant="premium" size="sm" className="rounded-full shadow-lg text-xs">Talk to a Compliance Expert</Button>
                     </Link>
                 </div>
 
@@ -143,7 +129,7 @@ const Header = () => {
                                     <div className="relative z-10">
                                         <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 mb-8">
                                             <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
-                                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-white">Featured Insights</span>
+                                            <span className="text-[10px] font-bold text-white tracking-wider">Featured Insights</span>
                                         </div>
                                         <h3 className="text-3xl font-bold tracking-tighter mb-4 leading-tight">
                                             2026 Global <br />
@@ -154,7 +140,7 @@ const Header = () => {
                                         </p>
                                     </div>
 
-                                    <Link href="#knowledge" onClick={() => setActiveMegaMenu(null)} className="relative z-10 inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-brand-orange hover:text-white transition-colors group/btn">
+                                    <Link href="#knowledge" onClick={() => setActiveMegaMenu(null)} className="relative z-10 inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-white transition-colors group/btn">
                                         Download Guide
                                         <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
                                     </Link>
@@ -219,13 +205,10 @@ const Header = () => {
                         transition={{ type: "spring", damping: 25, stiffness: 200 }}
                         className="fixed inset-0 w-full h-screen bg-white z-[40] flex flex-col p-8 lg:hidden pt-32"
                     >
-                        {/* Mobile links simple version for now */}
                         <div className="flex flex-col gap-10">
                             {[
-                                { name: 'Platform', href: '#platform' },
-                                { name: 'Solutions', href: '#industries' },
-                                { name: 'Global Coverage', href: '#reality' },
-                                { name: 'Resources', href: '#knowledge' }
+                                { name: 'Solutions', href: '/solutions' },
+                                { name: 'Resources', href: '/resources' }
                             ].map((item) => (
                                 <Link
                                     key={item.name}
@@ -241,7 +224,7 @@ const Header = () => {
                             <Link href="/login" className="text-center font-bold text-slate-500 uppercase tracking-widest text-sm py-4">
                                 Login
                             </Link>
-                            <Button fullWidth className="h-16 rounded-2xl">Get a Compliance Audit</Button>
+                            <Button fullWidth className="h-14 rounded-full">Talk to a Compliance Expert</Button>
                         </div>
                     </motion.div>
                 )}

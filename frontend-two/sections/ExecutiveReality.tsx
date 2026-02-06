@@ -32,7 +32,7 @@ const realityItems = [
 
 const ExecutiveReality = () => {
     return (
-        <section className="py-20 bg-white relative overflow-hidden">
+        <section id="reality" className="py-20 bg-white relative overflow-hidden scroll-mt-32">
             {/* Premium Light Background Detail */}
             <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-slate-100 via-white to-white" />
             <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-slate-200 to-transparent" />
@@ -49,10 +49,9 @@ const ExecutiveReality = () => {
                 >
                     <motion.div
                         variants={{ hidden: { opacity: 0, y: 20 }, visible: { opacity: 1, y: 0 } }}
-                        className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-blue-50/50 border border-blue-100/60 mb-8 backdrop-blur-sm"
+                        className="inline-flex items-center gap-2 mb-8"
                     >
-                        <div className="w-1.5 h-1.5 rounded-full bg-brand-blue animate-pulse" />
-                        <span className="text-[11px] font-bold text-brand-blue uppercase tracking-widest">Critical Intelligence</span>
+                        <span className="text-base font-bold text-brand-blue tracking-wide">Critical Intelligence</span>
                     </motion.div>
 
                     <motion.h2
@@ -61,7 +60,7 @@ const ExecutiveReality = () => {
                         style={{ fontSize: '5vw', lineHeight: '1' }}
                     >
                         The High Cost of <br />
-                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-slate-400 to-slate-600">
+                        <span className="text-brand-orange">
                             Fragmented Hiring.
                         </span>
                     </motion.h2>

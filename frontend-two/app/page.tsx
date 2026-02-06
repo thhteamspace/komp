@@ -19,19 +19,21 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <section id="reality"><ExecutiveReality /></section>
+      <ExecutiveReality />
       <GlobalCoverageMap />
       <BentoGrid />
-      <section id="platform"><ProductModules /></section>
-      <section id="comparison"><CompetitiveDifferentiation /></section>
-      <section id="industries"><IndustryUseCases /></section>
+      <ProductModules />
+      <CompetitiveDifferentiation />
+      <IndustryUseCases />
       <PayrollSlider />
       <CostCalculator />
-      <section id="onboarding"><OnboardingSteps /></section>
+      <OnboardingSteps />
+      <div id="case_studies" className="scroll-mt-56" />
+      <div id="success_stories" className="scroll-mt-56" />
       <CaseStudies />
       <TrustProof />
       <Testimonials />
-      <section id="knowledge"><KnowledgeCenter /></section>
+      <KnowledgeCenter />
       <FinalCTA />
     </>
   );

@@ -7,10 +7,10 @@ import { Code2, Stethoscope, Briefcase, ChevronRight, Zap, Shield, Users } from 
 const industries = [
     {
         id: 'tech',
-        label: 'Technology',
+        label: 'Tech / SaaS',
         icon: Code2,
-        title: 'Ship Faster, Hire Anywhere.',
-        description: 'For tech companies, speed is survival. KOMP allows you to onboard developers in Brazil, Poland, and India in < 48 hours, while protecting your IP globally.',
+        title: 'Scale Fast. Stay Compliant.',
+        description: 'For high-growth software companies, speed is everything. KOMP allows you to onboard developers worldwide in < 48 hours, while ensuring all IP and equity agreements are localized.',
         stats: [
             { value: '48h', label: 'Onboarding Time' },
             { value: '100%', label: 'IP Protection' },
@@ -23,20 +23,20 @@ const industries = [
         label: 'Healthcare',
         icon: Stethoscope,
         title: 'Compliance is Non-Negotiable.',
-        description: 'Navigate complex healthcare regulations with ease. We handle meticulous background checks, credential verification, and HIPAA-compliant contracting.',
+        description: 'Navigate complex global healthcare regulations. We handle meticulous background checks and ensured localized labor law adherence for medical staffing.',
         stats: [
             { value: 'Zero', label: 'Compliance Gaps' },
-            { value: 'HIPAA', label: 'Ready Contracts' },
+            { value: 'Expert', label: 'Labor Advice' },
             { value: '24/7', label: 'Support' }
         ],
         gradient: 'from-emerald-500 to-teal-600'
     },
     {
         id: 'professional',
-        label: 'Prof. Services',
+        label: 'Professional Services',
         icon: Briefcase,
         title: 'Deploy Consultants Instantly.',
-        description: 'Whether it’s a 3-month project or a permanent placement, deploy consultants to client sites globally without triggering permanent establishment risks.',
+        description: 'Whether it’s a short-term project or a permanent placement, deploy consultants to client sites globally without the overhead of entity setup.',
         stats: [
             { value: 'Flex', label: 'Contract Terms' },
             { value: 'No', label: 'Entity Needed' },
@@ -50,7 +50,7 @@ const IndustryUseCases = () => {
     const [activeTab, setActiveTab] = useState(industries[0].id);
 
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section id="industries" className="py-24 bg-white relative overflow-hidden scroll-mt-32">
             {/* Soft ambient glow */}
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none" />
 
@@ -66,7 +66,7 @@ const IndustryUseCases = () => {
                         className="font-black text-slate-950 mb-6 tracking-tighter"
                         style={{ fontSize: '4vw', lineHeight: '1.2' }}
                     >
-                        Built for <span className="text-slate-400 italic">Your Industry.</span>
+                        Built for <span className="text-brand-orange">Your Industry.</span>
                     </h2>
                     <p className="text-slate-500 max-w-2xl mx-auto text-lg font-medium">
                         Specific challenges require specific solutions. See how KOMP adapts to your sector.
@@ -90,7 +90,6 @@ const IndustryUseCases = () => {
                                 : 'bg-white text-slate-400 border-slate-200 hover:border-slate-300 hover:text-slate-600'
                                 }`}
                         >
-                            <industry.icon size={18} />
                             <span className="font-bold tracking-wide text-sm">{industry.label}</span>
                         </button>
                     ))}

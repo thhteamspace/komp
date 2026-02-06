@@ -1,195 +1,167 @@
 'use client';
 
 import { useState } from 'react';
-import { motion } from 'framer-motion';
-import { ArrowUpRight, TrendingUp, ShieldCheck, Zap } from 'lucide-react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { ArrowUpRight, CheckCircle2, AlertCircle, Zap, ShieldCheck, Globe } from 'lucide-react';
+import Button from '@/components/Button';
 
 const cases = [
     {
-        id: 'finscale',
-        company: 'FinScale',
-        sector: 'FinTech',
-        title: 'Global Scale.',
-        desc: 'Scaled to 200 employees across 12 countries in 6 months.',
-        stat: '300%',
-        statLabel: 'Growth',
-        image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2932&auto=format&fit=crop', // Sleek Boardroom/Corporate
-        icon: TrendingUp,
-        color: '#3b82f6' // Blue
-    },
-    {
-        id: 'medicore',
-        company: 'MediCore',
-        sector: 'HealthTech',
-        title: 'Zero Risk.',
-        desc: 'Achieved 100% HIPAA & GDPR compliance for remote teams.',
-        stat: '100%',
-        statLabel: 'Compliant',
-        image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2000&auto=format&fit=crop', // Reliable Medical Tech
-        icon: ShieldCheck,
-        color: '#10b981' // Emerald
-    },
-    {
-        id: 'nebula',
-        company: 'Nebula',
-        sector: 'SaaS',
-        title: 'Instant Speed.',
-        desc: 'Hired top engineering talent in Brazil & India in 48 hours.',
-        stat: '48h',
-        statLabel: 'To Hire',
-        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop', // Dynamic Team
+        id: 'tech-scaling',
+        company: 'CloudStream SaaS',
+        sector: 'Tech / SaaS',
+        title: 'Rapid Engineering Expansion.',
+        problem: 'Needed to hire 45 senior engineers across Brazil, India, and Poland in under 60 days without local entities.',
+        solution: 'KOMP Activate & Workforce enabled compliant onboarding and IP protection within 48 hours per hire.',
+        result: 'Saved $1.2M in legal setup costs and achieved 100% hiring target ahead of schedule.',
+        image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop',
         icon: Zap,
-        color: '#f97316' // Orange
+        color: '#f97316'
+    },
+    {
+        id: 'healthcare-compliance',
+        company: 'VitalsGlobal',
+        sector: 'Healthcare',
+        title: 'Global Compliance Shield.',
+        problem: 'Faced potential misclassification penalties while managing remote medical consultants across 15 countries.',
+        solution: 'Implemented KOMP Governance to audit every contract and transition consultants to compliant EOR/Contractor models.',
+        result: 'Zero compliance gaps identified during annual audit; reduced legal risk exposure by 100%.',
+        image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2000&auto=format&fit=crop',
+        icon: ShieldCheck,
+        color: '#10b981'
+    },
+    {
+        id: 'professional-mobility',
+        company: 'Strata Partners',
+        sector: 'Professional Services',
+        title: 'Unlimited Mobility.',
+        problem: 'Consultants needed to move between client sites in London, Singapore, and Dubai with urgent visa requirements.',
+        solution: 'KOMP PayOps & Mobility handled multi-currency payroll and relocation logistics without requiring direct entities.',
+        result: 'Average visa turnaround reduced from 3 months to 3 weeks; 99% employee satisfaction rate.',
+        image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2932&auto=format&fit=crop',
+        icon: Globe,
+        color: '#3b82f6'
     }
 ];
 
 const CaseStudies = () => {
-    const [activeId, setActiveId] = useState('finscale');
+    const [activeIndex, setActiveIndex] = useState(0);
 
     return (
-        <section className="pt-16 pb-32 bg-white text-brand-black relative overflow-hidden">
-            {/* Background Texture removed for cohesion */}
+        <section className="py-32 bg-slate-50 relative overflow-hidden scroll-mt-40">
             <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
 
-                {/* Header - Centered & Impactful with Staggered Animation */}
-                <motion.div
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: false, amount: 0.5 }}
-                    variants={{
-                        hidden: { opacity: 0 },
-                        visible: { opacity: 1, transition: { staggerChildren: 0.15 } }
-                    }}
-                    className="text-center mb-16"
-                >
-                    <h2
-                        className="font-black text-brand-black tracking-tighter mb-6"
-                        style={{ fontSize: '4vw', lineHeight: '1.2' }}
-                    >
-                        <motion.span variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }} className="block md:inline mr-4">
-                            Proven Results.
-                        </motion.span>
-                        <motion.span
-                            variants={{ hidden: { y: 20, opacity: 0, scale: 0.9 }, visible: { y: 0, opacity: 1, scale: 1 } }}
-                            className="text-brand-orange block md:inline"
-                        >
-                            Global Impact.
-                        </motion.span>
-                    </h2>
-                    <motion.p
-                        variants={{ hidden: { y: 20, opacity: 0 }, visible: { y: 0, opacity: 1 } }}
-                        className="text-brand-black/60 text-xl font-medium max-w-2xl mx-auto"
-                    >
-                        We don't just promise compliance. We deliver hyper-growth.
-                    </motion.p>
-                </motion.div>
-
-                {/* The "Crazy" Elastic Layout */}
-                <div className="flex flex-col lg:flex-row gap-4 h-auto lg:h-[600px]">
-                    {cases.map((item) => (
+                <div className="flex flex-col items-center text-center mb-20 gap-8">
+                    <div className="max-w-4xl mx-auto">
                         <motion.div
-                            key={item.id}
-                            layout
-                            onHoverStart={() => setActiveId(item.id)}
-                            onClick={() => setActiveId(item.id)}
-                            initial={{ borderRadius: '1.5rem' }}
-                            animate={{
-                                flex: activeId === item.id ? 3 : 1,
-                                opacity: activeId === item.id ? 1 : 0.6
-                            }}
-                            transition={{ type: 'spring', stiffness: 300, damping: 30 }}
-                            className={`relative overflow-hidden cursor-pointer group bg-white border ${activeId === item.id ? 'border-brand-orange' : 'border-gray-100'} rounded-[1.5rem] shadow-xl`}
+                            initial={{ opacity: 0, scale: 0.9 }}
+                            whileInView={{ opacity: 1, scale: 1 }}
+                            className="text-brand-blue font-bold text-base mb-6 inline-block"
                         >
-                            {/* Background Image - scales on hover */}
-                            <motion.img
-                                src={item.image}
-                                alt={item.company}
-                                className="absolute inset-0 w-full h-full object-cover transition-transform duration-1000 group-hover:scale-110 saturate-0 group-hover:saturate-100"
+                            Expansion Stories
+                        </motion.div>
+                        <motion.h2
+                            initial={{ opacity: 0, y: 30 }}
+                            whileInView={{ opacity: 1, y: 0 }}
+                            className="font-black text-slate-950 tracking-tighter leading-[0.9]"
+                            style={{ fontSize: '4vw' }}
+                        >
+                            Human Impact. <span className="text-brand-orange">Technical Precision.</span>
+                        </motion.h2>
+                    </div>
+                    <div className="flex gap-4">
+                        {cases.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setActiveIndex(i)}
+                                className={`w-12 h-2 rounded-full transition-all duration-500 ${activeIndex === i ? 'bg-brand-orange w-24' : 'bg-slate-200'}`}
                             />
+                        ))}
+                    </div>
+                </div>
 
-                            {/* Dark Gradient Overlay */}
-                            <div className={`absolute inset-0 bg-gradient-to-b ${activeId === item.id ? 'from-black/10 via-black/10 to-black/80' : 'from-black/60 to-black/90'} transition-all duration-500`} />
+                <div className="relative">
+                    <AnimatePresence mode="wait">
+                        <motion.div
+                            key={activeIndex}
+                            initial={{ opacity: 0, scale: 0.98, y: 20 }}
+                            animate={{ opacity: 1, scale: 1, y: 0 }}
+                            exit={{ opacity: 0, scale: 1.02, y: -20 }}
+                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                            className="bg-white rounded-[3rem] border border-slate-200 overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.05)] flex flex-col lg:flex-row min-h-[500px]"
+                        >
+                            {/* Left: Content Area */}
+                            <div className="flex-1 p-10 md:p-14 flex flex-col justify-between order-2 lg:order-1">
+                                <div>
+                                    <div className="flex items-center gap-4 mb-10">
+                                        <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-950">
+                                            {(() => {
+                                                const Icon = cases[activeIndex].icon;
+                                                return <Icon size={24} />;
+                                            })()}
+                                        </div>
+                                        <div>
+                                            <h3 className="text-2xl font-black text-slate-950 tracking-tight">{cases[activeIndex].company}</h3>
+                                            <p className="text-[10px] font-bold tracking-wider text-slate-400">{cases[activeIndex].sector}</p>
+                                        </div>
+                                    </div>
 
-                            <div className="absolute inset-0 p-8 flex flex-col justify-between">
+                                    <div className="space-y-10">
+                                        <div>
+                                            <div className="flex items-center gap-2 text-rose-500 mb-2">
+                                                <AlertCircle size={16} />
+                                                <span className="text-[10px] font-bold tracking-wider">The Problem</span>
+                                            </div>
+                                            <p className="text-xl md:text-2xl font-bold text-slate-900 leading-tight">
+                                                "{cases[activeIndex].problem}"
+                                            </p>
+                                        </div>
 
-                                {/* Top: Sector Tag */}
-                                <div className="flex justify-start">
-                                    <div className="bg-brand-black/20 backdrop-blur-md border border-white/10 px-4 py-2 rounded-full text-[10px] uppercase font-black tracking-widest flex items-center gap-2 text-white">
-                                        <div className={`w-2 h-2 rounded-full`} style={{ backgroundColor: item.color }} />
-                                        {item.sector}
+                                        <div>
+                                            <div className="flex items-center gap-2 text-brand-blue mb-2">
+                                                <Zap size={16} />
+                                                <span className="text-[10px] font-bold tracking-wider">KOMP Solution</span>
+                                            </div>
+                                            <p className="text-lg font-medium text-slate-600">
+                                                {cases[activeIndex].solution}
+                                            </p>
+                                        </div>
                                     </div>
                                 </div>
 
-                                {/* Bottom: Info */}
-                                {/* Bottom: Info */}
-                                <div className="mt-auto h-[400px] flex flex-col justify-start">
-                                    {/* The Stat - Stable Anchor */}
-                                    <div className="mb-2">
-                                        <div className="flex items-end gap-2 text-white leading-none">
-                                            <motion.span
-                                                transition={{ duration: 0.3, ease: 'easeOut' }}
-                                                style={{ originX: 0, originY: 1 }}
-                                                animate={{
-                                                    scale: activeId === item.id ? 1 : 0.65,
-                                                    opacity: activeId === item.id ? 1 : 0.4
-                                                }}
-                                                className="font-semibold tracking-tighter text-5xl md:text-7xl block"
-                                            >
-                                                {item.stat}
-                                            </motion.span>
+                                <div className="mt-12 pt-10 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
+                                    <div>
+                                        <div className="flex items-center gap-2 text-emerald-500 mb-2">
+                                            <CheckCircle2 size={16} />
+                                            <span className="text-[10px] font-bold tracking-wider">Verified Result</span>
                                         </div>
-                                        <motion.span
-                                            transition={{ duration: 0.3, ease: 'easeOut' }}
-                                            className="text-sm font-bold uppercase tracking-widest text-white pl-1 block mt-1"
-                                        >
-                                            {item.statLabel}
-                                        </motion.span>
+                                        <p className="text-2xl font-black text-slate-950 tracking-tight italic">
+                                            {cases[activeIndex].result}
+                                        </p>
                                     </div>
-
-                                    {/* Expanding Content */}
-                                    <motion.div
-                                        initial={false}
-                                        animate={{
-                                            height: activeId === item.id ? 'auto' : 0,
-                                            opacity: activeId === item.id ? 1 : 0,
-                                        }}
-                                        transition={{
-                                            duration: 0.4,
-                                            ease: [0.22, 1, 0.36, 1]
-                                        }}
-                                        className="overflow-hidden"
-                                    >
-                                        <div className="pt-6 border-t border-white/20 mt-4">
-                                            <h3 className="text-2xl md:text-4xl font-black mb-3 text-white leading-[0.85] tracking-tighter">{item.title}</h3>
-                                            <p className="text-sm md:text-base text-white mb-8 leading-relaxed max-w-lg font-bold">
-                                                {item.desc}
-                                            </p>
-                                            <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand-orange text-white text-[12px] font-bold uppercase tracking-widest group/btn hover:bg-white hover:text-brand-black transition-all hover:scale-105 shadow-md">
-                                                Read Case Study
-                                                <ArrowUpRight className="w-3.5 h-3.5 transition-transform group-hover/btn:translate-x-0.5" />
-                                            </div>
-                                        </div>
-                                    </motion.div>
-
-                                    {/* Company Name (Visible when inactive for context) */}
-                                    {activeId !== item.id && (
-                                        <motion.div
-                                            initial={{ opacity: 0 }}
-                                            animate={{ opacity: 1 }}
-                                            className="mt-4 text-xl font-bold text-white/40"
-                                        >
-                                            {item.company}
-                                        </motion.div>
-                                    )}
+                                    <Button variant="premium" className="rounded-full px-10 h-14">
+                                        View Full Story
+                                    </Button>
                                 </div>
                             </div>
-                        </motion.div>
-                    ))
-                    }
-                </div >
 
-            </div >
-        </section >
+                            {/* Right: Visual Area */}
+                            <div className="w-full lg:w-[40%] relative overflow-hidden min-h-[300px] lg:min-h-full order-1 lg:order-2">
+                                <img
+                                    src={cases[activeIndex].image}
+                                    alt={cases[activeIndex].company}
+                                    className="absolute inset-0 w-full h-full object-cover saturate-0 opacity-40 group-hover:saturate-100 transition-all duration-1000"
+                                />
+                                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/5 to-white pointer-events-none" />
+
+                                {/* Overlay Accent */}
+                                <div className="absolute top-12 right-12 bottom-12 left-12 border-2 border-white/20 rounded-[3rem] pointer-events-none" />
+                            </div>
+                        </motion.div>
+                    </AnimatePresence>
+                </div>
+            </div>
+        </section>
     );
 };
 

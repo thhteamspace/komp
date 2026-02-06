@@ -20,10 +20,9 @@ const SolutionsCTA = () => {
                             <motion.div
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-brand-blue/10 border border-brand-blue/20"
+                                className="inline-block"
                             >
-                                <Globe size={16} className="text-brand-blue" />
-                                <span className="text-sm font-bold text-brand-blue uppercase tracking-wider">Expand Without Limits</span>
+                                <span className="text-base font-bold text-brand-blue">Expand Without Limits</span>
                             </motion.div>
 
                             <motion.h2
@@ -45,7 +44,7 @@ const SolutionsCTA = () => {
 
                             <div className="flex flex-col sm:flex-row gap-4">
                                 <Button variant="premium" size="lg" className="h-14 px-8 text-base font-semibold shadow-lg shadow-brand-orange/10 rounded-full">
-                                    Talk to an Expert <ArrowRight className="ml-2 w-4 h-4" />
+                                    Talk to a Compliance Expert <ArrowRight className="ml-2 w-4 h-4" />
                                 </Button>
                                 <Button variant="ghost" size="lg" className="h-14 px-8 text-base font-semibold border border-slate-200 text-slate-900 hover:bg-slate-50 hover:border-slate-300 transition-all rounded-full bg-white">
                                     View the Platform
@@ -83,9 +82,9 @@ const SolutionsCTA = () => {
                                             <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">10-Minute Consultation</span>
                                         </div>
                                     </div>
-                                    <div className="flex items-center gap-2 bg-emerald-50 text-emerald-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter border border-emerald-100">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                                        Available Now
+                                    <div className="flex items-center gap-2 bg-slate-50 text-slate-600 px-3 py-1 rounded-full text-[10px] font-black uppercase tracking-tighter border border-slate-100">
+                                        <div className="w-1.5 h-1.5 rounded-full bg-slate-400" />
+                                        Inquiry Hub
                                     </div>
                                 </div>
 
@@ -100,12 +99,12 @@ const SolutionsCTA = () => {
                                     ))}
                                 </div>
 
-                                <div className="bg-slate-900 rounded-xl p-6 text-white flex items-center justify-between group cursor-pointer hover:bg-brand-black transition-colors shadow-lg shadow-slate-900/10">
+                                <div className="bg-slate-900 rounded-full p-6 text-white flex items-center justify-between group cursor-pointer hover:bg-brand-black transition-colors shadow-lg shadow-slate-900/10">
                                     <div className="flex items-center gap-4">
                                         <div className="w-10 h-10 rounded-full bg-brand-orange flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform">
                                             <Clock className="w-5 h-5" />
                                         </div>
-                                        <span className="font-black">Book Discovery Call</span>
+                                        <span className="font-medium">Request Information</span>
                                     </div>
                                     <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
                                 </div>

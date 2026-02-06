@@ -28,11 +28,11 @@ const FinalCTA = () => {
                         transition={{ duration: 0.8 }}
                         className="text-4xl md:text-7xl font-bold tracking-tighter mb-8 leading-tight text-brand-black"
                     >
-                        Your Global Workforce Is Waiting. Don’t Let Compliance Hold You Back.
+                        Ready to accelerate your <br /> <span className="text-brand-orange">global ambition?</span>
                     </motion.h2>
 
                     <p className="text-xl text-gray-500 mb-12 max-w-2xl mx-auto font-medium">
-                        Join hundreds of forward-thinking companies using KOMP to build global teams with the legal shield your CFO demands.
+                        Join hundreds of forward-thinking companies using KOMP to build global teams with expert compliance support.
                     </p>
 
                     {/* Lead Gen Form - Optimized for light */}
@@ -50,8 +50,8 @@ const FinalCTA = () => {
                             <option value="ca">Canada</option>
                             <option value="other">Other</option>
                         </select>
-                        <Button variant="premium" className="h-14 px-8 rounded-full whitespace-nowrap bg-brand-black text-white hover:bg-brand-orange transition-colors border-none font-bold tracking-tight shrink-0">
-                            Get My Custom Expansion Quote
+                        <Button variant="premium" className="h-14 px-10 rounded-full whitespace-nowrap bg-brand-black text-white hover:bg-brand-orange transition-colors border-none font-medium shrink-0">
+                            Talk to a Compliance Expert
                         </Button>
                     </div>
 

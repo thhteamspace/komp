@@ -38,8 +38,8 @@ const sizeSolutions = [
         icon: <Globe2 className="w-8 h-8 text-indigo-600" />,
         description: 'Complex hiring, simplified. The single source of truth for global HRIS.',
         benefits: [
-            'Centralized global payroll',
-            'HRIS + Finance integrations',
+            'Entity-free global expansion',
+            'Centralized control across regions when required',
             'Advanced Security & permissions',
             'Single source of truth'
         ],
@@ -60,7 +60,7 @@ const BusinessSizeSolutions = () => {
                         className="text-4xl md:text-6xl font-black text-brand-black mb-6"
                     >
                         Built for where you are today <br />
-                        <span className="text-slate-400 font-medium">(and where you’re going tomorrow).</span>
+                        <span className="text-brand-orange">and where you’re going tomorrow.</span>
                     </motion.h2>
                     <p className="text-xl text-slate-600 max-w-2xl mx-auto">
                         Whether you’re a 10-person startup or a 10,000-person enterprise, KOMP adapts to your scale.

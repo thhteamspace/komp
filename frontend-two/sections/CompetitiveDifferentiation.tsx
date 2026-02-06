@@ -28,7 +28,7 @@ const ComparisonRow = ({ feature, komp, traditional, delay }: { feature: string,
 
 const CompetitiveDifferentiation = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section id="comparison" className="py-24 bg-white relative overflow-hidden scroll-mt-32">
             {/* Background details removed for a cleaner white look */}
 
             <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
@@ -39,7 +39,7 @@ const CompetitiveDifferentiation = () => {
                         viewport={{ once: false }}
                         className="inline-block"
                     >
-                        <h2 className="text-base font-bold text-brand-blue tracking-wider uppercase mb-3">The New Standard</h2>
+                        <div className="text-base font-bold text-brand-blue mb-3">The New Standard</div>
                     </motion.div>
 
                     <motion.h3
@@ -50,7 +50,7 @@ const CompetitiveDifferentiation = () => {
                         style={{ fontSize: '5vw', lineHeight: '1' }}
                     >
                         Why Modern Leaders Are <br />
-                        <span className="text-slate-400">Moving to KOMP.</span>
+                        <span className="text-brand-orange">Moving to KOMP.</span>
                     </motion.h3>
                 </div>
 
@@ -59,34 +59,34 @@ const CompetitiveDifferentiation = () => {
                     <div className="absolute top-0 left-0 w-full h-1 bg-gradient-to-r from-transparent via-brand-orange to-transparent opacity-50" />
 
                     <div className="hidden md:grid grid-cols-3 gap-4 mb-6 pb-4 border-b border-gray-100 text-sm font-semibold uppercase tracking-wider text-gray-400">
-                        <div>Feature</div>
-                        <div className="text-brand-orange">With KOMP</div>
-                        <div>Traditional EORs</div>
+                        <div>Key Benchmark</div>
+                        <div className="text-brand-orange">KOMP Strategic Path</div>
+                        <div>Generic Providers</div>
                     </div>
 
                     <div className="space-y-2">
                         <ComparisonRow
-                            feature="Onboarding Speed"
-                            komp="Instant Onboarding"
-                            traditional="Slow (Weeks)"
+                            feature="Onboarding Pipeline"
+                            komp="Faster Onboarding"
+                            traditional="Weeks of Manual Entry"
                             delay={0.1}
                         />
                         <ComparisonRow
-                            feature="Pricing Model"
-                            komp="Mid-market Pricing"
-                            traditional="Hidden FX Fees"
+                            feature="Pricing Transparency"
+                            komp="Clean Mid-market Rates"
+                            traditional="Opaque FX Markups"
                             delay={0.2}
                         />
                         <ComparisonRow
-                            feature="Support Quality"
-                            komp="24/7 Human Experts"
-                            traditional="Bot-based Support"
+                            feature="Service Model"
+                            komp="Human-led Global Support"
+                            traditional="Automated Support Queues"
                             delay={0.3}
                         />
                         <ComparisonRow
-                            feature="Infrastructure"
-                            komp="150+ Direct Entities"
-                            traditional="Aggregator Networks"
+                            feature="Legal Logic"
+                            komp="Lower Aggregator Reliance"
+                            traditional="Multi-layered 3rd Parties"
                             delay={0.4}
                         />
                     </div>

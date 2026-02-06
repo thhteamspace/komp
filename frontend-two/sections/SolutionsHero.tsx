@@ -10,8 +10,8 @@ const personas = [
         id: 'startup',
         label: 'Startups',
         icon: <Zap className="w-5 h-5" />,
-        headline: 'Global hiring solutions for every stage of your journey.',
-        subheadline: 'Founder se leke CFO tak – sab ke liye compliant global hiring infra',
+        headline: 'Hire your first global employee without setting up an entity.',
+        subheadline: 'Launch your global workforce instantly without the wait for local legal registrations.',
         metrics: [
             { label: 'Hiring Speed', value: '48 Hours' },
             { label: 'Legal Cost', value: 'Save $20k+' },
@@ -23,8 +23,8 @@ const personas = [
         id: 'hr',
         label: 'HR Teams',
         icon: <Users className="w-5 h-5" />,
-        headline: 'One platform. Every team wins.',
-        subheadline: 'Automated onboarding, contracts, and benefits for your global workforce.',
+        headline: 'Automate global onboarding, contracts, and benefits.',
+        subheadline: 'One dashboard to manage every stage of the global employee lifecycle.',
         metrics: [
             { label: 'Onboarding', value: 'Automated' },
             { label: 'Employee NPS', value: '98%' },
@@ -36,8 +36,8 @@ const personas = [
         id: 'finance',
         label: 'Finance',
         icon: <Activity className="w-5 h-5" />,
-        headline: 'Built for the way modern companies grow.',
-        subheadline: 'Consolidated global payroll, tax filings, and unified invoicing.',
+        headline: 'Consolidate global payroll, invoices, and FX exposure.',
+        subheadline: 'Unified financial visibility and automated tax filings across 150+ countries.',
         metrics: [
             { label: 'One Invoice', value: '100+ Currencies' },
             { label: 'Audit Ready', value: 'Always' },
@@ -51,92 +51,76 @@ const SolutionsHero = () => {
     const [activePersona, setActivePersona] = useState(personas[0]);
 
     return (
-        <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-40 pb-24 px-6 overflow-hidden bg-brand-white">
+        <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-24 px-6 overflow-hidden bg-brand-white">
             {/* Decorative background elements */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-0">
                 <div className="absolute top-20 left-10 w-72 h-72 bg-brand-orange/10 rounded-full blur-3xl animate-pulse" />
                 <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl animate-pulse" />
             </div>
 
-            <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
-                <div className="flex flex-col items-center text-center mb-16">
+            <div className="w-full max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col h-full">
 
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activePersona.id}
-                            initial={{ opacity: 0, y: 20 }}
-                            animate={{ opacity: 1, y: 0 }}
-                            exit={{ opacity: 0, y: -20 }}
-                            transition={{ duration: 0.5 }}
-                            className="max-w-5xl"
+                {/* TOP: Navigation Bar */}
+                <div className="w-full flex flex-wrap justify-center lg:justify-start gap-4 mb-12">
+                    {personas.map((persona) => (
+                        <button
+                            key={persona.id}
+                            onClick={() => setActivePersona(persona)}
+                            className={`group px-6 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2 border ${activePersona.id === persona.id
+                                ? 'bg-brand-black text-white shadow-lg scale-105 border-transparent'
+                                : 'bg-white text-slate-600 hover:bg-slate-50 border-slate-200 hover:border-brand-orange/30'
+                                }`}
                         >
-                            <h1 className="text-5xl md:text-7xl font-black tracking-tight text-brand-black mb-6 leading-tight">
-                                {activePersona.id === 'finance' ? (
-                                    <>
-                                        Built for the way modern companies grow—<br />
-                                        <span className="text-transparent bg-clip-text bg-gradient-to-r from-brand-orange to-brand-blue">
-                                            without borders or legal limits.
-                                        </span>
-                                    </>
-                                ) : activePersona.headline}
-                            </h1>
-                            <p className="text-xl md:text-2xl text-slate-600 mb-10 max-w-3xl mx-auto leading-relaxed">
-                                {activePersona.subheadline}
-                            </p>
-                        </motion.div>
-                    </AnimatePresence>
-
-                    <div className="flex flex-wrap items-center justify-center gap-4 mb-12">
-                        {personas.map((persona) => (
-                            <button
-                                key={persona.id}
-                                onClick={() => setActivePersona(persona)}
-                                className={`flex items-center gap-2 px-6 py-3 rounded-xl font-bold transition-all duration-300 ${activePersona.id === persona.id
-                                    ? 'bg-brand-black text-white shadow-xl scale-105'
-                                    : 'bg-white text-slate-600 hover:bg-slate-50 border border-slate-200'
-                                    }`}
-                            >
-                                {persona.icon}
-                                {persona.label}
-                            </button>
-                        ))}
-                    </div>
-
-                    <div className="flex flex-col md:flex-row items-center gap-6">
-                        <Button variant="premium" size="lg" className="px-10 h-16 text-lg font-bold group">
-                            Talk to an Expert <ArrowRight className="ml-2 w-5 h-5 group-hover:translate-x-1 transition-transform" />
-                        </Button>
-                        <Button variant="ghost" size="lg" className="px-10 h-16 text-lg font-bold border border-slate-200">
-                            View the Platform
-                        </Button>
-                    </div>
+                            {persona.icon}
+                            <span>{persona.label}</span>
+                        </button>
+                    ))}
                 </div>
 
-                {/* Dynamic Persona Dashboard - Premium Browser Shell */}
-                <div className="relative max-w-5xl mx-auto">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activePersona.id}
-                            initial={{ opacity: 0, scale: 0.9, y: 60 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 1.05, y: -60 }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                            className="relative group"
-                        >
-                            {/* Browser Header / Frame */}
-                            <div className="relative bg-white rounded-[2.5rem] overflow-hidden shadow-[0_50px_100px_-20px_rgba(0,0,0,0.12)] border border-slate-200">
-                                <div className="h-12 bg-slate-50 border-b border-slate-100 flex items-center px-6 gap-3">
-                                    <div className="flex gap-1.5">
-                                        <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
-                                        <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
-                                        <div className="w-2.5 h-2.5 rounded-full bg-slate-200" />
-                                    </div>
-                                    <div className="mx-auto bg-white border border-slate-200 rounded-lg py-1 px-10 text-[10px] text-slate-400 font-semibold flex items-center gap-2">
-                                        <Lock size={10} /> komp.global/dashboard
-                                    </div>
-                                </div>
+                {/* BOTTOM: Content & Visual Grid */}
+                <div className="grid grid-cols-1 lg:grid-cols-[40%_60%] gap-8 lg:gap-16 items-center">
 
-                                <div className="relative aspect-video">
+                    {/* Content (Left) */}
+                    <div className="w-full text-center lg:text-left">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activePersona.id}
+                                initial={{ opacity: 0, x: -20 }}
+                                animate={{ opacity: 1, x: 0 }}
+                                exit={{ opacity: 0, x: 20 }}
+                                transition={{ duration: 0.5 }}
+                            >
+                                <h1 className="text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter text-brand-black mb-8 leading-[1.1]">
+                                    {activePersona.headline}
+                                </h1>
+                                <p className="text-lg md:text-xl text-slate-600 mb-10 leading-relaxed max-w-2xl mx-auto lg:mx-0">
+                                    {activePersona.subheadline}
+                                </p>
+                            </motion.div>
+                        </AnimatePresence>
+
+                        <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4">
+                            <Button variant="premium" size="lg" className="px-10 h-14 text-base font-bold group w-full sm:w-auto">
+                                Talk to an Expert <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                            </Button>
+                            <Button variant="ghost" size="lg" className="px-10 h-14 text-base font-bold border border-slate-200 w-full sm:w-auto">
+                                View Platform
+                            </Button>
+                        </div>
+                    </div>
+
+                    {/* Visual (Right) */}
+                    <div className="w-full -mt-12 lg:-mt-24">
+                        <AnimatePresence mode="wait">
+                            <motion.div
+                                key={activePersona.id}
+                                initial={{ opacity: 0, scale: 0.95, y: 20 }}
+                                animate={{ opacity: 1, scale: 1, y: 0 }}
+                                exit={{ opacity: 0, scale: 1.05, y: -20 }}
+                                transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
+                                className="relative group w-full pl-0 lg:px-10"
+                            >
+                                <div className="relative rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] aspect-[16/10]">
                                     <div className="absolute inset-0 bg-gradient-to-tr from-slate-900/10 to-transparent z-10 pointer-events-none" />
                                     <img
                                         src={activePersona.dashboardImage}
@@ -144,34 +128,12 @@ const SolutionsHero = () => {
                                         className="w-full h-full object-cover grayscale-[0.1] group-hover:grayscale-0 transition-all duration-1000"
                                     />
                                 </div>
+                            </motion.div>
+                        </AnimatePresence>
+                    </div>
 
-                                {/* Metrics Bar Below Image - Refined Trust Bar Style */}
-                                <div className="bg-white px-8 py-6 flex flex-col md:flex-row items-center justify-between gap-6 border-t border-slate-100">
-                                    <div className="flex flex-col md:flex-row items-center gap-4">
-                                        <span className="text-[11px] font-black uppercase tracking-wider text-slate-400">Powering growth for</span>
-                                        <div className="flex items-center gap-2">
-                                            <span className="text-xl font-bold italic text-slate-900">{activePersona.metrics[2].label}: {activePersona.metrics[2].value}</span>
-                                        </div>
-                                    </div>
-
-                                    <div className="hidden md:block w-px h-8 bg-slate-200" />
-
-                                    <div className="flex flex-wrap items-center justify-center gap-8">
-                                        <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                            <ShieldCheck size={14} className="text-slate-300" /> SOC2 Compliant
-                                        </div>
-                                        <div className="flex items-center gap-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                            <Lock size={14} className="text-slate-300" /> ISO 27001
-                                        </div>
-                                        <div className="text-[10px] font-bold text-slate-400 uppercase tracking-widest">
-                                            GDPR
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </motion.div>
-                    </AnimatePresence>
                 </div>
+
             </div>
         </section>
     );

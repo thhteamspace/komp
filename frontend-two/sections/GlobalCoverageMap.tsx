@@ -30,10 +30,9 @@ const Global3DGlobe = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-6 py-2 rounded-full bg-white border border-slate-100 mb-10 shadow-sm"
+                        className="inline-flex items-center gap-2 mb-10"
                     >
-                        <Globe size={16} className="text-brand-orange" />
-                        <span className="text-[10px] font-black text-slate-400 uppercase tracking-[0.4em]">Proprietary Global Infrastructure</span>
+                        <span className="text-base font-bold text-brand-blue tracking-wide">Proprietary Global Infrastructure</span>
                     </motion.div>
 
                     <h2 className="text-6xl md:text-8xl font-black text-slate-950 tracking-tighter leading-tight mb-8">

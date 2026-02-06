@@ -38,7 +38,7 @@ const Footer = () => {
                     <div className="grid grid-cols-2 md:grid-cols-5 gap-8 md:gap-12 flex-grow">
 
                         <div>
-                            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Products</h4>
+                            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">Products</h4>
                             <ul className="space-y-4 text-sm text-zinc-500">
                                 <li><Link href="/services" className="hover:text-white transition-colors">Global EOR</Link></li>
                                 <li><Link href="/services" className="hover:text-white transition-colors">Contractor Management</Link></li>
@@ -48,7 +48,7 @@ const Footer = () => {
                         </div>
 
                         <div>
-                            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Countries</h4>
+                            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">Countries</h4>
                             <ul className="space-y-4 text-sm text-zinc-500">
                                 <li><Link href="/compliance" className="hover:text-white transition-colors">EOR India</Link></li>
                                 <li><Link href="/compliance" className="hover:text-white transition-colors">EOR Brazil</Link></li>
@@ -58,7 +58,7 @@ const Footer = () => {
                         </div>
 
                         <div>
-                            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Comparisons</h4>
+                            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">Comparisons</h4>
                             <ul className="space-y-4 text-sm text-zinc-500">
                                 <li><Link href="/compare" className="hover:text-white transition-colors">KOMP vs Deel</Link></li>
                                 <li><Link href="/compare" className="hover:text-white transition-colors">KOMP vs Remote</Link></li>
@@ -68,7 +68,7 @@ const Footer = () => {
                         </div>
 
                         <div>
-                            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Resources</h4>
+                            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">Resources</h4>
                             <ul className="space-y-4 text-sm text-zinc-500">
                                 <li><Link href="/compliance" className="hover:text-white transition-colors">Compliance Hub</Link></li>
                                 <li><Link href="/pricing" className="hover:text-white transition-colors">Global Payroll Guide</Link></li>
@@ -77,7 +77,7 @@ const Footer = () => {
                         </div>
 
                         <div className="col-span-2 md:col-span-1">
-                            <h4 className="font-bold text-white mb-6 uppercase tracking-widest text-xs">Ready to Launch?</h4>
+                            <h4 className="font-semibold text-white mb-6 uppercase tracking-wider text-xs">Ready to Launch?</h4>
                             <p className="text-zinc-400 text-sm mb-6">Get your custom expansion quote today.</p>
                             <Link href="/compliance">
                                 <Button size="sm" variant="primary" className="rounded-full">Get a Quote</Button>

@@ -9,7 +9,7 @@ const roleData = [
         icon: <Users className="w-8 h-8" />,
         problem: 'Siloed data and manual paperwork for every new global hire.',
         solution: 'Sync global teams in one click. Automated contracts, compliance, and equipment provisioning.',
-        metric: { label: 'Onboarding Time', value: '-90%' },
+        metric: { label: 'Onboarding Speed', value: 'Significantly Faster' },
         features: ['Localized Contracts', 'Auto-Provisioning', 'Global Benefits'],
         image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1000&auto=format&fit=crop',
         alignment: 'left'
@@ -29,7 +29,7 @@ const roleData = [
         icon: <Scale className="w-8 h-8" />,
         problem: 'Navigating the complexity of shifting labor laws in 150+ countries.',
         solution: 'Built-in legal protection. Our local entities act as your shield, handling all liability.',
-        metric: { label: 'Compliance Risk', value: 'Zero' },
+        metric: { label: 'Compliance Strategy', value: 'Expert-Led Safeguards' },
         features: ['IP Protection', 'Liability Shield', 'Labor Law Monitoring'],
         image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000&auto=format&fit=crop',
         alignment: 'left'
@@ -44,18 +44,17 @@ const RoleBasedSolutions = () => {
                     <motion.div
                         initial={{ opacity: 0, y: -20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-brand-blue/10 border border-brand-blue/20 mb-8"
+                        className="mb-8"
                     >
-                        <span className="text-[11px] font-black uppercase tracking-widest text-brand-blue">Role-Based Excellence</span>
+                        <span className="text-base font-bold text-brand-blue">Role-Based Excellence</span>
                     </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         className="font-black text-brand-black tracking-tighter"
-                        style={{ fontSize: '3vw', lineHeight: '1.1' }}
+                        style={{ fontSize: '4vw', lineHeight: '1.1' }}
                     >
-                        One platform. <br />
-                        <span className="text-brand-orange">Every team wins.</span>
+                        One platform. <span className="text-brand-orange">Every team wins.</span>
                     </motion.h2>
                 </div>
 
@@ -92,8 +91,8 @@ const RoleBasedSolutions = () => {
 
                                 <div className="grid grid-cols-2 gap-8 py-8 border-y border-slate-100 mt-12">
                                     <div>
-                                        <span className="block text-[10px] font-black uppercase tracking-widest text-slate-400 mb-2">{item.metric.label}</span>
-                                        <span className="text-4xl font-black text-brand-orange">{item.metric.value}</span>
+                                        <span className="block text-[10px] font-semibold uppercase tracking-widest text-slate-400 mb-2">{item.metric.label}</span>
+                                        <span className="text-3xl font-semibold text-brand-orange">{item.metric.value}</span>
                                     </div>
                                     <div className="flex flex-col gap-2">
                                         {item.features.map(f => (

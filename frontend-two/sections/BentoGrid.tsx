@@ -15,7 +15,7 @@ const BentoGrid = () => {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true, amount: 0.3 }}
                         transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        className="inline-block px-6 py-2 rounded-full bg-gray-50 border border-gray-100 text-brand-blue font-black text-xs uppercase tracking-[0.25em] mb-10"
+                        className="inline-block text-brand-blue font-bold text-base tracking-wide mb-10"
                     >
                         Intelligence Hub
                     </motion.div>
@@ -27,7 +27,7 @@ const BentoGrid = () => {
                         className="font-black text-slate-950 mb-8 tracking-tighter"
                         style={{ fontSize: '5vw', lineHeight: '0.95' }}
                     >
-                        Global Visibility <br /> <span className="text-gray-400">Zero Blindspots.</span>
+                        Global Visibility <br /> <span className="text-brand-orange">Zero Blindspots.</span>
                     </motion.h2>
                 </div>
 
@@ -86,12 +86,12 @@ const BentoGrid = () => {
                                 whileHover={{ scale: 1.02 }}
                                 className="mt-12 p-8 rounded-3xl bg-gray-50 border border-gray-100 shadow-sm group-hover:bg-white transition-colors duration-500"
                             >
-                                <div className="text-[10px] uppercase font-bold tracking-widest text-slate-400 mb-2 flex items-center gap-2">
-                                    <span className="w-2 h-2 rounded-full bg-green-500 animate-pulse" /> Monthly Burn Rate
+                                <div className="text-[10px] font-bold text-slate-400 mb-2 flex items-center gap-2">
+                                    <span className="w-2 h-2 rounded-full bg-slate-400 animate-pulse" /> Monthly Spend Visibility
                                 </div>
-                                <div className="text-5xl font-bold text-slate-950 tracking-tighter mb-4">$4.2M</div>
-                                <div className="flex items-center gap-2 text-green-600 text-sm font-bold">
-                                    <TrendingUp size={16} /> +12.5% vs Last Month
+                                <div className="text-4xl font-bold text-slate-950 tracking-tight mb-4">Total Control.</div>
+                                <div className="flex items-center gap-2 text-slate-500 text-sm font-semibold">
+                                    <TrendingUp size={16} /> Global Cost Consolidation
                                 </div>
                             </motion.div>
                         </div>
@@ -110,14 +110,14 @@ const BentoGrid = () => {
                             <div className="w-12 h-12 rounded-xl bg-white flex items-center justify-center mb-8 text-brand-orange shadow-sm border border-orange-100">
                                 <ShieldCheck size={24} />
                             </div>
-                            <h3 className="text-2xl font-black text-slate-950 mb-3 tracking-tight">Automated Compliance Shield</h3>
+                            <h3 className="text-2xl font-bold text-slate-950 mb-3 tracking-tight">Automated Compliance Shield</h3>
                             <p className="text-slate-600 mb-8 font-medium">
                                 Eliminate misclassification risk with our AI engine monitoring real-time labor law shifts globally.
                             </p>
                         </div>
                         <div className="flex flex-wrap gap-2">
                             {['SOC2', 'GDPR', 'ISO 27001', 'HIPAA'].map((tag) => (
-                                <span key={tag} className="px-4 py-1.5 rounded-full bg-white text-slate-600 text-[10px] font-black border border-orange-200 uppercase tracking-widest">{tag}</span>
+                                <span key={tag} className="px-4 py-1.5 rounded-full bg-white text-slate-600 text-[10px] font-bold border border-orange-200 uppercase tracking-wider">{tag}</span>
                             ))}
                         </div>
                     </motion.div>
@@ -135,7 +135,7 @@ const BentoGrid = () => {
                             <div className="w-12 h-12 rounded-xl bg-white shadow-sm flex items-center justify-center mb-6 text-brand-blue border border-blue-100">
                                 <Globe size={24} />
                             </div>
-                            <h3 className="text-4xl font-black text-slate-950 mb-4 tracking-tighter">Global Mobility & Visas. <br /> <span className="text-brand-orange">No Entity Required.</span></h3>
+                            <h3 className="text-4xl font-bold text-slate-950 mb-4 tracking-tighter">Global Mobility & Visas. <br /> <span className="text-brand-orange">No Entity Required.</span></h3>
                             <p className="text-slate-600 max-w-sm font-medium text-lg">
                                 Sponsor visas and manage relocation logistics across 50+ markets directly through our platforms entities.
                             </p>
@@ -156,7 +156,7 @@ const BentoGrid = () => {
                                         repeat: Infinity,
                                         ease: "easeInOut"
                                     }}
-                                    className="bg-white px-6 py-3 rounded-2xl shadow-xl border border-blue-100 text-xs font-black text-slate-700 uppercase tracking-widest"
+                                    className="bg-white px-6 py-3 rounded-2xl shadow-xl border border-blue-100 text-xs font-semibold text-slate-700"
                                 >
                                     {c}
                                 </motion.div>
