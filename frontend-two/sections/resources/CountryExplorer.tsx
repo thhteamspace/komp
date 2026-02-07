@@ -61,7 +61,7 @@ const GlobalPlaybooks = () => {
                         className="font-black text-slate-950 tracking-tighter leading-tight mb-6"
                         style={{ fontSize: '4vw' }}
                     >
-                        Regional <span className="text-brand-orange italic">Intelligence.</span>
+                        Regional <span className="text-brand-orange">Intelligence.</span>
                     </motion.h2>
                     <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
                         Analyze market complexity and compliance profiles across major global jurisdictions.

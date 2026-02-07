@@ -52,7 +52,7 @@ const Header = () => {
                     <img
                         src="/images/Logo_1-04-removebg-preview.png"
                         alt="KOMP Logo"
-                        className={cn("h-14 w-auto object-contain transition-all duration-300", isTransparent ? "brightness-0 invert opacity-90" : "")} // Optional: invert logo on dark background if needed, or keep original if it works
+                        className="h-14 w-auto object-contain transition-all duration-300"
                     />
                 </Link>
 
@@ -62,21 +62,32 @@ const Header = () => {
                         const sectionId = name === 'Platform' ? '#platform' : name === 'Solutions' ? '/solutions' : '#reality';
                         return (
                             <div key={name} className="relative py-2 flex items-center group/nav">
-                                {/* Text clicks directly to section */}
-                                <Link
-                                    href={sectionId}
-                                    onClick={() => setActiveMegaMenu(null)}
-                                    className={cn(
-                                        "text-sm font-semibold transition-colors duration-300",
-                                        activeMegaMenu === name
-                                            ? "text-brand-orange"
-                                            : isTransparent
-                                                ? "text-white/90 hover:text-white"
-                                                : "text-slate-600 hover:text-slate-950"
+                                <div className="relative">
+                                    {/* Text clicks directly to section */}
+                                    <Link
+                                        href={sectionId}
+                                        onClick={() => setActiveMegaMenu(null)}
+                                        className={cn(
+                                            "text-sm font-semibold transition-colors duration-300",
+                                            activeMegaMenu === name || (name === 'Solutions' && pathname === '/solutions')
+                                                ? "text-brand-orange"
+                                                : isTransparent
+                                                    ? "text-white/90 hover:text-white"
+                                                    : "text-slate-600 hover:text-slate-950"
+                                        )}
+                                    >
+                                        {name}
+                                    </Link>
+
+                                    {/* Active Indicator for Solutions */}
+                                    {name === 'Solutions' && pathname === '/solutions' && (
+                                        <motion.div
+                                            layoutId="activeNav"
+                                            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-1/2"
+                                            transition={{ duration: 0.3 }}
+                                        />
                                     )}
-                                >
-                                    {name}
-                                </Link>
+                                </div>
 
                                 {/* Arrow toggles the dropdown */}
                                 <button
@@ -87,7 +98,7 @@ const Header = () => {
                                     }}
                                     className={cn(
                                         "ml-1 p-1 transition-all duration-300",
-                                        activeMegaMenu === name
+                                        activeMegaMenu === name || (name === 'Solutions' && pathname === '/solutions')
                                             ? "text-brand-orange"
                                             : isTransparent
                                                 ? "text-white/90 group-hover/nav:text-white"
@@ -99,16 +110,30 @@ const Header = () => {
                             </div>
                         );
                     })}
-                    <Link
-                        href="/resources"
-                        onClick={() => setActiveMegaMenu(null)}
-                        className={cn(
-                            "text-sm font-semibold transition-colors",
-                            isTransparent ? "text-white/90 hover:text-white" : "text-slate-600 hover:text-slate-950"
+                    <div className="relative py-2">
+                        <Link
+                            href="/resources"
+                            onClick={() => setActiveMegaMenu(null)}
+                            className={cn(
+                                "text-sm font-semibold transition-colors",
+                                pathname === '/resources'
+                                    ? "text-brand-orange"
+                                    : isTransparent
+                                        ? "text-white/90 hover:text-white"
+                                        : "text-slate-600 hover:text-slate-950"
+                            )}
+                        >
+                            Resources
+                        </Link>
+                        {/* Active Indicator for Resources */}
+                        {pathname === '/resources' && (
+                            <motion.div
+                                layoutId="activeNav"
+                                className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-1/2"
+                                transition={{ duration: 0.3 }}
+                            />
                         )}
-                    >
-                        Resources
-                    </Link>
+                    </div>
                 </nav>
 
                 {/* Desktop Actions */}

@@ -74,7 +74,7 @@ const KnowledgeCategories = () => {
                         className="font-black text-slate-950 tracking-tighter leading-tight"
                         style={{ fontSize: '4vw' }}
                     >
-                        Strategic <span className="text-brand-orange italic">Categories.</span>
+                        Strategic <span className="text-brand-orange">Categories.</span>
                     </motion.h2>
                 </div>
 

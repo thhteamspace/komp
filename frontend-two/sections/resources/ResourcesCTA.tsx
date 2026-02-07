@@ -42,7 +42,7 @@ const ResourcesCTA = () => {
                             className="font-black text-white tracking-tighter mb-6 leading-tight"
                             style={{ fontSize: '4vw' }}
                         >
-                            Ready to expand <span className="text-brand-orange italic">with confidence?</span>
+                            Ready to expand <span className="text-brand-orange">with confidence?</span>
                         </motion.h2>
 
                         <motion.p
