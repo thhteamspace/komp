@@ -113,12 +113,13 @@ const RoleBasedSolutions = () => {
                                 viewport={{ once: false, amount: 0.2 }}
                                 className="flex-1 relative"
                             >
-                                <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-200 aspect-[4/3] bg-slate-50">
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-brand-orange/20 mix-blend-multiply z-10 transition-opacity duration-700 opacity-60 group-hover:opacity-40" />
+                                <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-200 aspect-[4/3] bg-slate-900">
+                                    {/* Brand Color Branding Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/40 via-transparent to-brand-orange/30 mix-blend-overlay z-10 opacity-100 group-hover:opacity-60 transition-opacity duration-700" />
                                     <img
                                         src={item.image}
                                         alt={item.role}
-                                        className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-all duration-1000"
+                                        className="w-full h-full object-cover grayscale-[0.2] contrast-[1.1] group-hover:grayscale-0 scale-105 group-hover:scale-110 transition-all duration-1000"
                                     />
 
                                 </div>

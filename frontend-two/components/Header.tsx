@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -25,13 +25,27 @@ const Header = () => {
 
     // Determine if we need a dark header (transparent bg, white text) initially
     // This applies to /resources which has a dark hero section
-    const isDarkHeader = pathname === '/resources';
+    const isDarkHeader = pathname?.includes('/resources');
+
+    const isDarkHeaderRef = useRef(isDarkHeader);
+
+    useEffect(() => {
+        isDarkHeaderRef.current = isDarkHeader;
+    }, [isDarkHeader]);
 
     useEffect(() => {
         const handleScroll = () => {
-            setIsScrolled(window.scrollY > 20);
+            if (typeof window === 'undefined') return;
+            // robust check using window location directly
+            const isResourcePage = window.location.pathname.includes('/resources');
+            // Keep header transparent until full viewport scroll on Resources page
+            const threshold = isResourcePage ? window.innerHeight - 80 : 20;
+            setIsScrolled(window.scrollY > threshold);
         };
+
         window.addEventListener('scroll', handleScroll);
+        handleScroll();
+
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 

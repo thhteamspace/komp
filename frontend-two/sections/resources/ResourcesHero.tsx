@@ -10,11 +10,13 @@ const ResourcesHero = () => {
             {/* Background Image - Full Screen Blurred */}
             <div className="absolute inset-0 z-0">
                 <img
-                    src="https://images.unsplash.com/photo-1614850523459-c2f4c699c52e?q=80&w=2070&auto=format&fit=crop"
+                    src="https://images.unsplash.com/photo-1451187580459-43490279c0fa?q=80&w=2072&auto=format&fit=crop"
                     alt="Background"
-                    className="w-full h-full object-cover blur-[4px] scale-105"
+                    className="w-full h-full object-cover blur-[2px] opacity-40 scale-105"
                 />
-                <div className="absolute inset-0 bg-slate-950/70" />
+                <div className="absolute inset-0 bg-slate-950/80" />
+                {/* Brand Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 via-transparent to-brand-orange/20 mix-blend-overlay" />
             </div>
 
             {/* Brand Gradients - Glows */}

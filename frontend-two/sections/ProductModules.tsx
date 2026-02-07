@@ -14,6 +14,7 @@ import {
     Lock,
     Bell
 } from 'lucide-react';
+import TimesheetPreview from '@/components/TimesheetPreview';
 
 const modules = [
     {
@@ -178,7 +179,7 @@ const ProductModules = () => {
                                     <div className="hidden md:block flex-1 bg-slate-50 relative overflow-hidden h-full border-l border-slate-100 p-8">
                                         <div className="w-full h-full bg-white rounded-3xl shadow-xl border border-slate-100 p-6 overflow-hidden flex items-center justify-center relative group-hover:scale-[1.02] transition-transform duration-700">
                                             <img
-                                                src={mod.img}
+                                                src={mod.id === 'timeops' ? '/images/image.png' : mod.img}
                                                 alt={mod.title}
                                                 className="w-full h-auto max-h-full object-contain rounded-xl saturate-[0.8]"
                                             />

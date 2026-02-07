@@ -123,9 +123,9 @@ const SolutionsHero = () => {
                                 className="relative group w-full pl-0 lg:px-10"
                             >
                                 <div className="relative rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] aspect-[16/10] bg-slate-900 border-4 border-white/50 ring-1 ring-slate-900/5">
-                                    {/* Brand Gradient Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/40 to-brand-orange/20 mix-blend-overlay z-20 pointer-events-none" />
-                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-20 pointer-events-none" />
+                                    {/* Brand Color Branding Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/40 via-transparent to-brand-orange/30 mix-blend-overlay z-20 pointer-events-none opacity-100" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent z-20 pointer-events-none" />
 
                                     <img
                                         src={activePersona.dashboardImage}

@@ -7,7 +7,7 @@ import Button from '@/components/Button';
 
 const ResourcesCTA = () => {
     return (
-        <section className="py-32 px-6 bg-slate-50 relative overflow-hidden">
+        <section className="py-32 px-6 bg-transparent relative overflow-hidden">
             {/* Background Details - Soft Mesh */}
             <div className="absolute top-0 left-0 w-full h-full pointer-events-none">
                 <div className="absolute top-[20%] right-[10%] w-[800px] h-[800px] bg-brand-orange/5 rounded-full blur-[140px]" />

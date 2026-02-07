@@ -1,20 +1,19 @@
-"use client";
-
-
 import SolutionsHero from "@/sections/SolutionsHero";
-import BusinessSizeSolutions from "@/sections/BusinessSizeSolutions";
-import RoleBasedSolutions from "@/sections/RoleBasedSolutions";
-import IndustrySolutions from "@/sections/IndustrySolutions";
-import SolutionsCTA from "@/sections/SolutionsCTA";
+import SolutionsContent from "./SolutionsContent";
+
+export const metadata = {
+    title: 'Global Solutions | Hire & Scale Anywhere with KOMP',
+    description: 'Precision-engineered infrastructure for global hiring, payroll, and compliance. Specialized solutions for Startups, HR, Finance, and Legal teams.',
+};
 
 export default function SolutionsPage() {
     return (
-        <div className="bg-brand-white">
+        <div className="bg-brand-white overflow-x-hidden">
             <SolutionsHero />
-            <BusinessSizeSolutions />
-            <RoleBasedSolutions />
-            <IndustrySolutions />
-            <SolutionsCTA />
+
+            <div className="relative z-10">
+                <SolutionsContent />
+            </div>
         </div>
     );
 }

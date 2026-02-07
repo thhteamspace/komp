@@ -98,9 +98,9 @@ const FeaturedGuides = () => {
                                     ${isMiddle ? 'z-20' : 'z-10'}
                                 `}
                             >
-                                <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden mb-8 group-hover:shadow-2xl transition-all duration-500">
-                                    {/* Brand Overlay */}
-                                    <div className="absolute inset-0 bg-gradient-to-br from-brand-blue/30 to-brand-orange/30 mix-blend-multiply z-10 opacity-60 group-hover:opacity-40 transition-opacity duration-700" />
+                                <div className="relative aspect-[4/3] rounded-[2rem] overflow-hidden mb-8 group-hover:shadow-2xl transition-all duration-500 bg-slate-100">
+                                    {/* Brand Color Branding Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/40 via-transparent to-brand-orange/40 mix-blend-overlay z-10 opacity-100 group-hover:opacity-60 transition-opacity duration-700" />
 
                                     {/* Tech Scan Animation */}
                                     <div className="absolute inset-0 bg-gradient-to-b from-transparent via-white/10 to-transparent z-20 translate-y-[-100%] group-hover:translate-y-[100%] transition-transform duration-[1.5s] ease-in-out" />
@@ -108,7 +108,7 @@ const FeaturedGuides = () => {
                                     <img
                                         src={res.image}
                                         alt={res.title}
-                                        className="w-full h-full object-cover grayscale-[0.2] contrast-125 group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
+                                        className="w-full h-full object-cover grayscale-[0.4] contrast-[1.2] group-hover:grayscale-0 transition-all duration-1000 group-hover:scale-110"
                                     />
                                     <div className="absolute top-4 left-4 z-30">
                                         <span className="px-3 py-1 rounded-full bg-slate-950/80 backdrop-blur-md border border-white/20 text-white text-[10px] font-bold shadow-lg uppercase tracking-wider">

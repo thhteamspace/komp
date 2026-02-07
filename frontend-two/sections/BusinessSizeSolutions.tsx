@@ -95,14 +95,14 @@ const BusinessSizeSolutions = () => {
                                 ))}
                             </div>
 
-                            <div className="relative rounded-2xl overflow-hidden mb-8 aspect-video border border-slate-100 shadow-sm">
-                                <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-brand-orange/20 mix-blend-multiply z-10 transition-opacity duration-500 group-hover:opacity-60" />
+                            <div className="relative rounded-2xl overflow-hidden mb-8 aspect-video border border-slate-100 shadow-sm bg-slate-900">
+                                {/* Brand Color Branding Overlay */}
+                                <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/40 via-transparent to-brand-orange/30 mix-blend-overlay z-10 opacity-100 group-hover:opacity-60 transition-opacity duration-700" />
                                 <img
                                     src={solution.preview}
                                     alt={solution.title}
-                                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                                    className="w-full h-full object-cover grayscale-[0.2] contrast-[1.1] group-hover:grayscale-0 group-hover:scale-110 transition-all duration-700"
                                 />
-                                <div className="absolute inset-0 bg-brand-black/20 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500" />
                             </div>
 
                             <Button variant="primary" className="w-full h-14 font-black tracking-wide bg-brand-black text-white hover:bg-brand-orange hover:text-white">
