@@ -50,8 +50,12 @@ const categories = [
 
 const KnowledgeCategories = () => {
     return (
-        <section className="pt-20 pb-40 bg-white">
-            <div className="w-full max-w-7xl mx-auto px-6">
+        <section className="pt-20 pb-40 bg-white relative overflow-hidden">
+            {/* Background Decoration */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/10 rounded-full blur-[100px] pointer-events-none mix-blend-multiply" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[120px] pointer-events-none mix-blend-multiply" />
+
+            <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
                 {/* Section Header - Centered & Responsive */}
                 <div className="flex flex-col items-center text-center mb-32">
                     <motion.div
@@ -102,9 +106,12 @@ const KnowledgeCategories = () => {
                                         <motion.div
                                             initial={{ scale: 0.8 }}
                                             whileInView={{ scale: 1 }}
-                                            className={`w-10 h-10 rounded-xl bg-white shadow-xl border border-slate-50 flex items-center justify-center ${cat.accent}`}
+                                            className={`w-12 h-12 rounded-xl bg-gradient-to-br from-white to-slate-50 shadow-lg border border-white/60 flex items-center justify-center relative overflow-hidden group-hover:scale-110 transition-transform duration-500`}
                                         >
-                                            {cat.icon}
+                                            <div className={`absolute inset-0 opacity-10 ${cat.accent.replace('text-', 'bg-')}`} />
+                                            <div className={`relative z-10 ${cat.accent}`}>
+                                                {cat.icon}
+                                            </div>
                                         </motion.div>
                                         <div className="flex gap-1">
                                             {cat.regions.map((r, ri) => (
@@ -135,10 +142,14 @@ const KnowledgeCategories = () => {
                                         {cat.items.map((item, idx) => (
                                             <motion.div
                                                 key={idx}
-                                                initial={{ opacity: 0, x: 10 }}
-                                                whileInView={{ opacity: 1, x: 0 }}
-                                                viewport={{ once: false }}
-                                                transition={{ delay: i * 0.1 + idx * 0.05 + 0.5 }}
+                                                initial={{ opacity: 0, x: -20, y: -10 }} // Slide in from top-left
+                                                whileInView={{ opacity: 1, x: 0, y: 0 }}
+                                                viewport={{ once: false, amount: 0.5 }} // Trigger when 50% visible
+                                                transition={{
+                                                    delay: 0.2 + (idx * 0.2), // Slightly slower stagger
+                                                    duration: 0.8, // Slower animation
+                                                    ease: "easeOut"
+                                                }}
                                                 className="group/item flex items-center justify-between p-4 rounded-2xl bg-white border border-slate-50 hover:border-slate-200 transition-all cursor-pointer shadow-sm hover:shadow-md"
                                             >
                                                 <div className="space-y-1">

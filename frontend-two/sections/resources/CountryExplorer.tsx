@@ -39,7 +39,7 @@ const explorers = [
     }
 ];
 
-const CountryExplorer = () => {
+const GlobalPlaybooks = () => {
     const [activeIndex, setActiveIndex] = useState(0);
 
     return (
@@ -49,17 +49,19 @@ const CountryExplorer = () => {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: false }}
                         className="mb-8 self-center"
                     >
-                        <span className="text-base font-bold text-brand-blue">Regional Overview</span>
+                        <span className="text-base font-bold text-brand-blue">Global Playbooks</span>
                     </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false }}
                         className="font-black text-slate-950 tracking-tighter leading-tight mb-6"
                         style={{ fontSize: '4vw' }}
                     >
-                        Expansion <span className="text-brand-orange italic">Readiness.</span>
+                        Regional <span className="text-brand-orange italic">Intelligence.</span>
                     </motion.h2>
                     <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto">
                         Analyze market complexity and compliance profiles across major global jurisdictions.
@@ -120,18 +122,22 @@ const CountryExplorer = () => {
 
                     {/* Right: Large Cinematic Image Frame */}
                     <div className="flex-1 w-full relative">
-                        <div className="relative h-full min-h-[500px] lg:min-h-full rounded-[3rem] overflow-hidden shadow-2xl border border-slate-100 bg-white">
+                        <div className="relative h-full min-h-[500px] lg:min-h-full rounded-[3rem] overflow-hidden shadow-2xl border-4 border-slate-100 bg-slate-900 group">
                             <AnimatePresence mode="wait">
-                                <motion.img
+                                <motion.div
                                     key={activeIndex}
-                                    src={explorers[activeIndex].image}
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     exit={{ opacity: 0 }}
                                     transition={{ duration: 0.5 }}
-                                    className="absolute inset-0 w-full h-full object-cover"
-                                    alt={explorers[activeIndex].country}
-                                />
+                                    className="absolute inset-0"
+                                >
+                                    <img
+                                        src={explorers[activeIndex].image}
+                                        className="absolute inset-0 w-full h-full object-cover"
+                                        alt={explorers[activeIndex].country}
+                                    />
+                                </motion.div>
                             </AnimatePresence>
                         </div>
                     </div>
@@ -147,4 +153,4 @@ const CountryExplorer = () => {
     );
 };
 
-export default CountryExplorer;
+export default GlobalPlaybooks;

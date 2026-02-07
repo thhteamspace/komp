@@ -51,18 +51,20 @@ const sizeSolutions = [
 
 const BusinessSizeSolutions = () => {
     return (
-        <section className="py-24 px-6 bg-white overflow-hidden">
+        <section className="py-24 px-6 bg-brand-orange overflow-hidden relative">
+            {/* Background Pattern Removed as per user request */}
+
             <div className="w-full max-w-7xl mx-auto relative z-10 px-6">
                 <div className="text-center mb-20">
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="text-4xl md:text-6xl font-black text-brand-black mb-6"
+                        className="text-4xl md:text-6xl font-black text-white mb-6"
                     >
                         Built for where you are today <br />
-                        <span className="text-brand-orange">and where you’re going tomorrow.</span>
+                        <span className="text-white/90 opacity-80">and where you’re going tomorrow.</span>
                     </motion.h2>
-                    <p className="text-xl text-slate-600 max-w-2xl mx-auto">
+                    <p className="text-xl text-white/80 max-w-2xl mx-auto font-medium">
                         Whether you’re a 10-person startup or a 10,000-person enterprise, KOMP adapts to your scale.
                     </p>
                 </div>
@@ -75,9 +77,9 @@ const BusinessSizeSolutions = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: index * 0.1 }}
                             viewport={{ once: true }}
-                            className={`group flex flex-col rounded-[2.5rem] border border-slate-100 bg-gradient-to-b ${solution.color} p-8 hover:shadow-2xl transition-all duration-500`}
+                            className={`group flex flex-col rounded-[2.5rem] border border-white/20 bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2`}
                         >
-                            <div className="mb-6 bg-white w-16 h-16 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-500">
+                            <div className="mb-6 bg-brand-orange/10 w-16 h-16 rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform duration-500">
                                 {solution.icon}
                             </div>
 
@@ -87,22 +89,23 @@ const BusinessSizeSolutions = () => {
                             <div className="space-y-4 mb-10 flex-grow">
                                 {solution.benefits.map((benefit) => (
                                     <div key={benefit} className="flex items-start gap-3">
-                                        <CheckCircle2 className="w-5 h-5 text-brand-blue mt-0.5 shrink-0" />
+                                        <CheckCircle2 className="w-5 h-5 text-brand-orange mt-0.5 shrink-0" />
                                         <span className="text-slate-700 font-semibold">{benefit}</span>
                                     </div>
                                 ))}
                             </div>
 
-                            <div className="relative rounded-2xl overflow-hidden mb-8 aspect-video border border-white/50 shadow-sm">
+                            <div className="relative rounded-2xl overflow-hidden mb-8 aspect-video border border-slate-100 shadow-sm">
+                                <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-brand-orange/20 mix-blend-multiply z-10 transition-opacity duration-500 group-hover:opacity-60" />
                                 <img
                                     src={solution.preview}
                                     alt={solution.title}
                                     className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
                                 />
-                                <div className="absolute inset-0 bg-brand-black/10 group-hover:bg-transparent transition-colors duration-500" />
+                                <div className="absolute inset-0 bg-brand-black/20 mix-blend-overlay group-hover:bg-transparent transition-colors duration-500" />
                             </div>
 
-                            <Button variant="premium" className="w-full h-14 font-black tracking-wide">
+                            <Button variant="primary" className="w-full h-14 font-black tracking-wide bg-brand-black text-white hover:bg-brand-orange hover:text-white">
                                 {solution.cta} <ArrowRight className="ml-2 w-5 h-5" />
                             </Button>
                         </motion.div>

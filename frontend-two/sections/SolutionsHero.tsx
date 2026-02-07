@@ -17,7 +17,7 @@ const personas = [
             { label: 'Legal Cost', value: 'Save $20k+' },
             { label: 'Compliance', value: '150+ Countries' }
         ],
-        dashboardImage: 'https://images.unsplash.com/photo-1556761175-b413da4baf72?q=80&w=2024&auto=format&fit=crop'
+        dashboardImage: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=2070&auto=format&fit=crop' // Data/Tech
     },
     {
         id: 'hr',
@@ -30,7 +30,7 @@ const personas = [
             { label: 'Employee NPS', value: '98%' },
             { label: 'Admin Time', value: '-80%' }
         ],
-        dashboardImage: 'https://images.unsplash.com/photo-1551434678-e076c223a692?q=80&w=2070&auto=format&fit=crop'
+        dashboardImage: 'https://images.unsplash.com/photo-1504868584819-f8e8b4b6d7e3?q=80&w=2076&auto=format&fit=crop' // Charts/Analytics
     },
     {
         id: 'finance',
@@ -43,7 +43,7 @@ const personas = [
             { label: 'Audit Ready', value: 'Always' },
             { label: 'Tax Filings', value: 'Handled' }
         ],
-        dashboardImage: 'https://images.unsplash.com/photo-1560472355-536de3962603?q=80&w=2070&auto=format&fit=crop'
+        dashboardImage: 'https://images.unsplash.com/photo-1554224155-8d04cb21cd6c?q=80&w=2070&auto=format&fit=crop' // Finance/Graph
     }
 ];
 
@@ -53,9 +53,11 @@ const SolutionsHero = () => {
     return (
         <section className="relative min-h-[90vh] flex flex-col items-center justify-center pt-32 pb-24 px-6 overflow-hidden bg-brand-white">
             {/* Decorative background elements */}
+            {/* Decorative background elements */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full -z-0">
-                <div className="absolute top-20 left-10 w-72 h-72 bg-brand-orange/10 rounded-full blur-3xl animate-pulse" />
-                <div className="absolute bottom-20 right-10 w-96 h-96 bg-brand-blue/10 rounded-full blur-3xl animate-pulse" />
+
+                <div className="absolute top-20 left-10 w-96 h-96 bg-brand-orange/5 rounded-full blur-[100px] animate-pulse" />
+                <div className="absolute bottom-20 right-10 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[120px] animate-pulse" />
             </div>
 
             <div className="w-full max-w-[1400px] mx-auto px-6 relative z-10 flex flex-col h-full">
@@ -67,7 +69,7 @@ const SolutionsHero = () => {
                             key={persona.id}
                             onClick={() => setActivePersona(persona)}
                             className={`group px-6 py-3 rounded-full font-bold transition-all duration-300 flex items-center gap-2 border ${activePersona.id === persona.id
-                                ? 'bg-brand-black text-white shadow-lg scale-105 border-transparent'
+                                ? 'bg-brand-orange text-white shadow-lg scale-105 border-transparent'
                                 : 'bg-white text-slate-600 hover:bg-slate-50 border-slate-200 hover:border-brand-orange/30'
                                 }`}
                         >
@@ -100,7 +102,7 @@ const SolutionsHero = () => {
                         </AnimatePresence>
 
                         <div className="flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-4">
-                            <Button variant="premium" size="lg" className="px-10 h-14 text-base font-bold group w-full sm:w-auto">
+                            <Button variant="primary" size="lg" className="px-10 h-14 text-base font-bold group w-full sm:w-auto">
                                 Talk to an Expert <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                             </Button>
                             <Button variant="ghost" size="lg" className="px-10 h-14 text-base font-bold border border-slate-200 w-full sm:w-auto">
@@ -120,13 +122,18 @@ const SolutionsHero = () => {
                                 transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
                                 className="relative group w-full pl-0 lg:px-10"
                             >
-                                <div className="relative rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] aspect-[16/10]">
-                                    <div className="absolute inset-0 bg-gradient-to-tr from-slate-900/10 to-transparent z-10 pointer-events-none" />
+                                <div className="relative rounded-[2.5rem] overflow-hidden shadow-[0_30px_60px_-15px_rgba(0,0,0,0.15)] aspect-[16/10] bg-slate-900 border-4 border-white/50 ring-1 ring-slate-900/5">
+                                    {/* Brand Gradient Overlay */}
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/40 to-brand-orange/20 mix-blend-overlay z-20 pointer-events-none" />
+                                    <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent z-20 pointer-events-none" />
+
                                     <img
                                         src={activePersona.dashboardImage}
                                         alt={`${activePersona.label} Dashboard`}
-                                        className="w-full h-full object-cover grayscale-[0.1] group-hover:grayscale-0 transition-all duration-1000"
+                                        className="w-full h-full object-cover opacity-90 transition-all duration-1000 scale-105 group-hover:scale-100"
                                     />
+
+
                                 </div>
                             </motion.div>
                         </AnimatePresence>

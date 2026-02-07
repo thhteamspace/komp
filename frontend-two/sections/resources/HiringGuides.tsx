@@ -28,7 +28,11 @@ const HiringGuides = () => {
     });
 
     return (
-        <section className="py-32 bg-white relative overflow-hidden">
+        <section className="py-32 bg-brand-blue relative overflow-hidden">
+            {/* Background Details */}
+            <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-orange/20 rounded-full blur-[100px] pointer-events-none" />
+
             <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
                 {/* Header Section - Modern Centered */}
                 <div className="flex flex-col items-center text-center mb-24">
@@ -37,29 +41,29 @@ const HiringGuides = () => {
                         whileInView={{ opacity: 1, scale: 1 }}
                         className="mb-8 self-center"
                     >
-                        <span className="text-base font-bold text-brand-blue">Regional Intelligence</span>
+                        <span className="text-base font-bold text-white/80 uppercase tracking-widest border border-white/20 px-4 py-2 rounded-full">Regional Intelligence</span>
                     </motion.div>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        className="font-black text-slate-950 tracking-tighter leading-tight mb-6"
+                        className="font-black text-white tracking-tighter leading-tight mb-6"
                         style={{ fontSize: '4vw' }}
                     >
                         Global <span className="text-brand-orange">Playbooks.</span>
                     </motion.h2>
-                    <p className="text-xl text-slate-500 font-medium leading-relaxed max-w-2xl mx-auto mb-12">
+                    <p className="text-xl text-white/80 font-medium leading-relaxed max-w-2xl mx-auto mb-12">
                         In-depth guides for localized hiring and compliance in top global markets.
                     </p>
 
                     <div className="w-full max-w-xl">
                         <div className="relative group">
-                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-brand-blue transition-colors" size={20} />
+                            <Search className="absolute left-6 top-1/2 -translate-y-1/2 text-slate-400 group-focus-within:text-brand-orange transition-colors" size={20} />
                             <input
                                 type="text"
                                 placeholder="Search markets..."
                                 value={search}
                                 onChange={(e) => setSearch(e.target.value)}
-                                className="w-full h-20 pl-16 pr-6 rounded-[2rem] bg-slate-50 border border-slate-100 focus:border-brand-blue focus:bg-white outline-none transition-all font-bold text-slate-900 shadow-sm text-xl"
+                                className="w-full h-20 pl-16 pr-6 rounded-[2rem] bg-white border border-transparent focus:border-brand-orange outline-none transition-all font-bold text-slate-900 shadow-xl text-xl placeholder:text-slate-400"
                             />
                         </div>
                         <div className="flex flex-wrap gap-2 mt-6 justify-center">
@@ -67,7 +71,7 @@ const HiringGuides = () => {
                                 <button
                                     key={cat}
                                     onClick={() => setActiveCat(cat)}
-                                    className={`px-6 py-2 rounded-full text-[9px] font-semibold uppercase tracking-widest transition-all ${activeCat === cat ? 'bg-slate-950 text-white' : 'bg-slate-100 text-slate-400 hover:bg-slate-200 hover:text-slate-600'}`}
+                                    className={`px-6 py-2 rounded-full text-[9px] font-semibold uppercase tracking-widest transition-all ${activeCat === cat ? 'bg-brand-orange text-white' : 'bg-white/10 text-white/60 hover:bg-white/20 hover:text-white'}`}
                                 >
                                     {cat}
                                 </button>
@@ -85,7 +89,7 @@ const HiringGuides = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ delay: i * 0.05, duration: 0.8 }}
-                            className={`group relative h-[450px] rounded-[3.5rem] p-10 flex flex-col justify-between transition-all duration-700 hover:shadow-2xl hover:shadow-orange-200/50 bg-white border-2 border-slate-300 hover:border-brand-orange hover:scale-[1.02] cursor-pointer`}
+                            className={`group relative h-[450px] rounded-[3.5rem] p-10 flex flex-col justify-between transition-all duration-700 hover:shadow-2xl hover:shadow-black/20 bg-white border-2 border-transparent hover:scale-[1.02] cursor-pointer`}
                         >
 
 
@@ -122,7 +126,7 @@ const HiringGuides = () => {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    className="mt-32 pt-16 border-t border-slate-100 flex flex-wrap justify-center gap-x-32 gap-y-12"
+                    className="mt-32 pt-16 border-t border-white/10 flex flex-wrap justify-center gap-x-32 gap-y-12"
                 >
                     {[
                         { label: 'Direct Entities', val: '100% Owned' },
@@ -130,8 +134,8 @@ const HiringGuides = () => {
                         { label: 'Service Model', val: 'Expert Support' }
                     ].map((st, i) => (
                         <div key={i} className="flex flex-col items-center">
-                            <span className="text-sm font-bold text-slate-400 mb-2">{st.label}</span>
-                            <span className="text-xl font-bold text-slate-950">{st.val}</span>
+                            <span className="text-sm font-bold text-white/40 mb-2">{st.label}</span>
+                            <span className="text-xl font-bold text-white">{st.val}</span>
                         </div>
                     ))}
                 </motion.div>

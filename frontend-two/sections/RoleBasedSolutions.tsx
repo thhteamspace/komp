@@ -11,7 +11,7 @@ const roleData = [
         solution: 'Sync global teams in one click. Automated contracts, compliance, and equipment provisioning.',
         metric: { label: 'Onboarding Speed', value: 'Significantly Faster' },
         features: ['Localized Contracts', 'Auto-Provisioning', 'Global Benefits'],
-        image: 'https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1600880292203-757bb62b4baf?q=80&w=1000&auto=format&fit=crop', // Modern Team Collaboration
         alignment: 'left'
     },
     {
@@ -21,7 +21,7 @@ const roleData = [
         solution: 'One unified global invoice. Pay everyone in their local currency with zero hidden fees.',
         metric: { label: 'Accounting Effort', value: '1-Click' },
         features: ['Consolidated Invoicing', 'FX Optimization', 'Automated Tax'],
-        image: 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1543286386-2e659306cd6c?q=80&w=1000&auto=format&fit=crop', // Financial Analytics/Growth
         alignment: 'right'
     },
     {
@@ -31,7 +31,7 @@ const roleData = [
         solution: 'Built-in legal protection. Our local entities act as your shield, handling all liability.',
         metric: { label: 'Compliance Strategy', value: 'Expert-Led Safeguards' },
         features: ['IP Protection', 'Liability Shield', 'Labor Law Monitoring'],
-        image: 'https://images.unsplash.com/photo-1589829545856-d10d557cf95f?q=80&w=1000&auto=format&fit=crop',
+        image: 'https://images.unsplash.com/photo-1450101499163-c8848c66ca85?q=80&w=1000&auto=format&fit=crop', // Signing Contract/Legal
         alignment: 'left'
     }
 ];
@@ -114,10 +114,11 @@ const RoleBasedSolutions = () => {
                                 className="flex-1 relative"
                             >
                                 <div className="relative z-10 rounded-[3rem] overflow-hidden shadow-2xl border border-slate-200 aspect-[4/3] bg-slate-50">
+                                    <div className="absolute inset-0 bg-gradient-to-tr from-brand-blue/20 to-brand-orange/20 mix-blend-multiply z-10 transition-opacity duration-700 opacity-60 group-hover:opacity-40" />
                                     <img
                                         src={item.image}
                                         alt={item.role}
-                                        className="w-full h-full object-cover grayscale-[0.2] hover:grayscale-0 transition-all duration-700"
+                                        className="w-full h-full object-cover scale-105 group-hover:scale-100 transition-all duration-1000"
                                     />
 
                                 </div>

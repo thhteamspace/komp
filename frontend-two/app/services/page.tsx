@@ -68,8 +68,9 @@ export default function ServicesPage() {
                                 transition={{ delay: index * 0.1 }}
                             >
                                 <Card hoverEffect className="h-full p-10 flex flex-col items-start bg-brand-black/5 border border-brand-black/10 text-brand-black hover:bg-brand-white hover:shadow-2xl">
-                                    <div className={`w-14 h-14 rounded-xl bg-brand-black/10 flex items-center justify-center mb-6`}>
-                                        <service.icon size={32} className={service.color.replace('text-', 'text-')} /> {/* Keeping original colors for icons but bg is darker */}
+                                    <div className={`w-16 h-16 rounded-2xl bg-gradient-to-br from-white to-slate-100 shadow-xl border border-white/50 flex items-center justify-center mb-8 relative group-hover:scale-110 transition-transform duration-500`}>
+                                        <div className={`absolute inset-0 rounded-2xl opacity-20 blur-xl ${service.color.replace('text-', 'bg-')}`} />
+                                        <service.icon size={32} className={`${service.color} relative z-10`} />
                                     </div>
                                     <h3 className="text-2xl font-bold text-brand-black mb-4">{service.title}</h3>
                                     <p className="text-brand-black/60 leading-relaxed mb-8 flex-grow">

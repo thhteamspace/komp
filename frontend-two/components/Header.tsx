@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from 'react';
 import Link from 'next/link';
+import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Menu, X, ChevronDown, Globe, Shield, Users, Briefcase, Zap, Rocket, LineChart } from 'lucide-react';
 import Button from './Button';
@@ -17,9 +18,14 @@ const megaMenuData = {
 };
 
 const Header = () => {
+    const pathname = usePathname();
     const [isScrolled, setIsScrolled] = useState(false);
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
+
+    // Determine if we need a dark header (transparent bg, white text) initially
+    // This applies to /resources which has a dark hero section
+    const isDarkHeader = pathname === '/resources';
 
     useEffect(() => {
         const handleScroll = () => {
@@ -29,11 +35,10 @@ const Header = () => {
         return () => window.removeEventListener('scroll', handleScroll);
     }, []);
 
+    const isTransparent = !isScrolled && !activeMegaMenu && isDarkHeader;
+
     return (
         <motion.header
-            initial={{ y: -100 }}
-            animate={{ y: 0 }}
-            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
             className={cn(
                 'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out',
                 isScrolled || activeMegaMenu
@@ -47,7 +52,7 @@ const Header = () => {
                     <img
                         src="/images/Logo_1-04-removebg-preview.png"
                         alt="KOMP Logo"
-                        className="h-14 w-auto object-contain"
+                        className={cn("h-14 w-auto object-contain transition-all duration-300", isTransparent ? "brightness-0 invert opacity-90" : "")} // Optional: invert logo on dark background if needed, or keep original if it works
                     />
                 </Link>
 
@@ -63,7 +68,11 @@ const Header = () => {
                                     onClick={() => setActiveMegaMenu(null)}
                                     className={cn(
                                         "text-sm font-semibold transition-colors duration-300",
-                                        activeMegaMenu === name ? "text-brand-orange" : "text-slate-600 hover:text-slate-950"
+                                        activeMegaMenu === name
+                                            ? "text-brand-orange"
+                                            : isTransparent
+                                                ? "text-white/90 hover:text-white"
+                                                : "text-slate-600 hover:text-slate-950"
                                     )}
                                 >
                                     {name}
@@ -78,7 +87,11 @@ const Header = () => {
                                     }}
                                     className={cn(
                                         "ml-1 p-1 transition-all duration-300",
-                                        activeMegaMenu === name ? "text-brand-orange" : "text-slate-600 group-hover/nav:text-slate-950"
+                                        activeMegaMenu === name
+                                            ? "text-brand-orange"
+                                            : isTransparent
+                                                ? "text-white/90 group-hover/nav:text-white"
+                                                : "text-slate-600 group-hover/nav:text-slate-950"
                                     )}
                                 >
                                     <ChevronDown size={14} className={cn("transition-transform duration-300", activeMegaMenu === name ? "rotate-180" : "")} />
@@ -86,24 +99,37 @@ const Header = () => {
                             </div>
                         );
                     })}
-                    <Link href="/resources" onClick={() => setActiveMegaMenu(null)} className="text-sm font-semibold text-slate-600 hover:text-slate-950 transition-colors">
+                    <Link
+                        href="/resources"
+                        onClick={() => setActiveMegaMenu(null)}
+                        className={cn(
+                            "text-sm font-semibold transition-colors",
+                            isTransparent ? "text-white/90 hover:text-white" : "text-slate-600 hover:text-slate-950"
+                        )}
+                    >
                         Resources
                     </Link>
                 </nav>
 
                 {/* Desktop Actions */}
                 <div className="hidden lg:flex items-center gap-8">
-                    <Link href="/login" className="text-sm font-semibold text-slate-600 hover:text-slate-950 transition-colors">
+                    <Link
+                        href="/login"
+                        className={cn(
+                            "text-sm font-semibold transition-colors",
+                            isTransparent ? "text-white/90 hover:text-white" : "text-slate-600 hover:text-slate-950"
+                        )}
+                    >
                         Login
                     </Link>
                     <Link href="#reality">
-                        <Button variant="premium" size="sm" className="rounded-full shadow-lg text-xs">Talk to a Compliance Expert</Button>
+                        <Button variant="primary" size="sm" className="rounded-full shadow-lg text-xs">Talk to a Compliance Expert</Button>
                     </Link>
                 </div>
 
                 {/* Mobile Toggle */}
                 <button
-                    className="lg:hidden z-50 text-slate-950"
+                    className={cn("lg:hidden z-50 transition-colors", isTransparent ? "text-white" : "text-slate-950")}
                     onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                 >
                     {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
@@ -224,7 +250,7 @@ const Header = () => {
                             <Link href="/login" className="text-center font-bold text-slate-500 uppercase tracking-widest text-sm py-4">
                                 Login
                             </Link>
-                            <Button fullWidth className="h-14 rounded-full">Talk to a Compliance Expert</Button>
+                            <Button fullWidth variant="primary" className="h-14 rounded-full">Talk to a Compliance Expert</Button>
                         </div>
                     </motion.div>
                 )}
