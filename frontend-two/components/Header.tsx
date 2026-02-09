@@ -4,16 +4,22 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, Globe, Shield, Users, Briefcase, Zap, Rocket, LineChart } from 'lucide-react';
+import { Menu, X, ChevronDown, Globe, Shield, Users, Briefcase, Zap, Rocket, LineChart, Layers } from 'lucide-react';
 import Button from './Button';
 import { cn } from '@/utils/cn';
 
 const megaMenuData = {
+    Product: [
+        { name: 'Platform Overview', desc: 'Unified global workforce OS.', icon: Layers, href: '/product' },
+        { name: 'Global Payroll', desc: 'Pay everyone, everywhere.', icon: Zap, href: '/product' },
+        { name: 'Compliance', desc: 'Risk-free global scaling.', icon: Shield, href: '/compliance' },
+        { name: 'Workforce Management', desc: 'Onboard and manage talent.', icon: Users, href: '/product' },
+    ],
     Solutions: [
-        { name: 'For Tech & SaaS', desc: 'Scale engineering teams with zero risk.', icon: Zap, href: '#industries' },
-        { name: 'For Healthcare', desc: 'Strict regulatory & HIPAA compliance.', icon: Shield, href: '#industries' },
-        { name: 'For Professional Services', desc: 'Deploy consultants worldwide instantly.', icon: Briefcase, href: '#industries' },
-        { name: 'M&A Integration', desc: 'Fast-track workforce consolidation.', icon: LineChart, href: '#industries' },
+        { name: 'For Tech & SaaS', desc: 'Scale engineering teams with zero risk.', icon: Zap, href: '/solutions' },
+        { name: 'For Healthcare', desc: 'Strict regulatory & HIPAA compliance.', icon: Shield, href: '/solutions' },
+        { name: 'For Professional Services', desc: 'Deploy consultants worldwide instantly.', icon: Briefcase, href: '/solutions' },
+        { name: 'M&A Integration', desc: 'Fast-track workforce consolidation.', icon: LineChart, href: '/solutions' },
     ],
 };
 
@@ -24,8 +30,22 @@ const Header = () => {
     const [activeMegaMenu, setActiveMegaMenu] = useState<string | null>(null);
 
     // Determine if we need a dark header (transparent bg, white text) initially
-    // This applies to /resources which has a dark hero section
-    const isDarkHeader = pathname?.includes('/resources');
+    // This applies to /resources, /compliance, and /product which have dark hero sections (or need similar treatment)
+    // Actually Product and Compliance hero sections in my previous turn were White and Black respectively.
+    // Product Hero is White. Compliance Hero is Black.
+    // So Product should be like Solutions (Light header initially?).
+    // Compliance should be like Resources (Dark header initially?).
+
+    // Let's check the previous code.
+    // ProductHero.tsx -> bg-brand-white
+    // ComplianceHero.tsx -> bg-brand-black
+
+    // So for /compliance, we want isDarkHeader = true.
+    // For /product, we want isDarkHeader = false (default light theme behavior? or does it start transparent on white?)
+    // The current logic: isDarkHeader = pathname?.includes('/resources');
+    // If we add /compliance, it should also be dark.
+
+    const isDarkHeader = pathname?.includes('/resources') || pathname?.includes('/compliance');
 
     const isDarkHeaderRef = useRef(isDarkHeader);
 
@@ -38,8 +58,10 @@ const Header = () => {
             if (typeof window === 'undefined') return;
             // robust check using window location directly
             const isResourcePage = window.location.pathname.includes('/resources');
-            // Keep header transparent until full viewport scroll on Resources page
-            const threshold = isResourcePage ? window.innerHeight - 80 : 20;
+            const isCompliancePage = window.location.pathname.includes('/compliance');
+
+            // Keep header transparent until full viewport scroll on Resources/Compliance page
+            const threshold = (isResourcePage || isCompliancePage) ? window.innerHeight - 80 : 20;
             setIsScrolled(window.scrollY > threshold);
         };
 
@@ -73,7 +95,9 @@ const Header = () => {
                 {/* Desktop Nav with Mega Menu */}
                 <nav className="hidden lg:flex items-center gap-10 ml-12">
                     {Object.entries(megaMenuData).map(([name, items]) => {
-                        const sectionId = name === 'Platform' ? '#platform' : name === 'Solutions' ? '/solutions' : '#reality';
+                        const sectionId = name === 'Product' ? '/product' : name === 'Solutions' ? '/solutions' : '#';
+                        const isActive = (name === 'Product' && pathname === '/product') || (name === 'Solutions' && pathname === '/solutions');
+
                         return (
                             <div key={name} className="relative py-2 flex items-center group/nav">
                                 <div className="relative">
@@ -83,7 +107,7 @@ const Header = () => {
                                         onClick={() => setActiveMegaMenu(null)}
                                         className={cn(
                                             "text-sm font-semibold transition-colors duration-300",
-                                            activeMegaMenu === name || (name === 'Solutions' && pathname === '/solutions')
+                                            isActive || activeMegaMenu === name
                                                 ? "text-brand-orange"
                                                 : isTransparent
                                                     ? "text-white/90 hover:text-white"
@@ -93,8 +117,8 @@ const Header = () => {
                                         {name}
                                     </Link>
 
-                                    {/* Active Indicator for Solutions */}
-                                    {name === 'Solutions' && pathname === '/solutions' && (
+                                    {/* Active Indicator */}
+                                    {isActive && (
                                         <motion.div
                                             layoutId="activeNav"
                                             className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-1/2"
@@ -112,7 +136,7 @@ const Header = () => {
                                     }}
                                     className={cn(
                                         "ml-1 p-1 transition-all duration-300",
-                                        activeMegaMenu === name || (name === 'Solutions' && pathname === '/solutions')
+                                        isActive || activeMegaMenu === name
                                             ? "text-brand-orange"
                                             : isTransparent
                                                 ? "text-white/90 group-hover/nav:text-white"
@@ -121,9 +145,66 @@ const Header = () => {
                                 >
                                     <ChevronDown size={14} className={cn("transition-transform duration-300", activeMegaMenu === name ? "rotate-180" : "")} />
                                 </button>
+
+                                {/* Mega Menu Content */}
+                                <AnimatePresence>
+                                    {activeMegaMenu === name && (
+                                        <motion.div
+                                            initial={{ opacity: 0, y: -10 }}
+                                            animate={{ opacity: 1, y: 0 }}
+                                            exit={{ opacity: 0, y: -10 }}
+                                            transition={{ duration: 0.2 }}
+                                            className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-[600px] z-50"
+                                        >
+                                            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 grid grid-cols-2 gap-4">
+                                                {items.map((subItem) => (
+                                                    <Link
+                                                        key={subItem.name}
+                                                        href={subItem.href}
+                                                        onClick={() => setActiveMegaMenu(null)}
+                                                        className="group flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors"
+                                                    >
+                                                        <div className="w-10 h-10 rounded-lg bg-orange-50 text-brand-orange flex items-center justify-center shrink-0">
+                                                            <subItem.icon size={20} />
+                                                        </div>
+                                                        <div>
+                                                            <div className="font-bold text-slate-900 group-hover:text-brand-orange transition-colors">{subItem.name}</div>
+                                                            <div className="text-xs text-slate-500">{subItem.desc}</div>
+                                                        </div>
+                                                    </Link>
+                                                ))}
+                                            </div>
+                                        </motion.div>
+                                    )}
+                                </AnimatePresence>
                             </div>
                         );
                     })}
+
+                    <div className="relative py-2">
+                        <Link
+                            href="/compliance"
+                            onClick={() => setActiveMegaMenu(null)}
+                            className={cn(
+                                "text-sm font-semibold transition-colors",
+                                pathname === '/compliance'
+                                    ? "text-brand-orange"
+                                    : isTransparent
+                                        ? "text-white/90 hover:text-white"
+                                        : "text-slate-600 hover:text-slate-950"
+                            )}
+                        >
+                            Compliance
+                        </Link>
+                        {pathname === '/compliance' && (
+                            <motion.div
+                                layoutId="activeNav"
+                                className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-1/2"
+                                transition={{ duration: 0.3 }}
+                            />
+                        )}
+                    </div>
+
                     <div className="relative py-2">
                         <Link
                             href="/resources"
@@ -272,7 +353,9 @@ const Header = () => {
                     >
                         <div className="flex flex-col gap-10">
                             {[
+                                { name: 'Product', href: '/product' },
                                 { name: 'Solutions', href: '/solutions' },
+                                { name: 'Compliance', href: '/compliance' },
                                 { name: 'Resources', href: '/resources' }
                             ].map((item) => (
                                 <Link

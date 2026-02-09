@@ -80,43 +80,42 @@ const HiringGuides = () => {
                     </div>
                 </div>
 
-                {/* Grid - Clean Card Discovery */}
+                {/* Grid - Premium Card Design */}
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8">
                     {filtered.map((country, i) => (
                         <motion.div
                             key={country.name}
-                            initial={{ opacity: 0, y: 30 }}
+                            initial={{ opacity: 0, y: 40 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ delay: i * 0.05, duration: 0.8 }}
-                            className={`group relative h-[450px] rounded-[3.5rem] p-10 flex flex-col justify-between transition-all duration-700 hover:shadow-2xl hover:shadow-black/20 bg-white border-2 border-transparent hover:scale-[1.02] cursor-pointer`}
+                            transition={{ delay: i * 0.1 }}
+                            className="group flex flex-col rounded-[2.5rem] border border-slate-200/60 bg-white p-8 shadow-xl hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
                         >
+                            {/* Country Name */}
+                            <h4 className="text-3xl font-bold text-brand-black mb-6 tracking-tight">
+                                {country.name}
+                            </h4>
 
+                            {/* Description */}
+                            <p className="text-slate-600 mb-8 font-medium leading-relaxed flex-grow">
+                                Comprehensive local hiring guides: payroll, compliance, and taxes.
+                            </p>
 
-                            <div className="relative z-10">
-                                <div className="flex items-start justify-end mb-6">
-                                    <span className="px-3 py-1 bg-slate-50 border border-slate-100 rounded-full text-[10px] font-bold text-slate-400 uppercase tracking-widest">{country.name.substring(0, 2).toUpperCase()}</span>
-                                </div>
-                                <h4 className="text-3xl font-bold text-slate-950 tracking-tighter mb-4 -mt-8 text-center">
-                                    {country.name}
-                                </h4>
-                                <div className="flex flex-wrap gap-2 justify-center mb-2">
-                                    {country.tags.map(tag => (
-                                        <span key={tag} className="px-2 py-1 bg-slate-50 border border-slate-100 rounded-md text-[9px] font-bold text-slate-500 uppercase tracking-wider">{tag}</span>
-                                    ))}
-                                </div>
+                            {/* Tags */}
+                            <div className="flex flex-wrap gap-2 mb-8">
+                                {country.tags.map(tag => (
+                                    <span key={tag} className="px-3 py-1.5 bg-slate-50 border border-slate-100 rounded-lg text-[10px] font-bold text-slate-600 uppercase tracking-wider">
+                                        {tag}
+                                    </span>
+                                ))}
                             </div>
 
-                            <div className="relative z-10">
-                                <p className="text-slate-500 text-sm font-medium mb-6 mt-4 text-center max-w-[90%] mx-auto leading-relaxed flex items-center justify-center">
-                                    Comprehensive local hiring guides: payroll, compliance, and taxes.
-                                </p>
-                                <div className="flex items-center justify-between pt-6 border-t border-slate-100/50">
-                                    <span className="font-bold text-slate-950 text-sm">Access Guide</span>
-                                    <button className="w-10 h-10 rounded-full bg-slate-950 text-white flex items-center justify-center transition-all hover:bg-brand-orange active:scale-95">
-                                        <ArrowRight size={16} />
-                                    </button>
-                                </div>
+                            {/* Access Guide Button - Unchanged */}
+                            <div className="flex items-center justify-between pt-6 border-t border-slate-100">
+                                <span className="font-bold text-slate-950 text-sm">Access Guide</span>
+                                <button className="w-10 h-10 rounded-full bg-slate-950 text-white flex items-center justify-center transition-all hover:bg-brand-orange active:scale-95">
+                                    <ArrowRight size={16} />
+                                </button>
                             </div>
                         </motion.div>
                     ))}

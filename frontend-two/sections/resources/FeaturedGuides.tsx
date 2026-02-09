@@ -75,21 +75,16 @@ const FeaturedGuides = () => {
                                 key={res.title}
                                 initial={{
                                     opacity: 0,
-                                    scale: 0.85,
-                                    x: isLeft ? '100%' : isRight ? '-100%' : 0,
-                                    y: 0
+                                    x: isLeft ? 100 : isRight ? -100 : 0,
                                 }}
                                 whileInView={{
                                     opacity: 1,
-                                    scale: 1,
                                     x: 0,
-                                    y: 0
                                 }}
-                                viewport={{ once: false, amount: 0.3, margin: "0px 0px -100px 0px" }}
+                                viewport={{ once: false, amount: 0.2 }}
                                 transition={{
-                                    duration: 0.8,
-                                    ease: [0.25, 1, 0.5, 1], // Smooth custom bezier curve
-                                    delay: 0
+                                    duration: 0.5,
+                                    ease: [0.4, 0, 0.2, 1],
                                 }}
                                 className={`
                                     group bg-slate-50 border border-slate-100 rounded-[3rem] p-8 
