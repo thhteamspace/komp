@@ -34,28 +34,33 @@ const areas = [
 
 export default function ComplianceCoverageAreas() {
     return (
-        <section className="py-24 bg-brand-black text-white relative">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16 max-w-2xl mx-auto">
-                    <motion.div
-                        initial={{ opacity: 0, scale: 0.9 }}
-                        whileInView={{ opacity: 1, scale: 1 }}
+        <section className="py-32 bg-slate-50 relative overflow-hidden">
+            {/* Background Details */}
+            <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-[100px] pointer-events-none" />
+            <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[120px] pointer-events-none" />
+
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="text-center mb-24 max-w-4xl mx-auto">
+                    <motion.span
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="inline-block px-4 py-1.5 rounded-full bg-slate-800 text-slate-300 text-sm font-semibold tracking-wider mb-6 uppercase border border-slate-700"
+                        className="text-brand-blue font-bold tracking-widest text-sm mb-4 block"
                     >
                         Scope of Protection
-                    </motion.div>
+                    </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-4xl md:text-5xl font-black mb-6"
+                        className="font-black text-brand-black mb-6 tracking-tighter"
+                        style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
                     >
-                        Total Compliance Coverage
+                        Total Compliance <span className="text-brand-orange">Coverage.</span>
                     </motion.h2>
-                    <p className="text-lg text-slate-400">
-                        We cover every critical aspect of global employment.
+                    <p className="text-xl text-slate-500 max-w-2xl mx-auto">
+                        We cover every critical aspect of global employment, ensuring your expansion is seamless and completely protected.
                     </p>
                 </div>
 
@@ -66,14 +71,16 @@ export default function ComplianceCoverageAreas() {
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
                         >
-                            <Card className="h-full bg-white/5 border-white/10 hover:border-brand-blue/50 hover:bg-white/10 transition-all p-8 flex flex-col items-center text-center group">
-                                <div className="p-4 bg-white/5 rounded-full mb-6 group-hover:scale-110 transition-transform duration-300">
+                            <Card className="h-full bg-white border-2 border-slate-100 hover:border-brand-blue/20 hover:shadow-2xl transition-all duration-500 p-8 flex flex-col items-center text-center group rounded-[2.5rem]">
+                                <div className="p-6 bg-slate-50 rounded-[2rem] mb-8 group-hover:scale-110 group-hover:bg-white transition-all duration-300 shadow-sm border border-slate-100">
                                     {area.icon}
                                 </div>
-                                <h3 className="text-xl font-bold mb-3">{area.title}</h3>
-                                <p className="text-slate-400 text-sm leading-relaxed">
+                                <h3 className="text-2xl font-bold text-slate-900 mb-4 group-hover:text-brand-blue transition-colors">
+                                    {area.title}
+                                </h3>
+                                <p className="text-slate-600 leading-relaxed font-medium">
                                     {area.description}
                                 </p>
                             </Card>

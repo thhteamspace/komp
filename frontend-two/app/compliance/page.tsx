@@ -15,10 +15,10 @@ export const metadata = {
 
 export default function CompliancePage() {
     return (
-        <div className="bg-brand-black text-brand-white overflow-x-hidden">
+        <div className="bg-brand-white text-brand-black overflow-x-hidden">
             <ComplianceHero />
 
-            <div className="relative z-10 space-y-20 pb-20">
+            <div className="relative z-10">
                 <WhyGlobalComplianceMatters />
                 <ComplianceCoverageAreas />
                 <ContinuousMonitoring />

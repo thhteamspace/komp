@@ -10,10 +10,10 @@ const cases = [
         id: 'tech-scaling',
         company: 'CloudStream SaaS',
         sector: 'Tech / SaaS',
-        title: 'Rapid Engineering Expansion.',
-        problem: 'Needed to hire 45 senior engineers across Brazil, India, and Poland in under 60 days without local entities.',
-        solution: 'KOMP Activate & Workforce enabled compliant onboarding and IP protection within 48 hours per hire.',
-        result: 'Saved $1.2M in legal setup costs and achieved 100% hiring target ahead of schedule.',
+        title: 'Fast Engineering Scale.',
+        problem: 'Needed 45 engineers in 3 countries without local offices.',
+        solution: 'KOMP Activate enabled compliant hiring in under 48 hours.',
+        result: 'Saved $1.2M and hit hiring goals early.',
         image: 'https://images.unsplash.com/photo-1522071820081-009f0129c71c?q=80&w=2940&auto=format&fit=crop',
         icon: Zap,
         color: '#f97316'
@@ -22,10 +22,10 @@ const cases = [
         id: 'healthcare-compliance',
         company: 'VitalsGlobal',
         sector: 'Healthcare',
-        title: 'Global Compliance Shield.',
-        problem: 'Faced potential misclassification penalties while managing remote medical consultants across 15 countries.',
-        solution: 'Implemented KOMP Governance to audit every contract and transition consultants to compliant EOR/Contractor models.',
-        result: 'Zero compliance gaps identified during annual audit; reduced legal risk exposure by 100%.',
+        title: 'Global Risk Shield.',
+        problem: 'Managing remote specialists across 15 countries was a legal risk.',
+        solution: 'KOMP Governance fixed all compliance gaps and updated contracts.',
+        result: 'Zero legal issues and 100% risk reduction.',
         image: 'https://images.unsplash.com/photo-1579684385127-1ef15d508118?q=80&w=2000&auto=format&fit=crop',
         icon: ShieldCheck,
         color: '#10b981'
@@ -34,10 +34,10 @@ const cases = [
         id: 'professional-mobility',
         company: 'Strata Partners',
         sector: 'Professional Services',
-        title: 'Unlimited Mobility.',
-        problem: 'Consultants needed to move between client sites in London, Singapore, and Dubai with urgent visa requirements.',
-        solution: 'KOMP PayOps & Mobility handled multi-currency payroll and relocation logistics without requiring direct entities.',
-        result: 'Average visa turnaround reduced from 3 months to 3 weeks; 99% employee satisfaction rate.',
+        title: 'Global Staff Mobility.',
+        problem: 'Fast visa needs for staff moving between London and Dubai.',
+        solution: 'KOMP Mobility handled relocation and payroll without local entities.',
+        result: 'Visa time cut by 70%; 99% satisfaction rate.',
         image: 'https://images.unsplash.com/photo-1556761175-5973dc0f32e7?q=80&w=2932&auto=format&fit=crop',
         icon: Globe,
         color: '#3b82f6'
@@ -69,15 +69,6 @@ const CaseStudies = () => {
                             Human Impact. <span className="text-brand-orange">Technical Precision.</span>
                         </motion.h2>
                     </div>
-                    <div className="flex gap-4">
-                        {cases.map((_, i) => (
-                            <button
-                                key={i}
-                                onClick={() => setActiveIndex(i)}
-                                className={`w-12 h-2 rounded-full transition-all duration-500 ${activeIndex === i ? 'bg-brand-orange w-24' : 'bg-slate-200'}`}
-                            />
-                        ))}
-                    </div>
                 </div>
 
                 <div className="relative">
@@ -106,41 +97,47 @@ const CaseStudies = () => {
                                         </div>
                                     </div>
 
-                                    <div className="space-y-10">
-                                        <div>
-                                            <div className="flex items-center gap-2 text-rose-500 mb-2">
-                                                <AlertCircle size={16} />
-                                                <span className="text-[10px] font-bold tracking-wider">The Problem</span>
+                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-16">
+                                        <div className="space-y-4">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-full bg-rose-50 flex items-center justify-center text-rose-500">
+                                                    <AlertCircle size={16} />
+                                                </div>
+                                                <span className="text-[11px] font-black tracking-[0.2em] uppercase text-slate-400">The Challenge</span>
                                             </div>
-                                            <p className="text-xl md:text-2xl font-bold text-slate-900 leading-tight">
-                                                "{cases[activeIndex].problem}"
+                                            <p className="text-xl font-bold text-slate-900 leading-snug">
+                                                {cases[activeIndex].problem}
                                             </p>
                                         </div>
 
-                                        <div>
-                                            <div className="flex items-center gap-2 text-brand-blue mb-2">
-                                                <Zap size={16} />
-                                                <span className="text-[10px] font-bold tracking-wider">KOMP Solution</span>
+                                        <div className="space-y-4">
+                                            <div className="flex items-center gap-3">
+                                                <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-brand-blue">
+                                                    <Zap size={16} />
+                                                </div>
+                                                <span className="text-[11px] font-black tracking-[0.2em] uppercase text-slate-400">Our Strategy</span>
                                             </div>
-                                            <p className="text-lg font-medium text-slate-600">
+                                            <p className="text-xl font-medium text-slate-600 leading-snug">
                                                 {cases[activeIndex].solution}
                                             </p>
                                         </div>
                                     </div>
                                 </div>
 
-                                <div className="mt-12 pt-10 border-t border-slate-100 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-8">
-                                    <div>
-                                        <div className="flex items-center gap-2 text-emerald-500 mb-2">
-                                            <CheckCircle2 size={16} />
-                                            <span className="text-[10px] font-bold tracking-wider">Verified Result</span>
+                                <div className="mt-12 pt-10 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-8">
+                                    <div className="flex items-center gap-6">
+                                        <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-500 flex-shrink-0">
+                                            <CheckCircle2 size={32} />
                                         </div>
-                                        <p className="text-2xl font-black text-slate-950 tracking-tight italic">
-                                            {cases[activeIndex].result}
-                                        </p>
+                                        <div>
+                                            <div className="text-[10px] font-black tracking-[0.2em] uppercase text-slate-400 mb-1">Impact Delivered</div>
+                                            <p className="text-3xl font-black text-slate-950 tracking-tight leading-none">
+                                                {cases[activeIndex].result}
+                                            </p>
+                                        </div>
                                     </div>
-                                    <Button variant="premium" className="rounded-full px-10 h-14">
-                                        View Full Story
+                                    <Button variant="premium" className="rounded-full px-10 h-14 whitespace-nowrap">
+                                        Read Case Study
                                     </Button>
                                 </div>
                             </div>
@@ -159,10 +156,22 @@ const CaseStudies = () => {
                             </div>
                         </motion.div>
                     </AnimatePresence>
+
+                    {/* Navigation Dots Below Card */}
+                    <div className="flex justify-center mt-12 gap-4">
+                        {cases.map((_, i) => (
+                            <button
+                                key={i}
+                                onClick={() => setActiveIndex(i)}
+                                className={`h-2 rounded-full transition-all duration-500 ${activeIndex === i ? 'bg-brand-orange w-24' : 'bg-slate-300 w-12 hover:bg-slate-400'}`}
+                            />
+                        ))}
+                    </div>
                 </div>
             </div>
         </section>
     );
 };
+
 
 export default CaseStudies;

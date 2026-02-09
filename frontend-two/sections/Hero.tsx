@@ -22,34 +22,34 @@ const Hero = () => {
 
 
 
-    // SMOOTHING: Buffers the scroll input to eliminate jitter
+    // SMOOTHING: Buffers the scroll input for a premium cinematic feel
     const smoothProgress = useSpring(scrollYProgress, {
-        stiffness: 100,
-        damping: 30,
+        stiffness: 150, // Faster response
+        damping: 40,   // More controlled movement
         restDelta: 0.001
     });
 
     // Background Interaction
-    const videoScale = useTransform(smoothProgress, [0, 0.5], [1, 0.9]);
-    const videoOpacity = useTransform(smoothProgress, [0, 0.4, 0.8], [0.7, 0.3, 0.05]);
+    const videoScale = useTransform(smoothProgress, [0, 0.4], [1, 0.85]);
+    const videoOpacity = useTransform(smoothProgress, [0, 0.3, 0.6], [0.7, 0.3, 0.02]);
 
-    // Content Animations - Moves up and fades out early
-    const textOpacity = useTransform(smoothProgress, [0, 0.3], [1, 0]);
-    const textY = useTransform(smoothProgress, [0, 0.3], [0, -150]);
-    const textScale = useTransform(smoothProgress, [0, 0.3], [1, 0.95]);
+    // Content Animations - Moves up and fades out sharper
+    const textOpacity = useTransform(smoothProgress, [0, 0.25], [1, 0]);
+    const textY = useTransform(smoothProgress, [0, 0.25], [0, -200]);
+    const textScale = useTransform(smoothProgress, [0, 0.25], [1, 0.9]);
 
-    // Dashboard Animations - Starts coming in as transition begins
-    const dashboardY = useTransform(smoothProgress, [0.15, 0.7], [600, 0]);
-    const dashboardScale = useTransform(smoothProgress, [0.15, 0.7], [0.85, 1]);
-    const dashboardOpacity = useTransform(smoothProgress, [0.1, 0.35], [0, 1]);
-    const dashboardRotateX = useTransform(smoothProgress, [0.15, 0.7], [20, 0]);
+    // Dashboard Animations - More "Aggressive" and smooth transition
+    const dashboardY = useTransform(smoothProgress, [0.05, 0.55], [800, 0]);
+    const dashboardScale = useTransform(smoothProgress, [0.05, 0.55], [0.8, 1]);
+    const dashboardOpacity = useTransform(smoothProgress, [0.05, 0.25], [0, 1]);
+    const dashboardRotateX = useTransform(smoothProgress, [0.05, 0.55], [35, 0]);
 
-    // Trust/Footer - Comes up from under the dashboard slightly faster
-    const trustOpacity = useTransform(smoothProgress, [0.78, 0.95], [0, 1]);
-    const trustY = useTransform(smoothProgress, [0.78, 0.95], [40, 0]);
+    // Trust/Footer - Clean arrival
+    const trustOpacity = useTransform(smoothProgress, [0.7, 0.9], [0, 1]);
+    const trustY = useTransform(smoothProgress, [0.7, 0.9], [50, 0]);
 
     return (
-        <div ref={containerRef} className="relative h-[250vh] bg-white -mt-20">
+        <div ref={containerRef} className="relative h-[280vh] bg-white -mt-20">
             <div className="sticky top-0 h-screen w-full overflow-hidden flex flex-col items-center justify-center pt-20">
 
                 {/* Background Video */}

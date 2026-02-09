@@ -29,39 +29,51 @@ const risks = [
 
 export default function WhyGlobalComplianceMatters() {
     return (
-        <section className="py-24 bg-zinc-900 relative">
-            <div className="container mx-auto px-6">
-                <div className="text-center mb-16 max-w-3xl mx-auto">
+        <section className="py-32 bg-white relative overflow-hidden">
+            {/* Soft ambient glow */}
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-brand-blue/5 blur-[120px] rounded-full pointer-events-none" />
+
+            <div className="container mx-auto px-6 relative z-10">
+                <div className="text-center mb-24 max-w-4xl mx-auto">
+                    <motion.span
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="text-brand-blue font-bold tracking-widest text-sm mb-4 block"
+                    >
+                        Risk Landscape
+                    </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-3xl md:text-5xl font-bold text-white mb-6"
+                        className="font-black text-brand-black mb-6 tracking-tighter"
+                        style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
                     >
-                        Why Global Compliance Matters
+                        Why Global <span className="text-brand-orange">Compliance Matters.</span>
                     </motion.h2>
-                    <p className="text-lg text-slate-400 max-w-2xl mx-auto">
-                        Expanding globally introduces complex legal challenges. Understanding the risks is the first step to mitigation.
+                    <p className="text-xl text-slate-500 max-w-2xl mx-auto">
+                        Expanding globally introduces complex legal challenges. Understanding the risks is the first step to scaling with confidence.
                     </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
                     {risks.map((risk, index) => (
                         <motion.div
                             key={index}
-                            initial={{ opacity: 0, scale: 0.95 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
+                            initial={{ opacity: 0, y: 20 }}
+                            whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
-                            transition={{ duration: 0.5, delay: index * 0.1 }}
+                            transition={{ duration: 0.6, delay: index * 0.1 }}
                         >
-                            <Card className="h-full bg-zinc-800/50 border-zinc-700 hover:border-zinc-500 transition-all p-8 flex items-start gap-6 group hover:shadow-lg hover:shadow-red-900/10">
-                                <div className="p-4 bg-zinc-800 rounded-2xl shadow-sm border border-zinc-700 group-hover:scale-110 transition-transform duration-300 shrink-0">
+                            <Card className="h-full bg-white border-2 border-slate-100 hover:border-brand-orange/20 hover:shadow-2xl transition-all duration-500 p-8 flex items-start gap-8 group rounded-[2.5rem]">
+                                <div className="p-5 bg-slate-50 rounded-2xl group-hover:scale-110 group-hover:bg-white transition-all duration-300 shrink-0 shadow-sm border border-slate-100">
                                     {risk.icon}
                                 </div>
-                                <div>
-                                    <h3 className="text-xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors">{risk.title}</h3>
-                                    <p className="text-slate-400 leading-relaxed text-sm md:text-base">
+                                <div className="flex-1">
+                                    <h3 className="text-2xl font-bold text-slate-900 mb-3 group-hover:text-brand-orange transition-colors">{risk.title}</h3>
+                                    <p className="text-slate-600 leading-relaxed font-medium">
                                         {risk.description}
                                     </p>
                                 </div>

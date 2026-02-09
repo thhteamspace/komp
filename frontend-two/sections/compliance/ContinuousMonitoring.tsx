@@ -29,13 +29,13 @@ const monitoringFeatures = [
 
 export default function ContinuousMonitoring() {
     return (
-        <section className="py-24 bg-zinc-900 relative overflow-hidden">
+        <section className="py-32 bg-white relative overflow-hidden">
             {/* Background Blurs */}
             <div className="absolute top-0 right-0 w-[500px] h-[500px] bg-brand-blue/5 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[500px] h-[500px] bg-brand-orange/5 rounded-full blur-[120px] pointer-events-none" />
 
             <div className="container mx-auto px-6 relative z-10">
-                <div className="flex flex-col lg:flex-row items-center justify-between gap-16 max-w-7xl mx-auto">
+                <div className="flex flex-col lg:flex-row items-center justify-between gap-24 max-w-7xl mx-auto">
 
                     {/* Text Side */}
                     <div className="lg:w-1/2">
@@ -43,31 +43,32 @@ export default function ContinuousMonitoring() {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-green-500/10 text-green-400 text-sm font-medium mb-6 border border-green-500/20"
+                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-bold mb-8 border border-brand-blue/20"
                         >
                             <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-green-400 opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-green-500"></span>
+                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
+                                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
                             </span>
-                            Always On
+                            Always On Tracking
                         </motion.div>
                         <motion.h2
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.1 }}
-                            className="text-4xl md:text-5xl font-black text-white mb-6 leading-tight"
+                            className="font-black text-brand-black mb-8 tracking-tighter"
+                            style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.2' }}
                         >
-                            Continuous Monitoring & Updates
+                            Continuous <br /> <span className="text-brand-orange">Monitoring.</span>
                         </motion.h2>
                         <motion.p
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5, delay: 0.2 }}
-                            className="text-lg text-slate-400 mb-8 leading-relaxed"
+                            className="text-xl text-slate-500 mb-10 leading-relaxed font-medium"
                         >
-                            Laws don't sleep, and neither do we. Our platform actively monitors jurisdictions worldwide to ensure you never miss a critical change.
+                            Employment laws are constantly evolving. Our platform actively monitors jurisdictions worldwide to ensure your workforce infrastructure stays ahead of every legislative shift.
                         </motion.p>
                     </div>
 
@@ -76,16 +77,22 @@ export default function ContinuousMonitoring() {
                         {monitoringFeatures.map((feature, index) => (
                             <motion.div
                                 key={index}
-                                initial={{ opacity: 0, scale: 0.8, rotate: -5 }}
-                                whileInView={{ opacity: 1, scale: 1, rotate: 0 }}
+                                initial={{ opacity: 0, y: 30 }}
+                                whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}
-                                transition={{ type: "spring", stiffness: 100, delay: index * 0.1 }}
+                                transition={{ duration: 0.6, delay: index * 0.1 }}
                             >
-                                <Card className="bg-zinc-800/80 border-zinc-700 hover:border-zinc-500 p-6 h-full flex flex-col justify-between">
-                                    <div className="mb-4">{feature.icon}</div>
+                                <Card className="bg-white border-2 border-slate-100 hover:border-brand-blue/20 hover:shadow-2xl transition-all duration-500 p-8 h-full flex flex-col justify-between rounded-[2.5rem] group">
+                                    <div className="mb-6 p-4 bg-slate-50 rounded-2xl group-hover:bg-white group-hover:scale-110 transition-all shadow-sm border border-slate-100 w-fit">
+                                        {feature.icon}
+                                    </div>
                                     <div>
-                                        <h3 className="text-lg font-bold text-white mb-2">{feature.title}</h3>
-                                        <p className="text-sm text-slate-400">{feature.description}</p>
+                                        <h3 className="text-2xl font-bold text-slate-900 mb-2 group-hover:text-brand-blue transition-colors">
+                                            {feature.title}
+                                        </h3>
+                                        <p className="text-slate-600 font-medium leading-relaxed">
+                                            {feature.description}
+                                        </p>
                                     </div>
                                 </Card>
                             </motion.div>
