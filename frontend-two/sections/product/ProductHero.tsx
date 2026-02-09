@@ -28,7 +28,8 @@ export default function ProductHero() {
                     initial={{ opacity: 0, y: 20 }}
                     animate={{ opacity: 1, y: 0 }}
                     transition={{ duration: 0.6, delay: 0.1 }}
-                    className="text-6xl md:text-8xl font-black tracking-tighter text-brand-black mb-8 leading-[0.9] max-w-5xl mx-auto"
+                    className="font-black tracking-tighter text-brand-black mb-8 leading-[0.9] max-w-5xl mx-auto"
+                    style={{ fontSize: 'clamp(55px, 8vw, 90px)' }}
                 >
                     One platform. <span className="text-brand-orange">Global scale.</span>
                 </motion.h1>

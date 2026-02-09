@@ -63,7 +63,8 @@ export default function Integrations() {
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
-                        className="text-6xl md:text-8xl font-black text-brand-black mb-6 leading-[1.1] tracking-tight"
+                        className="font-black text-brand-black mb-6 tracking-tighter"
+                        style={{ fontSize: 'clamp(40px, 6vw, 80px)', lineHeight: '1.1' }}
                     >
                         Your Tech Stack. <span className="text-brand-orange">Perfectly Linked.</span>
                     </motion.h2>

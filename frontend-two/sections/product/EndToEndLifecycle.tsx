@@ -30,7 +30,8 @@ export default function EndToEndLifecycle() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-7xl md:text-[140px] font-black text-brand-black mb-6 leading-[0.85] tracking-tighter"
+                        className="font-black text-brand-black mb-6 tracking-tighter"
+                        style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
                     >
                         End-to-End <span className="text-brand-orange">Lifecycle.</span>
                     </motion.h2>

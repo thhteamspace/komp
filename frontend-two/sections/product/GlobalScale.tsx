@@ -18,8 +18,11 @@ export default function GlobalScale() {
                     Global Reach
                 </motion.span>
 
-                <h2 className="text-6xl md:text-8xl font-black mb-12 leading-[1.1] tracking-tight text-slate-900">
-                    Scale to <span className="text-brand-orange">150+ Countries.</span>
+                <h2
+                    className="font-black mb-12 tracking-tighter text-slate-900"
+                    style={{ fontSize: 'clamp(32px, 4vw, 60px)', lineHeight: '1.1' }}
+                >
+                    Scale to 150+ Countries.
                 </h2>
 
                 <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto mb-16">

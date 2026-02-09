@@ -48,7 +48,8 @@ export default function UnifiedOperatingSystem() {
                         whileInView={{ opacity: 1, y: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
-                        className="text-6xl md:text-8xl font-black text-brand-black mb-6 leading-[1.1] tracking-tight"
+                        className="font-black text-brand-black mb-6 tracking-tighter"
+                        style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
                     >
                         Unified Operating <span className="text-brand-orange">System.</span>
                     </motion.h2>

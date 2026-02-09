@@ -43,7 +43,8 @@ export default function SecurityDataProtection() {
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.5 }}
-                            className="text-4xl md:text-5xl font-black mb-6 leading-tight"
+                            className="font-black mb-6 tracking-tighter"
+                            style={{ fontSize: 'clamp(36px, 5vw, 70px)', lineHeight: '1.1' }}
                         >
                             Enterprise-Grade <br /> Data Protection
                         </motion.h2>
