@@ -186,6 +186,30 @@ const Header = () => {
 
                     <div className="relative py-2">
                         <Link
+                            href="/use-cases"
+                            onClick={() => setActiveMegaMenu(null)}
+                            className={cn(
+                                "text-sm font-semibold transition-colors",
+                                pathname === '/use-cases'
+                                    ? "text-brand-orange"
+                                    : isTransparent
+                                        ? "text-white/90 hover:text-white"
+                                        : "text-slate-600 hover:text-slate-950"
+                            )}
+                        >
+                            Use Cases
+                        </Link>
+                        {pathname === '/use-cases' && (
+                            <motion.div
+                                layoutId="activeNav"
+                                className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
+                                transition={{ duration: 0.3 }}
+                            />
+                        )}
+                    </div>
+
+                    <div className="relative py-2">
+                        <Link
                             href="/resources"
                             onClick={() => setActiveMegaMenu(null)}
                             className={cn(
@@ -348,6 +372,7 @@ const Header = () => {
                             {[
                                 { name: 'Product', href: '/product' },
                                 { name: 'Solutions', href: '/solutions' },
+                                { name: 'Use Cases', href: '/use-cases' },
                                 { name: 'Compliance', href: '/compliance' },
                                 { name: 'Resources', href: '/resources' }
                             ].map((item) => (
