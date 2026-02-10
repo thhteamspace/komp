@@ -92,7 +92,7 @@ export default function KompModuleFramework() {
     };
 
     return (
-        <section className="py-32 bg-white relative">
+        <section id="framework" className="py-32 bg-white relative">
             <div className="w-full max-w-7xl mx-auto px-6">
                 <div className="text-center mb-16">
                     <motion.span
@@ -147,6 +147,7 @@ export default function KompModuleFramework() {
                         {modules.map((module, index) => (
                             <motion.div
                                 key={index}
+                                id={module.title === 'KOMP Workforce' ? 'workforce' : module.title === 'KOMP PayOps' ? 'payroll' : module.title === 'KOMP Activate' ? 'onboarding' : undefined}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 viewport={{ once: true }}

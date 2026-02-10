@@ -24,8 +24,8 @@ const realityItems = [
         title: 'The Retention Gap',
         description: 'Payroll delays cause immediate attrition. We maintain a 99% payroll accuracy rate to keep your talent engaged.',
         icon: Banknote,
-        color: 'from-green-500 to-emerald-600',
-        borderColor: 'group-hover:border-green-500/50',
+        color: 'from-blue-600 to-indigo-600',
+        borderColor: 'group-hover:border-blue-600/50',
         tag: 'Accuracy: 99%'
     },
 ];
@@ -91,7 +91,7 @@ const ExecutiveReality = () => {
                                 {/* Top Section with Icon */}
                                 <div className="flex justify-between items-start mb-6">
                                     <div className={`w-12 h-12 rounded-xl flex items-center justify-center transition-all duration-500 bg-white border border-slate-100 shadow-sm
-                                        ${index === 0 ? 'text-blue-600' : index === 1 ? 'text-orange-600' : 'text-emerald-600'}`}>
+                                        ${index === 1 ? 'text-orange-600' : 'text-blue-600'}`}>
                                         <item.icon size={24} />
                                     </div>
                                 </div>
@@ -107,9 +107,7 @@ const ExecutiveReality = () => {
                                     {/* Tag moved to bottom of description */}
                                     <div className="flex items-center gap-2">
                                         <span className={`text-[10px] font-black uppercase tracking-widest px-3 py-1 rounded-full border 
-                                            ${index === 0 ? 'bg-blue-50 text-blue-600 border-blue-100' :
-                                                index === 1 ? 'bg-brand-orange/10 text-brand-orange border-brand-orange/20' :
-                                                    'bg-emerald-50 text-emerald-600 border-emerald-100'}`}>
+                                            ${index === 1 ? 'bg-brand-orange/10 text-brand-orange border-brand-orange/20' : 'bg-blue-50 text-blue-600 border-blue-100'}`}>
                                             {item.tag}
                                         </span>
                                     </div>

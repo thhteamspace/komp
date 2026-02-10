@@ -217,13 +217,13 @@ export default function Integrations() {
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
                     viewport={{ once: true }}
-                    className="mt-24 pt-10 border-t border-slate-100 flex flex-wrap justify-center items-center gap-16 grayscale opacity-30 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
+                    className="mt-24 pt-10 border-t border-slate-100 flex flex-wrap justify-center items-center gap-28 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
                 >
-                    <div className="font-black text-2xl text-slate-400 tracking-tighter">SAP</div>
-                    <div className="font-black text-2xl text-slate-400 tracking-tighter italic">QuickBooks</div>
-                    <div className="font-black text-2xl text-slate-400 tracking-tighter">Workday</div>
-                    <div className="font-black text-2xl text-slate-400 tracking-tighter italic">BambooHR</div>
-                    <div className="font-black text-2xl text-slate-400 tracking-tighter uppercase">Xero</div>
+                    <div className="font-bold text-2xl text-slate-900 tracking-tighter">SAP</div>
+                    <div className="font-bold text-2xl text-slate-900 tracking-tighter">QuickBooks</div>
+                    <div className="font-bold text-2xl text-slate-900 tracking-tighter">Workday</div>
+                    <div className="font-bold text-2xl text-slate-900 tracking-tighter">BambooHR</div>
+                    <div className="font-bold text-2xl text-slate-900 tracking-tighter">Xero</div>
                 </motion.div>
             </div>
         </section>

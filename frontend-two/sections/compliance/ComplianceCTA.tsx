@@ -49,9 +49,9 @@ export default function ComplianceCTA() {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6 }}
-                            className="inline-flex items-center gap-2 px-5 py-1.5 rounded-full bg-white/10 text-white font-bold text-xs mb-8 border border-white/20 backdrop-blur-md uppercase tracking-wider"
+                            className="inline-flex items-center gap-2 text-white font-bold text-sm mb-8"
                         >
-                            <Compass size={14} className="text-brand-blue" /> Structural Excellence
+                            <Compass size={16} className="text-brand-blue" /> Structural Excellence
                         </motion.div>
 
                         <motion.h2

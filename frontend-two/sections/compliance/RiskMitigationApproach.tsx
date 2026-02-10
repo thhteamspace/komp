@@ -1,9 +1,7 @@
 'use client';
-
 import { motion } from 'framer-motion';
 import { UserCheck, ListChecks, ShieldAlert } from 'lucide-react';
 import Card from '@/components/Card';
-
 const steps = [
     {
         icon: <UserCheck className="w-8 h-8 text-brand-blue" />,
@@ -21,7 +19,6 @@ const steps = [
         description: "Systematically minimize the risk of audits and penalties."
     }
 ];
-
 export default function RiskMitigationApproach() {
     return (
         <section className="py-32 bg-slate-50 relative overflow-hidden text-brand-black">
@@ -35,15 +32,13 @@ export default function RiskMitigationApproach() {
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
-                        className="text-brand-blue font-bold tracking-widest text-sm mb-4 block"
+                        className="text-brand-blue font-bold text-sm mb-4 block"
                     >
                         Proactive Strategy
                     </motion.span>
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
                         transition={{ duration: 0.5 }}
                         className="font-black text-brand-black mb-6 tracking-tighter"
                         style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
@@ -60,8 +55,7 @@ export default function RiskMitigationApproach() {
                         <motion.div
                             initial={{ x: "-100%" }}
                             whileInView={{ x: "0%" }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1.5, ease: "easeInOut" }}
+                            transition={{ duration: 3.0, ease: "easeInOut" }}
                             className="w-full h-full bg-gradient-to-r from-brand-blue to-brand-orange"
                         />
                     </div>
@@ -71,8 +65,7 @@ export default function RiskMitigationApproach() {
                             key={index}
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 0.6, delay: index * 0.1 }}
+                            transition={{ duration: 1.2, delay: index * 0.2 }}
                             className="bg-white p-10 rounded-[2.5rem] shadow-sm border-2 border-slate-100 w-full md:w-1/3 text-center flex flex-col items-center hover:shadow-2xl hover:border-brand-blue/20 transition-all duration-500 group/card"
                         >
                             <div className="w-20 h-20 rounded-[1.5rem] bg-slate-50 flex items-center justify-center mb-8 shadow-inner group-hover/card:scale-110 group-hover/card:bg-white transition-all duration-300 border border-slate-100">

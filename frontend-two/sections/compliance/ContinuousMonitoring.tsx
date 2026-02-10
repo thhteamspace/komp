@@ -43,12 +43,8 @@ export default function ContinuousMonitoring() {
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
                             viewport={{ once: true }}
-                            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-bold mb-8 border border-brand-blue/20"
+                            className="text-brand-blue text-sm font-bold mb-8 block"
                         >
-                            <span className="relative flex h-2 w-2">
-                                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-blue opacity-75"></span>
-                                <span className="relative inline-flex rounded-full h-2 w-2 bg-brand-blue"></span>
-                            </span>
                             Always On Tracking
                         </motion.div>
                         <motion.h2

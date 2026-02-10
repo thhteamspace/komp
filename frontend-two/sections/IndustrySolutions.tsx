@@ -27,12 +27,20 @@ const industries = [
         highlight: 'Secure data infrastructure',
         metric: 'Privacy Focused',
         color: 'bg-rose-600'
+    },
+    {
+        name: 'M&A Integration',
+        icon: <FileChart className="w-10 h-10 text-brand-orange" />,
+        features: ['Entity Consolidation', 'Employee Harmonization', 'Post-Merger Compliance', 'Swift Data Migration'],
+        highlight: 'Fast-track consolidation',
+        metric: 'Efficiency First',
+        color: 'bg-black'
     }
 ];
 
 const IndustrySolutions = () => {
     return (
-        <section className="py-24 px-6 bg-brand-blue overflow-hidden relative">
+        <section id="industries" className="py-24 px-6 bg-brand-blue overflow-hidden relative">
             {/* Background Details */}
             <div className="absolute top-0 right-0 w-[600px] h-[600px] bg-white/5 rounded-full blur-[120px] pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-[400px] h-[400px] bg-brand-orange/20 rounded-full blur-[100px] pointer-events-none" />
@@ -57,10 +65,11 @@ const IndustrySolutions = () => {
                 </div>
 
                 {/* Industry Cards Grid */}
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
                     {industries.map((ind, idx) => (
                         <motion.div
                             key={ind.name}
+                            id={ind.name === 'Tech / SaaS' ? 'tech-saas' : ind.name === 'Professional Services' ? 'prof-services' : ind.name === 'Healthcare' ? 'healthcare' : 'm-a-integration'}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
                             transition={{ delay: idx * 0.1 }}
@@ -76,23 +85,23 @@ const IndustrySolutions = () => {
                                 </div>
                             </motion.div>
 
-                            <h3 className="text-3xl font-black text-slate-950 mb-8">{ind.name}</h3>
+                            <h3 className="text-2xl font-bold text-slate-950 mb-8">{ind.name}</h3>
 
-                            <div className="space-y-4 mb-10">
+                            <div className="space-y-4 mb-6">
                                 {ind.features.map(f => (
                                     <div key={f} className="flex items-center gap-3">
-                                        <div className="w-1.5 h-1.5 rounded-full bg-slate-300 group-hover:bg-brand-orange transition-colors" />
-                                        <span className="text-slate-600 font-semibold">{f}</span>
+                                        <div className="w-1.5 h-1.5 rounded-full bg-slate-200 group-hover:bg-brand-orange transition-colors" />
+                                        <span className="text-slate-600 text-sm font-medium">{f}</span>
                                     </div>
                                 ))}
                             </div>
 
                             <div className="mt-auto pt-8 border-t border-slate-100 flex items-center justify-between">
                                 <div className="flex items-center gap-2 text-brand-blue">
-                                    <Lock size={16} />
-                                    <span className="text-xs font-bold">{ind.highlight}</span>
+                                    <Lock size={13} className="opacity-70" />
+                                    <span className="text-[13px] font-semibold">{ind.highlight}</span>
                                 </div>
-                                <span className="text-xs font-bold text-brand-orange">{ind.metric}</span>
+                                <span className="text-[13px] font-semibold text-brand-orange">{ind.metric}</span>
                             </div>
 
 

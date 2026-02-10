@@ -32,7 +32,7 @@ const features = [
 
 export default function UnifiedOperatingSystem() {
     return (
-        <section className="py-32 bg-white relative overflow-hidden">
+        <section id="overview" className="py-32 bg-white relative overflow-hidden">
             <div className="w-full max-w-7xl mx-auto px-6">
                 <div className="text-center max-w-4xl mx-auto mb-16">
                     <motion.span

@@ -10,16 +10,16 @@ import { cn } from '@/utils/cn';
 
 const megaMenuData = {
     Product: [
-        { name: 'Platform Overview', desc: 'Unified global workforce OS.', icon: Layers, href: '/product' },
-        { name: 'Global Payroll', desc: 'Pay everyone, everywhere.', icon: Zap, href: '/product' },
+        { name: 'Platform Overview', desc: 'Unified global workforce OS.', icon: Layers, href: '/product#overview' },
+        { name: 'Global Payroll', desc: 'Pay everyone, everywhere.', icon: Zap, href: '/product#payroll' },
         { name: 'Compliance', desc: 'Risk-free global scaling.', icon: Shield, href: '/compliance' },
-        { name: 'Workforce Management', desc: 'Onboard and manage talent.', icon: Users, href: '/product' },
+        { name: 'Workforce Management', desc: 'Onboard and manage talent.', icon: Users, href: '/product#workforce' },
     ],
     Solutions: [
-        { name: 'For Tech & SaaS', desc: 'Scale engineering teams with zero risk.', icon: Zap, href: '/solutions' },
-        { name: 'For Healthcare', desc: 'Strict regulatory & HIPAA compliance.', icon: Shield, href: '/solutions' },
-        { name: 'For Professional Services', desc: 'Deploy consultants worldwide instantly.', icon: Briefcase, href: '/solutions' },
-        { name: 'M&A Integration', desc: 'Fast-track workforce consolidation.', icon: LineChart, href: '/solutions' },
+        { name: 'For Tech & SaaS', desc: 'Scale engineering teams with zero risk.', icon: Zap, href: '/solutions#tech-saas' },
+        { name: 'For Healthcare', desc: 'Strict regulatory & HIPAA compliance.', icon: Shield, href: '/solutions#healthcare' },
+        { name: 'For Professional Services', desc: 'Deploy consultants worldwide instantly.', icon: Briefcase, href: '/solutions#prof-services' },
+        { name: 'M&A Integration', desc: 'Fast-track workforce consolidation.', icon: LineChart, href: '/solutions#m-a-integration' },
     ],
 };
 
@@ -45,7 +45,7 @@ const Header = () => {
     // The current logic: isDarkHeader = pathname?.includes('/resources');
     // If we add /compliance, it should also be dark.
 
-    const isDarkHeader = pathname?.includes('/resources') || pathname?.includes('/compliance');
+    const isDarkHeader = pathname?.includes('/resources');
 
     const isDarkHeaderRef = useRef(isDarkHeader);
 
@@ -58,10 +58,9 @@ const Header = () => {
             if (typeof window === 'undefined') return;
             // robust check using window location directly
             const isResourcePage = window.location.pathname.includes('/resources');
-            const isCompliancePage = window.location.pathname.includes('/compliance');
 
-            // Keep header transparent until full viewport scroll on Resources/Compliance page
-            const threshold = (isResourcePage || isCompliancePage) ? window.innerHeight - 80 : 20;
+            // Keep header transparent until full viewport scroll ONLY on Resources page
+            const threshold = isResourcePage ? window.innerHeight - 80 : 20;
             setIsScrolled(window.scrollY > threshold);
         };
 
@@ -84,7 +83,16 @@ const Header = () => {
         >
             <div className="container mx-auto px-6 flex items-center justify-between">
                 {/* Logo */}
-                <Link href="/" className="flex items-center gap-2 z-50 group">
+                <Link
+                    href="/"
+                    className="flex items-center gap-2 z-50 group"
+                    onClick={() => {
+                        window.scrollTo(0, 0); // Immediate reset before router takes over
+                        if (pathname === '/') {
+                            window.scrollTo({ top: 0, behavior: 'smooth' });
+                        }
+                    }}
+                >
                     <img
                         src="/images/Logo_1-04-removebg-preview.png"
                         alt="KOMP Logo"
@@ -121,7 +129,7 @@ const Header = () => {
                                     {isActive && (
                                         <motion.div
                                             layoutId="activeNav"
-                                            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-1/2"
+                                            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
                                             transition={{ duration: 0.3 }}
                                         />
                                     )}
@@ -146,37 +154,7 @@ const Header = () => {
                                     <ChevronDown size={14} className={cn("transition-transform duration-300", activeMegaMenu === name ? "rotate-180" : "")} />
                                 </button>
 
-                                {/* Mega Menu Content */}
-                                <AnimatePresence>
-                                    {activeMegaMenu === name && (
-                                        <motion.div
-                                            initial={{ opacity: 0, y: -10 }}
-                                            animate={{ opacity: 1, y: 0 }}
-                                            exit={{ opacity: 0, y: -10 }}
-                                            transition={{ duration: 0.2 }}
-                                            className="absolute top-full left-1/2 -translate-x-1/2 pt-6 w-[600px] z-50"
-                                        >
-                                            <div className="bg-white rounded-2xl shadow-xl border border-slate-100 p-6 grid grid-cols-2 gap-4">
-                                                {items.map((subItem) => (
-                                                    <Link
-                                                        key={subItem.name}
-                                                        href={subItem.href}
-                                                        onClick={() => setActiveMegaMenu(null)}
-                                                        className="group flex gap-4 p-4 rounded-xl hover:bg-slate-50 transition-colors"
-                                                    >
-                                                        <div className="w-10 h-10 rounded-lg bg-orange-50 text-brand-orange flex items-center justify-center shrink-0">
-                                                            <subItem.icon size={20} />
-                                                        </div>
-                                                        <div>
-                                                            <div className="font-bold text-slate-900 group-hover:text-brand-orange transition-colors">{subItem.name}</div>
-                                                            <div className="text-xs text-slate-500">{subItem.desc}</div>
-                                                        </div>
-                                                    </Link>
-                                                ))}
-                                            </div>
-                                        </motion.div>
-                                    )}
-                                </AnimatePresence>
+
                             </div>
                         );
                     })}
@@ -199,7 +177,7 @@ const Header = () => {
                         {pathname === '/compliance' && (
                             <motion.div
                                 layoutId="activeNav"
-                                className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-1/2"
+                                className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
                                 transition={{ duration: 0.3 }}
                             />
                         )}
@@ -224,7 +202,7 @@ const Header = () => {
                         {pathname === '/resources' && (
                             <motion.div
                                 layoutId="activeNav"
-                                className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-1/2"
+                                className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
                                 transition={{ duration: 0.3 }}
                             />
                         )}
@@ -273,15 +251,14 @@ const Header = () => {
                                     <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/20 blur-[100px] -translate-y-1/2 translate-x-1/2 transition-transform duration-700 group-hover/featured:scale-125" />
 
                                     <div className="relative z-10">
-                                        <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 border border-white/20 mb-8">
-                                            <div className="w-1.5 h-1.5 rounded-full bg-brand-orange animate-pulse" />
-                                            <span className="text-[10px] font-bold text-white tracking-wider">Featured Insights</span>
+                                        <div className="mb-8">
+                                            <span className="text-xs font-semibold text-brand-orange uppercase tracking-widest">Featured Insights</span>
                                         </div>
-                                        <h3 className="text-3xl font-bold tracking-tighter mb-4 leading-tight">
+                                        <h3 className="text-4xl font-semibold tracking-tighter mb-4 leading-tight">
                                             2026 Global <br />
                                             <span className="text-brand-orange">Expansion Playbook.</span>
                                         </h3>
-                                        <p className="text-slate-400 text-sm font-medium leading-relaxed mb-8">
+                                        <p className="text-white/60 text-base font-normal leading-relaxed mb-8">
                                             The definitive guide to EOR, entity setup, and localized compliance in 150+ countries.
                                         </p>
                                     </div>
@@ -304,6 +281,7 @@ const Header = () => {
                                             >
                                                 <Link
                                                     href={subItem.href}
+                                                    scroll={false}
                                                     className="group flex gap-5 items-start p-4 -m-4 rounded-3xl hover:bg-slate-50 transition-all duration-300"
                                                     onClick={() => setActiveMegaMenu(null)}
                                                 >

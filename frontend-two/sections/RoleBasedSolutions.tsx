@@ -73,32 +73,32 @@ const RoleBasedSolutions = () => {
                                 className="flex-1 space-y-8"
                             >
                                 <div className="flex items-center gap-4">
-                                    <div className="text-slate-950 mb-2">
+                                    <div className="text-slate-950 mb-1">
                                         {item.icon}
                                     </div>
-                                    <h3 className="text-4xl font-black text-slate-950 tracking-tight">{item.role}</h3>
+                                    <h3 className="text-3xl font-bold text-slate-950 tracking-tight">{item.role}</h3>
                                 </div>
 
-                                <div className="space-y-4">
-                                    <div className="flex items-center gap-2 text-slate-400">
-                                        <AlertCircle className="w-5 h-5 shrink-0" />
-                                        <p className="text-lg font-medium italic">{item.problem}</p>
+                                <div className="space-y-6">
+                                    <div className="flex items-start gap-2 text-slate-600">
+                                        <AlertCircle className="w-5 h-5 shrink-0 mt-0.5 opacity-60" />
+                                        <p className="text-lg font-normal leading-relaxed">{item.problem}</p>
                                     </div>
-                                    <p className="text-2xl font-bold text-slate-900 leading-snug">
+                                    <p className="text-xl font-medium text-slate-950 leading-relaxed border-l-2 border-brand-orange/30 pl-4 py-1">
                                         {item.solution}
                                     </p>
                                 </div>
 
                                 <div className="grid grid-cols-2 gap-8 py-8 border-y border-slate-100 mt-12">
                                     <div>
-                                        <span className="block text-[10px] font-semibold uppercase tracking-widest text-slate-400 mb-2">{item.metric.label}</span>
-                                        <span className="text-3xl font-semibold text-brand-orange">{item.metric.value}</span>
+                                        <span className="block text-[10px] font-bold uppercase tracking-widest text-slate-400 mb-3">{item.metric.label}</span>
+                                        <span className="text-2xl font-bold text-brand-orange">{item.metric.value}</span>
                                     </div>
-                                    <div className="flex flex-col gap-2">
+                                    <div className="flex flex-col gap-3">
                                         {item.features.map(f => (
                                             <div key={f} className="flex items-center gap-2">
-                                                <CheckCircle2 size={14} className="text-brand-blue" />
-                                                <span className="text-sm font-bold text-slate-600">{f}</span>
+                                                <CheckCircle2 size={14} className="text-brand-blue opacity-70" />
+                                                <span className="text-sm font-medium text-slate-700">{f}</span>
                                             </div>
                                         ))}
                                     </div>

@@ -23,9 +23,9 @@ export default function CountrySpecificCompliance() {
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
                     viewport={{ once: true }}
-                    className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-brand-blue/10 text-brand-blue text-sm font-bold mb-8 border border-brand-blue/20"
+                    className="text-brand-blue text-sm font-bold mb-8 block"
                 >
-                    <Globe2 size={16} /> Local Expertise
+                    Local Expertise
                 </motion.div>
 
                 <motion.h2
