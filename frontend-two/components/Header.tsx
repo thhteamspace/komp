@@ -85,6 +85,7 @@ const Header = () => {
                 {/* Logo */}
                 <Link
                     href="/"
+                    scroll={false}
                     className="flex items-center gap-2 z-50 group"
                     onClick={() => {
                         window.scrollTo(0, 0); // Immediate reset before router takes over

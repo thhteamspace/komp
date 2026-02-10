@@ -7,6 +7,11 @@ export default function ScrollToTop() {
     const pathname = usePathname();
 
     useLayoutEffect(() => {
+        // Disable browser's automatic scroll restoration
+        if ('scrollRestoration' in window.history) {
+            window.history.scrollRestoration = 'manual';
+        }
+
         const handleScroll = () => {
             if (window.location.hash) {
                 const id = window.location.hash.replace('#', '');
