@@ -38,7 +38,7 @@ export default function UnifiedOperatingSystem() {
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="text-brand-blue font-bold tracking-widest text-sm mb-4 block"
                     >
                         Operating Architecture
@@ -46,7 +46,7 @@ export default function UnifiedOperatingSystem() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ duration: 0.5 }}
                         className="font-black text-brand-black mb-6 tracking-tighter"
                         style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
@@ -56,7 +56,7 @@ export default function UnifiedOperatingSystem() {
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ duration: 0.5, delay: 0.1 }}
                         className="text-xl text-slate-500 max-w-2xl mx-auto"
                     >
@@ -71,7 +71,7 @@ export default function UnifiedOperatingSystem() {
                             key={index}
                             initial={{ opacity: 0, x: index % 2 === 0 ? -30 : 30 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 0.6, delay: index * 0.1 }}
                             className={`group relative rounded-[1.5rem] border-2 ${feature.color} p-6 hover:shadow-xl transition-all duration-500 hover:-translate-y-1 bg-white overflow-hidden`}
                         >

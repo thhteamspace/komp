@@ -11,7 +11,7 @@ export default function ComplianceCTA() {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.98 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.8 }}
                     className="relative rounded-[2.5rem] overflow-hidden bg-brand-black p-10 md:py-16 md:px-20 text-center border border-white/10 shadow-2xl"
                 >
@@ -47,7 +47,7 @@ export default function ComplianceCTA() {
                         <motion.div
                             initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 0.6 }}
                             className="inline-flex items-center gap-2 text-white font-bold text-sm mb-8"
                         >
@@ -57,7 +57,7 @@ export default function ComplianceCTA() {
                         <motion.h2
                             initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 0.6, delay: 0.1 }}
                             className="font-black text-white mb-8 tracking-tighter"
                             style={{ fontSize: 'clamp(32px, 5vw, 64px)', lineHeight: '1.1' }}
@@ -68,7 +68,7 @@ export default function ComplianceCTA() {
                         <motion.div
                             initial={{ opacity: 0, y: 15 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="flex flex-col sm:flex-row items-center justify-center gap-4"
                         >

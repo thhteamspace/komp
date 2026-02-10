@@ -12,7 +12,7 @@ export default function GlobalScale() {
                 <motion.span
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="text-brand-blue font-bold tracking-widest text-sm mb-4 block"
                 >
                     Global Reach

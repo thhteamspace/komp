@@ -98,7 +98,7 @@ export default function KompModuleFramework() {
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="text-brand-blue font-bold tracking-widest text-sm mb-4 block"
                     >
                         Core Modules
@@ -106,7 +106,7 @@ export default function KompModuleFramework() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ duration: 0.5 }}
                         className="font-black text-brand-black mb-6 tracking-tighter"
                         style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
@@ -148,15 +148,15 @@ export default function KompModuleFramework() {
                             <motion.div
                                 key={index}
                                 id={module.title === 'KOMP Workforce' ? 'workforce' : module.title === 'KOMP PayOps' ? 'payroll' : module.title === 'KOMP Activate' ? 'onboarding' : undefined}
-                                initial={{ opacity: 0, y: 30 }}
-                                whileInView={{ opacity: 1, y: 0 }}
+                                initial={{ opacity: 0 }}
+                                whileInView={{ opacity: 1 }}
                                 viewport={{ once: true }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
-                                className="flex-shrink-0 w-[380px]"
+                                className="flex-shrink-0 w-[380px] flex h-full"
                             >
                                 <Card
                                     hoverEffect
-                                    className="h-full p-8 border-2 border-slate-100 hover:border-brand-orange/40 hover:shadow-xl transition-all duration-300 bg-white group rounded-[2rem]"
+                                    className="h-full p-8 border-2 border-slate-100 hover:border-brand-orange/40 hover:shadow-xl transition-all duration-300 bg-white group rounded-[2rem] select-none cursor-default"
                                 >
                                     {/* Icon in top left corner */}
                                     <div className="inline-flex p-4 bg-orange-50 rounded-2xl mb-6 group-hover:scale-110 transition-transform duration-300">

@@ -54,7 +54,7 @@ export default function Integrations() {
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="text-brand-blue font-bold tracking-widest text-sm mb-4 block"
                     >
                         Seamless Integrations
@@ -62,7 +62,7 @@ export default function Integrations() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="font-black text-brand-black mb-6 tracking-tighter"
                         style={{ fontSize: 'clamp(40px, 6vw, 80px)', lineHeight: '1.1' }}
                     >
@@ -79,7 +79,7 @@ export default function Integrations() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="lg:col-span-2 lg:row-span-2"
                     >
                         <div className="h-full bg-white border border-slate-100 rounded-[2.5rem] p-10 flex flex-col justify-between hover:shadow-2xl transition-all duration-500 group relative overflow-hidden border-b-4 border-b-blue-500/20">
@@ -105,7 +105,7 @@ export default function Integrations() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="lg:col-span-1"
                     >
                         <div className="h-full bg-slate-50/50 border border-slate-100 rounded-[2rem] p-8 hover:bg-white hover:shadow-xl transition-all duration-300 group">
@@ -123,7 +123,7 @@ export default function Integrations() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="lg:col-span-1"
                     >
                         <div className="h-full bg-slate-50/50 border border-slate-100 rounded-[2rem] p-8 hover:bg-white hover:shadow-xl transition-all duration-300 group">
@@ -141,7 +141,7 @@ export default function Integrations() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="lg:col-span-2"
                     >
                         <div className="h-full bg-white border border-slate-100 rounded-[2rem] p-8 flex items-center gap-8 hover:shadow-xl transition-all duration-300 border-b-4 border-b-emerald-500/20">
@@ -161,7 +161,7 @@ export default function Integrations() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="lg:col-span-2"
                     >
                         <div className="h-full bg-white border border-slate-100 rounded-[2rem] p-8 flex items-center gap-8 hover:shadow-xl transition-all duration-300 border-b-4 border-b-brand-orange/20">
@@ -181,7 +181,7 @@ export default function Integrations() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                     >
                         <div className="h-full bg-slate-50/50 border border-slate-100 rounded-[2rem] p-8 hover:bg-white hover:shadow-xl transition-all duration-300 group">
                             <div className="w-12 h-12 rounded-xl bg-slate-200/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -198,7 +198,7 @@ export default function Integrations() {
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                     >
                         <div className="h-full bg-slate-50/50 border border-slate-100 rounded-[2rem] p-8 hover:bg-white hover:shadow-xl transition-all duration-300 group">
                             <div className="w-12 h-12 rounded-xl bg-red-100/50 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
@@ -216,7 +216,7 @@ export default function Integrations() {
                 <motion.div
                     initial={{ opacity: 0 }}
                     whileInView={{ opacity: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="mt-24 pt-10 border-t border-slate-100 flex flex-wrap justify-center items-center gap-28 grayscale opacity-60 hover:grayscale-0 hover:opacity-100 transition-all duration-700"
                 >
                     <div className="font-bold text-2xl text-slate-900 tracking-tighter">SAP</div>

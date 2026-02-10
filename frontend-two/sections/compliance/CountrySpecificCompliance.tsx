@@ -22,7 +22,7 @@ export default function CountrySpecificCompliance() {
                 <motion.div
                     initial={{ opacity: 0, scale: 0.9 }}
                     whileInView={{ opacity: 1, scale: 1 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     className="text-brand-blue text-sm font-bold mb-8 block"
                 >
                     Local Expertise
@@ -31,7 +31,7 @@ export default function CountrySpecificCompliance() {
                 <motion.h2
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}
-                    viewport={{ once: true }}
+                    viewport={{ once: false }}
                     transition={{ duration: 0.6 }}
                     className="font-black text-brand-black mb-16 tracking-tighter"
                     style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
@@ -43,7 +43,7 @@ export default function CountrySpecificCompliance() {
                     <motion.div
                         initial={{ x: -30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ duration: 0.6 }}
                         className="text-left p-12 bg-white border-2 border-slate-100 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:border-brand-blue/20 transition-all duration-500 group"
                     >
@@ -56,7 +56,7 @@ export default function CountrySpecificCompliance() {
                     <motion.div
                         initial={{ x: 30, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ duration: 0.6 }}
                         className="text-left p-12 bg-white border-2 border-slate-100 rounded-[2.5rem] shadow-sm hover:shadow-2xl hover:border-brand-orange/20 transition-all duration-500 group"
                     >

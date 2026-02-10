@@ -33,7 +33,7 @@ export default function SecurityDataProtection() {
                         <motion.span
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             className="text-brand-orange font-bold uppercase tracking-wider text-sm mb-4 block"
                         >
                             Security First
@@ -41,7 +41,7 @@ export default function SecurityDataProtection() {
                         <motion.h2
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 0.5 }}
                             className="font-black mb-6 tracking-tighter"
                             style={{ fontSize: 'clamp(36px, 5vw, 70px)', lineHeight: '1.1' }}
@@ -59,7 +59,7 @@ export default function SecurityDataProtection() {
                                 key={index}
                                 initial={{ opacity: 0, x: 20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                             >
                                 <Card className="bg-white/10 border-white/20 hover:bg-white/15 hover:border-white/30 transition-all p-6 flex items-center gap-6">

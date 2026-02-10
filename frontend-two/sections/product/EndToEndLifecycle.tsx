@@ -20,7 +20,7 @@ export default function EndToEndLifecycle() {
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="text-brand-blue font-bold tracking-widest text-sm mb-4 block"
                     >
                         Management Journey
@@ -28,7 +28,7 @@ export default function EndToEndLifecycle() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ duration: 0.5 }}
                         className="font-black text-brand-black mb-6 tracking-tighter"
                         style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
@@ -47,7 +47,7 @@ export default function EndToEndLifecycle() {
                             key={index}
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 0.5, delay: index * 0.1 }}
                             className="group relative bg-white rounded-[2rem] p-8 border-2 border-slate-100 hover:border-brand-orange hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 cursor-pointer"
                         >

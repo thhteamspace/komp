@@ -137,6 +137,7 @@ const Global3DGlobe = () => {
                     <motion.div
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false }}
                         className="bg-white/5 border border-white/10 px-8 py-4 rounded-full backdrop-blur-xl flex items-center gap-4 shadow-[0_0_30px_rgba(255,140,26,0.15)] overflow-hidden"
                     >
                         {/* Vertical Rolling Avatars */}

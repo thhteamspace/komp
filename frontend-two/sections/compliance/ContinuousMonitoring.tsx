@@ -42,7 +42,7 @@ export default function ContinuousMonitoring() {
                         <motion.div
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             className="text-brand-blue text-sm font-bold mb-8 block"
                         >
                             Always On Tracking
@@ -50,7 +50,7 @@ export default function ContinuousMonitoring() {
                         <motion.h2
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 0.5, delay: 0.1 }}
                             className="font-black text-brand-black mb-8 tracking-tighter"
                             style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.2' }}
@@ -60,7 +60,7 @@ export default function ContinuousMonitoring() {
                         <motion.p
                             initial={{ opacity: 0, x: -20 }}
                             whileInView={{ opacity: 1, x: 0 }}
-                            viewport={{ once: true }}
+                            viewport={{ once: false }}
                             transition={{ duration: 0.5, delay: 0.2 }}
                             className="text-xl text-slate-500 mb-10 leading-relaxed font-medium"
                         >
@@ -75,7 +75,7 @@ export default function ContinuousMonitoring() {
                                 key={index}
                                 initial={{ opacity: 0, y: 30 }}
                                 whileInView={{ opacity: 1, y: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false }}
                                 transition={{ duration: 0.6, delay: index * 0.1 }}
                             >
                                 <Card className="bg-white border-2 border-slate-100 hover:border-brand-blue/20 hover:shadow-2xl transition-all duration-500 p-8 h-full flex flex-col justify-between rounded-[2.5rem] group">

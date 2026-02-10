@@ -32,6 +32,7 @@ export default function RiskMitigationApproach() {
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false }}
                         className="text-brand-blue font-bold text-sm mb-4 block"
                     >
                         Proactive Strategy
@@ -39,6 +40,7 @@ export default function RiskMitigationApproach() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: false }}
                         transition={{ duration: 0.5 }}
                         className="font-black text-brand-black mb-6 tracking-tighter"
                         style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
@@ -50,11 +52,12 @@ export default function RiskMitigationApproach() {
                     </p>
                 </div>
 
-                <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 max-w-6xl mx-auto relative group">
+                <div className="flex flex-col md:flex-row justify-center items-stretch gap-8 max-width-6xl mx-auto relative group">
                     <div className="hidden md:block absolute top-1/2 left-10 right-10 h-1 bg-slate-200 -z-10 -translate-y-1/2 rounded-full overflow-hidden">
                         <motion.div
                             initial={{ x: "-100%" }}
                             whileInView={{ x: "0%" }}
+                            viewport={{ once: false }}
                             transition={{ duration: 3.0, ease: "easeInOut" }}
                             className="w-full h-full bg-gradient-to-r from-brand-blue to-brand-orange"
                         />
@@ -65,6 +68,7 @@ export default function RiskMitigationApproach() {
                             key={index}
                             initial={{ opacity: 0, scale: 0.9 }}
                             whileInView={{ opacity: 1, scale: 1 }}
+                            viewport={{ once: false }}
                             transition={{ duration: 1.2, delay: index * 0.2 }}
                             className="bg-white p-10 rounded-[2.5rem] shadow-sm border-2 border-slate-100 w-full md:w-1/3 text-center flex flex-col items-center hover:shadow-2xl hover:border-brand-blue/20 transition-all duration-500 group/card"
                         >

@@ -44,7 +44,7 @@ export default function ComplianceFirstInfrastructure() {
                     <motion.span
                         initial={{ opacity: 0, y: 10 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         className="text-brand-blue font-bold tracking-widest text-sm mb-4 block"
                     >
                         Built-In Safety
@@ -52,7 +52,7 @@ export default function ComplianceFirstInfrastructure() {
                     <motion.h2
                         initial={{ opacity: 0, y: 20 }}
                         whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ duration: 0.5 }}
                         className="font-black text-brand-black mb-6 tracking-tighter"
                         style={{ fontSize: 'clamp(48px, 7vw, 80px)', lineHeight: '1.1' }}
@@ -73,7 +73,7 @@ export default function ComplianceFirstInfrastructure() {
                                 key={index}
                                 initial={{ opacity: 0, x: -20 }}
                                 whileInView={{ opacity: 1, x: 0 }}
-                                viewport={{ once: true }}
+                                viewport={{ once: false }}
                                 transition={{ duration: 0.5, delay: index * 0.1 }}
                                 className="flex items-start gap-4 p-5 rounded-2xl bg-white border-2 border-slate-100 hover:border-brand-blue/40 hover:shadow-lg transition-all group"
                             >
@@ -99,7 +99,7 @@ export default function ComplianceFirstInfrastructure() {
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
-                        viewport={{ once: true }}
+                        viewport={{ once: false }}
                         transition={{ duration: 0.6 }}
                         className="relative"
                     >
@@ -122,7 +122,7 @@ export default function ComplianceFirstInfrastructure() {
                                             key={index}
                                             initial={{ opacity: 0, y: 20 }}
                                             whileInView={{ opacity: 1, y: 0 }}
-                                            viewport={{ once: true }}
+                                            viewport={{ once: false }}
                                             transition={{ duration: 0.5, delay: 0.3 + index * 0.1 }}
                                             className="border-b border-white/20 pb-4 last:border-0"
                                         >
