@@ -74,190 +74,211 @@ const Header = () => {
 
     return (
         <motion.header
-            className={cn(
-                'fixed top-0 left-0 right-0 z-50 transition-all duration-500 ease-in-out',
-                isScrolled || activeMegaMenu
-                    ? 'bg-white/95 backdrop-blur-md border-b border-gray-100 py-3 shadow-sm'
-                    : 'bg-transparent border-b border-transparent py-5'
-            )}
+            initial={false}
+            animate={{
+                top: activeMegaMenu || !isScrolled ? 0 : 24,
+                paddingLeft: activeMegaMenu || !isScrolled ? 0 : 16,
+                paddingRight: activeMegaMenu || !isScrolled ? 0 : 16,
+            }}
+            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+            className="fixed left-0 right-0 z-50 flex justify-center"
         >
-            <div className="container mx-auto px-6 flex items-center justify-between">
-                {/* Logo */}
-                <Link
-                    href="/"
-                    scroll={false}
-                    className="flex items-center gap-2 z-50 group"
-                    onClick={() => {
-                        window.scrollTo(0, 0); // Immediate reset before router takes over
-                        if (pathname === '/') {
-                            window.scrollTo({ top: 0, behavior: 'smooth' });
-                        }
-                    }}
-                >
-                    <img
-                        src="/images/Logo_1-04-removebg-preview.png"
-                        alt="KOMP Logo"
-                        className="h-14 w-auto object-contain transition-all duration-300"
-                    />
-                </Link>
+            <motion.div
+                layout
+                initial={false}
+                animate={{
+                    maxWidth: activeMegaMenu || !isScrolled ? '100%' : '1280px',
+                    borderRadius: activeMegaMenu || !isScrolled ? '0px' : '64px',
+                    backgroundColor: activeMegaMenu || !isScrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.9)',
+                }}
+                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                className={cn(
+                    "w-full backdrop-blur-xl border-b border-gray-100 py-3 shadow-sm transition-colors duration-500",
+                    !(activeMegaMenu || !isScrolled) && "border border-white/50 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] px-10",
+                    isTransparent && !isScrolled ? "bg-transparent border-transparent shadow-none" : ""
+                )}
+            >
+                <div className={cn("flex items-center justify-between", activeMegaMenu || !isScrolled ? "max-w-7xl mx-auto px-6" : "")}>
+                    {/* Logo */}
+                    <Link
+                        href="/"
+                        scroll={false}
+                        className="flex items-center gap-2 z-50 group shrink-0"
+                        onClick={() => {
+                            window.scrollTo(0, 0); // Immediate reset before router takes over
+                            if (pathname === '/') {
+                                window.scrollTo({ top: 0, behavior: 'smooth' });
+                            }
+                        }}
+                    >
+                        <img
+                            src="/images/Logo_1-04-removebg-preview.png"
+                            alt="KOMP Logo"
+                            className={cn(
+                                "h-12 w-auto object-contain transition-all duration-300",
+                                isTransparent && !activeMegaMenu ? "brightness-0 invert group-hover/header:brightness-100 group-hover/header:invert-0" : ""
+                            )}
+                        />
+                    </Link>
 
-                {/* Desktop Nav with Mega Menu */}
-                <nav className="hidden lg:flex items-center gap-10 ml-12">
-                    {Object.entries(megaMenuData).map(([name, items]) => {
-                        const sectionId = name === 'Product' ? '/product' : name === 'Solutions' ? '/solutions' : '#';
-                        const isActive = (name === 'Product' && pathname === '/product') || (name === 'Solutions' && pathname === '/solutions');
+                    {/* Desktop Nav with Mega Menu */}
+                    <nav className="hidden lg:flex items-center gap-10">
+                        {Object.entries(megaMenuData).map(([name, items]) => {
+                            const sectionId = name === 'Product' ? '/product' : name === 'Solutions' ? '/solutions' : '#';
+                            const isActive = (name === 'Product' && pathname === '/product') || (name === 'Solutions' && pathname === '/solutions');
 
-                        return (
-                            <div key={name} className="relative py-2 flex items-center group/nav">
-                                <div className="relative">
-                                    {/* Text clicks directly to section */}
-                                    <Link
-                                        href={sectionId}
-                                        onClick={() => setActiveMegaMenu(null)}
+                            return (
+                                <div key={name} className="relative py-2 flex items-center group/nav">
+                                    <div className="relative">
+                                        <Link
+                                            href={sectionId}
+                                            onClick={() => setActiveMegaMenu(null)}
+                                            className={cn(
+                                                "text-sm font-semibold transition-colors duration-300",
+                                                isActive || activeMegaMenu === name
+                                                    ? "text-brand-orange"
+                                                    : isTransparent && !activeMegaMenu
+                                                        ? "text-white/80 hover:text-white group-hover/header:text-slate-600 group-hover/header:hover:text-slate-950"
+                                                        : "text-slate-600 hover:text-slate-950"
+                                            )}
+                                        >
+                                            {name}
+                                        </Link>
+
+                                        {isActive && (
+                                            <motion.div
+                                                layoutId="activeNav"
+                                                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
+                                                transition={{ duration: 0.3 }}
+                                            />
+                                        )}
+                                    </div>
+
+                                    {/* Arrow toggles the dropdown */}
+                                    <button
+                                        onClick={(e) => {
+                                            e.preventDefault();
+                                            e.stopPropagation();
+                                            setActiveMegaMenu(activeMegaMenu === name ? null : name);
+                                        }}
                                         className={cn(
-                                            "text-sm font-semibold transition-colors duration-300",
+                                            "ml-1 p-1 transition-all duration-300",
                                             isActive || activeMegaMenu === name
                                                 ? "text-brand-orange"
-                                                : isTransparent
-                                                    ? "text-white/90 hover:text-white"
-                                                    : "text-slate-600 hover:text-slate-950"
+                                                : isTransparent && !activeMegaMenu
+                                                    ? "text-white/60 group-hover/nav:text-white group-hover/header:text-slate-400 group-hover/header:group-hover/nav:text-slate-950"
+                                                    : "text-slate-400 group-hover/nav:text-slate-950"
                                         )}
                                     >
-                                        {name}
-                                    </Link>
-
-                                    {/* Active Indicator */}
-                                    {isActive && (
-                                        <motion.div
-                                            layoutId="activeNav"
-                                            className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
-                                            transition={{ duration: 0.3 }}
-                                        />
-                                    )}
+                                        <ChevronDown size={14} className={cn("transition-transform duration-300", activeMegaMenu === name ? "rotate-180" : "")} />
+                                    </button>
                                 </div>
+                            );
+                        })}
 
-                                {/* Arrow toggles the dropdown */}
-                                <button
-                                    onClick={(e) => {
-                                        e.preventDefault();
-                                        e.stopPropagation();
-                                        setActiveMegaMenu(activeMegaMenu === name ? null : name);
-                                    }}
-                                    className={cn(
-                                        "ml-1 p-1 transition-all duration-300",
-                                        isActive || activeMegaMenu === name
-                                            ? "text-brand-orange"
-                                            : isTransparent
-                                                ? "text-white/90 group-hover/nav:text-white"
-                                                : "text-slate-600 group-hover/nav:text-slate-950"
-                                    )}
-                                >
-                                    <ChevronDown size={14} className={cn("transition-transform duration-300", activeMegaMenu === name ? "rotate-180" : "")} />
-                                </button>
+                        <div className="relative py-2">
+                            <Link
+                                href="/use-cases"
+                                onClick={() => setActiveMegaMenu(null)}
+                                className={cn(
+                                    "text-sm font-semibold transition-colors",
+                                    pathname === '/use-cases'
+                                        ? "text-brand-orange"
+                                        : isTransparent && !activeMegaMenu
+                                            ? "text-white/80 hover:text-white group-hover/header:text-slate-600 group-hover/header:hover:text-slate-950"
+                                            : "text-slate-600 hover:text-slate-950"
+                                )}
+                            >
+                                Use Cases
+                            </Link>
+                            {pathname === '/use-cases' && (
+                                <motion.div
+                                    layoutId="activeNav"
+                                    className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
+                                    transition={{ duration: 0.3 }}
+                                />
+                            )}
+                        </div>
 
+                        <div className="relative py-2">
+                            <Link
+                                href="/compliance"
+                                onClick={() => setActiveMegaMenu(null)}
+                                className={cn(
+                                    "text-sm font-semibold transition-colors",
+                                    pathname === '/compliance'
+                                        ? "text-brand-orange"
+                                        : isTransparent && !activeMegaMenu
+                                            ? "text-white/80 hover:text-white group-hover/header:text-slate-600 group-hover/header:hover:text-slate-950"
+                                            : "text-slate-600 hover:text-slate-950"
+                                )}
+                            >
+                                Compliance
+                            </Link>
+                            {pathname === '/compliance' && (
+                                <motion.div
+                                    layoutId="activeNav"
+                                    className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
+                                    transition={{ duration: 0.3 }}
+                                />
+                            )}
+                        </div>
 
-                            </div>
-                        );
-                    })}
+                        <div className="relative py-2">
+                            <Link
+                                href="/resources"
+                                onClick={() => setActiveMegaMenu(null)}
+                                className={cn(
+                                    "text-sm font-semibold transition-colors",
+                                    pathname === '/resources'
+                                        ? "text-brand-orange"
+                                        : isTransparent && !activeMegaMenu
+                                            ? "text-white/80 hover:text-white group-hover/header:text-slate-600 group-hover/header:hover:text-slate-950"
+                                            : "text-slate-600 hover:text-slate-950"
+                                )}
+                            >
+                                Resources
+                            </Link>
+                            {pathname === '/resources' && (
+                                <motion.div
+                                    layoutId="activeNav"
+                                    className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
+                                    transition={{ duration: 0.3 }}
+                                />
+                            )}
+                        </div>
+                    </nav>
 
-                    <div className="relative py-2">
+                    {/* Desktop Actions */}
+                    <div className="hidden lg:flex items-center gap-6">
                         <Link
-                            href="/compliance"
-                            onClick={() => setActiveMegaMenu(null)}
+                            href="/login"
                             className={cn(
                                 "text-sm font-semibold transition-colors",
-                                pathname === '/compliance'
-                                    ? "text-brand-orange"
-                                    : isTransparent
-                                        ? "text-white/90 hover:text-white"
-                                        : "text-slate-600 hover:text-slate-950"
+                                isTransparent && !activeMegaMenu
+                                    ? "text-white/80 hover:text-white group-hover/header:text-slate-600 group-hover/header:hover:text-slate-950"
+                                    : "text-slate-600 hover:text-slate-950"
                             )}
                         >
-                            Compliance
+                            Log in
                         </Link>
-                        {pathname === '/compliance' && (
-                            <motion.div
-                                layoutId="activeNav"
-                                className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
-                                transition={{ duration: 0.3 }}
-                            />
-                        )}
+                        <Link href="#reality">
+                            <Button variant="primary" size="sm" className="rounded-full shadow-lg text-xs px-6 h-10 bg-brand-orange hover:bg-orange-600 border-none font-bold">Connect with Us</Button>
+                        </Link>
                     </div>
 
-                    <div className="relative py-2">
-                        <Link
-                            href="/use-cases"
-                            onClick={() => setActiveMegaMenu(null)}
-                            className={cn(
-                                "text-sm font-semibold transition-colors",
-                                pathname === '/use-cases'
-                                    ? "text-brand-orange"
-                                    : isTransparent
-                                        ? "text-white/90 hover:text-white"
-                                        : "text-slate-600 hover:text-slate-950"
-                            )}
-                        >
-                            Use Cases
-                        </Link>
-                        {pathname === '/use-cases' && (
-                            <motion.div
-                                layoutId="activeNav"
-                                className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
-                                transition={{ duration: 0.3 }}
-                            />
-                        )}
-                    </div>
-
-                    <div className="relative py-2">
-                        <Link
-                            href="/resources"
-                            onClick={() => setActiveMegaMenu(null)}
-                            className={cn(
-                                "text-sm font-semibold transition-colors",
-                                pathname === '/resources'
-                                    ? "text-brand-orange"
-                                    : isTransparent
-                                        ? "text-white/90 hover:text-white"
-                                        : "text-slate-600 hover:text-slate-950"
-                            )}
-                        >
-                            Resources
-                        </Link>
-                        {/* Active Indicator for Resources */}
-                        {pathname === '/resources' && (
-                            <motion.div
-                                layoutId="activeNav"
-                                className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
-                                transition={{ duration: 0.3 }}
-                            />
-                        )}
-                    </div>
-                </nav>
-
-                {/* Desktop Actions */}
-                <div className="hidden lg:flex items-center gap-8">
-                    <Link
-                        href="/login"
+                    {/* Mobile Toggle */}
+                    <button
                         className={cn(
-                            "text-sm font-semibold transition-colors",
-                            isTransparent ? "text-white/90 hover:text-white" : "text-slate-600 hover:text-slate-950"
+                            "lg:hidden z-50 transition-colors",
+                            isTransparent && !activeMegaMenu ? "text-white group-hover/header:text-slate-950" : "text-slate-950"
                         )}
+                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
                     >
-                        Login
-                    </Link>
-                    <Link href="#reality">
-                        <Button variant="primary" size="sm" className="rounded-full shadow-lg text-xs">Talk to a Compliance Expert</Button>
-                    </Link>
+                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                    </button>
                 </div>
-
-                {/* Mobile Toggle */}
-                <button
-                    className={cn("lg:hidden z-50 transition-colors", isTransparent ? "text-white" : "text-slate-950")}
-                    onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                >
-                    {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                </button>
-            </div>
+            </motion.div>
 
             {/* MEGA MENU DROPDOWN PANEL */}
             <AnimatePresence>

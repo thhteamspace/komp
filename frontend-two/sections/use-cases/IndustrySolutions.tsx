@@ -46,10 +46,7 @@ const industries = [
 
 export default function IndustrySolutions() {
     return (
-        <section id="industries" className="py-32 bg-transparent relative overflow-hidden z-10">
-            {/* Unique Decorative Elements - Orange and Blue Accents */}
-            <div className="absolute top-0 right-0 w-1/3 h-1/3 bg-orange-50 rounded-full blur-[120px] -z-10 translate-x-1/2 -translate-y-1/2 opacity-60" />
-            <div className="absolute bottom-0 left-0 w-1/3 h-1/3 bg-blue-50 rounded-full blur-[120px] -z-10 -translate-x-1/2 translate-y-1/2 opacity-60" />
+        <section id="industries" className="py-32 bg-white relative overflow-hidden z-10">
 
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-24 max-w-4xl mx-auto">
@@ -165,7 +162,7 @@ export default function IndustrySolutions() {
                                 <p className="text-xl text-slate-500 font-medium leading-relaxed mb-10">
                                     In regulated industries, one compliance failure can undo years of growth. We’ve built the risk-aware operating layer that makes expansion continuous, not disruptive.
                                 </p>
-                                <Button size="lg" className="bg-brand-orange text-white hover:bg-orange-600 rounded-[2rem] h-20 px-12 font-black text-lg shadow-xl shadow-orange-200">
+                                <Button size="lg" className="bg-brand-orange text-white hover:bg-orange-600 rounded-full h-20 px-12 font-black text-lg shadow-xl shadow-orange-200">
                                     Download Sector Guides
                                 </Button>
                             </div>

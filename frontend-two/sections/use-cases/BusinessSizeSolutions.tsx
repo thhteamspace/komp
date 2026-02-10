@@ -48,9 +48,9 @@ const stages = [
 
 export default function BusinessSizeSolutions() {
     return (
-        <section className="py-24 bg-transparent relative overflow-hidden z-10">
+        <section className="py-24 bg-white relative overflow-hidden z-10">
             <div className="max-w-7xl mx-auto px-6 mb-32 relative z-10">
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-16 border-y border-slate-200">
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-8 py-16">
                     {stats.map((stat, i) => (
                         <div key={i} className="text-center group">
                             <motion.p initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-5xl lg:text-7xl font-black text-brand-orange mb-4 tracking-tighter">{stat.value}</motion.p>

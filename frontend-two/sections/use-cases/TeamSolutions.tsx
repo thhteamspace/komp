@@ -59,7 +59,7 @@ const teams = [
 
 export default function TeamSolutions() {
     return (
-        <section className="py-32 bg-transparent relative overflow-hidden z-10">
+        <section className="py-32 bg-white relative overflow-hidden z-10">
             <div className="max-w-7xl mx-auto px-6 relative z-10">
                 <div className="text-center mb-24 max-w-4xl mx-auto">
                     <motion.span initial={{ opacity: 0 }} whileInView={{ opacity: 1 }} className="text-brand-blue font-bold tracking-[0.3em] text-[10px] mb-4 block uppercase font-black">Role-Based Operating Layer</motion.span>

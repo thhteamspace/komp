@@ -54,13 +54,13 @@ export default function UseCasesHero() {
     const [activePersona, setActivePersona] = useState(personas[0]);
 
     return (
-        <section className="relative pt-12 pb-20 overflow-hidden bg-transparent min-h-[85vh] flex items-center">
+        <section className="relative pt-32 pb-20 overflow-hidden bg-white min-h-[85vh] flex items-center">
             {/* Enhanced Background Architecture */}
-            <div className="absolute inset-0 z-0 opacity-[0.08] pointer-events-none">
+            <div className="absolute inset-0 z-0 opacity-[0.1] pointer-events-none">
                 <img
                     src="/images/hero_bg.png"
                     alt=""
-                    className="w-full h-full object-cover grayscale brightness-125"
+                    className="w-full h-full object-cover grayscale brightness-110"
                 />
             </div>
             {/* Distinct Mesh Accents */}
@@ -70,7 +70,7 @@ export default function UseCasesHero() {
             </div>
 
             <div className="max-w-7xl mx-auto px-6 relative z-10 w-full">
-                <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="grid grid-cols-1 lg:grid-cols-[1fr_1.2fr] gap-16 items-center">
                     <div>
                         <motion.span
                             initial={{ opacity: 0, y: 10 }}
@@ -86,7 +86,7 @@ export default function UseCasesHero() {
                             className="font-black text-brand-black mb-6 tracking-tighter leading-[1.05] text-balance"
                             style={{ fontSize: 'clamp(40px, 5vw, 64px)' }}
                         >
-                            Built for the way modern companies grow—<span className="text-brand-orange">without borders or legal limits.</span>
+                            Global hiring solutions for <span className="text-brand-orange">every stage of your journey.</span>
                         </motion.h1>
                         <motion.div
                             initial={{ opacity: 0, y: 20 }}
@@ -95,10 +95,7 @@ export default function UseCasesHero() {
                             className="space-y-4 mb-8"
                         >
                             <p className="text-lg text-brand-black leading-relaxed max-w-xl font-medium">
-                                Scaling a business is hard enough without the nightmare of international labor laws and fragmented payroll systems. KOMP was built to solve the "Global Gap."
-                            </p>
-                            <p className="text-base text-brand-black/70 leading-relaxed max-w-xl font-medium">
-                                From early-stage startups to large enterprises, we provide the legal shield and financial engine to make global work actually work.
+                                Whether you are a founder hiring your first developer or a CFO managing a team of 500, KOMP provides the infrastructure you need to stay compliant and scale fast.
                             </p>
                         </motion.div>
 
@@ -108,10 +105,10 @@ export default function UseCasesHero() {
                             transition={{ duration: 0.6, delay: 0.2 }}
                             className="flex flex-wrap gap-4 mb-10"
                         >
-                            <Button size="lg" className="bg-brand-orange text-white hover:bg-orange-600 rounded-2xl px-8 h-14 font-bold shadow-lg shadow-orange-200">
+                            <Button size="lg" className="bg-brand-orange text-white hover:bg-orange-600 rounded-full px-8 h-14 font-bold shadow-lg shadow-orange-200">
                                 Talk to an Expert
                             </Button>
-                            <Button size="lg" variant="outline" className="border-slate-200 text-brand-black hover:bg-white rounded-2xl px-8 h-14 bg-white shadow-sm font-bold">
+                            <Button size="lg" variant="outline" className="border-slate-200 text-brand-black hover:bg-white rounded-full px-8 h-14 bg-white shadow-sm font-bold">
                                 View the Platform
                             </Button>
                         </motion.div>
@@ -126,12 +123,12 @@ export default function UseCasesHero() {
                         </div>
                     </div>
 
-                    {/* Hero Visual - Dashboard Image */}
+                    {/* Hero Visual - Dashboard Image (Slightly larger now) */}
                     <motion.div
                         initial={{ opacity: 0, x: 20 }}
                         animate={{ opacity: 1, x: 0 }}
                         transition={{ duration: 0.8 }}
-                        className="relative"
+                        className="relative lg:-mr-20 lg:-mt-32"
                     >
                         {/* Background Glow */}
                         <div className="absolute inset-0 bg-brand-blue/10 rounded-full blur-[120px] -z-10 scale-150" />
@@ -145,27 +142,12 @@ export default function UseCasesHero() {
                                     className="w-full h-auto rounded-[2.5rem] transform transition-transform duration-700 group-hover:scale-[1.02]"
                                 />
                             </div>
-
-                            {/* Floating Elements (Optional - for added depth) */}
-                            <motion.div
-                                animate={{ y: [0, -10, 0] }}
-                                transition={{ duration: 4, repeat: Infinity }}
-                                className="absolute -bottom-6 -left-6 bg-white p-4 rounded-2xl shadow-xl border border-slate-100 hidden md:flex items-center gap-3"
-                            >
-                                <div className="w-10 h-10 rounded-xl bg-orange-50 flex items-center justify-center text-brand-orange">
-                                    <Shield className="w-5 h-5" />
-                                </div>
-                                <div>
-                                    <p className="text-[10px] font-black text-slate-400 uppercase tracking-widest">Security</p>
-                                    <p className="text-xs font-black text-brand-black">Enterprise Ready</p>
-                                </div>
-                            </motion.div>
                         </div>
                     </motion.div>
                 </div>
 
-                <div className="mt-32 pt-16 border-t border-slate-100">
-                    <p className="text-center text-[10px] font-black text-slate-400 uppercase tracking-[0.3em] mb-12">
+                <div className="mt-32 pt-16">
+                    <p className="text-center text-[10px] font-black text-slate-950 uppercase tracking-[0.3em] mb-12">
                         Loved by next-generation teams
                     </p>
                     <div className="flex flex-wrap justify-center items-center gap-x-16 gap-y-12">

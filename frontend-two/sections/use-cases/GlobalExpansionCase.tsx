@@ -11,7 +11,7 @@ const mapMarkers = [
 
 export default function GlobalExpansionCase() {
     return (
-        <section className="py-32 bg-transparent overflow-hidden border-t border-slate-100 relative z-10">
+        <section className="py-32 bg-white overflow-hidden relative z-10">
             <div className="max-w-7xl mx-auto px-6">
                 {/* Summary Section */}
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 items-start mb-32">
@@ -31,7 +31,7 @@ export default function GlobalExpansionCase() {
                             Global Expansion Without <br className="hidden lg:block" />
                             <span className="text-brand-orange">Structural Drag.</span>
                         </motion.h2>
-                        <div className="bg-slate-50 border-l-4 border-brand-orange p-8 rounded-r-3xl">
+                        <div className="bg-slate-50 p-8 rounded-3xl">
                             <p className="text-sm font-black text-brand-blue mb-3">Summary</p>
                             <p className="text-xl text-slate-600 font-medium leading-relaxed">
                                 A fast-scaling technology company needed to enter multiple international markets... expansion stalled due to entity setup delays, fragmented payroll vendors, and increasing compliance exposure. KOMP partnered with the company to remove legal and operational friction, enabling compliant hiring across borders without long-term structural commitments.

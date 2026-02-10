@@ -50,7 +50,7 @@ export default function UseCasesCTA() {
                             transition={{ delay: 0.2 }}
                             className="flex flex-col sm:flex-row gap-6 justify-center items-center"
                         >
-                            <Button size="lg" className="bg-brand-orange text-white hover:bg-orange-600 px-12 h-20 text-lg rounded-[2rem] group/btn transition-all shadow-xl shadow-orange-200/50 font-black">
+                            <Button size="lg" className="bg-brand-orange text-white hover:bg-orange-600 px-12 h-20 text-lg rounded-full group/btn transition-all shadow-xl shadow-orange-200/50 font-black">
                                 Talk to an Expert
                                 <ArrowRight className="ml-2 w-6 h-6 group-hover/btn:translate-x-1 transition-transform" />
                             </Button>
