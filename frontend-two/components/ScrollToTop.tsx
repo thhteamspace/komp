@@ -23,7 +23,18 @@ export default function ScrollToTop() {
                     return () => clearTimeout(timer);
                 }
             } else {
-                window.scrollTo(0, 0);
+                // Force top with multiple attempts to catch slow renders
+                window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+
+                const timer1 = setTimeout(() => window.scrollTo(0, 0), 10);
+                const timer2 = setTimeout(() => window.scrollTo(0, 0), 100);
+                const timer3 = setTimeout(() => window.scrollTo(0, 0), 300);
+
+                return () => {
+                    clearTimeout(timer1);
+                    clearTimeout(timer2);
+                    clearTimeout(timer3);
+                };
             }
         };
 

@@ -11,15 +11,15 @@ import { cn } from '@/utils/cn';
 const megaMenuData = {
     Product: [
         { name: 'Platform Overview', desc: 'Unified global workforce OS.', icon: Layers, href: '/product#overview' },
-        { name: 'Global Payroll', desc: 'Pay everyone, everywhere.', icon: Zap, href: '/product#payroll' },
+        { name: 'Global Payroll', desc: 'Pay everyone, everywhere.', icon: Zap, href: '/product#framework' },
         { name: 'Compliance', desc: 'Risk-free global scaling.', icon: Shield, href: '/compliance' },
-        { name: 'Workforce Management', desc: 'Onboard and manage talent.', icon: Users, href: '/product#workforce' },
+        { name: 'Workforce Management', desc: 'Onboard and manage talent.', icon: Users, href: '/product#framework' },
     ],
     Solutions: [
-        { name: 'For Tech & SaaS', desc: 'Scale engineering teams with zero risk.', icon: Zap, href: '/solutions#tech-saas' },
-        { name: 'For Healthcare', desc: 'Strict regulatory & HIPAA compliance.', icon: Shield, href: '/solutions#healthcare' },
-        { name: 'For Professional Services', desc: 'Deploy consultants worldwide instantly.', icon: Briefcase, href: '/solutions#prof-services' },
-        { name: 'M&A Integration', desc: 'Fast-track workforce consolidation.', icon: LineChart, href: '/solutions#m-a-integration' },
+        { name: 'For Tech & SaaS', desc: 'Scale engineering teams with zero risk.', icon: Zap, href: '/solutions#industries' },
+        { name: 'For Healthcare', desc: 'Strict regulatory & HIPAA compliance.', icon: Shield, href: '/solutions#industries' },
+        { name: 'For Professional Services', desc: 'Deploy consultants worldwide instantly.', icon: Briefcase, href: '/solutions#industries' },
+        { name: 'M&A Integration', desc: 'Fast-track workforce consolidation.', icon: LineChart, href: '/solutions#industries' },
     ],
 };
 
@@ -284,7 +284,21 @@ const Header = () => {
                                                     href={subItem.href}
                                                     scroll={false}
                                                     className="group flex gap-5 items-start p-4 -m-4 rounded-3xl hover:bg-slate-50 transition-all duration-300"
-                                                    onClick={() => setActiveMegaMenu(null)}
+                                                    onClick={(e) => {
+                                                        setActiveMegaMenu(null);
+
+                                                        // Handle same-page anchor navigation
+                                                        const [urlPath, hash] = subItem.href.split('#');
+                                                        if (hash && pathname === urlPath) {
+                                                            e.preventDefault();
+                                                            const element = document.getElementById(hash);
+                                                            if (element) {
+                                                                element.scrollIntoView({ behavior: 'smooth' });
+                                                                // Update URL hash without jumping
+                                                                window.history.pushState(null, '', subItem.href);
+                                                            }
+                                                        }
+                                                    }}
                                                 >
                                                     <div className="w-12 h-12 flex items-center justify-center text-slate-400 group-hover:text-brand-orange transition-all duration-500">
                                                         <subItem.icon size={22} />

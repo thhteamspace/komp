@@ -32,7 +32,7 @@ const userAvatars = [
 
 const Global3DGlobe = () => {
     return (
-        <section id="coverage" className="py-32 bg-[#0a0a0a] relative overflow-hidden flex flex-col items-center text-white border-t border-white/5">
+        <section id="coverage" className="pt-32 pb-64 bg-[#0a0a0a] relative flex flex-col items-center text-white border-t border-white/5">
             {/* Background Glows for Atmosphere */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-brand-orange/5 blur-[150px] rounded-full opacity-50" />
@@ -72,14 +72,23 @@ const Global3DGlobe = () => {
                     </div>
                 </div>
 
-                {/* Symbolic Global Interface */}
-                <div className="relative w-full aspect-[21/10] mt-12 flex items-center justify-center">
-                    {/* Dark World Map (Symbolic Background) */}
-                    <div className="absolute inset-0 flex items-center justify-center opacity-40">
-                        <svg className="w-full h-full text-slate-500" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice">
+                {/* Symbolic Global Interface with 3D Tilt */}
+                <motion.div
+                    initial={{ rotateX: 10, rotateY: -10 }}
+                    animate={{
+                        rotateX: [10, 15, 10],
+                        rotateY: [-10, 0, -10]
+                    }}
+                    transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                    style={{ perspective: 2000, transformStyle: 'preserve-3d' }}
+                    className="relative w-full aspect-[21/10] mt-12 flex items-center justify-center"
+                >
+                    {/* Light World Map (High Contrast Dots) */}
+                    <div className="absolute inset-0 flex items-center justify-center opacity-70" style={{ transform: 'translateZ(-50px)' }}>
+                        <svg className="w-full h-full text-white" viewBox="0 0 1000 500" preserveAspectRatio="xMidYMid slice">
                             <defs>
                                 <pattern id="dotPatternSmall" x="0" y="0" width="10" height="10" patternUnits="userSpaceOnUse">
-                                    <circle cx="2" cy="2" r="1.2" fill="currentColor" />
+                                    <circle cx="2" cy="2" r="1.5" fill="currentColor" />
                                 </pattern>
                                 <mask id="mapMask">
                                     <image href="https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg" width="1000" height="500" />
@@ -90,12 +99,7 @@ const Global3DGlobe = () => {
                     </div>
 
                     {/* Orbital Scale Indicators */}
-                    <div className="absolute w-[600px] h-[600px] border border-white/5 rounded-full pointer-events-none" />
-                    <motion.div
-                        animate={{ rotate: 360 }}
-                        transition={{ duration: 100, repeat: Infinity, ease: "linear" }}
-                        className="absolute w-[850px] h-[850px] border border-white/5 rounded-full pointer-events-none border-dashed"
-                    />
+                    <div className="absolute w-[600px] h-[600px] border border-white/5 rounded-full pointer-events-none" style={{ transform: 'translateZ(20px)' }} />
 
                     {/* Workforce Distribution Points (Symbolic) */}
                     {userAvatars.map((user) => (
@@ -103,80 +107,73 @@ const Global3DGlobe = () => {
                             key={user.id}
                             initial={{ scale: 0, opacity: 0 }}
                             whileInView={{ scale: 1, opacity: 1 }}
-                            transition={{ delay: user.id * 0.1 }}
+                            animate={{
+                                y: [0, -10, 0],
+                                scale: [1, 1.05, 1]
+                            }}
+                            transition={{
+                                delay: user.id * 0.1,
+                                y: { duration: 3, repeat: Infinity, ease: "easeInOut", delay: user.id * 0.2 },
+                                scale: { duration: 4, repeat: Infinity, ease: "easeInOut", delay: user.id * 0.1 }
+                            }}
                             className="absolute z-20"
-                            style={{ left: user.x, top: user.y }}
+                            style={{ left: user.x, top: user.y, transform: 'translateZ(100px)' }}
                         >
                             <div className="relative group">
-                                <div className="w-10 h-10 md:w-12 md:h-12 rounded-full border-2 border-brand-orange/50 p-1 bg-[#0a0a0a] overflow-hidden">
-                                    <img src={user.img} alt="" className="w-full h-full rounded-full object-cover grayscale opacity-80" />
+                                <div className="w-10 h-10 md:w-14 md:h-14 rounded-full border-2 border-brand-orange p-1 bg-[#0a0a0a] overflow-hidden shadow-[0_0_20px_rgba(255,140,26,0.3)] transition-transform duration-500 group-hover:scale-110">
+                                    <img src={user.img} alt="" className="w-full h-full rounded-full object-cover" />
                                 </div>
-                                <div className="absolute inset-0 rounded-full animate-ping bg-brand-orange/20 -z-10" />
+                                <div className="absolute inset-0 rounded-full animate-ping bg-brand-orange/30 -z-10" />
                             </div>
                         </motion.div>
                     ))}
 
-                    {/* Infrastructure Arcs */}
-                    <svg className="absolute inset-0 w-full h-full z-10 pointer-events-none opacity-20">
-                        <motion.path
-                            d="M 200,225 Q 500,50 850,200"
-                            stroke="#FF8C1A"
-                            strokeWidth="1"
-                            fill="none"
-                            strokeDasharray="5,10"
-                            animate={{ strokeDashoffset: [0, -30] }}
-                            transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                        />
-                        <motion.path
-                            d="M 150,350 Q 400,450 750,300"
-                            stroke="#FF8C1A"
-                            strokeWidth="1"
-                            fill="none"
-                            strokeDasharray="5,10"
-                            animate={{ strokeDashoffset: [30, 0] }}
-                            transition={{ duration: 12, repeat: Infinity, ease: "linear" }}
-                        />
-                        <motion.path
-                            d="M 300,400 Q 550,200 800,450"
-                            stroke="#FF8C1A"
-                            strokeWidth="0.5"
-                            fill="none"
-                            strokeDasharray="4,8"
-                            animate={{ strokeDashoffset: [0, -40] }}
-                            transition={{ duration: 15, repeat: Infinity, ease: "linear" }}
-                            className="opacity-30"
-                        />
-                        <motion.path
-                            d="M 250,250 Q 500,500 750,200"
-                            stroke="#FF8C1A"
-                            strokeWidth="0.5"
-                            fill="none"
-                            strokeDasharray="6,12"
-                            animate={{ strokeDashoffset: [20, 0] }}
-                            transition={{ duration: 18, repeat: Infinity, ease: "linear" }}
-                            className="opacity-30"
-                        />
-                    </svg>
+                    {/* Infrastructure Arcs Removed as per user request */}
 
-                    {/* Key Scale Metric */}
-                    <div className="absolute -bottom-10 left-1/2 -translate-x-1/2">
-                        <motion.div
-                            initial={{ opacity: 0, y: 10 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            className="bg-white/5 border border-white/10 px-8 py-4 rounded-full backdrop-blur-xl flex items-center gap-4 shadow-[0_0_30px_rgba(255,140,26,0.1)]"
-                        >
-                            <div className="flex -space-x-2">
-                                {[10, 11, 12].map(i => (
-                                    <div key={i} className="w-8 h-8 rounded-full border-2 border-[#0a0a0a] overflow-hidden bg-slate-800">
-                                        <img src={`https://i.pravatar.cc/100?u=${i}`} alt="" className="w-full h-full object-cover" />
-                                    </div>
-                                ))}
-                            </div>
-                            <span className="text-sm font-bold text-slate-300 tracking-wider">
-                                Direct Presence in <span className="text-brand-orange">150+ Countries</span>
-                            </span>
-                        </motion.div>
-                    </div>
+                </motion.div>
+
+                {/* Key Scale Metric - Fixed at bottom (Not following 3D tilt) */}
+                <div className="relative mt-20">
+                    <motion.div
+                        initial={{ opacity: 0, y: 10 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="bg-white/5 border border-white/10 px-8 py-4 rounded-full backdrop-blur-xl flex items-center gap-4 shadow-[0_0_30px_rgba(255,140,26,0.15)] overflow-hidden"
+                    >
+                        {/* Vertical Rolling Avatars */}
+                        <div className="flex -space-x-3 relative h-10 w-24">
+                            {[0, 1, 2].map((stackIndex) => (
+                                <div key={stackIndex} className="relative w-10 h-10 overflow-hidden rounded-full border-2 border-[#0a0a0a] bg-[#0a0a0a]">
+                                    <motion.div
+                                        animate={{ y: [0, -40, -80, -120, 0] }}
+                                        transition={{
+                                            duration: 6,
+                                            repeat: Infinity,
+                                            ease: "easeInOut",
+                                            delay: stackIndex * 0.5
+                                        }}
+                                        className="flex flex-col"
+                                    >
+                                        {[10, 15, 20, 25].map(id => (
+                                            <img
+                                                key={id}
+                                                src={`https://i.pravatar.cc/100?u=${id + stackIndex}`}
+                                                className="w-10 h-10 object-cover shrink-0"
+                                                alt=""
+                                            />
+                                        ))}
+                                        <img
+                                            src={`https://i.pravatar.cc/100?u=${10 + stackIndex}`}
+                                            className="w-10 h-10 object-cover shrink-0"
+                                            alt=""
+                                        />
+                                    </motion.div>
+                                </div>
+                            ))}
+                        </div>
+                        <span className="text-sm font-bold text-slate-300 tracking-wider">
+                            Direct Presence in <span className="text-brand-orange">150+ Countries</span>
+                        </span>
+                    </motion.div>
                 </div>
             </div>
         </section>
