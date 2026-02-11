@@ -139,22 +139,9 @@ export default function GlobalExpansionCase() {
                     </div>
 
                     <div className="lg:col-span-7 relative">
-                        <div className="bg-slate-50/80 rounded-[3rem] border border-slate-100 p-8 pt-16 relative overflow-hidden h-[500px] flex items-center justify-center shadow-inner">
-                            <div className="absolute inset-0 opacity-40 bg-[url('https://upload.wikimedia.org/wikipedia/commons/e/ec/World_map_blank_without_borders.svg')] bg-center bg-no-repeat bg-contain m-12 group-hover:opacity-50 transition-opacity duration-1000" />
-                            <svg className="absolute inset-0 w-full h-full pointer-events-none z-10">
-                                {[{ d: "M45 35 Q60 20 82 40" }, { d: "M45 35 Q35 55 30 75" }].map((p, i) => (
-                                    <motion.path key={i} d={p.d} fill="transparent" stroke="#FF8C1A" strokeWidth="1" strokeDasharray="4 4" initial={{ pathLength: 0 }} whileInView={{ pathLength: 1 }} />
-                                ))}
-                            </svg>
-                            {mapMarkers.map((marker, i) => (
-                                <motion.div key={i} initial={{ opacity: 0, scale: 0.8 }} whileInView={{ opacity: 1, scale: 1 }} transition={{ delay: i * 0.2 }} className="absolute z-20" style={{ left: marker.x, top: marker.y }}>
-                                    <div className="bg-white p-3 rounded-xl shadow-xl border border-slate-100 min-w-[140px]">
-                                        <span className="text-[10px] font-black text-brand-black block mb-1">{marker.country}</span>
-                                        <span className="text-[9px] text-brand-orange font-black uppercase">{marker.time} Entry</span>
-                                    </div>
-                                    <div className="absolute -bottom-2 left-1/2 -translate-x-1/2 w-3 h-3 bg-brand-orange rounded-full border-2 border-white" />
-                                </motion.div>
-                            ))}
+                        <div className="bg-gray-50 rounded-[3rem] border-2 border-dashed border-gray-300 h-[500px] flex flex-col items-center justify-center shadow-inner p-8 text-center">
+                            <h4 className="text-gray-400 font-bold text-2xl mb-2">MAP VISUALIZATION</h4>
+                            <p className="text-gray-400">Interactive Map & Markers Placeholder</p>
                         </div>
                     </div>
                 </div>

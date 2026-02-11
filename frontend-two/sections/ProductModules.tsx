@@ -85,114 +85,118 @@ const ProductModules = () => {
     return (
         <section id="platform" className="relative pt-32 pb-64 bg-slate-50 overflow-hidden min-h-screen flex flex-col items-center scroll-mt-32">
 
-            <div className="w-full max-w-7xl mx-auto px-6 mb-48 text-center">
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    className="text-brand-blue font-bold text-base mb-6"
-                >
-                    The Module Framework
-                </motion.div>
-                <div className="max-w-4xl mx-auto px-4">
-                    <h2
-                        className="font-black text-slate-950 tracking-tighter mb-6 leading-[0.85]"
-                        style={{ fontSize: '5vw' }}
+            {/* Premium Header Block */}
+            <div className="w-full bg-brand-orange pt-24 pb-48 px-6 text-center transform skew-y-0 relative z-0 mb-[-100px]">
+                <div className="max-w-4xl mx-auto">
+                    <motion.div
+                        initial={{ opacity: 0, y: -20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        className="text-white/80 font-bold text-sm uppercase tracking-widest mb-4"
                     >
-                        Precision <br />
-                        <span className="text-brand-orange">Infrastructure.</span>
+                        Unified Infrastructure
+                    </motion.div>
+                    <h2
+                        className="font-black text-white tracking-tighter mb-6 leading-tight"
+                        style={{ fontSize: '4vw' }}
+                    >
+                        KOMP – Premium Module Framework
                     </h2>
-                    <p className="text-xl md:text-2xl text-slate-500 leading-relaxed max-w-2xl mx-auto">
-                        A modular ecosystem designed for the modern global enterprise.
+                    <p className="text-xl md:text-2xl text-white/90 leading-relaxed max-w-2xl mx-auto font-medium">
+                        A modular ecosystem designed for the modern global enterprise. Activate only what you need.
                     </p>
                 </div>
             </div>
 
-            <div className="relative w-full max-w-5xl px-6 h-[500px] flex justify-center mt-8">
-                {orderedModules.map((mod, index) => {
-                    const isFront = index === 0;
+            {/* Content Container - Pulled up to overlap */}
+            <div className="w-full px-6 relative z-10">
 
-                    // Cap visibility depth so we see a nice stack of headers
-                    const stackIndex = index > 3 ? 3 : index;
+                <div className="relative w-full max-w-5xl px-6 h-[500px] flex justify-center mt-8">
+                    {orderedModules.map((mod, index) => {
+                        const isFront = index === 0;
 
-                    return (
-                        <motion.div
-                            key={mod.id}
-                            onClick={() => {
-                                if (isFront) return;
+                        // Cap visibility depth so we see a nice stack of headers
+                        const stackIndex = index > 3 ? 3 : index;
 
-                                // Bring clicked back-card to front smoothly
-                                const newOrder = [...orderedModules];
-                                const item = newOrder.splice(index, 1)[0];
-                                newOrder.unshift(item);
-                                setOrderedModules(newOrder);
-                            }}
-                            initial={false}
-                            animate={{
-                                y: stackIndex * -50,
-                                scale: 1 - (stackIndex * 0.05),
-                                zIndex: modules.length - index,
-                                opacity: index > 3 ? 0 : 1
-                            }}
-                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className={`absolute top-0 w-full md:w-[90%] lg:w-full bg-white rounded-[4rem] border border-slate-200 shadow-2xl overflow-hidden cursor-pointer transform-gpu origin-top ${isFront
-                                ? 'h-[500px] shadow-[0_40px_100px_rgba(0,0,0,0.08)]'
-                                : 'h-24 shadow-none hover:brightness-95 bg-gray-50'
-                                }`}
-                        >
-                            <div className="flex flex-col h-full">
+                        return (
+                            <motion.div
+                                key={mod.id}
+                                onClick={() => {
+                                    if (isFront) return;
 
-                                {/* HEADER ROW (Always Visible) */}
-                                <div className={`flex items-center gap-6 px-12 h-24 pt-4 border-b ${isFront ? 'border-slate-100' : 'border-transparent'} transition-all`}>
-                                    <div className={`p-3 rounded-2xl ${isFront ? mod.bg + ' ' + mod.color : 'bg-white text-slate-300 border border-slate-100 shadow-sm'}`}>
-                                        <mod.icon size={22} />
-                                    </div>
-                                    <div>
-                                        <span className={`text-[12px] font-bold block mb-1 ${isFront ? 'text-slate-400' : 'text-slate-300'}`}>
-                                            {mod.header}
-                                        </span>
-                                        <h4 className={`font-bold tracking-tight text-xl ${isFront ? 'text-slate-950' : 'text-slate-400'}`}>
-                                            {mod.title}
-                                        </h4>
-                                    </div>
-                                    {!isFront && (
-                                        <div className="ml-auto">
-                                            <ArrowUpRight size={20} className="text-slate-200" />
+                                    // Bring clicked back-card to front smoothly
+                                    const newOrder = [...orderedModules];
+                                    const item = newOrder.splice(index, 1)[0];
+                                    newOrder.unshift(item);
+                                    setOrderedModules(newOrder);
+                                }}
+                                initial={false}
+                                animate={{
+                                    y: stackIndex * -50,
+                                    scale: 1 - (stackIndex * 0.05),
+                                    zIndex: modules.length - index,
+                                    opacity: index > 3 ? 0 : 1
+                                }}
+                                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                                className={`absolute top-0 w-full md:w-[90%] lg:w-full bg-white rounded-[4rem] border border-slate-200 shadow-2xl overflow-hidden cursor-pointer transform-gpu origin-top ${isFront
+                                    ? 'h-[500px] shadow-[0_40px_100px_rgba(0,0,0,0.08)]'
+                                    : 'h-24 shadow-none hover:brightness-95 bg-gray-50'
+                                    }`}
+                            >
+                                <div className="flex flex-col h-full">
+
+                                    {/* HEADER ROW (Always Visible) */}
+                                    <div className={`flex items-center gap-6 px-12 h-24 pt-4 border-b ${isFront ? 'border-slate-100' : 'border-transparent'} transition-all`}>
+                                        <div className={`p-3 rounded-2xl ${isFront ? mod.bg + ' ' + mod.color : 'bg-white text-slate-300 border border-slate-100 shadow-sm'}`}>
+                                            <mod.icon size={22} />
                                         </div>
-                                    )}
-                                </div>
-
-                                {/* BODY CONTENT */}
-                                <div className={`flex-1 flex flex-col md:flex-row transition-opacity duration-500 ${isFront ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
-
-                                    {/* Left Text */}
-                                    <div className="flex-1 p-12 md:p-16 flex flex-col justify-center">
-                                        <p className="text-slate-500 text-lg leading-relaxed mb-10 max-w-sm font-medium">
-                                            {mod.desc}
-                                        </p>
-                                        <button className="flex items-center gap-3 text-sm font-semibold text-slate-950 border-b-2 border-slate-100 pb-2 hover:border-brand-orange hover:text-brand-orange transition-all w-fit group">
-                                            Explore {mod.title.split(' ')[1]} Logic
-                                            <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
-                                        </button>
-                                    </div>
-
-                                    {/* Right Image/Visual */}
-                                    <div className="hidden md:block flex-1 bg-slate-50 relative overflow-hidden h-full border-l border-slate-100 p-8">
-                                        <div className="w-full h-full bg-white rounded-3xl shadow-xl border border-slate-100 p-6 overflow-hidden flex items-center justify-center relative group-hover:scale-[1.02] transition-transform duration-700">
-                                            <img
-                                                src={mod.id === 'timeops' ? '/images/image.png' : mod.img}
-                                                alt={mod.title}
-                                                className="w-full h-auto max-h-full object-contain rounded-xl saturate-[0.8]"
-                                            />
-                                            {/* Decorative UI overlay */}
-                                            <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                                        <div>
+                                            <span className={`text-[12px] font-bold block mb-1 ${isFront ? 'text-slate-400' : 'text-slate-300'}`}>
+                                                {mod.header}
+                                            </span>
+                                            <h4 className={`font-bold tracking-tight text-xl ${isFront ? 'text-slate-950' : 'text-slate-400'}`}>
+                                                {mod.title}
+                                            </h4>
                                         </div>
+                                        {!isFront && (
+                                            <div className="ml-auto">
+                                                <ArrowUpRight size={20} className="text-slate-200" />
+                                            </div>
+                                        )}
                                     </div>
 
+                                    {/* BODY CONTENT */}
+                                    <div className={`flex-1 flex flex-col md:flex-row transition-opacity duration-500 ${isFront ? 'opacity-100' : 'opacity-0 pointer-events-none'}`}>
+
+                                        {/* Left Text */}
+                                        <div className="flex-1 p-12 md:p-16 flex flex-col justify-center">
+                                            <p className="text-slate-500 text-lg leading-relaxed mb-10 max-w-sm font-medium">
+                                                {mod.desc}
+                                            </p>
+                                            <button className="flex items-center gap-3 text-sm font-semibold text-slate-950 border-b-2 border-slate-100 pb-2 hover:border-brand-orange hover:text-brand-orange transition-all w-fit group">
+                                                Explore {mod.title.split(' ')[1]} Logic
+                                                <ChevronRight size={16} className="group-hover:translate-x-1 transition-transform" />
+                                            </button>
+                                        </div>
+
+                                        {/* Right Image/Visual */}
+                                        <div className="hidden md:block flex-1 bg-slate-50 relative overflow-hidden h-full border-l border-slate-100 p-8">
+                                            <div className="w-full h-full bg-white rounded-3xl shadow-xl border border-slate-100 p-6 overflow-hidden flex items-center justify-center relative group-hover:scale-[1.02] transition-transform duration-700">
+                                                <img
+                                                    src={mod.id === 'timeops' ? '/images/image.png' : mod.img}
+                                                    alt={mod.title}
+                                                    className="w-full h-auto max-h-full object-contain rounded-xl saturate-[0.8]"
+                                                />
+                                                {/* Decorative UI overlay */}
+                                                <div className="absolute top-4 right-4 w-2 h-2 rounded-full bg-brand-orange animate-pulse" />
+                                            </div>
+                                        </div>
+
+                                    </div>
                                 </div>
-                            </div>
-                        </motion.div>
-                    );
-                })}
+                            </motion.div>
+                        );
+                    })}
+                </div>
             </div>
         </section>
     );

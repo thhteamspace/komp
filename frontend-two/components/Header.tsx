@@ -13,7 +13,7 @@ const megaMenuData = {
         { name: 'Platform Overview', desc: 'Unified global workforce OS.', icon: Layers, href: '/product#overview' },
         { name: 'Global Payroll', desc: 'Pay everyone, everywhere.', icon: Zap, href: '/product#framework' },
         { name: 'Compliance', desc: 'Risk-free global scaling.', icon: Shield, href: '/compliance' },
-        { name: 'Workforce Management', desc: 'Onboard and manage talent.', icon: Users, href: '/product#framework' },
+        { name: 'KOMP vs Others', desc: 'Why leaders choose us over Deel or Rippling.', icon: Rocket, href: '/compare' },
     ],
     Solutions: [
         { name: 'For Tech & SaaS', desc: 'Scale engineering teams with zero risk.', icon: Zap, href: '/solutions#industries' },
@@ -45,7 +45,7 @@ const Header = () => {
     // The current logic: isDarkHeader = pathname?.includes('/resources');
     // If we add /compliance, it should also be dark.
 
-    const isDarkHeader = pathname?.includes('/resources');
+    const isDarkHeader = pathname?.includes('/resources') || pathname?.includes('/compliance');
 
     const isDarkHeaderRef = useRef(isDarkHeader);
 
@@ -93,9 +93,13 @@ const Header = () => {
                 }}
                 transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
-                    "w-full backdrop-blur-xl border-b border-gray-100 py-3 shadow-sm transition-colors duration-500",
+                    "w-full py-3 transition-colors duration-500",
+                    // Apply base styles only when NOT transparent
+                    !isTransparent && "backdrop-blur-xl border-b border-gray-100 shadow-sm",
+                    // Apply floating island styles when scrolled (this inherently implies !isTransparent usually, but kept for specific floating state)
                     !(activeMegaMenu || !isScrolled) && "border border-white/50 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] px-10",
-                    isTransparent && !isScrolled ? "bg-transparent border-transparent shadow-none" : ""
+                    // Force clean slate when transparent
+                    isTransparent ? "bg-transparent border-none shadow-none backdrop-blur-none" : ""
                 )}
             >
                 <div className={cn("flex items-center justify-between", activeMegaMenu || !isScrolled ? "max-w-7xl mx-auto px-6" : "")}>
@@ -123,58 +127,30 @@ const Header = () => {
 
                     {/* Desktop Nav with Mega Menu */}
                     <nav className="hidden lg:flex items-center gap-10">
-                        {Object.entries(megaMenuData).map(([name, items]) => {
-                            const sectionId = name === 'Product' ? '/product' : name === 'Solutions' ? '/solutions' : '#';
-                            const isActive = (name === 'Product' && pathname === '/product') || (name === 'Solutions' && pathname === '/solutions');
 
-                            return (
-                                <div key={name} className="relative py-2 flex items-center group/nav">
-                                    <div className="relative">
-                                        <Link
-                                            href={sectionId}
-                                            onClick={() => setActiveMegaMenu(null)}
-                                            className={cn(
-                                                "text-sm font-semibold transition-colors duration-300",
-                                                isActive || activeMegaMenu === name
-                                                    ? "text-brand-orange"
-                                                    : isTransparent && !activeMegaMenu
-                                                        ? "text-white/80 hover:text-white group-hover/header:text-slate-600 group-hover/header:hover:text-slate-950"
-                                                        : "text-slate-600 hover:text-slate-950"
-                                            )}
-                                        >
-                                            {name}
-                                        </Link>
-
-                                        {isActive && (
-                                            <motion.div
-                                                layoutId="activeNav"
-                                                className="absolute -bottom-1 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
-                                                transition={{ duration: 0.3 }}
-                                            />
-                                        )}
-                                    </div>
-
-                                    {/* Arrow toggles the dropdown */}
-                                    <button
-                                        onClick={(e) => {
-                                            e.preventDefault();
-                                            e.stopPropagation();
-                                            setActiveMegaMenu(activeMegaMenu === name ? null : name);
-                                        }}
-                                        className={cn(
-                                            "ml-1 p-1 transition-all duration-300",
-                                            isActive || activeMegaMenu === name
-                                                ? "text-brand-orange"
-                                                : isTransparent && !activeMegaMenu
-                                                    ? "text-white/60 group-hover/nav:text-white group-hover/header:text-slate-400 group-hover/header:group-hover/nav:text-slate-950"
-                                                    : "text-slate-400 group-hover/nav:text-slate-950"
-                                        )}
-                                    >
-                                        <ChevronDown size={14} className={cn("transition-transform duration-300", activeMegaMenu === name ? "rotate-180" : "")} />
-                                    </button>
-                                </div>
-                            );
-                        })}
+                        <div className="relative py-2">
+                            <Link
+                                href="/services"
+                                onClick={() => setActiveMegaMenu(null)}
+                                className={cn(
+                                    "text-sm font-semibold transition-colors",
+                                    pathname === '/services'
+                                        ? "text-brand-orange"
+                                        : isTransparent && !activeMegaMenu
+                                            ? "text-white/80 hover:text-white group-hover/header:text-slate-600 group-hover/header:hover:text-slate-950"
+                                            : "text-slate-600 hover:text-slate-950"
+                                )}
+                            >
+                                Services
+                            </Link>
+                            {pathname === '/services' && (
+                                <motion.div
+                                    layoutId="activeNav"
+                                    className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
+                                    transition={{ duration: 0.3 }}
+                                />
+                            )}
+                        </div>
 
                         <div className="relative py-2">
                             <Link
@@ -202,44 +178,20 @@ const Header = () => {
 
                         <div className="relative py-2">
                             <Link
-                                href="/compliance"
+                                href="/compare"
                                 onClick={() => setActiveMegaMenu(null)}
                                 className={cn(
                                     "text-sm font-semibold transition-colors",
-                                    pathname === '/compliance'
+                                    pathname === '/compare'
                                         ? "text-brand-orange"
                                         : isTransparent && !activeMegaMenu
                                             ? "text-white/80 hover:text-white group-hover/header:text-slate-600 group-hover/header:hover:text-slate-950"
                                             : "text-slate-600 hover:text-slate-950"
                                 )}
                             >
-                                Compliance
+                                Compare
                             </Link>
-                            {pathname === '/compliance' && (
-                                <motion.div
-                                    layoutId="activeNav"
-                                    className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
-                                    transition={{ duration: 0.3 }}
-                                />
-                            )}
-                        </div>
-
-                        <div className="relative py-2">
-                            <Link
-                                href="/resources"
-                                onClick={() => setActiveMegaMenu(null)}
-                                className={cn(
-                                    "text-sm font-semibold transition-colors",
-                                    pathname === '/resources'
-                                        ? "text-brand-orange"
-                                        : isTransparent && !activeMegaMenu
-                                            ? "text-white/80 hover:text-white group-hover/header:text-slate-600 group-hover/header:hover:text-slate-950"
-                                            : "text-slate-600 hover:text-slate-950"
-                                )}
-                            >
-                                Resources
-                            </Link>
-                            {pathname === '/resources' && (
+                            {pathname === '/compare' && (
                                 <motion.div
                                     layoutId="activeNav"
                                     className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
@@ -250,7 +202,7 @@ const Header = () => {
                     </nav>
 
                     {/* Desktop Actions */}
-                    <div className="hidden lg:flex items-center gap-6">
+                    <div className="hidden lg:flex items-center gap-6 shrink-0">
                         <Link
                             href="/login"
                             className={cn(
@@ -262,21 +214,26 @@ const Header = () => {
                         >
                             Log in
                         </Link>
-                        <Link href="#reality">
-                            <Button variant="primary" size="sm" className="rounded-full shadow-lg text-xs px-6 h-10 bg-brand-orange hover:bg-orange-600 border-none font-bold">Connect with Us</Button>
+                        <Link href="/solutions#industries">
+                            <Button variant="primary" size="sm" className="rounded-full shadow-lg text-xs px-6 h-10 bg-brand-orange hover:bg-orange-600 border-none font-bold">Request Demo</Button>
                         </Link>
                     </div>
 
-                    {/* Mobile Toggle */}
-                    <button
-                        className={cn(
-                            "lg:hidden z-50 transition-colors",
-                            isTransparent && !activeMegaMenu ? "text-white group-hover/header:text-slate-950" : "text-slate-950"
-                        )}
-                        onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-                    >
-                        {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
-                    </button>
+                    {/* Mobile Toggle & Action */}
+                    <div className="flex items-center gap-4 lg:hidden z-50">
+                        <Link href="/solutions#industries">
+                            <Button variant="primary" size="sm" className="h-9 px-4 text-[10px] rounded-full font-bold">Demo</Button>
+                        </Link>
+                        <button
+                            className={cn(
+                                "transition-colors",
+                                isTransparent && !activeMegaMenu ? "text-white group-hover/header:text-slate-950" : "text-slate-950"
+                            )}
+                            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                        >
+                            {mobileMenuOpen ? <X size={24} /> : <Menu size={24} />}
+                        </button>
+                    </div>
                 </div>
             </motion.div>
 
@@ -391,11 +348,9 @@ const Header = () => {
                     >
                         <div className="flex flex-col gap-10">
                             {[
-                                { name: 'Product', href: '/product' },
-                                { name: 'Solutions', href: '/solutions' },
+                                { name: 'Services', href: '/services' },
                                 { name: 'Use Cases', href: '/use-cases' },
-                                { name: 'Compliance', href: '/compliance' },
-                                { name: 'Resources', href: '/resources' }
+                                { name: 'Compare', href: '/compare' }
                             ].map((item) => (
                                 <Link
                                     key={item.name}

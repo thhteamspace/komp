@@ -102,13 +102,9 @@ export default function IndustrySolutions() {
 
                                 {/* Image Integration */}
                                 {(item as any).image && (
-                                    <div className="mb-10 relative overflow-hidden rounded-[2.5rem] border border-slate-50 shadow-inner h-48">
-                                        <img
-                                            src={(item as any).image}
-                                            alt={item.title}
-                                            className="w-full h-full object-cover transform transition-transform duration-1000 group-hover:scale-110"
-                                        />
-                                        <div className="absolute inset-0 bg-gradient-to-t from-white/20 to-transparent" />
+                                    <div className="mb-10 h-48 bg-gray-100 rounded-[2.5rem] border-2 border-dashed border-gray-300 flex flex-col items-center justify-center p-4">
+                                        <span className="text-gray-400 font-bold text-sm">INDUSTRY VISUAL</span>
+                                        <span className="text-gray-300 text-xs mt-1 text-center">Placeholders active</span>
                                     </div>
                                 )}
 

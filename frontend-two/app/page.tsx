@@ -1,10 +1,11 @@
 
-import Hero from '@/sections/Hero';
-import ExecutiveReality from '@/sections/ExecutiveReality';
+import HeroModern from '@/sections/HeroModern';
+import CEOPerspective from '@/sections/CEOPerspective';
+import StatsStrip from '@/sections/StatsStrip';
 import GlobalCoverageMap from '@/sections/GlobalCoverageMap';
-import BentoGrid from '@/sections/BentoGrid';
 import ProductModules from '@/sections/ProductModules';
-import CompetitiveDifferentiation from '@/sections/CompetitiveDifferentiation';
+import ExpansionStalls from '@/sections/ExpansionStalls';
+import QualityAssurance from '@/sections/QualityAssurance';
 import IndustryUseCases from '@/sections/IndustryUseCases';
 import PayrollSlider from '@/sections/PayrollSlider';
 import CostCalculator from '@/sections/CostCalculator';
@@ -18,12 +19,13 @@ import FinalCTA from '@/sections/FinalCTA';
 export default function Home() {
   return (
     <>
-      <Hero />
-      <ExecutiveReality />
+      <HeroModern />
+      <CEOPerspective />
+      <StatsStrip />
       <GlobalCoverageMap />
-      <BentoGrid />
       <ProductModules />
-      <CompetitiveDifferentiation />
+      <ExpansionStalls />
+      <QualityAssurance />
       <IndustryUseCases />
       <PayrollSlider />
       <CostCalculator />

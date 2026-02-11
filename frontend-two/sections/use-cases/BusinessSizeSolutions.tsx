@@ -96,9 +96,9 @@ export default function BusinessSizeSolutions() {
 
                                 <div className="space-y-10 flex-grow">
                                     <div>
-                                        <p className="text-[11px] font-black text-red-500 uppercase tracking-widest mb-4 flex items-center gap-2">
+                                        <div className="text-[11px] font-black text-red-500 uppercase tracking-widest mb-4 flex items-center gap-2">
                                             <div className="w-2 h-2 rounded-full bg-red-500" /> The Problem
-                                        </p>
+                                        </div>
                                         <div className="space-y-4">
                                             <p className="text-brand-black font-bold leading-relaxed">"{stage.problemShort}"</p>
                                             <p className="text-slate-500 text-sm font-medium leading-relaxed">{stage.problemText}</p>
@@ -106,9 +106,9 @@ export default function BusinessSizeSolutions() {
                                     </div>
 
                                     <div className="pt-8 border-t border-slate-100">
-                                        <p className="text-[11px] font-black text-brand-blue uppercase tracking-widest mb-4 flex items-center gap-2">
+                                        <div className="text-[11px] font-black text-brand-blue uppercase tracking-widest mb-4 flex items-center gap-2">
                                             <div className="w-2 h-2 rounded-full bg-brand-blue" /> The KOMP Solution
-                                        </p>
+                                        </div>
                                         <p className="text-slate-700 font-bold leading-relaxed mb-4">{stage.solution}</p>
                                         <div className="p-4 bg-slate-50 rounded-2xl text-xs font-medium text-slate-500 italic">
                                             {stage.framework}
