@@ -1,7 +1,9 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Building2, ShieldAlert, Banknote, ArrowRight } from 'lucide-react';
+
 
 const expansionStalls = [
     {
@@ -55,8 +57,13 @@ const ExpansionStalls = () => {
                             viewport={{ once: true }}
                             className="flex-1 w-full"
                         >
-                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] w-full relative group bg-slate-100 flex items-center justify-center border border-slate-200">
-                                <div className="text-slate-400 font-bold tracking-widest uppercase">Entity Maze Visual</div>
+                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] w-full relative group bg-slate-100 border border-slate-200">
+                                <Image
+                                    src="/images/Gemini_Generated_Image_t9zhxvt9zhxvt9zh.png"
+                                    alt="Entity Maze Visual"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
                             </div>
                         </motion.div>
                         <motion.div
@@ -88,11 +95,13 @@ const ExpansionStalls = () => {
                             viewport={{ once: true }}
                             className="flex-1 w-full"
                         >
-                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] w-full relative group bg-brand-orange flex items-center justify-center">
-                                {/* Abstract Visual for Compliance */}
-                                <div className="text-white/90 text-6xl font-black tracking-tighter opacity-20 select-none">
-                                    global link
-                                </div>
+                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] w-full relative group bg-brand-orange">
+                                <Image
+                                    src="/images/Gemini_Generated_Image_ijl0tiijl0tiijl0.png"
+                                    alt="Global Compliance Link"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
                             </div>
                         </motion.div>
                         <motion.div
@@ -124,8 +133,13 @@ const ExpansionStalls = () => {
                             viewport={{ once: true }}
                             className="flex-1 w-full"
                         >
-                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] w-full relative group bg-slate-100 flex items-center justify-center border border-slate-200">
-                                <span className="text-slate-400 font-bold tracking-widest uppercase">Financial Dashboard Visual</span>
+                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] w-full relative group bg-slate-100 border border-slate-200">
+                                <Image
+                                    src="/images/Gemini_Generated_Image_y31nozy31nozy31n.png"
+                                    alt="Financial Dashboard Visual"
+                                    fill
+                                    className="object-cover group-hover:scale-105 transition-transform duration-700"
+                                />
                             </div>
                         </motion.div>
                         <motion.div

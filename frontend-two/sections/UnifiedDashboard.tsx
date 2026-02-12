@@ -1,6 +1,8 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
+
 
 const UnifiedDashboard = () => {
     return (
@@ -46,11 +48,13 @@ const UnifiedDashboard = () => {
                             viewport={{ once: true }}
                             className="relative"
                         >
-                            <div className="bg-slate-100 rounded-[2rem] shadow-2xl overflow-hidden relative z-10 p-2 transform rotate-1 hover:rotate-0 transition-transform duration-500 h-[400px] border border-slate-200 flex items-center justify-center">
-                                <div className="text-slate-400 font-bold text-xl tracking-widest uppercase">Dashboard UI Placeholder</div>
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-white/90 backdrop-blur-md px-8 py-4 rounded-full shadow-xl">
-                                    <span className="text-brand-orange font-bold text-lg">Live Dashboard View</span>
-                                </div>
+                            <div className="bg-slate-100 rounded-[2rem] shadow-2xl overflow-hidden relative z-10 transform rotate-1 hover:rotate-0 transition-transform duration-500 h-[400px] border border-slate-200">
+                                <Image
+                                    src="/images/Gemini_Generated_Image_w24y11w24y11w24y.png"
+                                    alt="Live Dashboard View"
+                                    fill
+                                    className="object-cover"
+                                />
                             </div>
 
                             {/* Decorative Elements */}

@@ -1,6 +1,7 @@
 'use client';
 
 import { motion } from 'framer-motion';
+import Image from 'next/image';
 import { Play, ArrowRight } from 'lucide-react';
 
 const HeroNew = () => {
@@ -77,68 +78,23 @@ const HeroNew = () => {
                             initial={{ opacity: 0, scale: 0.95 }}
                             animate={{ opacity: 1, scale: 1 }}
                             transition={{ delay: 0.4 }}
-                            className="bg-white rounded-[2rem] p-6 shadow-2xl border border-slate-100 relative"
+                            className="bg-white rounded-[2.5rem] overflow-hidden shadow-2xl border border-slate-100 relative group cursor-pointer"
                         >
-                            <div className="text-center mb-8">
-                                <h3 className="font-bold text-slate-900 text-lg">Global Team Overview</h3>
-                                <div className="h-1 w-12 bg-brand-orange/30 mx-auto mt-2 rounded-full"></div>
-                            </div>
-
-                            {/* Map Container */}
-                            <div className="relative aspect-[4/3] bg-slate-50/50 rounded-xl overflow-hidden border border-slate-100">
-                                {/* World Map Background Placeholder */}
-                                <div className="absolute inset-0 opacity-20 bg-[url('https://upload.wikimedia.org/wikipedia/commons/8/80/World_map_-_low_resolution.svg')] bg-contain bg-center bg-no-repeat" />
-
-                                {/* Central Node - Play Button */}
-                                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 z-20">
-                                    <div className="w-16 h-16 bg-brand-orange rounded-full flex items-center justify-center shadow-lg shadow-orange-500/30 cursor-pointer hover:scale-110 transition-transform">
-                                        <Play fill="white" className="text-white ml-1" size={24} />
-                                    </div>
-                                    <div className="absolute inset-0 bg-brand-orange rounded-full animate-ping opacity-20 -z-10"></div>
-                                </div>
-
-                                {/* Employee Nodes */}
-                                {/* Positions are relative % to mimic the map layout */}
-                                {[
-                                    { top: '30%', left: '20%', name: 'Michael Smith', img: 'https://i.pravatar.cc/100?u=12' },
-                                    { top: '25%', left: '45%', name: 'David Johnson', img: 'https://i.pravatar.cc/100?u=15' },
-                                    { top: '35%', left: '80%', name: 'Hiroshi Tanaka', img: 'https://i.pravatar.cc/100?u=22' },
-                                    { top: '60%', left: '30%', name: 'Isabella Martinez', img: 'https://i.pravatar.cc/100?u=33' },
-                                    { top: '55%', left: '70%', name: 'Ava Chen', img: 'https://i.pravatar.cc/100?u=44' },
-                                    { top: '75%', left: '85%', name: 'Daniel Nguyen', img: 'https://i.pravatar.cc/100?u=55' },
-                                ].map((person, i) => (
-                                    <motion.div
-                                        key={i}
-                                        initial={{ opacity: 0, scale: 0 }}
-                                        animate={{ opacity: 1, scale: 1 }}
-                                        transition={{ delay: 0.6 + (i * 0.1) }}
-                                        style={{ top: person.top, left: person.left }}
-                                        className="absolute transform -translate-x-1/2 -translate-y-1/2 flex flex-col items-center gap-2 z-10"
-                                    >
-                                        <div className="w-10 h-10 rounded-full border-2 border-white shadow-md overflow-hidden relative group cursor-pointer hover:scale-110 transition-transform">
-                                            <img src={person.img} alt={person.name} className="w-full h-full object-cover" />
-                                            <div className="absolute bottom-0 right-0 w-3 h-3 bg-green-500 border-2 border-white rounded-full"></div>
-                                        </div>
-                                        <div className="bg-white/90 backdrop-blur-sm px-2 py-1 rounded-md shadow-sm border border-slate-100 text-[10px] font-bold text-slate-700 whitespace-nowrap">
-                                            {person.name}
-                                        </div>
-
-                                        {/* Connecting Line (Simplified visual) */}
-                                        <svg className="absolute top-1/2 left-1/2 w-[200px] h-[200px] -translate-x-1/2 -translate-y-1/2 pointer-events-none -z-10 overflow-visible opacity-30 text-brand-orange">
-                                            <line x1="50%" y1="50%" x2="50%" y2={i % 2 === 0 ? "0%" : "100%"} stroke="currentColor" strokeWidth="1" strokeDasharray="4 4" className="hidden" />
-                                            {/* Note: In a real complex map, we'd calculate line coordinates to center. Pure CSS lines are tricky with scattered points. 
-                                                For this mock, we'll assume the central "gravity" pulls them visually. 
-                                            */}
-                                        </svg>
-                                    </motion.div>
-                                ))}
+                            {/* Main Visual Image - Full Card Size */}
+                            <div className="relative aspect-[4/3] w-full">
+                                <Image
+                                    src="/images/Gemini_Generated_Image_jumi0bjumi0bjumi.png"
+                                    alt="Global Team Overview"
+                                    fill
+                                    className="object-cover transition-transform duration-1000 group-hover:scale-105"
+                                    priority
+                                />
                             </div>
                         </motion.div>
 
                         {/* Background Decor */}
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gradient-to-tr from-brand-orange/5 to-purple-500/5 rounded-full blur-3xl -z-10" />
                     </div>
-
                 </div>
             </div>
         </section>
