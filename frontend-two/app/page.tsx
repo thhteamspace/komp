@@ -1,9 +1,12 @@
 
-import HeroModern from '@/sections/HeroModern';
+import HeroNew from '@/sections/HeroNew';
+import SpeedOfExpansion from '@/sections/SpeedOfExpansion';
 import CEOPerspective from '@/sections/CEOPerspective';
-import StatsStrip from '@/sections/StatsStrip';
+
 import GlobalCoverageMap from '@/sections/GlobalCoverageMap';
-import ProductModules from '@/sections/ProductModules';
+import UnifiedDashboard from '@/sections/UnifiedDashboard';
+import IndustryFocus from '@/sections/IndustryFocus';
+import BuiltForStability from '@/sections/BuiltForStability';
 import ExpansionStalls from '@/sections/ExpansionStalls';
 import QualityAssurance from '@/sections/QualityAssurance';
 import IndustryUseCases from '@/sections/IndustryUseCases';
@@ -19,23 +22,18 @@ import FinalCTA from '@/sections/FinalCTA';
 export default function Home() {
   return (
     <>
-      <HeroModern />
-      <CEOPerspective />
-      <StatsStrip />
-      <GlobalCoverageMap />
-      <ProductModules />
+      <HeroNew />
+      <SpeedOfExpansion />
+
       <ExpansionStalls />
-      <QualityAssurance />
-      <IndustryUseCases />
-      <PayrollSlider />
-      <CostCalculator />
+      <UnifiedDashboard />
+      <BuiltForStability />
+      <IndustryFocus />
+      <GlobalCoverageMap />
       <OnboardingSteps />
       <div id="case_studies" className="scroll-mt-56" />
       <div id="success_stories" className="scroll-mt-56" />
       <CaseStudies />
-      <TrustProof />
-      <Testimonials />
-      <KnowledgeCenter />
       <FinalCTA />
     </>
   );

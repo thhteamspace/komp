@@ -56,10 +56,25 @@ const Global3DGlobe = () => {
                         <span className="text-brand-orange">Built for Limitless Scale</span>
                     </h2>
 
-                    <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-12 font-medium">
+                    <p className="text-slate-400 text-lg md:text-xl max-w-2xl mx-auto mb-8 font-medium">
                         Unified payroll and compliance infrastructure spanning over <span className="text-white font-bold">150+ countries.</span>
                         One platform to connect your global workforce effortlessly.
                     </p>
+
+                    <div className="flex flex-wrap justify-center gap-x-8 gap-y-2 text-sm text-slate-500 font-semibold mb-12">
+                        <span className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                            Onboarding: 48 Hours
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                            Intelligence: Localized
+                        </span>
+                        <span className="flex items-center gap-2">
+                            <span className="w-1.5 h-1.5 rounded-full bg-brand-orange"></span>
+                            Benefits: Country-Specific
+                        </span>
+                    </div>
 
                     <div className="flex flex-wrap items-center justify-center gap-6">
                         <Button variant="premium" className="rounded-full px-8 h-12 bg-brand-orange text-white hover:bg-brand-orange/90 border-none font-bold">

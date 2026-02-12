@@ -45,128 +45,68 @@ const cases = [
 ];
 
 const CaseStudies = () => {
-    const [activeIndex, setActiveIndex] = useState(0);
-
     return (
-        <section className="py-32 bg-slate-50 relative overflow-hidden scroll-mt-40">
-            <div className="w-full max-w-7xl mx-auto px-6 relative z-10">
-
-                <div className="flex flex-col items-center text-center mb-20 gap-8">
-                    <div className="max-w-4xl mx-auto">
-                        <motion.div
-                            initial={{ opacity: 0, scale: 0.9 }}
-                            whileInView={{ opacity: 1, scale: 1 }}
-                            className="text-brand-blue font-bold text-base mb-6 inline-block"
-                        >
-                            Expansion Stories
-                        </motion.div>
-                        <motion.h2
-                            initial={{ opacity: 0, y: 30 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            className="font-black text-slate-950 tracking-tighter leading-[0.9]"
-                            style={{ fontSize: '4vw' }}
-                        >
-                            Human Impact. <span className="text-brand-orange">Technical Precision.</span>
-                        </motion.h2>
-                    </div>
+        <section className="py-24 bg-slate-50">
+            <div className="max-w-7xl mx-auto px-6">
+                <div className="text-center mb-16">
+                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 tracking-tight">Results That Matter</h2>
                 </div>
 
-                <div className="relative">
-                    <AnimatePresence mode="wait">
-                        <motion.div
-                            key={activeIndex}
-                            initial={{ opacity: 0, scale: 0.98, y: 20 }}
-                            animate={{ opacity: 1, scale: 1, y: 0 }}
-                            exit={{ opacity: 0, scale: 1.02, y: -20 }}
-                            transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            className="bg-white rounded-[3rem] border border-slate-200 overflow-hidden shadow-[0_30px_70px_rgba(0,0,0,0.05)] flex flex-col lg:flex-row min-h-[500px]"
-                        >
-                            {/* Left: Content Area */}
-                            <div className="flex-1 p-10 md:p-14 flex flex-col justify-between order-2 lg:order-1">
-                                <div>
-                                    <div className="flex items-center gap-4 mb-10">
-                                        <div className="w-12 h-12 rounded-2xl bg-slate-50 border border-slate-100 flex items-center justify-center text-slate-950">
-                                            {(() => {
-                                                const Icon = cases[activeIndex].icon;
-                                                return <Icon size={24} />;
-                                            })()}
-                                        </div>
-                                        <div>
-                                            <h3 className="text-2xl font-black text-slate-950 tracking-tight">{cases[activeIndex].company}</h3>
-                                            <p className="text-[10px] font-bold tracking-wider text-slate-400">{cases[activeIndex].sector}</p>
-                                        </div>
-                                    </div>
-
-                                    <div className="grid grid-cols-1 md:grid-cols-2 gap-y-12 gap-x-16">
-                                        <div className="space-y-4">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full bg-rose-50 flex items-center justify-center text-rose-500">
-                                                    <AlertCircle size={16} />
-                                                </div>
-                                                <span className="text-[11px] font-black tracking-[0.2em] uppercase text-slate-400">The Challenge</span>
-                                            </div>
-                                            <p className="text-xl font-bold text-slate-900 leading-snug">
-                                                {cases[activeIndex].problem}
-                                            </p>
-                                        </div>
-
-                                        <div className="space-y-4">
-                                            <div className="flex items-center gap-3">
-                                                <div className="w-8 h-8 rounded-full bg-blue-50 flex items-center justify-center text-brand-blue">
-                                                    <Zap size={16} />
-                                                </div>
-                                                <span className="text-[11px] font-black tracking-[0.2em] uppercase text-slate-400">Our Strategy</span>
-                                            </div>
-                                            <p className="text-xl font-medium text-slate-600 leading-snug">
-                                                {cases[activeIndex].solution}
-                                            </p>
-                                        </div>
-                                    </div>
-                                </div>
-
-                                <div className="mt-12 pt-10 border-t border-slate-100 flex flex-col sm:flex-row items-center justify-between gap-8">
-                                    <div className="flex items-center gap-6">
-                                        <div className="w-16 h-16 rounded-2xl bg-emerald-50 flex items-center justify-center text-emerald-500 flex-shrink-0">
-                                            <CheckCircle2 size={32} />
-                                        </div>
-                                        <div>
-                                            <div className="text-[10px] font-black tracking-[0.2em] uppercase text-slate-400 mb-1">Impact Delivered</div>
-                                            <p className="text-3xl font-black text-slate-950 tracking-tight leading-none">
-                                                {cases[activeIndex].result}
-                                            </p>
-                                        </div>
-                                    </div>
-                                    <Button variant="premium" className="rounded-full px-10 h-14 whitespace-nowrap">
-                                        Read Case Study
-                                    </Button>
-                                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    {/* Card 1 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col justify-between min-h-[400px]"
+                    >
+                        <div>
+                            <div className="text-brand-orange mb-6">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" className="opacity-20"><path d="M14.017 21L14.017 18C14.017 16.896 14.352 15.938 15.022 15.126C15.692 14.314 16.73 13.626 18.136 13.062L18.665 14.28C17.657 14.544 17.033 14.938 16.793 15.462C16.553 15.986 16.433 16.669 16.433 17.511L16.433 21L14.017 21ZM5.09705 21L5.09705 18C5.09705 16.896 5.43205 15.938 6.10205 15.126C6.77205 14.314 7.81005 13.626 9.21605 13.062L9.74505 14.28C8.73705 14.544 8.11305 14.938 7.87305 15.462C7.63305 15.986 7.51305 16.669 7.51305 17.511L7.51305 21L5.09705 21Z"></path></svg>
                             </div>
-
-                            {/* Right: Visual Area */}
-                            <div className="w-full lg:w-[40%] relative overflow-hidden min-h-[300px] lg:min-h-full order-1 lg:order-2">
-                                <img
-                                    src={cases[activeIndex].image}
-                                    alt={cases[activeIndex].company}
-                                    className="absolute inset-0 w-full h-full object-cover saturate-0 opacity-40 group-hover:saturate-100 transition-all duration-1000"
-                                />
-                                <div className="absolute inset-0 bg-gradient-to-l from-transparent via-white/5 to-white pointer-events-none" />
-
-                                {/* Overlay Accent */}
-                                <div className="absolute top-12 right-12 bottom-12 left-12 border-2 border-white/20 rounded-[3rem] pointer-events-none" />
+                            <h3 className="text-2xl font-bold text-brand-orange mb-4">Prevented $200k Exposure</h3>
+                            <p className="text-xl text-slate-500 font-medium leading-relaxed">
+                                "KOMP identified critical misclassification risks in our EU pilot before we signed. Their legal infrastructure saved us from a massive regulatory fine."
+                            </p>
+                        </div>
+                        <div className="flex items-center gap-4 mt-8">
+                            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-slate-100">
+                                <img src="https://i.pravatar.cc/150?u=a042581f4e29026024d" alt="Sarah Chen" className="w-full h-full object-cover" />
                             </div>
-                        </motion.div>
-                    </AnimatePresence>
+                            <div>
+                                <div className="font-bold text-slate-900">Sarah Chen</div>
+                                <div className="text-xs font-bold text-brand-orange uppercase">CFO, TechFlow</div>
+                            </div>
+                        </div>
+                    </motion.div>
 
-                    {/* Navigation Dots Below Card */}
-                    <div className="flex justify-center mt-12 gap-4">
-                        {cases.map((_, i) => (
-                            <button
-                                key={i}
-                                onClick={() => setActiveIndex(i)}
-                                className={`h-2 rounded-full transition-all duration-500 ${activeIndex === i ? 'bg-brand-orange w-24' : 'bg-slate-300 w-12 hover:bg-slate-400'}`}
-                            />
-                        ))}
-                    </div>
+                    {/* Card 2 */}
+                    <motion.div
+                        initial={{ opacity: 0, y: 20 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.1 }}
+                        className="bg-white p-10 rounded-[2.5rem] shadow-sm border border-slate-100 flex flex-col justify-between min-h-[400px]"
+                    >
+                        <div>
+                            <div className="text-brand-orange mb-6">
+                                <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor" className="opacity-20"><path d="M14.017 21L14.017 18C14.017 16.896 14.352 15.938 15.022 15.126C15.692 14.314 16.73 13.626 18.136 13.062L18.665 14.28C17.657 14.544 17.033 14.938 16.793 15.462C16.553 15.986 16.433 16.669 16.433 17.511L16.433 21L14.017 21ZM5.09705 21L5.09705 18C5.09705 16.896 5.43205 15.938 6.10205 15.126C6.77205 14.314 7.81005 13.626 9.21605 13.062L9.74505 14.28C8.73705 14.544 8.11305 14.938 7.87305 15.462C7.63305 15.986 7.51305 16.669 7.51305 17.511L7.51305 21L5.09705 21Z"></path></svg>
+                            </div>
+                            <h3 className="text-2xl font-bold text-brand-orange mb-4">Zero Audit Findings</h3>
+                            <p className="text-xl text-slate-500 font-medium leading-relaxed">
+                                "We expanded into 3 new markets in 60 days. KOMP handled every tax filing and localized contract clause perfectly. We passed due diligence with flying colors."
+                            </p>
+                        </div>
+                        <div className="flex items-center gap-4 mt-8">
+                            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-slate-100">
+                                <img src="https://i.pravatar.cc/150?u=a042581f4e29026704d" alt="Mike Reeves" className="w-full h-full object-cover" />
+                            </div>
+                            <div>
+                                <div className="font-bold text-slate-900">Mike Reeves</div>
+                                <div className="text-xs font-bold text-brand-orange uppercase">VP People, ScaleApi</div>
+                            </div>
+                        </div>
+                    </motion.div>
                 </div>
             </div>
         </section>

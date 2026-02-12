@@ -32,70 +32,124 @@ const expansionStalls = [
 
 const ExpansionStalls = () => {
     return (
-        <section className="py-24 bg-white relative overflow-hidden">
+        <section className="py-24 bg-white overflow-hidden">
             <div className="max-w-7xl mx-auto px-6">
 
-                <div className="text-center mb-16">
-                    <motion.h3
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        className="text-3xl md:text-5xl font-black text-slate-900 tracking-tight mb-4"
-                    >
-                        Why <span className="text-brand-orange">Global Expansion</span> Usually Stalls
-                    </motion.h3>
-                    <motion.p
-                        initial={{ opacity: 0, y: 20 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.1 }}
-                        className="text-slate-400 font-medium text-lg"
-                    >
-                        Legacy providers are not built for speed. We are.
-                    </motion.p>
+                <div className="mb-24 max-w-3xl">
+                    <h2 className="text-4xl md:text-5xl font-black text-slate-900 mb-6 leading-tight">
+                        Why Global <br />
+                        Expansion Usually <span className="text-brand-orange">Stalls</span>
+                    </h2>
+                    <p className="text-lg text-slate-500 max-w-xl">
+                        Traditional methods are slow, risky, and expensive. Don't let compliance hurdles block your C-level vision.
+                        Legacy systems weren't built for velocity.
+                    </p>
                 </div>
 
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-                    {expansionStalls.map((stall, i) => (
+                <div className="space-y-32">
+                    {/* Item 1 - Image Left, Text Right */}
+                    <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
                         <motion.div
-                            key={i}
-                            initial={{ opacity: 0, y: 20 }}
-                            whileInView={{ opacity: 1, y: 0 }}
-                            transition={{ delay: i * 0.1 }}
-                            whileHover={{ y: -5 }}
-                            className="bg-slate-50 rounded-[2rem] p-8 border border-slate-100 hover:shadow-xl hover:bg-white transition-all duration-300 group flex flex-col items-center text-center"
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="flex-1 w-full"
                         >
-                            <div className={`w-16 h-16 rounded-2xl flex items-center justify-center mb-6 ${stall.bg} ${stall.color}`}>
-                                <stall.icon size={32} />
-                            </div>
-
-                            <h4 className="text-xl font-bold text-slate-900 mb-3">{stall.title}</h4>
-
-                            <p className="text-slate-500 mb-8 text-sm leading-relaxed font-medium">
-                                {stall.description}
-                            </p>
-
-                            <div className="mt-auto w-full pt-6 border-t border-slate-200/50">
-                                <div className="flex items-center justify-center gap-2 mb-1">
-                                    <div className="w-4 h-4 rounded-full bg-slate-900 text-white flex items-center justify-center text-[10px] font-bold">K</div>
-                                    <span className="text-xs font-bold text-slate-900">KOMP Advantage</span>
-                                </div>
-                                <p className="text-xs font-bold text-slate-600 leading-tight">
-                                    {stall.komp}
-                                </p>
+                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] w-full relative group bg-slate-100 flex items-center justify-center border border-slate-200">
+                                <div className="text-slate-400 font-bold tracking-widest uppercase">Entity Maze Visual</div>
                             </div>
                         </motion.div>
-                    ))}
-                </div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="flex-1 w-full"
+                        >
+                            <div className="w-16 h-1 bg-brand-orange mb-8" />
+                            <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-brand-orange mb-6">
+                                <Building2 size={24} />
+                            </div>
+                            <h3 className="text-3xl font-black text-slate-900 mb-4">The Entity Trap</h3>
+                            <p className="text-slate-500 text-lg leading-relaxed mb-8">
+                                Setting up legal entities involves months of bureaucracy. From local bank accounts to director requirements, it's a distraction from your core business.
+                            </p>
+                            <div className="pl-6 border-l-2 border-brand-orange/30">
+                                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Reality</p>
+                                <p className="text-slate-900 font-bold">6-12 Months per country launch.</p>
+                            </div>
+                        </motion.div>
+                    </div>
 
-                <div className="mt-16 text-center">
-                    <motion.div
-                        initial={{ opacity: 0 }}
-                        whileInView={{ opacity: 1 }}
-                        className="inline-flex items-center gap-2 text-slate-900 font-bold border-b-2 border-brand-orange hover:text-brand-orange cursor-pointer transition-colors pb-1"
-                    >
-                        See Full Risk Analysis <ArrowRight size={18} />
-                    </motion.div>
-                </div>
+                    {/* Item 2 - Text Left, Image Right */}
+                    <div className="flex flex-col md:flex-row-reverse items-center gap-12 md:gap-24">
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="flex-1 w-full"
+                        >
+                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] w-full relative group bg-brand-orange flex items-center justify-center">
+                                {/* Abstract Visual for Compliance */}
+                                <div className="text-white/90 text-6xl font-black tracking-tighter opacity-20 select-none">
+                                    global link
+                                </div>
+                            </div>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="flex-1 w-full"
+                        >
+                            <div className="w-16 h-1 bg-brand-orange mb-8" />
+                            <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-brand-orange mb-6">
+                                <ShieldAlert size={24} />
+                            </div>
+                            <h3 className="text-3xl font-black text-slate-900 mb-4">The Compliance Gap</h3>
+                            <p className="text-slate-500 text-lg leading-relaxed mb-8">
+                                Navigating local labor laws, benefits, and tax codes creates enormous legal exposure. Minor slip-ups prevent massive fines and legal integrity risks.
+                            </p>
+                            <div className="pl-6 border-l-2 border-brand-orange/30">
+                                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Risk</p>
+                                <p className="text-slate-900 font-bold">$100k+ fines per misclassified worker.</p>
+                            </div>
+                        </motion.div>
+                    </div>
 
+                    {/* Item 3 - Image Left, Text Right */}
+                    <div className="flex flex-col md:flex-row items-center gap-12 md:gap-24">
+                        <motion.div
+                            initial={{ opacity: 0, x: -50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="flex-1 w-full"
+                        >
+                            <div className="rounded-[2.5rem] overflow-hidden shadow-2xl h-[400px] w-full relative group bg-slate-100 flex items-center justify-center border border-slate-200">
+                                <span className="text-slate-400 font-bold tracking-widest uppercase">Financial Dashboard Visual</span>
+                            </div>
+                        </motion.div>
+                        <motion.div
+                            initial={{ opacity: 0, x: 50 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            className="flex-1 w-full"
+                        >
+                            <div className="w-16 h-1 bg-brand-orange mb-8" />
+                            <div className="w-12 h-12 bg-orange-50 rounded-2xl flex items-center justify-center text-brand-orange mb-6">
+                                <Banknote size={24} />
+                            </div>
+                            <h3 className="text-3xl font-black text-slate-900 mb-4">The Shadow Payroll</h3>
+                            <p className="text-slate-500 text-lg leading-relaxed mb-8">
+                                Managing multiple payroll providers leads to fractured data. Different spreadsheets, different currencies, and no real-time visibility into costs.
+                            </p>
+                            <div className="pl-6 border-l-2 border-brand-orange/30">
+                                <p className="text-sm font-bold text-slate-400 uppercase tracking-widest mb-1">Impact</p>
+                                <p className="text-slate-900 font-bold">0% Real-time cost visibility.</p>
+                            </div>
+                        </motion.div>
+                    </div>
+
+                </div>
             </div>
         </section>
     );

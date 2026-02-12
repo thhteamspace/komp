@@ -76,7 +76,7 @@ const Header = () => {
         <motion.header
             initial={false}
             animate={{
-                top: activeMegaMenu || !isScrolled ? 0 : 24,
+                top: activeMegaMenu || !isScrolled ? 0 : 8,
                 paddingLeft: activeMegaMenu || !isScrolled ? 0 : 16,
                 paddingRight: activeMegaMenu || !isScrolled ? 0 : 16,
             }}
@@ -91,14 +91,16 @@ const Header = () => {
                     borderRadius: activeMegaMenu || !isScrolled ? '0px' : '64px',
                     backgroundColor: activeMegaMenu || !isScrolled ? 'rgba(255, 255, 255, 0.8)' : 'rgba(255, 255, 255, 0.9)',
                 }}
-                transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                transition={{ duration: 0.0, ease: [0.16, 1, 0.3, 1] }}
                 className={cn(
                     "w-full py-3 transition-colors duration-500",
                     // Apply base styles only when NOT transparent
                     !isTransparent && "backdrop-blur-xl border-b border-gray-100 shadow-sm",
                     // Apply floating island styles when scrolled (this inherently implies !isTransparent usually, but kept for specific floating state)
                     !(activeMegaMenu || !isScrolled) && "border border-white/50 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] px-10",
-                    // Force clean slate when transparent
+                    // ForcApply floating island styles when scrolled (this inherently implies !isTransparent usually, but kept for specific floating state)
+                    !(activeMegaMenu || !isScrolled) && "border border-white/50 shadow-[0_20px_50px_-12px_rgba(0,0,0,0.08)] px-10",
+                    // e clean slate when transparent
                     isTransparent ? "bg-transparent border-none shadow-none backdrop-blur-none" : ""
                 )}
             >
@@ -371,7 +373,7 @@ const Header = () => {
                     </motion.div>
                 )}
             </AnimatePresence>
-        </motion.header>
+        </motion.header >
     );
 };
 
