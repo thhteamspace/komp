@@ -48,7 +48,7 @@ const UnifiedDashboard = () => {
                             viewport={{ once: true }}
                             className="relative"
                         >
-                            <div className="bg-slate-100 rounded-[2rem] shadow-2xl overflow-hidden relative z-10 transform rotate-1 hover:rotate-0 transition-transform duration-500 h-[400px] border border-slate-200">
+                            <div className="bg-slate-100 rounded-[2.5rem] shadow-2xl overflow-hidden relative z-10 h-[400px] border border-slate-200">
                                 <Image
                                     src="/images/Gemini_Generated_Image_w24y11w24y11w24y.png"
                                     alt="Live Dashboard View"

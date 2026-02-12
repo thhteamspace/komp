@@ -2,11 +2,12 @@
 
 import { motion } from 'framer-motion';
 import { Globe, Zap, ShieldCheck, PlayCircle, ArrowRight } from 'lucide-react';
+import Image from 'next/image';
 import Button from '@/components/Button';
 
 const ServicesHero = () => {
     return (
-        <section className="relative pt-24 pb-32 overflow-hidden bg-[#f8f6f5]">
+        <section className="relative pt-64 pb-32 overflow-hidden bg-[#f8f6f5] min-h-screen">
             {/* Background Gradient Blurs */}
             <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-full max-w-7xl z-0 pointer-events-none">
                 <div className="absolute top-20 left-10 w-80 h-80 bg-[#FF8C1A]/10 rounded-full blur-[100px]" />
@@ -14,11 +15,12 @@ const ServicesHero = () => {
             </div>
 
             <div className="relative z-10 max-w-7xl mx-auto px-6 text-center">
-                <div className="max-w-4xl mx-auto mb-12">
+                <div className="max-w-4xl mx-auto mb-24">
                     {/* Badge */}
                     <motion.div
                         initial={{ opacity: 0, scale: 0.9 }}
-                        animate={{ opacity: 1, scale: 1 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
                         className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-orange-100/80 text-[#FF8C1A] text-xs font-bold tracking-wide uppercase mb-8 border border-[#FF8C1A]/20"
                     >
                         <span className="w-2.5 h-2.5 rounded-full bg-[#FF8C1A] animate-pulse" />
@@ -27,7 +29,8 @@ const ServicesHero = () => {
 
                     <motion.h1
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ delay: 0.1 }}
                         className="text-4xl md:text-6xl lg:text-[5.5rem] font-black tracking-tight text-[#1A1A1A] leading-[1.1] mb-8"
                     >
@@ -36,7 +39,8 @@ const ServicesHero = () => {
 
                     <motion.p
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ delay: 0.2 }}
                         className="text-xl md:text-2xl text-[#5F6B7C] max-w-3xl mx-auto leading-relaxed mb-12"
                     >
@@ -46,7 +50,8 @@ const ServicesHero = () => {
                     {/* CTA Buttons */}
                     <motion.div
                         initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
+                        whileInView={{ opacity: 1, y: 0 }}
+                        viewport={{ once: true }}
                         transition={{ delay: 0.3 }}
                         className="flex flex-col sm:flex-row items-center justify-center gap-5"
                     >
@@ -60,23 +65,38 @@ const ServicesHero = () => {
                     </motion.div>
                 </div>
 
-                {/* Hero Illustration Placeholder - Stylized */}
+                {/* Hero Illustration - Now only reveals on scroll */}
                 <motion.div
-                    initial={{ opacity: 0, y: 40 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 0.4, duration: 0.8 }}
-                    className="relative max-w-6xl mx-auto mb-20 px-4"
+                    initial={{ opacity: 0, y: 100 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, amount: 0.3 }}
+                    transition={{ duration: 1, ease: "easeOut" }}
+                    className="relative max-w-6xl mx-auto mb-32 px-4"
                 >
-                    <div className="bg-[#F2F4F7] rounded-[2.5rem] border border-slate-100 shadow-[0_40px_100px_-20px_rgba(0,0,0,0.1)] overflow-hidden aspect-[16/8] flex flex-col items-center justify-center relative group">
-                        {/* Placeholder Icon */}
-                        <div className="w-16 h-16 text-slate-300 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-                                <circle cx="9" cy="9" r="2" />
-                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                            </svg>
+                    <div className="rounded-[3rem] overflow-hidden relative group">
+                        {/* Premium Image Implementation with focus on center */}
+                        <div className="relative w-full aspect-[21/9]">
+                            <Image
+                                src="/images/Gemini_Generated_Image_2dtn9m2dtn9m2dtn.png"
+                                alt="Services Infrastructure Visualization"
+                                fill
+                                className="object-cover scale-110"
+                                priority
+                            />
+
+                            {/* 4-Way Vignette to make borders disappear into background */}
+                            {/* Top Fade */}
+                            <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-[#f8f6f5] via-[#f8f6f5]/40 to-transparent z-10" />
+                            {/* Bottom Fade */}
+                            <div className="absolute inset-x-0 bottom-0 h-32 bg-gradient-to-t from-[#f8f6f5] via-[#f8f6f5]/40 to-transparent z-10" />
+                            {/* Left Fade - Reduced width */}
+                            <div className="absolute inset-y-0 left-0 w-16 bg-gradient-to-r from-[#f8f6f5] via-[#f8f6f5]/20 to-transparent z-10" />
+                            {/* Right Fade - Reduced width */}
+                            <div className="absolute inset-y-0 right-0 w-16 bg-gradient-to-l from-[#f8f6f5] via-[#f8f6f5]/20 to-transparent z-10" />
+
+                            {/* Stronger central focus overlay */}
+                            <div className="absolute inset-0 bg-radial-gradient from-transparent to-[#f8f6f5]/20 pointer-events-none z-0" />
                         </div>
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Hero Illustration Placeholder</span>
                     </div>
                 </motion.div>
 

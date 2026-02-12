@@ -12,7 +12,7 @@ import QualityAssurance from '@/sections/QualityAssurance';
 import IndustryUseCases from '@/sections/IndustryUseCases';
 import PayrollSlider from '@/sections/PayrollSlider';
 import CostCalculator from '@/sections/CostCalculator';
-import OnboardingSteps from '@/sections/OnboardingSteps';
+
 import CaseStudies from '@/sections/CaseStudies';
 import TrustProof from '@/sections/TrustProof';
 import Testimonials from '@/sections/Testimonials';
@@ -30,7 +30,7 @@ export default function Home() {
       <BuiltForStability />
       <IndustryFocus />
       <GlobalCoverageMap />
-      <OnboardingSteps />
+
       <div id="case_studies" className="scroll-mt-56" />
       <div id="success_stories" className="scroll-mt-56" />
       <CaseStudies />

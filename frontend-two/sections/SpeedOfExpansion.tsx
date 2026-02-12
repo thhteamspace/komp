@@ -45,23 +45,23 @@ const SpeedOfExpansion = () => {
             >
                 <div className="absolute inset-0 w-full h-full">
                     <Image
-                        src="/images/Gemini_Generated_Image_ui53xbui53xbui53 copy.png"
+                        src="/images/Gemini_Generated_Image_8zpdd98zpdd98zpd.png"
                         alt="Global Network Visualization"
                         fill
-                        className="object-contain object-top scale-110 md:scale-125 -translate-y-10"
+                        className="object-contain object-top scale-110 md:scale-125 -translate-y-24"
                         priority
                     />
                 </div>
 
-                {/* Side Fades to blend smoothly - Extremely narrow to not hide image text */}
-                <div className="absolute inset-y-0 left-0 w-6 bg-gradient-to-r from-white to-transparent z-20" />
-                <div className="absolute inset-y-0 right-0 w-6 bg-gradient-to-l from-white to-transparent z-20" />
+                {/* Side Fades to blend smoothly - Increased width and opacity to hide lines */}
+                <div className="absolute inset-y-0 left-0 w-24 bg-gradient-to-r from-white via-white/40 to-transparent z-20" />
+                <div className="absolute inset-y-0 right-0 w-24 bg-gradient-to-l from-white via-white/40 to-transparent z-20" />
 
-                {/* Top Fade to blend smoothly - Slightly smaller */}
-                <div className="absolute inset-x-0 top-0 h-32 bg-gradient-to-b from-white via-white/20 to-transparent z-20" />
+                {/* Top Fade to blend smoothly - Increased height and opacity */}
+                <div className="absolute inset-x-0 top-0 h-48 bg-gradient-to-b from-white via-white/50 to-transparent z-20" />
 
-                {/* Bottom Fade to White - Aggressive to hide the horizontal line */}
-                <div className="absolute inset-x-0 bottom-0 h-64 bg-gradient-to-t from-white via-white to-transparent z-30" />
+                {/* Bottom Fade to White - Reduced height as requested */}
+                <div className="absolute inset-x-0 bottom-0 h-48 bg-gradient-to-t from-white via-white/80 to-transparent z-30" />
 
 
                 {/* Intense Orange Glow at center bottom - Reduced opacity for clarity */}

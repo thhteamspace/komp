@@ -32,7 +32,7 @@ const userAvatars = [
 
 const Global3DGlobe = () => {
     return (
-        <section id="coverage" className="pt-32 pb-64 bg-[#0a0a0a] relative flex flex-col items-center text-white border-t border-white/5">
+        <section id="coverage" className="pt-32 pb-24 bg-[#0a0a0a] relative flex flex-col items-center text-white border-t border-white/5">
             {/* Background Glows for Atmosphere */}
             <div className="absolute inset-0 z-0 pointer-events-none">
                 <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[1000px] h-[600px] bg-brand-orange/5 blur-[150px] rounded-full opacity-50" />
@@ -88,13 +88,9 @@ const Global3DGlobe = () => {
                 </div>
 
                 {/* Symbolic Global Interface with 3D Tilt */}
+                {/* Symbolic Global Interface with 3D Tilt - Stabilized as requested */}
                 <motion.div
-                    initial={{ rotateX: 10, rotateY: -10 }}
-                    animate={{
-                        rotateX: [10, 15, 10],
-                        rotateY: [-10, 0, -10]
-                    }}
-                    transition={{ duration: 20, repeat: Infinity, ease: "easeInOut" }}
+                    initial={{ rotateX: 10, rotateY: 0 }}
                     style={{ perspective: 2000, transformStyle: 'preserve-3d' }}
                     className="relative w-full aspect-[21/10] mt-12 flex items-center justify-center"
                 >
