@@ -9,21 +9,39 @@ const ProblemsSection = () => {
             title: "Fragmented Expansion Model",
             desc: "Each new country required separate entities, advisors, and payroll providers. Incorporation timelines stretched to months with high upfront costs.",
             visual: (
-                <div className="w-40 h-40 bg-gray-100 rounded-full flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 font-bold text-xs text-center p-2">VISUAL PLACEHOLDER</div>
+                <div className="w-full h-40 flex items-center justify-center">
+                    <img
+                        src="/images/image copy 7.png"
+                        alt="Fragmented Expansion Model"
+                        className="w-full h-full object-contain"
+                    />
+                </div>
             )
         },
         {
             title: "Limited Financial Visibility",
             desc: "Payroll ran through multiple local vendors. FX exposure and intermediary fees inflated costs, leaving Finance without a consolidated global view.",
             visual: (
-                <div className="w-40 h-40 bg-gray-100 rounded-full flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 font-bold text-xs text-center p-2">VISUAL PLACEHOLDER</div>
+                <div className="w-full h-40 flex items-center justify-center">
+                    <img
+                        src="/images/image copy 9.png"
+                        alt="Limited Financial Visibility"
+                        className="w-full h-full object-contain"
+                    />
+                </div>
             )
         },
         {
             title: "Escalating Compliance Risk",
             desc: "Country-specific labor laws created ongoing legal uncertainty. Leadership time was consumed managing jurisdiction-by-jurisdiction risk instead of growth.",
             visual: (
-                <div className="w-40 h-40 bg-gray-100 rounded-full flex items-center justify-center border-2 border-dashed border-gray-300 text-gray-400 font-bold text-xs text-center p-2">VISUAL PLACEHOLDER</div>
+                <div className="w-full h-40 flex items-center justify-center">
+                    <img
+                        src="/images/image copy 10.png"
+                        alt="Escalating Compliance Risk"
+                        className="w-full h-full object-contain"
+                    />
+                </div>
             )
         }
     ];

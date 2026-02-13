@@ -62,19 +62,42 @@ const HRISRelocation = () => {
                     {services.map((service, i) => (
                         <div key={i} className="flex flex-col">
                             {/* Visual Box (Placeholder style from image) */}
+                            {/* Visual Box (Placeholder style from image) */}
                             <motion.div
                                 initial={{ opacity: 0, y: 20 }}
                                 whileInView={{ opacity: 1, y: 0 }}
                                 transition={{ delay: i * 0.1 }}
                                 className="bg-[#eff2f6] rounded-[2rem] aspect-[4/3] flex flex-col items-center justify-center mb-8 relative group overflow-hidden"
                             >
-                                <div className="text-slate-300 transform group-hover:scale-110 transition-transform duration-700">
-                                    {service.icon}
-                                </div>
-                                <span className="mt-6 text-[11px] font-bold text-slate-400 uppercase tracking-[0.2em]">
-                                    {service.placeholder}
-                                </span>
-                                <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
+                                {service.title === "Free Global HRIS" ? (
+                                    <img
+                                        src="/images/Gemini_Generated_Image_wwo9jnwwo9jnwwo9.png"
+                                        alt={service.title}
+                                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                ) : service.title === "Seamless Relocation" ? (
+                                    <img
+                                        src="/images/Gemini_Generated_Image_xd4bhcxd4bhcxd4b.png"
+                                        alt={service.title}
+                                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                ) : service.title === "Visa & Immigration" ? (
+                                    <img
+                                        src="/images/image copy 6.png"
+                                        alt={service.title}
+                                        className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
+                                    />
+                                ) : (
+                                    <>
+                                        <div className="text-slate-300 transform group-hover:scale-110 transition-transform duration-700">
+                                            {service.icon}
+                                        </div>
+                                        <span className="mt-6 text-[11px] font-bold text-slate-400 uppercase tracking-[0.2em]">
+                                            {service.placeholder}
+                                        </span>
+                                        <div className="absolute inset-0 bg-gradient-to-tr from-white/5 to-transparent pointer-events-none" />
+                                    </>
+                                )}
                             </motion.div>
 
                             {/* Text Content Below (Left Aligned) */}

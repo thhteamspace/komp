@@ -5,6 +5,7 @@ import EORService from '@/sections/services/EORService';
 import AORService from '@/sections/services/AORService';
 import GlobalPayroll from '@/sections/services/GlobalPayroll';
 import HRISRelocation from '@/sections/services/HRISRelocation';
+import ModuleFramework from '@/sections/services/ModuleFramework';
 import ServicesFinalCTA from '@/sections/services/ServicesFinalCTA';
 
 export default function ServicesPage() {
@@ -15,6 +16,7 @@ export default function ServicesPage() {
             <AORService />
             <GlobalPayroll />
             <HRISRelocation />
+            <ModuleFramework />
             <ServicesFinalCTA />
         </main>
     );

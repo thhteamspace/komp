@@ -68,6 +68,7 @@ export default function GlobalExpansionCase() {
                         {[
                             {
                                 title: 'Fragmented Expansion Model',
+                                image: '/images/image copy 7.png',
                                 items: [
                                     'Each country required separate legal entities, advisors, and payroll providers',
                                     'Incorporation timelines stretched from weeks to months',
@@ -91,10 +92,18 @@ export default function GlobalExpansionCase() {
                                 ]
                             }
                         ].map((box, i) => (
-                            <div key={i} className="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100 flex flex-col h-full">
+                            <div key={i} className="p-10 bg-slate-50 rounded-[2.5rem] border border-slate-100 flex flex-col h-full overflow-hidden">
                                 <h4 className="text-xl font-black text-brand-black mb-6 flex gap-2">
                                     <span className="text-red-500">#</span> {box.title}
                                 </h4>
+
+                                {/* Image for the first card */}
+                                {box.image && (
+                                    <div className="mb-6 rounded-2xl overflow-hidden shadow-sm border border-slate-200">
+                                        <img src={box.image} alt={box.title} className="w-full h-auto object-cover" />
+                                    </div>
+                                )}
+
                                 <ul className="space-y-4 flex-grow">
                                     {box.items.map((item, j) => (
                                         <li key={j} className="flex gap-3 text-sm text-slate-500 font-medium leading-relaxed">

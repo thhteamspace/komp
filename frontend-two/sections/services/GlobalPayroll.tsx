@@ -31,15 +31,14 @@ const GlobalPayroll = () => {
                     transition={{ duration: 0.8 }}
                     className="relative max-w-6xl mx-auto"
                 >
-                    <div className="bg-[#F2F4F7] rounded-[3rem] border border-slate-200 aspect-[21/9] flex flex-col items-center justify-center relative group shadow-sm">
-                        <div className="w-20 h-20 text-slate-300 mb-4">
-                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-                                <circle cx="9" cy="9" r="2" />
-                                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                            </svg>
-                        </div>
-                        <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Global Payroll Illustration Placeholder</span>
+                    <div className="bg-white rounded-[3rem] aspect-[16/9] flex flex-col items-center justify-center relative group overflow-hidden">
+                        <img
+                            src="/images/Gemini_Generated_Image_tjdcu9tjdcu9tjdc.png"
+                            alt="Global Payroll System"
+                            className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                        />
+                        {/* Vignette Fade Overlay */}
+                        <div className="absolute inset-0 shadow-[inset_0_0_80px_60px_#fff] pointer-events-none z-10" />
                     </div>
                 </motion.div>
             </div>

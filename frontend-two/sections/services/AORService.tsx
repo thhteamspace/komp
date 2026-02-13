@@ -15,15 +15,12 @@ const AORService = () => {
                         whileInView={{ opacity: 1, x: 0 }}
                         className="relative order-2 lg:order-1"
                     >
-                        <div className="relative rounded-[3rem] bg-[#F2F4F7] border border-slate-200 aspect-[4/3] flex flex-col items-center justify-center overflow-hidden group shadow-sm">
-                            <div className="w-16 h-16 text-slate-300 mb-4">
-                                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1" strokeLinecap="round" strokeLinejoin="round" className="w-full h-full">
-                                    <rect width="18" height="18" x="3" y="3" rx="2" ry="2" />
-                                    <circle cx="9" cy="9" r="2" />
-                                    <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" />
-                                </svg>
-                            </div>
-                            <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">AOR Illustration Placeholder</span>
+                        <div className="relative rounded-[3rem] border border-slate-200 aspect-[4/3] flex flex-col items-center justify-center overflow-hidden group shadow-sm bg-white">
+                            <img
+                                src="/images/image copy 5.png"
+                                alt="AOR Services - Contractor Management"
+                                className="w-full h-full object-cover transform hover:scale-105 transition-transform duration-700"
+                            />
                         </div>
                     </motion.div>
 

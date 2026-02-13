@@ -48,11 +48,12 @@ const SolutionsSection = () => {
 
                     {/* RIGHT VISUAL - THE UNIFIED OPERATING LAYER */}
                     <div className="relative">
-                        <div className="relative w-full aspect-square flex items-center justify-center bg-gray-50 rounded-[3rem] border-2 border-dashed border-gray-300">
-                            <div className="text-center p-8">
-                                <h4 className="text-gray-400 font-bold text-2xl mb-2">DASHBOARD UI</h4>
-                                <p className="text-gray-400">Platform Interface Placeholder</p>
-                            </div>
+                        <div className="relative w-full aspect-square flex items-center justify-center bg-gray-50 rounded-[3rem] border border-gray-100 overflow-hidden shadow-lg">
+                            <img
+                                src="/images/image copy 8.png"
+                                alt="Unified Operating Layer Dashboard"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     </div>
 
