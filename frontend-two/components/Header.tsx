@@ -272,87 +272,49 @@ const Header = () => {
                         className="absolute top-full left-0 w-full bg-white border-b border-gray-100 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.1)] overflow-hidden"
                     >
                         <div className="container mx-auto px-6 py-12">
-                            <div className="flex gap-16">
-                                {/* Left Feature Card - High Authority */}
-                                <div className="hidden xl:flex w-1/3 flex-col justify-between p-10 rounded-[3rem] bg-slate-950 text-white relative overflow-hidden group/featured">
-                                    <div className="absolute top-0 right-0 w-64 h-64 bg-brand-orange/20 blur-[100px] -translate-y-1/2 translate-x-1/2 transition-transform duration-700 group-hover/featured:scale-125" />
+                            <div className="max-w-5xl mx-auto">
+                                <div className="grid grid-cols-2 gap-x-12 gap-y-8">
+                                    {megaMenuData[activeMegaMenu as keyof typeof megaMenuData].map((subItem, i) => (
+                                        <motion.div
+                                            key={subItem.name}
+                                            initial={{ opacity: 0, x: 10 }}
+                                            animate={{ opacity: 1, x: 0 }}
+                                            transition={{ delay: i * 0.05 }}
+                                        >
+                                            <Link
+                                                href={subItem.href}
+                                                scroll={false}
+                                                className="group flex gap-5 items-start p-4 -m-4 rounded-3xl hover:bg-slate-50 transition-all duration-300"
+                                                onClick={(e) => {
+                                                    setActiveMegaMenu(null);
 
-                                    <div className="relative z-10">
-                                        <div className="mb-8">
-                                            <span className="text-xs font-semibold text-brand-orange uppercase tracking-widest">Featured Insights</span>
-                                        </div>
-                                        <h3 className="text-4xl font-semibold tracking-tighter mb-4 leading-tight">
-                                            2026 Global <br />
-                                            <span className="text-brand-orange">Expansion Playbook.</span>
-                                        </h3>
-                                        <p className="text-white/60 text-base font-normal leading-relaxed mb-8">
-                                            The definitive guide to EOR, entity setup, and localized compliance in 150+ countries.
-                                        </p>
-                                    </div>
-
-                                    <Link href="#knowledge" onClick={() => setActiveMegaMenu(null)} className="relative z-10 inline-flex items-center gap-2 text-xs font-bold text-brand-orange hover:text-white transition-colors group/btn">
-                                        Download Guide
-                                        <span className="group-hover/btn:translate-x-1 transition-transform">→</span>
-                                    </Link>
-                                </div>
-
-                                {/* Right Grid System */}
-                                <div className="flex-1">
-                                    <div className="grid grid-cols-2 gap-x-12 gap-y-8">
-                                        {megaMenuData[activeMegaMenu as keyof typeof megaMenuData].map((subItem, i) => (
-                                            <motion.div
-                                                key={subItem.name}
-                                                initial={{ opacity: 0, x: 10 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                transition={{ delay: i * 0.05 }}
-                                            >
-                                                <Link
-                                                    href={subItem.href}
-                                                    scroll={false}
-                                                    className="group flex gap-5 items-start p-4 -m-4 rounded-3xl hover:bg-slate-50 transition-all duration-300"
-                                                    onClick={(e) => {
-                                                        setActiveMegaMenu(null);
-
-                                                        // Handle same-page anchor navigation
-                                                        const [urlPath, hash] = subItem.href.split('#');
-                                                        if (hash && pathname === urlPath) {
-                                                            e.preventDefault();
-                                                            const element = document.getElementById(hash);
-                                                            if (element) {
-                                                                element.scrollIntoView({ behavior: 'smooth' });
-                                                                // Update URL hash without jumping
-                                                                window.history.pushState(null, '', subItem.href);
-                                                            }
+                                                    // Handle same-page anchor navigation
+                                                    const [urlPath, hash] = subItem.href.split('#');
+                                                    if (hash && pathname === urlPath) {
+                                                        e.preventDefault();
+                                                        const element = document.getElementById(hash);
+                                                        if (element) {
+                                                            element.scrollIntoView({ behavior: 'smooth' });
+                                                            // Update URL hash without jumping
+                                                            window.history.pushState(null, '', subItem.href);
                                                         }
-                                                    }}
-                                                >
-                                                    <div className="w-12 h-12 flex items-center justify-center text-slate-400 group-hover:text-brand-orange transition-all duration-500">
-                                                        <subItem.icon size={22} />
-                                                    </div>
-                                                    <div>
-                                                        <h4 className="font-bold text-slate-950 mb-1 group-hover:text-brand-orange transition-colors">
-                                                            {subItem.name}
-                                                        </h4>
-                                                        <p className="text-[13px] text-slate-500 font-medium leading-tight">
-                                                            {subItem.desc}
-                                                        </p>
-                                                    </div>
-                                                </Link>
-                                            </motion.div>
-                                        ))}
-                                    </div>
-
-                                    {/* Bottom Authority Strip */}
-                                    <div className="mt-16 pt-8 border-t border-slate-100 flex items-center justify-between">
-                                        <div className="flex items-center gap-6">
-                                            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-slate-400">Enterprise Standard:</span>
-                                            <div className="flex gap-8 grayscale opacity-40">
-                                                <span className="text-[10px] font-black">SOC2 COMPLIANT</span>
-                                                <span className="text-[10px] font-black">GDPR READY</span>
-                                                <span className="text-[10px] font-black">ISO 27001</span>
-                                            </div>
-                                        </div>
-                                    </div>
+                                                    }
+                                                }}
+                                            >
+                                                <div className="w-12 h-12 flex items-center justify-center text-slate-400 group-hover:text-brand-orange transition-all duration-500">
+                                                    <subItem.icon size={22} />
+                                                </div>
+                                                <div>
+                                                    <h4 className="font-bold text-slate-950 mb-1 group-hover:text-brand-orange transition-colors">
+                                                        {subItem.name}
+                                                    </h4>
+                                                    <p className="text-[13px] text-slate-500 font-medium leading-tight">
+                                                        {subItem.desc}
+                                                    </p>
+                                                </div>
+                                            </Link>
+                                        </motion.div>
+                                    ))}
                                 </div>
                             </div>
                         </div>

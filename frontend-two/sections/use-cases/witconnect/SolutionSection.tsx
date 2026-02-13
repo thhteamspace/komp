@@ -35,15 +35,15 @@ const SolutionSection = () => {
                                 <h3 className="text-4xl md:text-5xl font-black mb-6 leading-[0.95] tracking-tighter">Unified <br /> Operating Layer</h3>
                                 <div className="w-16 h-1.5 bg-white/40 mb-8 rounded-full"></div>
                                 <p className="text-white/90 font-bold text-xl leading-relaxed">
-                                    Adaptable infrastructure that grows with you.
+                                    A single source of truth for all global entities.
                                 </p>
                             </motion.div>
                         </div>
 
                         <div className="lg:col-span-7">
-                            <h4 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 tracking-tight">One Platform Built to Scale With the Business</h4>
+                            <h4 className="text-3xl md:text-4xl font-black text-slate-900 mb-8 tracking-tight">Structural Integration & Deployment</h4>
                             <p className="text-xl text-slate-500 font-medium mb-12 leading-relaxed">
-                                Komp provides a dynamic operating layer that evolves as your business matures. For Startups, it offers rapid entity scaffolding and compliant hiring. For the Mid-market, it consolidates disparate local providers into a single view. For Enterprises, it delivers robust governance and API-driven control over global assets.
+                                Komp implemented a Unified Operating Layer that sat above the client's fragmented local systems. Instead of replacing every local provider, Komp acted as the translation layer, ingesting data from 12 different payroll and legal endpoints and normalizing it into one command center dashboard.
                             </p>
 
                             <div className="grid sm:grid-cols-2 gap-10">
@@ -52,8 +52,8 @@ const SolutionSection = () => {
                                         <CheckCircle2 size={24} />
                                     </div>
                                     <div>
-                                        <h5 className="text-lg font-bold text-slate-900">Seamless Transition</h5>
-                                        <p className="text-slate-500 font-medium mt-1">No need to re-platform at each stage.</p>
+                                        <h5 className="text-lg font-bold text-slate-900">API Normalization</h5>
+                                        <p className="text-slate-500 font-medium mt-1">Standardized data streams from all regions.</p>
                                     </div>
                                 </div>
                                 <div className="flex items-start gap-4">
@@ -61,8 +61,8 @@ const SolutionSection = () => {
                                         <CheckCircle2 size={24} />
                                     </div>
                                     <div>
-                                        <h5 className="text-lg font-bold text-slate-900">Unified Governance</h5>
-                                        <p className="text-slate-500 font-medium mt-1">Consistent policy enforcement globally.</p>
+                                        <h5 className="text-lg font-bold text-slate-900">Real-time Compliance</h5>
+                                        <p className="text-slate-500 font-medium mt-1">Automated flagging of regulatory risks.</p>
                                     </div>
                                 </div>
                             </div>

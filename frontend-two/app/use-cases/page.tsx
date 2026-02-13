@@ -5,6 +5,7 @@ import ProblemsSection from '@/sections/use-cases/ProblemsSection';
 import SolutionsSection from '@/sections/use-cases/SolutionsSection';
 import TransitionFramework from '@/sections/use-cases/TransitionFramework';
 import OutcomesSection from '@/sections/use-cases/OutcomesSection';
+import FinalCTA from '@/sections/FinalCTA';
 
 export default function UseCasesPage() {
     return (
@@ -14,6 +15,7 @@ export default function UseCasesPage() {
             <SolutionsSection />
             <TransitionFramework />
             <OutcomesSection />
+            <FinalCTA />
         </>
     );
 }

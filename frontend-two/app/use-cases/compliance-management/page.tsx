@@ -1,18 +1,21 @@
 'use client';
+
 import Hero from '@/sections/use-cases/compliance-management/Hero';
-import ProblemsSection from '@/sections/use-cases/compliance-management/ProblemsSection';
+import ChallengeSection from '@/sections/use-cases/compliance-management/ChallengeSection';
 import SolutionSection from '@/sections/use-cases/compliance-management/SolutionSection';
-import ExecutionFramework from '@/sections/use-cases/compliance-management/ExecutionFramework';
-import QuoteSection from '@/sections/use-cases/compliance-management/QuoteSection';
+import TransitionWorkflow from '@/sections/use-cases/compliance-management/TransitionWorkflow';
+import FinalImpact from '@/sections/use-cases/compliance-management/FinalImpact';
+import FinalCTA from '@/sections/FinalCTA';
 
 export default function ComplianceManagementPage() {
     return (
         <div className="bg-white">
             <Hero />
-            <ProblemsSection />
+            <ChallengeSection />
             <SolutionSection />
-            <ExecutionFramework />
-            <QuoteSection />
+            <TransitionWorkflow />
+            <FinalImpact />
+            <FinalCTA />
         </div>
     );
 }

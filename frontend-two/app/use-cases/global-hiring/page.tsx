@@ -1,23 +1,21 @@
 'use client';
 
 import Hero from '@/sections/use-cases/global-hiring/Hero';
-import ExecutiveSummary from '@/sections/use-cases/global-hiring/ExecutiveSummary';
-import FrictionOfScale from '@/sections/use-cases/global-hiring/FrictionOfScale';
+import ChallengeSection from '@/sections/use-cases/global-hiring/ChallengeSection';
 import SolutionSection from '@/sections/use-cases/global-hiring/SolutionSection';
-import ExecutionFramework from '@/sections/use-cases/global-hiring/ExecutionFramework';
-import QuoteSection from '@/sections/use-cases/global-hiring/QuoteSection';
+import TransitionWorkflow from '@/sections/use-cases/global-hiring/TransitionWorkflow';
+import FinalImpact from '@/sections/use-cases/global-hiring/FinalImpact';
 import FinalCTA from '@/sections/FinalCTA';
 
 export default function GlobalHiringPage() {
     return (
-        <main className="bg-brand-white">
+        <div className="bg-white">
             <Hero />
-            <ExecutiveSummary />
-            <FrictionOfScale />
+            <ChallengeSection />
             <SolutionSection />
-            <ExecutionFramework />
-            <QuoteSection />
+            <TransitionWorkflow />
+            <FinalImpact />
             <FinalCTA />
-        </main>
+        </div>
     );
 }

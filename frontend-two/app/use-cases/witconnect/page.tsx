@@ -1,23 +1,21 @@
 'use client';
 
 import Hero from '@/sections/use-cases/witconnect/Hero';
-import ExecutiveSummary from '@/sections/use-cases/witconnect/ExecutiveSummary';
-import ChallengeSolution from '@/sections/use-cases/witconnect/ChallengeSolution';
-import ExecutionFramework from '@/sections/use-cases/witconnect/ExecutionFramework';
-import ImpactResults from '@/sections/use-cases/witconnect/ImpactResults';
-import QuoteSection from '@/sections/use-cases/witconnect/QuoteSection';
+import ChallengeSection from '@/sections/use-cases/witconnect/ChallengeSection';
+import SolutionSection from '@/sections/use-cases/witconnect/SolutionSection';
+import TransitionWorkflow from '@/sections/use-cases/witconnect/TransitionWorkflow';
+import FinalImpact from '@/sections/use-cases/witconnect/FinalImpact';
 import FinalCTA from '@/sections/FinalCTA';
 
 export default function WitConnectPage() {
     return (
-        <main className="bg-brand-white">
+        <div className="bg-white">
             <Hero />
-            <ExecutiveSummary />
-            <ChallengeSolution />
-            <ExecutionFramework />
-            <ImpactResults />
-            <QuoteSection />
+            <ChallengeSection />
+            <SolutionSection />
+            <TransitionWorkflow />
+            <FinalImpact />
             <FinalCTA />
-        </main>
+        </div>
     );
 }

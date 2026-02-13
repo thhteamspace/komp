@@ -1,63 +1,52 @@
 'use client';
 import { motion } from 'framer-motion';
-import { BarChart3 } from 'lucide-react';
-
-import { ArrowRight } from 'lucide-react';
-import Button from '@/components/Button';
 
 const Hero = () => {
     return (
-        <header className="relative pt-32 pb-20 lg:pt-48 lg:pb-32 overflow-hidden bg-white">
-            <div className="max-w-7xl mx-auto px-6 relative z-10">
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-center">
-                    {/* Left Content */}
-                    <div className="lg:col-span-7">
-                        <motion.div
-                            initial={{ opacity: 0, x: -30 }}
-                            animate={{ opacity: 1, x: 0 }}
-                            transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                        >
-                            <div className="inline-flex px-3 py-1 rounded-full bg-brand-orange/10 text-brand-orange text-[11px] font-black tracking-widest uppercase mb-10 border border-brand-orange/20">
-                                Case Study: Expansion
-                            </div>
+        <header className="relative bg-[#f8f6f5] py-24 lg:py-48 border-b border-gray-200 overflow-hidden">
+            {/* Background elements from HTML */}
+            <div className="absolute inset-0 opacity-30 pointer-events-none">
+                <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full max-w-4xl h-full bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-brand-orange/10 via-transparent to-transparent"></div>
+                <div className="absolute top-0 right-0 w-96 h-96 bg-brand-orange/5 rounded-full blur-3xl -translate-y-1/2 translate-x-1/3"></div>
+            </div>
 
-                            <h1 className="text-5xl md:text-7xl lg:text-[6.5rem] font-black tracking-tighter mb-10 leading-[0.9] uppercase">
-                                <span className="text-brand-orange block">Global Expansion</span>
-                                <span className="text-slate-950 block">Without Structural Drag</span>
-                            </h1>
+            <div className="relative max-w-5xl mx-auto px-6 text-center">
+                <motion.div
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6 }}
+                    className="flex items-center justify-center gap-3 mb-12 text-sm font-bold tracking-widest uppercase text-brand-orange/80"
+                >
+                    <span className="bg-brand-orange/10 px-4 py-1 rounded-full text-brand-orange">Case Study</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                    <span>Fintech Expansion</span>
+                    <span className="w-1.5 h-1.5 rounded-full bg-slate-300"></span>
+                    <span>EMEA Region</span>
+                </motion.div>
 
-                            <p className="text-lg md:text-xl text-slate-500 mb-12 max-w-xl leading-relaxed font-bold">
-                                How TechFlow scaled operations into 4 new APAC markets in under 90 days using Komp's unified operating layer.
-                            </p>
+                <motion.h1
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.1 }}
+                    className="text-5xl md:text-7xl lg:text-[6.5rem] font-black tracking-tighter text-slate-900 mb-12 leading-[0.9]"
+                >
+                    Global Expansion Without <br />
+                    <span className="text-brand-orange relative inline-block">
+                        Structural Drag
+                        <svg className="absolute w-full h-4 -bottom-2 left-0 text-brand-orange/20" preserveAspectRatio="none" viewBox="0 0 100 10">
+                            <path d="M0 5 Q 50 10 100 5" fill="none" stroke="currentColor" strokeWidth="8"></path>
+                        </svg>
+                    </span>
+                </motion.h1>
 
-                            <div className="flex items-center gap-4">
-                                <div className="flex -space-x-3">
-                                    <img src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?auto=format&fit=crop&w=64&h=64" alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                                    <img src="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?auto=format&fit=crop&w=64&h=64" alt="User" className="w-10 h-10 rounded-full border-2 border-white object-cover" />
-                                    <div className="w-10 h-10 rounded-full border-2 border-white bg-slate-100 flex items-center justify-center text-[10px] font-black text-slate-500 shadow-sm">
-                                        +4
-                                    </div>
-                                </div>
-                                <div className="text-[10px] font-black text-slate-400 uppercase tracking-widest leading-tight">
-                                    Growth Team Lead <br /> & Operations
-                                </div>
-                            </div>
-                        </motion.div>
-                    </div>
-
-                    {/* Right Visual */}
-                    <div className="lg:col-span-5 relative flex items-center justify-center lg:justify-end">
-                        <div className="relative w-full max-w-[500px] aspect-square flex items-center justify-center">
-                            <div className="relative w-full h-full bg-[#f8fafc] rounded-[4rem] p-10 flex items-center justify-center border border-slate-100/50 shadow-2xl transform rotate-3">
-                                <img
-                                    src="/images/image copy 11.png"
-                                    alt="Global Expansion Mapping"
-                                    className="w-full h-full object-contain drop-shadow-xl opacity-90"
-                                />
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                <motion.p
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.6, delay: 0.2 }}
+                    className="text-xl md:text-2xl text-slate-600 leading-relaxed max-w-3xl mx-auto font-medium"
+                >
+                    How a high-growth fintech unicorn utilized Komp's unified operating layer to launch in 12 new markets simultaneously, reducing compliance overhead by 60% while maintaining centralized command over dispersed assets.
+                </motion.p>
             </div>
         </header>
     );
