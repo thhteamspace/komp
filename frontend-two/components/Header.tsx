@@ -4,7 +4,10 @@ import { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, AnimatePresence } from 'framer-motion';
-import { Menu, X, ChevronDown, Globe, Shield, Users, Briefcase, Zap, Rocket, LineChart, Layers } from 'lucide-react';
+import {
+    Menu, X, ChevronDown, Globe, Shield, Zap, Users, ArrowRight,
+    Play, Rocket, CheckCircle2, ChevronRight, Landmark, Layers, Briefcase, LineChart
+} from 'lucide-react';
 import Button from './Button';
 import { cn } from '@/utils/cn';
 
@@ -20,6 +23,12 @@ const megaMenuData = {
         { name: 'For Healthcare', desc: 'Strict regulatory & HIPAA compliance.', icon: Shield, href: '/solutions#industries' },
         { name: 'For Professional Services', desc: 'Deploy consultants worldwide instantly.', icon: Briefcase, href: '/solutions#industries' },
         { name: 'M&A Integration', desc: 'Fast-track workforce consolidation.', icon: LineChart, href: '/solutions#industries' },
+    ],
+    "Use Cases": [
+        { name: 'Global Expansion Without Bureaucracy', desc: 'Hire and operate compliantly across borders without entity setup delays.', icon: Rocket, href: '/use-cases/witconnect' },
+        { name: 'Workforce Infrastructure That Scales', desc: 'Support startup speed, mid-market visibility, and enterprise control on one platform.', icon: Users, href: '/use-cases/global-hiring' },
+        { name: 'Unified Workforce Operations', desc: 'Align HR, Finance, and Legal on one global employment system.', icon: Shield, href: '/use-cases/compliance-management' },
+        { name: 'Industry-Specific Global Compliance', desc: 'Built-in safeguards for fintech, healthcare, and SaaS teams operating across borders..', icon: CheckCircle2, href: '/use-cases/industry-compliance' },
     ],
 };
 
@@ -45,7 +54,7 @@ const Header = () => {
     // The current logic: isDarkHeader = pathname?.includes('/resources');
     // If we add /compliance, it should also be dark.
 
-    const isDarkHeader = pathname?.includes('/resources') || pathname?.includes('/compliance');
+    const isDarkHeader = (pathname?.includes('/resources') || pathname?.includes('/compliance')) && !pathname?.includes('/use-cases/compliance-management') && !pathname?.includes('/use-cases/industry-compliance');
 
     const isDarkHeaderRef = useRef(isDarkHeader);
 
@@ -154,7 +163,7 @@ const Header = () => {
                             )}
                         </div>
 
-                        <div className="relative py-2">
+                        <div className="relative py-2 flex items-center gap-1">
                             <Link
                                 href="/use-cases"
                                 onClick={() => setActiveMegaMenu(null)}
@@ -163,16 +172,29 @@ const Header = () => {
                                     pathname === '/use-cases'
                                         ? "text-brand-orange"
                                         : isTransparent && !activeMegaMenu
-                                            ? "text-white/80 hover:text-white group-hover/header:text-slate-600 group-hover/header:hover:text-slate-950"
+                                            ? "text-white/80 hover:text-white"
                                             : "text-slate-600 hover:text-slate-950"
                                 )}
                             >
                                 Use Cases
                             </Link>
+                            <button
+                                onClick={() => setActiveMegaMenu(activeMegaMenu === 'Use Cases' ? null : 'Use Cases')}
+                                className={cn(
+                                    "transition-colors flex items-center justify-center p-0.5 rounded-md hover:bg-slate-100/50",
+                                    activeMegaMenu === 'Use Cases'
+                                        ? "text-brand-orange"
+                                        : isTransparent && !activeMegaMenu
+                                            ? "text-white/80 hover:text-white"
+                                            : "text-slate-400 hover:text-slate-950"
+                                )}
+                            >
+                                <ChevronDown size={14} className={cn("transition-transform duration-300", activeMegaMenu === 'Use Cases' ? "rotate-180" : "")} />
+                            </button>
                             {pathname === '/use-cases' && (
                                 <motion.div
                                     layoutId="activeNav"
-                                    className="absolute bottom-1.5 left-0 right-0 h-0.5 bg-brand-orange mx-auto w-full"
+                                    className="absolute bottom-1.5 left-0 right-5 h-0.5 bg-brand-orange"
                                     transition={{ duration: 0.3 }}
                                 />
                             )}
@@ -352,6 +374,8 @@ const Header = () => {
                             {[
                                 { name: 'Services', href: '/services' },
                                 { name: 'Use Cases', href: '/use-cases' },
+                                { name: 'WitConnect', href: '/use-cases/witconnect' },
+                                { name: 'Global Hiring', href: '/use-cases/global-hiring' },
                                 { name: 'Compare', href: '/compare' }
                             ].map((item) => (
                                 <Link
