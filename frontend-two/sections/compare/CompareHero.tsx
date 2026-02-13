@@ -64,9 +64,11 @@ const CompareHero = () => {
 
                         <div className="relative w-full aspect-[4/3] rounded-2xl overflow-hidden border border-gray-200 shadow-2xl bg-white group">
                             {/* Placeholder for Dashboard Image */}
-                            <div className="w-full h-full bg-[#F2F4F7] flex items-center justify-center">
-                                <span className="text-xs font-bold text-slate-400 uppercase tracking-widest">Dashboard Illustration</span>
-                            </div>
+                            <img
+                                src="/images/Gemini_Generated_Image_rgj7ujrgj7ujrgj7.png"
+                                alt="Dashboard Illustration"
+                                className="w-full h-full object-contain transform group-hover:scale-105 transition-transform duration-700"
+                            />
                         </div>
                     </motion.div>
                 </div>

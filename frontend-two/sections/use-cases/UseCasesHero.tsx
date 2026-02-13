@@ -54,13 +54,14 @@ const UseCasesHero = () => {
                         </div>
                     </motion.div>
 
-                    {/* RIGHT VISUAL - Placeholder */}
+                    {/* RIGHT VISUAL - Hero Image */}
                     <div className="relative flex items-center justify-center lg:justify-end">
-                        <div className="relative w-full max-w-[600px] aspect-square flex items-center justify-center bg-gray-100 rounded-3xl border-2 border-dashed border-gray-300">
-                            <div className="text-center">
-                                <span className="text-gray-400 font-bold text-lg">USE CASE HERO VISUAL</span>
-                                <p className="text-gray-400 text-sm mt-2">Globe & animated elements placeholder</p>
-                            </div>
+                        <div className="relative w-full max-w-[600px] aspect-square flex items-center justify-center">
+                            <img
+                                src="/images/image copy 11.png"
+                                alt="Global Expansion Without Structural Drag"
+                                className="w-full h-full object-contain drop-shadow-2xl"
+                            />
                         </div>
                     </div>
                 </div>
