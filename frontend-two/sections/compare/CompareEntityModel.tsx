@@ -37,17 +37,21 @@ const CompareEntityModel = () => {
                 </motion.div>
 
                 {/* 3. Image Placeholder (Centered, swapped below Text) */}
-                <div className="w-full max-w-4xl relative py-8">
-                    <div className="absolute top-0 right-1/4 w-64 h-64 bg-[#FF8C1A]/10 rounded-full blur-3xl -z-10"></div>
-                    <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-gray-100 rounded-full blur-3xl -z-10"></div>
+                <div className="w-full max-w-4xl relative">
+                    {/* <div className="absolute top-0 right-1/4 w-64 h-64 bg-[#FF8C1A]/10 rounded-full blur-3xl -z-10"></div>
+                    <div className="absolute bottom-0 left-1/4 w-64 h-64 bg-gray-100 rounded-full blur-3xl -z-10"></div> */}
 
                     <motion.div
                         initial={{ opacity: 0, scale: 0.95 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.5 }}
-                        className="w-full aspect-[16/9] bg-[#F2F4F7] rounded-3xl overflow-hidden border border-gray-100 shadow-xl flex items-center justify-center"
+                        className="w-full aspect-[4/3] flex items-center justify-center overflow-hidden"
                     >
-                        <span className="text-sm font-bold text-slate-300 uppercase tracking-widest">Entity Network Map / Diagram</span>
+                        <img
+                            src="/images/image copy 13.png"
+                            alt="Direct Control Entity Map"
+                            className="w-full h-full object-contain scale-110"
+                        />
                     </motion.div>
                 </div>
 

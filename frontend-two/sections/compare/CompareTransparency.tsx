@@ -18,11 +18,13 @@ const CompareTransparency = () => {
                     >
                         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[120%] h-[120%] bg-gray-200/50 rounded-full blur-3xl -z-10"></div>
 
-                        <div className="relative w-full aspect-[3/4] rounded-2xl overflow-hidden shadow-2xl shadow-gray-200/50 bg-white group flex items-center justify-center border border-gray-100">
+                        <div className="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl shadow-gray-200/50 bg-white group flex items-center justify-center border border-gray-100">
                             {/* Placeholder for Mobile UI Image */}
-                            <div className="w-full h-full bg-[#F2F4F7] flex items-center justify-center">
-                                <span className="text-xs font-bold text-slate-300 uppercase tracking-widest">Mobile Pricing UI</span>
-                            </div>
+                            <img
+                                src="/images/image copy 15.png"
+                                alt="Transparent Pricing UI"
+                                className="w-full h-full object-cover"
+                            />
                         </div>
                     </motion.div>
 
